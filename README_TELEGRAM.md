@@ -1,6 +1,8 @@
-# Actualizacion automatica por Telegram
+# Actualizacion por Telegram
 
-Este bot escucha PDFs enviados a un grupo de Telegram, convierte el PDF a `inventario.json`, hace commit a GitHub y Netlify publica el cambio automaticamente.
+Este bot recibe PDFs por Telegram, convierte el PDF a `inventario.json`, hace commit a GitHub y Netlify publica el cambio automaticamente.
+
+La forma mas rapida de usarlo es reenviar el PDF al bot por privado. No necesitas agregar el bot al grupo original.
 
 ## 1. Crear bot
 
@@ -11,13 +13,20 @@ Este bot escucha PDFs enviados a un grupo de Telegram, convierte el PDF a `inven
 5. Selecciona tu bot.
 6. Elige `Disable`, para que el bot pueda leer PDFs enviados al grupo.
 
-## 2. Agregar bot al grupo
+## 2. Opcion rapida: reenviar PDF al bot por privado
+
+1. Abre el chat privado con tu bot.
+2. Reenvia o adjunta el PDF de inventario.
+3. El bot descarga el PDF, actualiza `inventario.json` y hace push a GitHub.
+4. Netlify publica el cambio automaticamente.
+
+## 3. Opcion automatica: agregar bot al grupo
 
 1. Agrega el bot al grupo donde llega el PDF.
 2. Si el grupo es muy restrictivo, hazlo administrador con permiso para leer mensajes.
 3. Envia un PDF de prueba.
 
-## 3. Ejecutar el bot
+## 4. Ejecutar el bot
 
 En una copia local del repositorio:
 
@@ -36,7 +45,7 @@ Cuando llegue un PDF, el bot:
 3. Hace commit y push a GitHub.
 4. Netlify publica la actualizacion automaticamente.
 
-## Variables opcionales
+## Variables opcionales para grupo
 
 Permitir solo un grupo especifico:
 
@@ -53,4 +62,3 @@ export PDF_NAME_CONTAINS="inventario"
 ## Importante
 
 La computadora o servidor donde corra el bot debe permanecer encendido. Para que sea 24/7, conviene correrlo en un servidor como Render, Railway, Fly.io, VPS, o una computadora siempre encendida.
-
