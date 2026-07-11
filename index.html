@@ -147,13 +147,9 @@
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(11,18,32,.08);}
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-  .card-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--orange-deep);}
   .card-brand{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--blue);}
   .card-name{font-size:14px;font-weight:600;line-height:1.35;color:var(--ink);min-height:38px;}
   .card-price{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--green-deep);margin-top:2px;}
-  .card-stock{font-size:12px;font-weight:700;color:var(--muted);margin-top:6px;}
-  .card-stock.ok{color:var(--green-deep);}
-  .card-stock.out{color:#b42318;}
   .card-cta{
     margin-top:8px;
     display:flex;align-items:center;justify-content:center;gap:8px;
@@ -202,11 +198,11 @@
       <div class="brand-name">Celucenter</div>
     </div>
     <h1>Lista de precios - 10 de Julio</h1>
-    <p class="sub">Inventario mayorista actualizado automaticamente desde el PDF diario. Busca, filtra por categoría o marca, y cotiza directo por WhatsApp.</p>
+    <p class="sub">Inventario mayorista actualizado automaticamente desde el PDF diario. Busca, filtra por marca o grupo, y cotiza directo por WhatsApp.</p>
     <div class="stats">
       <div class="stat"><div class="num" id="stat-total">0</div><div class="lbl">Productos</div></div>
       <div class="stat"><div class="num" id="stat-marcas">0</div><div class="lbl">Marcas</div></div>
-      <div class="stat"><div class="num" id="stat-cats">0</div><div class="lbl">Categorías</div></div>
+      <div class="stat"><div class="num" id="stat-grupos">0</div><div class="lbl">Grupos</div></div>
     </div>
   </div>
 </div>
@@ -225,9 +221,7 @@
         <option value="price-desc">Precio: mayor a menor</option>
       </select>
     </div>
-    <div class="chip-label">Categoría</div>
-    <div class="chip-group" id="cat-chips"></div>
-    <div class="chip-label">Marca</div>
+    <div class="chip-label">Marca / grupo</div>
     <div class="chip-group" id="brand-chips"></div>
   </div>
 </div>
@@ -255,7 +249,6 @@
 const WSP_NUMBER = '523332559420';
 let PRODUCTS = [];
 
-let activeCat = 'Todos';
 let activeBrand = 'Todos';
 
 function fmtPrice(p){
@@ -293,21 +286,8 @@ async function loadProducts(){
   if(sub) sub.textContent = `Inventario mayorista actualizado desde el PDF diario. Ultima actualizacion: ${updated}.`;
 }
 
-function buildChips(){
-  const cats = ['Todos', ...Array.from(new Set(PRODUCTS.map(p=>p.categoria))).sort()];
-  const catWrap = document.getElementById('cat-chips');
-  catWrap.innerHTML = cats.map(c =>
-    `<div class="chip ${c===activeCat?'active':''}" data-cat="${c}">${c}</div>`
-  ).join('');
-  catWrap.querySelectorAll('.chip').forEach(el=>{
-    el.addEventListener('click', ()=>{ activeCat = el.dataset.cat; render(); });
-  });
-  updateBrandChips();
-}
-
 function updateBrandChips(){
-  const pool = activeCat==='Todos' ? PRODUCTS : PRODUCTS.filter(p=>p.categoria===activeCat);
-  const brands = ['Todos', ...Array.from(new Set(pool.map(p=>p.marca))).sort()];
+  const brands = ['Todos', ...Array.from(new Set(PRODUCTS.map(p=>p.marca))).sort()];
   const brandWrap = document.getElementById('brand-chips');
   if(!brands.includes(activeBrand)) activeBrand='Todos';
   brandWrap.innerHTML = brands.map(b =>
@@ -316,15 +296,11 @@ function updateBrandChips(){
   brandWrap.querySelectorAll('.chip').forEach(el=>{
     el.addEventListener('click', ()=>{ activeBrand = el.dataset.brand; render(); });
   });
-  document.querySelectorAll('#cat-chips .chip').forEach(el=>{
-    el.classList.toggle('active', el.dataset.cat===activeCat);
-  });
 }
 
 function getFiltered(){
   const q = document.getElementById('search').value.toLowerCase().trim();
   let list = PRODUCTS.filter(p =>
-    (activeCat==='Todos' || p.categoria===activeCat) &&
     (activeBrand==='Todos' || p.marca===activeBrand) &&
     (!q || p.nombre.toLowerCase().includes(q))
   );
@@ -348,15 +324,12 @@ function render(){
   }
   wrap.innerHTML = `<div class="grid">${
     list.map((p, idx) => {
-      const stockText = p.disponible ? `Existencia: ${p.cantidad || p.existencia_minima}` : 'Agotado';
-      const msg = encodeURIComponent(`Hola! Me interesa el producto: *${p.nombre}* - ${fmtPrice(p.precio)}. Existencia: ${p.cantidad || p.existencia_minima}. ¿Me das más info?`);
+      const msg = encodeURIComponent(`Hola! Me interesa el producto: *${p.nombre}* - ${fmtPrice(p.precio)}. ¿Me das más info?`);
       return `
       <div class="card" style="animation-delay:${Math.min(idx*0.02,0.3)}s">
-        <div class="card-cat">${p.categoria}</div>
         <div class="card-brand">${p.marca}</div>
         <div class="card-name">${p.nombre}</div>
         <div class="card-price">${fmtPrice(p.precio)}</div>
-        <div class="card-stock ${p.disponible ? 'ok' : 'out'}">${stockText}</div>
         <a class="card-cta" target="_blank" href="https://wa.me/${WSP_NUMBER}?text=${msg}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.05c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.25-4.75-4.15-4.9-4.34-.14-.2-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36h.55c.18 0 .41-.07.64.48.24.58.8 2 .87 2.14.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.27.7 1.16 1.51 1.88 1.04.93 1.92 1.22 2.19 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.6.75 1.87.89.27.14.45.2.51.32.07.11.07.66-.17 1.34Z"/></svg>
           Cotizar
@@ -374,8 +347,8 @@ async function init(){
     await loadProducts();
     document.getElementById('stat-total').textContent = PRODUCTS.length;
     document.getElementById('stat-marcas').textContent = new Set(PRODUCTS.map(p=>p.marca)).size;
-    document.getElementById('stat-cats').textContent = new Set(PRODUCTS.map(p=>p.categoria)).size;
-    buildChips();
+    document.getElementById('stat-grupos').textContent = new Set(PRODUCTS.map(p=>p.categoria)).size;
+    updateBrandChips();
     render();
   }catch(error){
     document.getElementById('grid-wrap').innerHTML = `<div class="empty">No se pudo cargar el inventario. Revisa inventario.json.</div>`;

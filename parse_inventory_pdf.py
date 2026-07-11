@@ -42,12 +42,13 @@ def extract_inventory(pdf_path: Path) -> dict:
                     continue
 
                 footer = FOOTER_RE.search(line)
-                if footer and report_datetime is None:
-                    date_part = footer.group("date")
-                    time_part = footer.group("time")
-                    report_datetime = datetime.strptime(
-                        f"{date_part} {time_part}", "%d/%m/%Y %H:%M:%S"
-                    ).isoformat()
+                if footer:
+                    if report_datetime is None:
+                        date_part = footer.group("date")
+                        time_part = footer.group("time")
+                        report_datetime = datetime.strptime(
+                            f"{date_part} {time_part}", "%d/%m/%Y %H:%M:%S"
+                        ).isoformat()
                     continue
 
                 match = ROW_RE.match(line)
