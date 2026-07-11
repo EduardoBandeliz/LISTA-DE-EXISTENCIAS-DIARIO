@@ -16,6 +16,7 @@ INVENTORY_JSON = ROOT / "inventario.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
+DISCOUNT_AMOUNT = int(os.getenv("DISCOUNT_AMOUNT", "30"))
 
 
 def run(command: list[str]) -> str:
@@ -55,16 +56,22 @@ def publish_to_github(summary: str) -> str:
 
 
 def share_message(result: str, summary: str) -> str:
+    normal_url = NETLIFY_SITE_URL
+    discount_url = f"{NETLIFY_SITE_URL.rstrip('/')}?descuento={DISCOUNT_AMOUNT}"
     return (
         f"Listo: {summary}. {result}\n\n"
-        f"Liga para compartir:\n{NETLIFY_SITE_URL}"
+        f"Liga precio normal:\n{normal_url}\n\n"
+        f"Liga con descuento de ${DISCOUNT_AMOUNT} pesos:\n{discount_url}"
     )
 
 
 def error_message(exc: Exception) -> str:
+    normal_url = NETLIFY_SITE_URL
+    discount_url = f"{NETLIFY_SITE_URL.rstrip('/')}?descuento={DISCOUNT_AMOUNT}"
     return (
         f"No pude actualizar el inventario: {exc}\n\n"
-        f"Liga actual para compartir:\n{NETLIFY_SITE_URL}"
+        f"Liga actual precio normal:\n{normal_url}\n\n"
+        f"Liga actual con descuento de ${DISCOUNT_AMOUNT} pesos:\n{discount_url}"
     )
 
 
