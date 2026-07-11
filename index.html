@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Celucenter · Lista de precios</title>
+<title>Celucenter · Lista de existencias</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -58,18 +58,6 @@
   .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(125,194,66,.25);}
   .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.5px;font-size:15px;text-transform:uppercase;opacity:.9;}
   .hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:700;line-height:1.08;margin:0 0 10px;max-width:720px;}
-  .stats{display:flex;flex-wrap:wrap;gap:14px;}
-  .stat{
-    background:rgba(255,255,255,.10);
-    border:1px solid rgba(255,255,255,.18);
-    backdrop-filter:blur(6px);
-    border-radius:var(--radius);
-    padding:14px 20px;
-    min-width:120px;
-  }
-  .stat .num{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;line-height:1;}
-  .stat .lbl{font-size:12px;color:rgba(255,255,255,.75);margin-top:4px;}
-
   /* ---------- CONTROLS ---------- */
   .controls-wrap{max-width:1180px;margin:-34px auto 0;padding:0 24px;position:relative;z-index:2;}
   .controls{
@@ -196,12 +184,7 @@
       <div class="brand-dot"></div>
       <div class="brand-name">Celucenter</div>
     </div>
-    <h1>Lista de precios</h1>
-    <div class="stats">
-      <div class="stat"><div class="num" id="stat-total">0</div><div class="lbl">Productos</div></div>
-      <div class="stat"><div class="num" id="stat-marcas">0</div><div class="lbl">Marcas</div></div>
-      <div class="stat"><div class="num" id="stat-grupos">0</div><div class="lbl">Grupos</div></div>
-    </div>
+    <h1>LISTA DE EXISTENCIAS</h1>
   </div>
 </div>
 
@@ -346,9 +329,6 @@ document.getElementById('sort').addEventListener('change', render);
 async function init(){
   try{
     await loadProducts();
-    document.getElementById('stat-total').textContent = PRODUCTS.length;
-    document.getElementById('stat-marcas').textContent = new Set(PRODUCTS.map(p=>p.marca)).size;
-    document.getElementById('stat-grupos').textContent = new Set(PRODUCTS.map(p=>p.categoria)).size;
     updateBrandChips();
     render();
   }catch(error){
