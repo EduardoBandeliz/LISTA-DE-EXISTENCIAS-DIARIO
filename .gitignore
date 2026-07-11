@@ -2,3 +2,5 @@
 .venv/
 __pycache__/
 *.pyc
+telegram-bot*.log
+telegram-bot.pid
