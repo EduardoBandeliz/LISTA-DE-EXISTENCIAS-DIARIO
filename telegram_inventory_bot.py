@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
+NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
 
 
 def run(command: list[str]) -> str:
@@ -47,6 +48,13 @@ def publish_to_github(summary: str) -> str:
     return "Inventario actualizado en GitHub. Netlify publicara el cambio automaticamente."
 
 
+def share_message(result: str, summary: str) -> str:
+    return (
+        f"Listo: {summary}. {result}\n\n"
+        f"Liga para compartir:\n{NETLIFY_SITE_URL}"
+    )
+
+
 async def handle_pdf(bot: Bot, update: Update) -> None:
     if not update.message or not update.message.document:
         return
@@ -72,7 +80,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
         try:
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
-            await bot.send_message(chat_id=chat_id, text=f"Listo: {summary}. {result}")
+            await bot.send_message(chat_id=chat_id, text=share_message(result, summary))
         except Exception as exc:
             await bot.send_message(chat_id=chat_id, text=f"No pude actualizar el inventario: {exc}")
             raise
