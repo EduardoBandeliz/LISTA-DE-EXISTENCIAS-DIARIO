@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 import asyncio
+import json
 import os
+import re
 import subprocess
 import tempfile
 from pathlib import Path
+from typing import Optional
 
 from telegram import Bot, Update
 from telegram.error import NetworkError, TimedOut
+from PIL import Image, ImageOps
 
 from parse_inventory_pdf import extract_inventory
 
 
 ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
+PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
+PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
@@ -52,6 +58,63 @@ def publish_to_github(summary: str) -> str:
     run(["git", "commit", "-m", f"Actualizar inventario diario ({summary})"])
     run(["git", "push", "origin", "main"])
     return "Inventario actualizado en GitHub. Netlify publicara el cambio automaticamente."
+
+
+def product_codes() -> set[str]:
+    data = json.loads(INVENTORY_JSON.read_text(encoding="utf-8"))
+    return {str(item.get("codigo", "")).strip() for item in data.get("productos", []) if item.get("codigo")}
+
+
+def extract_product_code(text: str) -> Optional[str]:
+    clean = (text or "").strip()
+    if not clean:
+        return None
+
+    patterns = [
+        r"(?:codigo|código|cod|sku)[:\s#-]+([A-Za-z0-9._-]{3,40})",
+        r"^/imagen\s+([A-Za-z0-9._-]{3,40})",
+        r"^([A-Za-z0-9._-]{3,40})$",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, clean, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return None
+
+
+def optimize_product_image(source_path: Path, product_code: str) -> str:
+    PRODUCT_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = PRODUCT_IMAGE_DIR / f"{product_code}.webp"
+
+    with Image.open(source_path) as image:
+        image = ImageOps.exif_transpose(image)
+        image.thumbnail((900, 900), Image.Resampling.LANCZOS)
+        if image.mode in ("RGBA", "LA"):
+            background = Image.new("RGB", image.size, "white")
+            background.paste(image, mask=image.getchannel("A"))
+            image = background
+        else:
+            image = image.convert("RGB")
+        image.save(output_path, "WEBP", quality=82, method=6)
+
+    return f"img/celulares/{product_code}.webp"
+
+
+def update_product_image_mapping(product_code: str, image_path: str) -> str:
+    mapping = {}
+    if PRODUCT_IMAGES_JSON.exists():
+        mapping = json.loads(PRODUCT_IMAGES_JSON.read_text(encoding="utf-8"))
+    mapping[product_code] = image_path
+    PRODUCT_IMAGES_JSON.write_text(json.dumps(mapping, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    run(["git", "add", image_path, "product-images.json"])
+    status = run(["git", "status", "--short", image_path, "product-images.json"])
+    if not status:
+        return "La imagen ya estaba actualizada."
+
+    run(["git", "commit", "-m", f"Agregar imagen de producto {product_code}"])
+    run(["git", "push", "origin", "main"])
+    return "Imagen actualizada en GitHub. Netlify publicara el cambio automaticamente."
 
 
 def share_message(result: str, summary: str) -> str:
@@ -112,6 +175,75 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             raise
 
 
+async def handle_product_image(bot: Bot, update: Update) -> bool:
+    if not update.message:
+        return False
+
+    chat_id = str(update.effective_chat.id) if update.effective_chat else ""
+    if ALLOWED_CHAT_ID and chat_id != ALLOWED_CHAT_ID:
+        return True
+
+    document = update.message.document
+    has_image_document = bool(document and (document.mime_type or "").startswith("image/"))
+    has_photo = bool(update.message.photo)
+    if not has_photo and not has_image_document:
+        return False
+
+    caption = update.message.caption or ""
+    product_code = extract_product_code(caption)
+    if not product_code:
+        await bot.send_message(
+            chat_id=chat_id,
+            text=(
+                "Recibi la imagen, pero falta el codigo.\n\n"
+                "Envíala con caption así:\n"
+                "codigo 848958043799"
+            ),
+        )
+        return True
+
+    await bot.send_message(chat_id=chat_id, text=f"Recibi imagen para codigo {product_code}. Actualizando...")
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir) / "producto"
+        if has_photo:
+            file_id = update.message.photo[-1].file_id
+            temp_path = temp_path.with_suffix(".jpg")
+        else:
+            file_id = document.file_id
+            suffix = Path(document.file_name or "").suffix or ".jpg"
+            temp_path = temp_path.with_suffix(suffix)
+
+        try:
+            telegram_file = await bot.get_file(file_id)
+            await telegram_file.download_to_drive(custom_path=temp_path)
+
+            await asyncio.to_thread(sync_from_github)
+            exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
+            image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
+            result = await asyncio.to_thread(update_product_image_mapping, product_code, image_path)
+
+            warning = "" if exists_in_inventory else "\n\nOjo: no encontre ese codigo en el inventario actual, pero deje la imagen guardada para cuando aparezca."
+            await bot.send_message(
+                chat_id=chat_id,
+                text=(
+                    f"Listo. Codigo {product_code}: {result}{warning}\n\n"
+                    f"Liga solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+                ),
+            )
+        except Exception as exc:
+            await bot.send_message(
+                chat_id=chat_id,
+                text=(
+                    f"No pude actualizar la imagen del codigo {product_code}: {exc}\n\n"
+                    f"{links_message('Ligas actuales')}"
+                ),
+            )
+            raise
+
+    return True
+
+
 async def handle_message(bot: Bot, update: Update) -> None:
     if not update.message or not update.effective_chat:
         return
@@ -128,6 +260,8 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if text.lower() in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await bot.send_message(chat_id=chat_id, text=links_message())
+        return
+    if await handle_product_image(bot, update):
         return
     await handle_pdf(bot, update)
 
