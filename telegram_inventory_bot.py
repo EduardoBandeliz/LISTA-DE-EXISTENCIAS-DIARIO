@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 from telegram import Update
-from telegram.ext import Application, ContextTypes, MessageHandler, filters
+from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 from parse_inventory_pdf import extract_inventory
 
@@ -78,12 +78,28 @@ async def handle_pdf(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
             raise
 
 
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not update.message:
+        return
+    await update.message.reply_text(
+        "Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias."
+    )
+
+
+async def chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not update.message or not update.effective_chat:
+        return
+    await update.message.reply_text(f"Chat ID: {update.effective_chat.id}")
+
+
 def main() -> None:
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token:
         raise SystemExit("Falta TELEGRAM_BOT_TOKEN en variables de entorno.")
 
     app = Application.builder().token(token).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("id", chat_id))
     app.add_handler(MessageHandler(filters.Document.PDF, handle_pdf))
     app.run_polling(allowed_updates=Update.ALL_TYPES)
 
