@@ -6,6 +6,7 @@ import tempfile
 from pathlib import Path
 
 from telegram import Bot, Update
+from telegram.error import NetworkError, TimedOut
 
 from parse_inventory_pdf import extract_inventory
 
@@ -101,7 +102,13 @@ async def poll(token: str) -> None:
     offset = None
 
     while True:
-        updates = await bot.get_updates(offset=offset, timeout=30, allowed_updates=["message"])
+        try:
+            updates = await bot.get_updates(offset=offset, timeout=30, allowed_updates=["message"])
+        except (TimedOut, NetworkError) as exc:
+            print(f"Telegram polling retry: {exc}")
+            await asyncio.sleep(2)
+            continue
+
         for update in updates:
             offset = update.update_id + 1
             try:
