@@ -55,11 +55,18 @@ def publish_to_github(summary: str) -> str:
 
 
 def share_message(result: str, summary: str) -> str:
+    return (
+        f"Listo: {summary}. {result}\n\n"
+        f"{links_message()}"
+    )
+
+
+def links_message(prefix: str = "Ligas disponibles") -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
     celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     return (
-        f"Listo: {summary}. {result}\n\n"
+        f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
         f"Liga DSE:\n{dse_url}"
         f"\n\nLiga solo celulares:\n{celulares_url}"
@@ -67,14 +74,9 @@ def share_message(result: str, summary: str) -> str:
 
 
 def error_message(exc: Exception) -> str:
-    normal_url = NETLIFY_SITE_URL
-    dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
-    celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     return (
         f"No pude actualizar el inventario: {exc}\n\n"
-        f"Liga actual catalogo completo:\n{normal_url}\n\n"
-        f"Liga actual DSE:\n{dse_url}"
-        f"\n\nLiga actual solo celulares:\n{celulares_url}"
+        f"{links_message('Ligas actuales')}"
     )
 
 
@@ -123,6 +125,9 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if text == "/id":
         await bot.send_message(chat_id=chat_id, text=f"Chat ID: {chat_id}")
+        return
+    if text.lower() in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
+        await bot.send_message(chat_id=chat_id, text=links_message())
         return
     await handle_pdf(bot, update)
 
