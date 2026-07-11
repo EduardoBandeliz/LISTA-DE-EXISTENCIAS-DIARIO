@@ -6,7 +6,7 @@ import re
 import subprocess
 import tempfile
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 from telegram import Bot, Update
 from telegram.error import NetworkError, TimedOut
@@ -179,6 +179,15 @@ def error_message(exc: Exception) -> str:
     )
 
 
+async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
+    try:
+        await bot.send_message(chat_id=chat_id, text=text)
+        return True
+    except (TimedOut, NetworkError) as exc:
+        print(f"No pude enviar mensaje a Telegram: {exc}")
+        return False
+
+
 async def handle_pdf(bot: Bot, update: Update) -> None:
     if not update.message or not update.message.document:
         return
@@ -194,7 +203,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
     if PDF_NAME_CONTAINS and PDF_NAME_CONTAINS not in file_name.lower():
         return
 
-    await bot.send_message(chat_id=chat_id, text=f"Recibi PDF: {file_name}. Actualizando inventario...")
+    await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Actualizando inventario...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
@@ -210,9 +219,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             await asyncio.to_thread(sync_from_github)
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
-            await bot.send_message(chat_id=chat_id, text=share_message(result, summary))
+            await safe_send(bot, chat_id, share_message(result, summary))
         except Exception as exc:
-            await bot.send_message(chat_id=chat_id, text=error_message(exc))
+            await safe_send(bot, chat_id, error_message(exc))
             raise
 
 
@@ -237,9 +246,10 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
         product_code = get_pending_image_code(chat_id)
         used_pending_code = bool(product_code)
     if not product_code:
-        await bot.send_message(
-            chat_id=chat_id,
-            text=(
+        await safe_send(
+            bot,
+            chat_id,
+            (
                 "Recibi la imagen, pero falta el codigo.\n\n"
                 "Puedes reenviar primero el texto donde aparece CODIGO: y despues la imagen, "
                 "o enviar la imagen con caption asi:\n"
@@ -249,7 +259,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
         return True
 
     source_note = " del mensaje anterior" if used_pending_code else ""
-    await bot.send_message(chat_id=chat_id, text=f"Recibi imagen para codigo {product_code}{source_note}. Actualizando...")
+    await safe_send(bot, chat_id, f"Recibi imagen para codigo {product_code}{source_note}. Actualizando...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir) / "producto"
@@ -262,7 +272,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
             temp_path = temp_path.with_suffix(suffix)
 
         try:
-            await bot.send_message(chat_id=chat_id, text="Descargando imagen desde Telegram...")
+            await safe_send(bot, chat_id, "Descargando imagen desde Telegram...")
             telegram_file = await bot.get_file(file_id)
             await telegram_file.download_to_drive(
                 custom_path=temp_path,
@@ -272,28 +282,30 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
             )
 
-            await bot.send_message(chat_id=chat_id, text="Sincronizando catalogo y preparando imagen...")
+            await safe_send(bot, chat_id, "Sincronizando catalogo y preparando imagen...")
             await asyncio.to_thread(sync_from_github)
             exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
             image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
 
-            await bot.send_message(chat_id=chat_id, text="Subiendo imagen a GitHub para que Netlify la publique...")
+            await safe_send(bot, chat_id, "Subiendo imagen a GitHub para que Netlify la publique...")
             result = await asyncio.to_thread(update_product_image_mapping, product_code, image_path)
             if used_pending_code:
                 clear_pending_image_code(chat_id)
 
             warning = "" if exists_in_inventory else "\n\nOjo: no encontre ese codigo en el inventario actual, pero deje la imagen guardada para cuando aparezca."
-            await bot.send_message(
-                chat_id=chat_id,
-                text=(
+            await safe_send(
+                bot,
+                chat_id,
+                (
                     f"Listo. Codigo {product_code}: {result}{warning}\n\n"
                     f"Liga solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
                 ),
             )
         except Exception as exc:
-            await bot.send_message(
-                chat_id=chat_id,
-                text=(
+            await safe_send(
+                bot,
+                chat_id,
+                (
                     f"No pude actualizar la imagen del codigo {product_code}: {exc}\n\n"
                     f"{links_message('Ligas actuales')}"
                 ),
@@ -309,25 +321,23 @@ async def handle_message(bot: Bot, update: Update) -> None:
     chat_id = update.effective_chat.id
     text = (update.message.text or "").strip()
     if text == "/start":
-        await bot.send_message(
-            chat_id=chat_id,
-            text="Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias.",
-        )
+        await safe_send(bot, chat_id, "Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias.")
         return
     if text == "/id":
-        await bot.send_message(chat_id=chat_id, text=f"Chat ID: {chat_id}")
+        await safe_send(bot, chat_id, f"Chat ID: {chat_id}")
         return
     if text.lower() in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
-        await bot.send_message(chat_id=chat_id, text=links_message())
+        await safe_send(bot, chat_id, links_message())
         return
     if await handle_product_image(bot, update):
         return
     pending_product_code = extract_product_code(text)
     if pending_product_code:
         set_pending_image_code(str(chat_id), pending_product_code)
-        await bot.send_message(
-            chat_id=chat_id,
-            text=(
+        await safe_send(
+            bot,
+            chat_id,
+            (
                 f"Codigo detectado: {pending_product_code}.\n"
                 "Ahora reenvia la imagen y la guardare con ese codigo."
             ),
