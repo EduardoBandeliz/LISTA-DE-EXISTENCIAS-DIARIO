@@ -71,9 +71,10 @@ def extract_product_code(text: str) -> Optional[str]:
         return None
 
     patterns = [
+        r"(?:codigo|código)[:\s#-]+([0-9]{6,20})",
         r"(?:codigo|código|cod|sku)[:\s#-]+([A-Za-z0-9._-]{3,40})",
         r"^/imagen\s+([A-Za-z0-9._-]{3,40})",
-        r"^([A-Za-z0-9._-]{3,40})$",
+        r"^([0-9]{6,20})$",
     ]
     for pattern in patterns:
         match = re.search(pattern, clean, flags=re.IGNORECASE)
