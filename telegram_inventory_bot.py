@@ -36,8 +36,14 @@ def write_inventory(pdf_path: Path) -> str:
     )
 
 
-def publish_to_github(summary: str) -> str:
+def sync_from_github() -> None:
+    # If a previous run failed after writing inventario.json, discard that
+    # generated file before pulling. The current PDF will regenerate it.
+    run(["git", "restore", "--", "inventario.json"])
     run(["git", "pull", "--rebase", "origin", "main"])
+
+
+def publish_to_github(summary: str) -> str:
     status = run(["git", "status", "--short", "inventario.json"])
     if not status:
         return "El inventario no tuvo cambios."
@@ -52,6 +58,13 @@ def share_message(result: str, summary: str) -> str:
     return (
         f"Listo: {summary}. {result}\n\n"
         f"Liga para compartir:\n{NETLIFY_SITE_URL}"
+    )
+
+
+def error_message(exc: Exception) -> str:
+    return (
+        f"No pude actualizar el inventario: {exc}\n\n"
+        f"Liga actual para compartir:\n{NETLIFY_SITE_URL}"
     )
 
 
@@ -78,11 +91,12 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
         await telegram_file.download_to_drive(custom_path=pdf_path)
 
         try:
+            await asyncio.to_thread(sync_from_github)
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
             await bot.send_message(chat_id=chat_id, text=share_message(result, summary))
         except Exception as exc:
-            await bot.send_message(chat_id=chat_id, text=f"No pude actualizar el inventario: {exc}")
+            await bot.send_message(chat_id=chat_id, text=error_message(exc))
             raise
 
 
