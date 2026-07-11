@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
+PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
@@ -81,6 +82,35 @@ def extract_product_code(text: str) -> Optional[str]:
         if match:
             return match.group(1).strip()
     return None
+
+
+def read_pending_image_codes() -> dict[str, str]:
+    if not PENDING_IMAGE_STATE_JSON.exists():
+        return {}
+    try:
+        data = json.loads(PENDING_IMAGE_STATE_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return {str(chat_id): str(code) for chat_id, code in data.items() if code}
+
+
+def set_pending_image_code(chat_id: str, product_code: str) -> None:
+    pending_codes = read_pending_image_codes()
+    pending_codes[chat_id] = product_code
+    PENDING_IMAGE_STATE_JSON.write_text(
+        json.dumps(pending_codes, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def pop_pending_image_code(chat_id: str) -> Optional[str]:
+    pending_codes = read_pending_image_codes()
+    product_code = pending_codes.pop(chat_id, None)
+    PENDING_IMAGE_STATE_JSON.write_text(
+        json.dumps(pending_codes, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return product_code
 
 
 def optimize_product_image(source_path: Path, product_code: str) -> str:
@@ -192,18 +222,24 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
 
     caption = update.message.caption or ""
     product_code = extract_product_code(caption)
+    used_pending_code = False
+    if not product_code:
+        product_code = pop_pending_image_code(chat_id)
+        used_pending_code = bool(product_code)
     if not product_code:
         await bot.send_message(
             chat_id=chat_id,
             text=(
                 "Recibi la imagen, pero falta el codigo.\n\n"
-                "Envíala con caption así:\n"
+                "Puedes reenviar primero el texto donde aparece CODIGO: y despues la imagen, "
+                "o enviar la imagen con caption asi:\n"
                 "codigo 848958043799"
             ),
         )
         return True
 
-    await bot.send_message(chat_id=chat_id, text=f"Recibi imagen para codigo {product_code}. Actualizando...")
+    source_note = " del mensaje anterior" if used_pending_code else ""
+    await bot.send_message(chat_id=chat_id, text=f"Recibi imagen para codigo {product_code}{source_note}. Actualizando...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir) / "producto"
@@ -263,6 +299,17 @@ async def handle_message(bot: Bot, update: Update) -> None:
         await bot.send_message(chat_id=chat_id, text=links_message())
         return
     if await handle_product_image(bot, update):
+        return
+    pending_product_code = extract_product_code(text)
+    if pending_product_code:
+        set_pending_image_code(str(chat_id), pending_product_code)
+        await bot.send_message(
+            chat_id=chat_id,
+            text=(
+                f"Codigo detectado: {pending_product_code}.\n"
+                "Ahora reenvia la imagen y la guardare con ese codigo."
+            ),
+        )
         return
     await handle_pdf(bot, update)
 
