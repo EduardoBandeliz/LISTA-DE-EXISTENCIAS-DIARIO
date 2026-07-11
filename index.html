@@ -58,7 +58,6 @@
   .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(125,194,66,.25);}
   .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.5px;font-size:15px;text-transform:uppercase;opacity:.9;}
   .hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:700;line-height:1.08;margin:0 0 10px;max-width:720px;}
-  .hero p.sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;margin:0 0 30px;}
   .stats{display:flex;flex-wrap:wrap;gap:14px;}
   .stat{
     background:rgba(255,255,255,.10);
@@ -198,7 +197,6 @@
       <div class="brand-name">Celucenter</div>
     </div>
     <h1>Lista de precios</h1>
-    <p class="sub">Inventario mayorista actualizado automaticamente desde el PDF diario. Busca, filtra por marca o grupo, y cotiza directo por WhatsApp.</p>
     <div class="stats">
       <div class="stat"><div class="num" id="stat-total">0</div><div class="lbl">Productos</div></div>
       <div class="stat"><div class="num" id="stat-marcas">0</div><div class="lbl">Marcas</div></div>
@@ -287,9 +285,6 @@ async function loadProducts(){
   if(!response.ok) throw new Error('No se pudo cargar inventario.json');
   const data = await response.json();
   PRODUCTS = (data.productos || data).map(normalizeProduct);
-  const updated = data.report_datetime ? new Date(data.report_datetime).toLocaleString('es-MX') : 'hoy';
-  const sub = document.querySelector('.sub');
-  if(sub) sub.textContent = `Inventario mayorista actualizado desde el PDF diario. Ultima actualizacion: ${updated}.`;
 }
 
 function updateBrandChips(){
