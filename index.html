@@ -256,7 +256,13 @@ function fmtPrice(p){
 }
 
 function inferBrand(name, fallback){
-  const brands = ['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','ZTE','Steren','Buytiti','Moreka','Itel','Cubot','Google','Naomi','Senwa','Unonu','Qtouch','Blackview'];
+  const accessoryGroups = ['ACCESORIOS BODEGA','ACCESORIOS','ADAPTADORES','BUYTITI','CABLES','DEMOS','MISCELANEOS','MOREKA','PROMOCIONALES','SENWA','STEREN','UNONU','ONONU','ZTE'];
+  const fallbackUpper = String(fallback || '').toUpperCase();
+  const nameUpper = String(name || '').toUpperCase();
+  if(accessoryGroups.some(group => fallbackUpper.includes(group) || nameUpper.includes(group))){
+    return 'Accesorios';
+  }
+  const brands = ['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','Itel','Cubot','Google','Naomi','Qtouch','Blackview'];
   const upperName = name.toUpperCase();
   return brands.find(brand => upperName.includes(brand.toUpperCase())) || fallback || 'Otros';
 }
@@ -272,7 +278,7 @@ function normalizeProduct(item, index){
     precio: item.precio_lista_m ?? item.precio ?? 0,
     precio_publico: item.precio_publico ?? null,
     marca: item.marca || inferBrand(item.nombre || '', item.categoria_pdf),
-    categoria: item.categoria || item.categoria_pdf || 'Inventario'
+    categoria: item.categoria || inferBrand(item.nombre || '', item.categoria_pdf)
   };
 }
 
