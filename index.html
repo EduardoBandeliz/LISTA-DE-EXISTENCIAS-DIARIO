@@ -233,7 +233,8 @@ let PRODUCTS = [];
 let activeBrand = 'Todos';
 
 const urlParams = new URLSearchParams(window.location.search);
-const PRICE_DISCOUNT = Math.max(0, Number(urlParams.get('descuento') || 0));
+const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
+const PRICE_DISCOUNT = IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0));
 
 function fmtPrice(p){
   return '$' + Number(p).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
