@@ -134,6 +134,23 @@
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(11,18,32,.08);}
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .card-media{
+    width:100%;
+    aspect-ratio:1 / 1;
+    border-radius:10px;
+    background:#EEF3F7;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .card-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
   .card-brand{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--blue);}
   .card-name{font-size:14px;font-weight:600;line-height:1.35;color:var(--ink);min-height:38px;}
   .card-price{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--green-deep);margin-top:2px;}
@@ -229,6 +246,7 @@
 <script>
 const WSP_NUMBER = '523332559420';
 let PRODUCTS = [];
+let PRODUCT_IMAGES = {};
 
 let activeBrand = 'Todos';
 
@@ -272,10 +290,20 @@ function normalizeProduct(item, index){
 }
 
 async function loadProducts(){
-  const response = await fetch('inventario.json?v=' + Date.now());
+  const [response, imageResponse] = await Promise.all([
+    fetch('inventario.json?v=' + Date.now()),
+    fetch('product-images.json?v=' + Date.now()).catch(() => null)
+  ]);
   if(!response.ok) throw new Error('No se pudo cargar inventario.json');
   const data = await response.json();
+  if(imageResponse && imageResponse.ok){
+    PRODUCT_IMAGES = await imageResponse.json();
+  }
   PRODUCTS = (data.productos || data).map(normalizeProduct);
+}
+
+function productImage(product){
+  return PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
 }
 
 function updateBrandChips(){
@@ -317,9 +345,11 @@ function render(){
   wrap.innerHTML = `<div class="grid">${
     list.map((p, idx) => {
       const price = displayPrice(p);
+      const image = productImage(p);
       const msg = encodeURIComponent(`Hola! Me interesa el producto: *${p.nombre}* - ${fmtPrice(price)}. ¿Me das más info?`);
       return `
       <div class="card" style="animation-delay:${Math.min(idx*0.02,0.3)}s">
+        ${image ? `<div class="card-media"><img loading="lazy" src="${image}" alt="${p.nombre.replace(/"/g, '&quot;')}"></div>` : ''}
         <div class="card-brand">${p.marca}</div>
         <div class="card-name">${p.nombre}</div>
         <div class="card-price">${fmtPrice(price)}</div>
