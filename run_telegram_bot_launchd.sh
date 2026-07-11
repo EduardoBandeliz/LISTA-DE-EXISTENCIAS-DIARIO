@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_DIR="/Users/eduardobandeliz/Documents/Codex/2026-07-10/teng/work/github-check"
+APP_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$APP_DIR"
 
 set -a
