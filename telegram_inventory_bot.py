@@ -10,6 +10,7 @@ from typing import Optional
 
 from telegram import Bot, Update
 from telegram.error import NetworkError, TimedOut
+from telegram.request import HTTPXRequest
 from PIL import Image, ImageOps
 
 from parse_inventory_pdf import extract_inventory
@@ -23,6 +24,7 @@ PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
+TELEGRAM_TIMEOUT_SECONDS = 120
 
 
 def run(command: list[str]) -> str:
@@ -103,14 +105,17 @@ def set_pending_image_code(chat_id: str, product_code: str) -> None:
     )
 
 
-def pop_pending_image_code(chat_id: str) -> Optional[str]:
+def get_pending_image_code(chat_id: str) -> Optional[str]:
+    return read_pending_image_codes().get(chat_id)
+
+
+def clear_pending_image_code(chat_id: str) -> None:
     pending_codes = read_pending_image_codes()
-    product_code = pending_codes.pop(chat_id, None)
+    pending_codes.pop(chat_id, None)
     PENDING_IMAGE_STATE_JSON.write_text(
         json.dumps(pending_codes, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    return product_code
 
 
 def optimize_product_image(source_path: Path, product_code: str) -> str:
@@ -193,10 +198,15 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
-        telegram_file = await bot.get_file(document.file_id)
-        await telegram_file.download_to_drive(custom_path=pdf_path)
-
         try:
+            telegram_file = await bot.get_file(document.file_id)
+            await telegram_file.download_to_drive(
+                custom_path=pdf_path,
+                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            )
             await asyncio.to_thread(sync_from_github)
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
@@ -224,7 +234,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
     product_code = extract_product_code(caption)
     used_pending_code = False
     if not product_code:
-        product_code = pop_pending_image_code(chat_id)
+        product_code = get_pending_image_code(chat_id)
         used_pending_code = bool(product_code)
     if not product_code:
         await bot.send_message(
@@ -252,13 +262,25 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
             temp_path = temp_path.with_suffix(suffix)
 
         try:
+            await bot.send_message(chat_id=chat_id, text="Descargando imagen desde Telegram...")
             telegram_file = await bot.get_file(file_id)
-            await telegram_file.download_to_drive(custom_path=temp_path)
+            await telegram_file.download_to_drive(
+                custom_path=temp_path,
+                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            )
 
+            await bot.send_message(chat_id=chat_id, text="Sincronizando catalogo y preparando imagen...")
             await asyncio.to_thread(sync_from_github)
             exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
             image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
+
+            await bot.send_message(chat_id=chat_id, text="Subiendo imagen a GitHub para que Netlify la publique...")
             result = await asyncio.to_thread(update_product_image_mapping, product_code, image_path)
+            if used_pending_code:
+                clear_pending_image_code(chat_id)
 
             warning = "" if exists_in_inventory else "\n\nOjo: no encontre ese codigo en el inventario actual, pero deje la imagen guardada para cuando aparezca."
             await bot.send_message(
@@ -315,7 +337,14 @@ async def handle_message(bot: Bot, update: Update) -> None:
 
 
 async def poll(token: str) -> None:
-    bot = Bot(token)
+    request = HTTPXRequest(
+        read_timeout=30,
+        write_timeout=30,
+        connect_timeout=30,
+        pool_timeout=5,
+        media_write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+    )
+    bot = Bot(token, request=request)
     me = await bot.get_me()
     print(f"Bot activo: @{me.username}")
     offset = None
