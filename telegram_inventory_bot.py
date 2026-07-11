@@ -5,8 +5,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+from telegram import Bot, Update
 
 from parse_inventory_pdf import extract_inventory
 
@@ -47,7 +46,7 @@ def publish_to_github(summary: str) -> str:
     return "Inventario actualizado en GitHub. Netlify publicara el cambio automaticamente."
 
 
-async def handle_pdf(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def handle_pdf(bot: Bot, update: Update) -> None:
     if not update.message or not update.message.document:
         return
 
@@ -62,46 +61,64 @@ async def handle_pdf(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     if PDF_NAME_CONTAINS and PDF_NAME_CONTAINS not in file_name.lower():
         return
 
-    await update.message.reply_text(f"Recibi PDF: {file_name}. Actualizando inventario...")
+    await bot.send_message(chat_id=chat_id, text=f"Recibi PDF: {file_name}. Actualizando inventario...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
-        telegram_file = await context.bot.get_file(document.file_id)
+        telegram_file = await bot.get_file(document.file_id)
         await telegram_file.download_to_drive(custom_path=pdf_path)
 
         try:
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
-            await update.message.reply_text(f"Listo: {summary}. {result}")
+            await bot.send_message(chat_id=chat_id, text=f"Listo: {summary}. {result}")
         except Exception as exc:
-            await update.message.reply_text(f"No pude actualizar el inventario: {exc}")
+            await bot.send_message(chat_id=chat_id, text=f"No pude actualizar el inventario: {exc}")
             raise
 
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    if not update.message:
-        return
-    await update.message.reply_text(
-        "Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias."
-    )
-
-
-async def chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def handle_message(bot: Bot, update: Update) -> None:
     if not update.message or not update.effective_chat:
         return
-    await update.message.reply_text(f"Chat ID: {update.effective_chat.id}")
+    chat_id = update.effective_chat.id
+    text = (update.message.text or "").strip()
+    if text == "/start":
+        await bot.send_message(
+            chat_id=chat_id,
+            text="Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias.",
+        )
+        return
+    if text == "/id":
+        await bot.send_message(chat_id=chat_id, text=f"Chat ID: {chat_id}")
+        return
+    await handle_pdf(bot, update)
+
+
+async def poll(token: str) -> None:
+    bot = Bot(token)
+    me = await bot.get_me()
+    print(f"Bot activo: @{me.username}")
+    offset = None
+
+    while True:
+        updates = await bot.get_updates(offset=offset, timeout=30, allowed_updates=["message"])
+        for update in updates:
+            offset = update.update_id + 1
+            try:
+                await handle_message(bot, update)
+            except Exception as exc:
+                print(f"Error procesando update {update.update_id}: {exc}")
+        await asyncio.sleep(0.2)
 
 
 def main() -> None:
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token:
         raise SystemExit("Falta TELEGRAM_BOT_TOKEN en variables de entorno.")
-
-    app = Application.builder().token(token).build()
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("id", chat_id))
-    app.add_handler(MessageHandler(filters.Document.PDF, handle_pdf))
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+    try:
+        asyncio.run(poll(token))
+    except KeyboardInterrupt:
+        return
 
 
 if __name__ == "__main__":

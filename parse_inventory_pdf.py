@@ -73,7 +73,7 @@ def extract_inventory(pdf_path: Path) -> dict:
                 )
 
     return {
-        "source_pdf": str(pdf_path),
+        "source_pdf": pdf_path.name,
         "report_datetime": report_datetime,
         "total_productos": len(rows),
         "total_disponibles": sum(1 for row in rows if row["disponible"]),
