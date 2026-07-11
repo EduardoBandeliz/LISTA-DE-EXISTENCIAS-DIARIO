@@ -252,7 +252,9 @@ let activeBrand = 'Todos';
 
 const urlParams = new URLSearchParams(window.location.search);
 const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
+const ONLY_CELLPHONES = urlParams.has('celulares') || urlParams.has('CELULARES');
 const PRICE_DISCOUNT = IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0));
+const CELLPHONE_BRANDS = new Set(['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','Itel','Cubot','Google','Naomi','Qtouch','Blackview','Techview','Logic']);
 
 function fmtPrice(p){
   return '$' + Number(p).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
@@ -306,8 +308,13 @@ function productImage(product){
   return PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
 }
 
+function isCellphone(product){
+  return CELLPHONE_BRANDS.has(product.marca);
+}
+
 function updateBrandChips(){
-  const brands = ['Todos', ...Array.from(new Set(PRODUCTS.map(p=>p.marca))).sort()];
+  const pool = ONLY_CELLPHONES ? PRODUCTS.filter(isCellphone) : PRODUCTS;
+  const brands = ['Todos', ...Array.from(new Set(pool.map(p=>p.marca))).sort()];
   const brandWrap = document.getElementById('brand-chips');
   if(!brands.includes(activeBrand)) activeBrand='Todos';
   brandWrap.innerHTML = brands.map(b =>
@@ -321,6 +328,7 @@ function updateBrandChips(){
 function getFiltered(){
   const q = document.getElementById('search').value.toLowerCase().trim();
   let list = PRODUCTS.filter(p =>
+    (!ONLY_CELLPHONES || isCellphone(p)) &&
     (activeBrand==='Todos' || p.marca===activeBrand) &&
     (!q || p.nombre.toLowerCase().includes(q))
   );

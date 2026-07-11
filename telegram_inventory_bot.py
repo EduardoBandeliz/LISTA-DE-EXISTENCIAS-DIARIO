@@ -57,20 +57,24 @@ def publish_to_github(summary: str) -> str:
 def share_message(result: str, summary: str) -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
+    celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     return (
         f"Listo: {summary}. {result}\n\n"
-        f"Liga precio normal:\n{normal_url}\n\n"
+        f"Liga catalogo completo:\n{normal_url}\n\n"
         f"Liga DSE:\n{dse_url}"
+        f"\n\nLiga solo celulares:\n{celulares_url}"
     )
 
 
 def error_message(exc: Exception) -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
+    celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     return (
         f"No pude actualizar el inventario: {exc}\n\n"
-        f"Liga actual precio normal:\n{normal_url}\n\n"
+        f"Liga actual catalogo completo:\n{normal_url}\n\n"
         f"Liga actual DSE:\n{dse_url}"
+        f"\n\nLiga actual solo celulares:\n{celulares_url}"
     )
 
 
