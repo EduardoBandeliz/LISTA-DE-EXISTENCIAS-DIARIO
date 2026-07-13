@@ -1,9 +1,9 @@
 {
-  "source_pdf": "1783774849_109.pdf",
-  "report_datetime": "2026-07-11T07:00:49",
-  "total_productos": 395,
-  "total_disponibles": 348,
-  "total_agotados": 47,
+  "source_pdf": "1783947650_109.pdf",
+  "report_datetime": "2026-07-13T07:00:50",
+  "total_productos": 399,
+  "total_disponibles": 349,
+  "total_agotados": 50,
   "productos": [
     {
       "id": 1,
@@ -2961,6 +2961,42 @@
       "id": 247,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
+      "codigo": "840493602349",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G AZUL LATINO",
+      "cantidad": "100+",
+      "existencia_minima": 100,
+      "disponible": true,
+      "precio_lista_m": 1979.0,
+      "precio_publico": 2999.0
+    },
+    {
+      "id": 248,
+      "categoria_pdf": "MOTOROLA",
+      "clave_categoria": "M...",
+      "codigo": "840493602363",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
+      "cantidad": "100+",
+      "existencia_minima": 100,
+      "disponible": true,
+      "precio_lista_m": 1979.0,
+      "precio_publico": 2999.0
+    },
+    {
+      "id": 249,
+      "categoria_pdf": "MOTOROLA",
+      "clave_categoria": "M...",
+      "codigo": "840493602325",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G VERDE LATINO",
+      "cantidad": "100+",
+      "existencia_minima": 100,
+      "disponible": true,
+      "precio_lista_m": 1979.0,
+      "precio_publico": 2999.0
+    },
+    {
+      "id": 250,
+      "categoria_pdf": "MOTOROLA",
+      "clave_categoria": "M...",
       "codigo": "840493602318",
       "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G AZUL LATINO",
       "cantidad": "0",
@@ -2970,7 +3006,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 248,
+      "id": 251,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493602387",
@@ -2982,7 +3018,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 249,
+      "id": 252,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493602332",
@@ -2994,7 +3030,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 250,
+      "id": 253,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493613277",
@@ -3006,7 +3042,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 251,
+      "id": 254,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493613239",
@@ -3018,7 +3054,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 252,
+      "id": 255,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493613260",
@@ -3030,7 +3066,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 253,
+      "id": 256,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023290800",
@@ -3042,7 +3078,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 254,
+      "id": 257,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023290794",
@@ -3054,7 +3090,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 255,
+      "id": 258,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023290824",
@@ -3066,7 +3102,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 256,
+      "id": 259,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "8033779080494",
@@ -3078,7 +3114,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 257,
+      "id": 260,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "8033779080500",
@@ -3090,7 +3126,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 258,
+      "id": 261,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023297359",
@@ -3102,7 +3138,7 @@
       "precio_publico": 7499.0
     },
     {
-      "id": 259,
+      "id": 262,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023297496",
@@ -3114,7 +3150,7 @@
       "precio_publico": 7499.0
     },
     {
-      "id": 260,
+      "id": 263,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493607184",
@@ -3126,7 +3162,7 @@
       "precio_publico": 7499.0
     },
     {
-      "id": 261,
+      "id": 264,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840023297502",
@@ -3138,7 +3174,7 @@
       "precio_publico": 7499.0
     },
     {
-      "id": 262,
+      "id": 265,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
       "codigo": "840493607177",
@@ -3150,7 +3186,7 @@
       "precio_publico": 7499.0
     },
     {
-      "id": 263,
+      "id": 266,
       "categoria_pdf": "NAOMI",
       "clave_categoria": "NAOMI",
       "codigo": "NAOMIGOL...",
@@ -3162,7 +3198,7 @@
       "precio_publico": 679.0
     },
     {
-      "id": 264,
+      "id": 267,
       "categoria_pdf": "NAOMI",
       "clave_categoria": "NAOMI",
       "codigo": "NP6800NEGRO",
@@ -3174,7 +3210,7 @@
       "precio_publico": 999.0
     },
     {
-      "id": 265,
+      "id": 268,
       "categoria_pdf": "NAOMI",
       "clave_categoria": "NAOMI",
       "codigo": "N3VERDE",
@@ -3186,7 +3222,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 266,
+      "id": 269,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "BLUCENEFA",
@@ -3198,7 +3234,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 267,
+      "id": 270,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "BOCINAREALME",
@@ -3210,7 +3246,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 268,
+      "id": 271,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "FLYERBLUG95",
@@ -3222,7 +3258,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 269,
+      "id": 272,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "9022725",
@@ -3234,7 +3270,7 @@
       "precio_publico": 0.0
     },
     {
-      "id": 270,
+      "id": 273,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "LLAVERORE...",
@@ -3246,7 +3282,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 271,
+      "id": 274,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "PLUMABAIT",
@@ -3258,7 +3294,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 272,
+      "id": 275,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "HAYATODESING",
@@ -3270,7 +3306,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 273,
+      "id": 276,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "KELLYDESING",
@@ -3282,7 +3318,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 274,
+      "id": 277,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "MOCODESING",
@@ -3294,7 +3330,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 275,
+      "id": 278,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "WOLFRAHHD...",
@@ -3306,7 +3342,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 276,
+      "id": 279,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "POSTERINFINIX",
@@ -3318,7 +3354,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 277,
+      "id": 280,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "9021962",
@@ -3330,7 +3366,7 @@
       "precio_publico": 0.0
     },
     {
-      "id": 278,
+      "id": 281,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "7500338470566",
@@ -3342,7 +3378,7 @@
       "precio_publico": 99.0
     },
     {
-      "id": 279,
+      "id": 282,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "STICKERARD...",
@@ -3354,7 +3390,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 280,
+      "id": 283,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "STICKERPANDA",
@@ -3366,7 +3402,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 281,
+      "id": 284,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "STICKERVE...",
@@ -3378,7 +3414,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 282,
+      "id": 285,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "STICKERMOCO",
@@ -3390,7 +3426,7 @@
       "precio_publico": 0.01
     },
     {
-      "id": 283,
+      "id": 286,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "STICKERHO...",
@@ -3402,19 +3438,19 @@
       "precio_publico": 0.01
     },
     {
-      "id": 284,
+      "id": 287,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "4170000094000",
       "nombre": "TECNO TUMBLER SPEAKER",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
+      "cantidad": "0",
+      "existencia_minima": 0,
+      "disponible": false,
       "precio_lista_m": 0.01,
       "precio_publico": 0.01
     },
     {
-      "id": 285,
+      "id": 288,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "6972353246944",
@@ -3426,7 +3462,7 @@
       "precio_publico": 139.0
     },
     {
-      "id": 286,
+      "id": 289,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "6972353246946",
@@ -3438,7 +3474,7 @@
       "precio_publico": 139.0
     },
     {
-      "id": 287,
+      "id": 290,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "WRISTBAN...",
@@ -3450,7 +3486,7 @@
       "precio_publico": 119.0
     },
     {
-      "id": 288,
+      "id": 291,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647001604",
@@ -3462,7 +3498,7 @@
       "precio_publico": 1049.0
     },
     {
-      "id": 289,
+      "id": 292,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647001598",
@@ -3474,7 +3510,7 @@
       "precio_publico": 1599.0
     },
     {
-      "id": 290,
+      "id": 293,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647004124",
@@ -3486,7 +3522,7 @@
       "precio_publico": 1829.0
     },
     {
-      "id": 291,
+      "id": 294,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647004131",
@@ -3498,7 +3534,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 292,
+      "id": 295,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647007798",
@@ -3510,7 +3546,7 @@
       "precio_publico": 679.0
     },
     {
-      "id": 293,
+      "id": 296,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764465237",
@@ -3522,7 +3558,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 294,
+      "id": 297,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764465282",
@@ -3534,7 +3570,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 295,
+      "id": 298,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764481350",
@@ -3546,7 +3582,7 @@
       "precio_publico": 6999.0
     },
     {
-      "id": 296,
+      "id": 299,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764481336",
@@ -3558,7 +3594,7 @@
       "precio_publico": 6999.0
     },
     {
-      "id": 297,
+      "id": 300,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "REALMENOT...",
@@ -3570,19 +3606,19 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 298,
+      "id": 301,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097661481",
       "nombre": "SAMSUNG A07 4 GB 128 GB 4G NEGRO LATINO",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
+      "cantidad": "0",
+      "existencia_minima": 0,
+      "disponible": false,
       "precio_lista_m": 2159.0,
       "precio_publico": 2749.0
     },
     {
-      "id": 299,
+      "id": 302,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095828886",
@@ -3594,7 +3630,7 @@
       "precio_publico": 4799.0
     },
     {
-      "id": 300,
+      "id": 303,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097102342",
@@ -3606,7 +3642,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 301,
+      "id": 304,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097102434",
@@ -3618,7 +3654,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 302,
+      "id": 305,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099062071",
@@ -3630,7 +3666,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 303,
+      "id": 306,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099061814",
@@ -3642,7 +3678,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 304,
+      "id": 307,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097055655",
@@ -3654,7 +3690,7 @@
       "precio_publico": 8900.0
     },
     {
-      "id": 305,
+      "id": 308,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052713",
@@ -3666,7 +3702,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 306,
+      "id": 309,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052621",
@@ -3678,7 +3714,19 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 307,
+      "id": 310,
+      "categoria_pdf": "SAMSUNG",
+      "clave_categoria": "SA...",
+      "codigo": "8806099057251",
+      "nombre": "SAMSUNG A57 5G 8 GB 256 GB 5G AZUL LATINO",
+      "cantidad": "100+",
+      "existencia_minima": 100,
+      "disponible": true,
+      "precio_lista_m": 7079.0,
+      "precio_publico": 11999.0
+    },
+    {
+      "id": 311,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052614",
@@ -3686,11 +3734,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 7339.0,
+      "precio_lista_m": 7079.0,
       "precio_publico": 11999.0
     },
     {
-      "id": 308,
+      "id": 312,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "887276417578",
@@ -3702,7 +3750,7 @@
       "precio_publico": 6999.0
     },
     {
-      "id": 309,
+      "id": 313,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655642",
@@ -3714,7 +3762,7 @@
       "precio_publico": 2899.0
     },
     {
-      "id": 310,
+      "id": 314,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655741",
@@ -3726,7 +3774,7 @@
       "precio_publico": 2899.0
     },
     {
-      "id": 311,
+      "id": 315,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658339",
@@ -3738,7 +3786,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 312,
+      "id": 316,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658353",
@@ -3750,7 +3798,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 313,
+      "id": 317,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095031415",
@@ -3762,7 +3810,7 @@
       "precio_publico": 599.0
     },
     {
-      "id": 314,
+      "id": 318,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21BLANCO128",
@@ -3774,7 +3822,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 315,
+      "id": 319,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21GRIS128",
@@ -3786,7 +3834,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 316,
+      "id": 320,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21ROSA128",
@@ -3798,7 +3846,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 317,
+      "id": 321,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21VIOLETA128",
@@ -3810,7 +3858,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 318,
+      "id": 322,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21GRIS256",
@@ -3822,7 +3870,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 319,
+      "id": 323,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22BLANCO128",
@@ -3834,7 +3882,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 320,
+      "id": 324,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22DORADO128",
@@ -3846,7 +3894,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 321,
+      "id": 325,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22NEGRO1...",
@@ -3858,7 +3906,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 322,
+      "id": 326,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22VERDE128",
@@ -3870,7 +3918,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 323,
+      "id": 327,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22VIOLETA128",
@@ -3882,7 +3930,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 324,
+      "id": 328,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSNE...",
@@ -3894,7 +3942,7 @@
       "precio_publico": 13999.0
     },
     {
-      "id": 325,
+      "id": 329,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSNE...",
@@ -3906,7 +3954,7 @@
       "precio_publico": 23999.0
     },
     {
-      "id": 326,
+      "id": 330,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSVE...",
@@ -3918,7 +3966,7 @@
       "precio_publico": 23999.0
     },
     {
-      "id": 327,
+      "id": 331,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22ULTRAN...",
@@ -3930,7 +3978,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 328,
+      "id": 332,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23NEGRO128",
@@ -3942,7 +3990,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 329,
+      "id": 333,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23NEGROA...",
@@ -3954,7 +4002,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 330,
+      "id": 334,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23ROSA128",
@@ -3966,7 +4014,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 331,
+      "id": 335,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23VERDE128",
@@ -3978,7 +4026,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 332,
+      "id": 336,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23VERDEA...",
@@ -3990,7 +4038,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 333,
+      "id": 337,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23PLUSNE...",
@@ -4002,7 +4050,7 @@
       "precio_publico": 25999.0
     },
     {
-      "id": 334,
+      "id": 338,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23PLUSNE...",
@@ -4014,7 +4062,7 @@
       "precio_publico": 25999.0
     },
     {
-      "id": 335,
+      "id": 339,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "198957227639",
@@ -4026,7 +4074,7 @@
       "precio_publico": 15499.0
     },
     {
-      "id": 336,
+      "id": 340,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097895862",
@@ -4038,7 +4086,7 @@
       "precio_publico": 27499.0
     },
     {
-      "id": 337,
+      "id": 341,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097997245",
@@ -4050,7 +4098,7 @@
       "precio_publico": 28499.0
     },
     {
-      "id": 338,
+      "id": 342,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097997092",
@@ -4062,7 +4110,7 @@
       "precio_publico": 28499.0
     },
     {
-      "id": 339,
+      "id": 343,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097896449",
@@ -4074,7 +4122,7 @@
       "precio_publico": 37999.0
     },
     {
-      "id": 340,
+      "id": 344,
       "categoria_pdf": "SENWA",
       "clave_categoria": "S...",
       "codigo": "7506227347575",
@@ -4086,7 +4134,7 @@
       "precio_publico": 369.0
     },
     {
-      "id": 341,
+      "id": 345,
       "categoria_pdf": "SENWA",
       "clave_categoria": "S...",
       "codigo": "PR0024ROJO",
@@ -4098,7 +4146,7 @@
       "precio_publico": 409.0
     },
     {
-      "id": 342,
+      "id": 346,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "195950398021",
@@ -4110,7 +4158,7 @@
       "precio_publico": 32499.0
     },
     {
-      "id": 343,
+      "id": 347,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "848958041481",
@@ -4122,7 +4170,7 @@
       "precio_publico": 1399.0
     },
     {
-      "id": 344,
+      "id": 348,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "DIALNG10",
@@ -4134,7 +4182,7 @@
       "precio_publico": 1999.0
     },
     {
-      "id": 345,
+      "id": 349,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097860471",
@@ -4146,7 +4194,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 346,
+      "id": 350,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097804604",
@@ -4158,7 +4206,7 @@
       "precio_publico": 4599.0
     },
     {
-      "id": 347,
+      "id": 351,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097784708",
@@ -4170,7 +4218,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 348,
+      "id": 352,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097784593",
@@ -4182,7 +4230,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 349,
+      "id": 353,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097783220",
@@ -4194,7 +4242,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 350,
+      "id": 354,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222337",
@@ -4206,7 +4254,7 @@
       "precio_publico": 2199.0
     },
     {
-      "id": 351,
+      "id": 355,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222313",
@@ -4218,7 +4266,7 @@
       "precio_publico": 2199.0
     },
     {
-      "id": 352,
+      "id": 356,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222306",
@@ -4230,7 +4278,7 @@
       "precio_publico": 1949.0
     },
     {
-      "id": 353,
+      "id": 357,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222320",
@@ -4242,7 +4290,7 @@
       "precio_publico": 1949.0
     },
     {
-      "id": 354,
+      "id": 358,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947114731",
@@ -4254,7 +4302,7 @@
       "precio_publico": 7999.0
     },
     {
-      "id": 355,
+      "id": 359,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947047442",
@@ -4266,7 +4314,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 356,
+      "id": 360,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947117381",
@@ -4278,7 +4326,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 357,
+      "id": 361,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947117398",
@@ -4290,19 +4338,19 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 358,
+      "id": 362,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947117404",
       "nombre": "TECNO SPARK 50 4 GB 256 GB 4G MORADO NACIONAL",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
+      "cantidad": "0",
+      "existencia_minima": 0,
+      "disponible": false,
       "precio_lista_m": 2939.0,
       "precio_publico": 3999.0
     },
     {
-      "id": 359,
+      "id": 363,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947117374",
@@ -4314,7 +4362,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 360,
+      "id": 364,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "TECNOSPA...",
@@ -4326,7 +4374,7 @@
       "precio_publico": 1948.7
     },
     {
-      "id": 361,
+      "id": 365,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947105319",
@@ -4338,7 +4386,7 @@
       "precio_publico": 3500.0
     },
     {
-      "id": 362,
+      "id": 366,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947116384",
@@ -4350,7 +4398,7 @@
       "precio_publico": 3500.0
     },
     {
-      "id": 363,
+      "id": 367,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947105296",
@@ -4362,7 +4410,7 @@
       "precio_publico": 3500.0
     },
     {
-      "id": 364,
+      "id": 368,
       "categoria_pdf": "TECNO",
       "clave_categoria": "TECNO",
       "codigo": "4894947105333",
@@ -4374,7 +4422,7 @@
       "precio_publico": 3500.0
     },
     {
-      "id": 365,
+      "id": 369,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953426",
@@ -4386,7 +4434,7 @@
       "precio_publico": 549.0
     },
     {
-      "id": 366,
+      "id": 370,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953457",
@@ -4398,7 +4446,7 @@
       "precio_publico": 549.0
     },
     {
-      "id": 367,
+      "id": 371,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953440",
@@ -4410,7 +4458,7 @@
       "precio_publico": 549.0
     },
     {
-      "id": 368,
+      "id": 372,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554445058",
@@ -4422,7 +4470,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 369,
+      "id": 373,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554449681",
@@ -4434,7 +4482,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 370,
+      "id": 374,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554445065",
@@ -4446,7 +4494,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 371,
+      "id": 375,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554450113",
@@ -4458,7 +4506,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 372,
+      "id": 376,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554456016",
@@ -4470,7 +4518,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 373,
+      "id": 377,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554444853",
@@ -4482,7 +4530,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 374,
+      "id": 378,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554455903",
@@ -4494,7 +4542,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 375,
+      "id": 379,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554444815",
@@ -4506,7 +4554,7 @@
       "precio_publico": 3299.0
     },
     {
-      "id": 376,
+      "id": 380,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554444808",
@@ -4518,7 +4566,7 @@
       "precio_publico": 3599.0
     },
     {
-      "id": 377,
+      "id": 381,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554493387",
@@ -4530,7 +4578,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 378,
+      "id": 382,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554493431",
@@ -4542,7 +4590,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 379,
+      "id": 383,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812780718",
@@ -4554,7 +4602,7 @@
       "precio_publico": 11999.0
     },
     {
-      "id": 380,
+      "id": 384,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554429133",
@@ -4566,7 +4614,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 381,
+      "id": 385,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482442",
@@ -4578,7 +4626,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 382,
+      "id": 386,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482992",
@@ -4590,7 +4638,7 @@
       "precio_publico": 5499.0
     },
     {
-      "id": 383,
+      "id": 387,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483340",
@@ -4602,7 +4650,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 384,
+      "id": 388,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554476076",
@@ -4614,7 +4662,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 385,
+      "id": 389,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483111",
@@ -4626,7 +4674,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 386,
+      "id": 390,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482374",
@@ -4638,7 +4686,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 387,
+      "id": 391,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405397",
@@ -4650,7 +4698,7 @@
       "precio_publico": 6999.0
     },
     {
-      "id": 388,
+      "id": 392,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498481",
@@ -4662,7 +4710,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 389,
+      "id": 393,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554471217",
@@ -4674,7 +4722,7 @@
       "precio_publico": 9499.0
     },
     {
-      "id": 390,
+      "id": 394,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554485245",
@@ -4686,7 +4734,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 391,
+      "id": 395,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554480455",
@@ -4698,7 +4746,7 @@
       "precio_publico": 8999.0
     },
     {
-      "id": 392,
+      "id": 396,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554469764",
@@ -4710,7 +4758,7 @@
       "precio_publico": 8999.0
     },
     {
-      "id": 393,
+      "id": 397,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554490256",
@@ -4722,7 +4770,7 @@
       "precio_publico": 10999.0
     },
     {
-      "id": 394,
+      "id": 398,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227339075",
@@ -4734,7 +4782,7 @@
       "precio_publico": 5299.0
     },
     {
-      "id": 395,
+      "id": 399,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227337354",
