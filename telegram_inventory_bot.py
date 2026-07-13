@@ -23,6 +23,11 @@ PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
+BROADCAST_CHAT_IDS = [
+    chat_id.strip()
+    for chat_id in os.getenv("BROADCAST_CHAT_IDS", "").replace(";", ",").split(",")
+    if chat_id.strip()
+]
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
 TELEGRAM_TIMEOUT_SECONDS = 120
 
@@ -188,6 +193,13 @@ async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
         return False
 
 
+async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str) -> None:
+    for target_chat_id in BROADCAST_CHAT_IDS:
+        if target_chat_id == source_chat_id:
+            continue
+        await safe_send(bot, target_chat_id, message)
+
+
 async def handle_pdf(bot: Bot, update: Update) -> None:
     if not update.message or not update.message.document:
         return
@@ -219,7 +231,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             await asyncio.to_thread(sync_from_github)
             summary = await asyncio.to_thread(write_inventory, pdf_path)
             result = await asyncio.to_thread(publish_to_github, summary)
-            await safe_send(bot, chat_id, share_message(result, summary))
+            message = share_message(result, summary)
+            await safe_send(bot, chat_id, message)
+            await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:
             await safe_send(bot, chat_id, error_message(exc))
             raise
