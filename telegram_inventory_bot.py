@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 from telegram import Bot, Update
-from telegram.error import NetworkError, TimedOut
+from telegram.error import NetworkError, TelegramError, TimedOut
 from telegram.request import HTTPXRequest
 from PIL import Image, ImageOps
 
@@ -30,6 +30,58 @@ BROADCAST_CHAT_IDS = [
 ]
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
 TELEGRAM_TIMEOUT_SECONDS = 120
+CELLPHONE_BRANDS = {
+    "Apple",
+    "Samsung",
+    "Motorola",
+    "Xiaomi",
+    "BLU",
+    "Infinix",
+    "Tecno",
+    "Realme",
+    "Honor",
+    "Itel",
+    "Cubot",
+    "Google",
+    "Naomi",
+    "Qtouch",
+    "Blackview",
+    "Techview",
+    "Logic",
+}
+ACCESSORY_GROUPS = {
+    "ACCESORIOS BODEGA",
+    "ACCESORIOS",
+    "ADAPTADORES",
+    "BUYTITI",
+    "CABLES",
+    "DEMOS",
+    "MISCELANEOS",
+    "MOREKA",
+    "PROMOCIONALES",
+    "SENWA",
+    "STEREN",
+    "UNONU",
+    "ONONU",
+    "ZTE",
+}
+KNOWN_BRANDS = [
+    "Apple",
+    "Samsung",
+    "Motorola",
+    "Xiaomi",
+    "BLU",
+    "Infinix",
+    "Tecno",
+    "Realme",
+    "Honor",
+    "Itel",
+    "Cubot",
+    "Google",
+    "Naomi",
+    "Qtouch",
+    "Blackview",
+]
 
 
 def run(command: list[str]) -> str:
@@ -37,17 +89,32 @@ def run(command: list[str]) -> str:
     return result.stdout.strip()
 
 
-def write_inventory(pdf_path: Path) -> str:
-    inventory = extract_inventory(pdf_path)
-    INVENTORY_JSON.write_text(
-        __import__("json").dumps(inventory, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+def load_inventory() -> dict:
+    if not INVENTORY_JSON.exists():
+        return {"productos": []}
+    return json.loads(INVENTORY_JSON.read_text(encoding="utf-8"))
+
+
+def load_product_images() -> dict:
+    if not PRODUCT_IMAGES_JSON.exists():
+        return {}
+    return json.loads(PRODUCT_IMAGES_JSON.read_text(encoding="utf-8"))
+
+
+def inventory_summary(inventory: dict) -> str:
     return (
         f"{inventory['total_productos']} productos, "
         f"{inventory['total_disponibles']} disponibles, "
         f"{inventory['total_agotados']} agotados"
     )
+
+
+def write_inventory_data(inventory: dict) -> str:
+    INVENTORY_JSON.write_text(
+        __import__("json").dumps(inventory, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    return inventory_summary(inventory)
 
 
 def sync_from_github() -> None:
@@ -69,8 +136,136 @@ def publish_to_github(summary: str) -> str:
 
 
 def product_codes() -> set[str]:
-    data = json.loads(INVENTORY_JSON.read_text(encoding="utf-8"))
+    data = load_inventory()
     return {str(item.get("codigo", "")).strip() for item in data.get("productos", []) if item.get("codigo")}
+
+
+def infer_brand(name: str, fallback: str) -> str:
+    fallback_upper = str(fallback or "").upper()
+    name_upper = str(name or "").upper()
+    if any(group in fallback_upper or group in name_upper for group in ACCESSORY_GROUPS):
+        return "Accesorios"
+    for brand in KNOWN_BRANDS:
+        if brand.upper() in name_upper:
+            return brand
+    return fallback or "Otros"
+
+
+def normalized_brand(product: dict) -> str:
+    return str(product.get("marca") or infer_brand(product.get("nombre", ""), product.get("categoria_pdf", ""))).strip()
+
+
+def is_cellphone(product: dict) -> bool:
+    brand = normalized_brand(product)
+    name_upper = str(product.get("nombre", "")).upper()
+    if brand == "Apple":
+        return "IPHONE" in name_upper
+    return brand in CELLPHONE_BRANDS
+
+
+def product_image(product: dict, images: dict) -> str:
+    return images.get(str(product.get("codigo", "")).strip()) or images.get(product.get("nombre", "")) or ""
+
+
+def product_label(product: dict) -> str:
+    code = str(product.get("codigo", "")).strip()
+    name = str(product.get("nombre", "")).strip()
+    price = product.get("precio_lista_m", product.get("precio", 0))
+    return f"{code} - {name} - ${float(price or 0):,.2f}"
+
+
+def missing_cellphone_images() -> list[dict]:
+    inventory = load_inventory()
+    images = load_product_images()
+    missing = [
+        product
+        for product in inventory.get("productos", [])
+        if is_cellphone(product) and not product_image(product, images)
+    ]
+    missing.sort(key=lambda product: (normalized_brand(product), str(product.get("nombre", ""))))
+    return missing
+
+
+def missing_images_message(limit: int = 35) -> str:
+    missing = missing_cellphone_images()
+    if not missing:
+        return "Todos los celulares del inventario actual ya tienen imagen."
+    visible_missing = missing[:limit]
+    lines = [
+        f"Celulares sin imagen: {len(missing)}",
+        f"Mostrando primeros {len(visible_missing)}:",
+        "",
+        *[product_label(product) for product in visible_missing],
+    ]
+    if len(missing) > limit:
+        lines.append(f"...y {len(missing) - limit} más.")
+    return "\n".join(lines)
+
+
+def whatsapp_message() -> str:
+    return (
+        "Lista de existencias actualizada\n\n"
+        f"Catalogo completo:\n{NETLIFY_SITE_URL}\n\n"
+        f"Liga DSE:\n{NETLIFY_SITE_URL.rstrip('/')}?DSE=1\n\n"
+        f"Solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+    )
+
+
+def inventory_by_code(inventory: dict) -> dict[str, dict]:
+    return {
+        str(product.get("codigo", "")).strip(): product
+        for product in inventory.get("productos", [])
+        if product.get("codigo")
+    }
+
+
+def price_value(product: dict) -> float:
+    return float(product.get("precio_lista_m", product.get("precio", 0)) or 0)
+
+
+def build_update_report(previous_inventory: dict, new_inventory: dict, limit: int = 12) -> str:
+    previous_by_code = inventory_by_code(previous_inventory)
+    new_by_code = inventory_by_code(new_inventory)
+
+    new_products = [
+        product
+        for code, product in new_by_code.items()
+        if code not in previous_by_code
+    ]
+    price_changes = []
+    for code, product in new_by_code.items():
+        previous = previous_by_code.get(code)
+        if not previous:
+            continue
+        old_price = price_value(previous)
+        new_price = price_value(product)
+        if old_price != new_price:
+            price_changes.append((product, old_price, new_price))
+
+    lines = [
+        "Reporte de actualización:",
+        f"Productos nuevos: {len(new_products)}",
+        f"Cambios de precio: {len(price_changes)}",
+    ]
+
+    if new_products:
+        lines.extend(["", "Nuevos:"])
+        lines.extend(product_label(product) for product in new_products[:limit])
+        if len(new_products) > limit:
+            lines.append(f"...y {len(new_products) - limit} más.")
+
+    if price_changes:
+        lines.extend(["", "Cambios de precio:"])
+        for product, old_price, new_price in price_changes[:limit]:
+            direction = "subio" if new_price > old_price else "bajo"
+            lines.append(
+                f"{product.get('codigo')} - {product.get('nombre')} - "
+                f"${old_price:,.2f} -> ${new_price:,.2f} ({direction})"
+            )
+        if len(price_changes) > limit:
+            lines.append(f"...y {len(price_changes) - limit} más.")
+
+    return "\n".join(lines)
 
 
 def extract_product_code(text: str) -> Optional[str]:
@@ -89,6 +284,17 @@ def extract_product_code(text: str) -> Optional[str]:
         if match:
             return match.group(1).strip()
     return None
+
+
+def command_key(text: str) -> str:
+    clean = (text or "").strip().lower()
+    if not clean.startswith("/"):
+        return clean
+    parts = clean.split(maxsplit=1)
+    command = parts[0].split("@", 1)[0]
+    if len(parts) == 1:
+        return command
+    return f"{command} {parts[1]}"
 
 
 def read_pending_image_codes() -> dict[str, str]:
@@ -158,10 +364,12 @@ def update_product_image_mapping(product_code: str, image_path: str) -> str:
     return "Imagen actualizada en GitHub. Netlify publicara el cambio automaticamente."
 
 
-def share_message(result: str, summary: str) -> str:
+def share_message(result: str, summary: str, report: str = "") -> str:
+    report_block = f"\n\n{report}" if report else ""
     return (
         f"Listo: {summary}. {result}\n\n"
         f"{links_message()}"
+        f"{report_block}"
     )
 
 
@@ -188,7 +396,7 @@ async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
     try:
         await bot.send_message(chat_id=chat_id, text=text)
         return True
-    except (TimedOut, NetworkError) as exc:
+    except TelegramError as exc:
         print(f"No pude enviar mensaje a Telegram: {exc}")
         return False
 
@@ -229,9 +437,12 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                 pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
             )
             await asyncio.to_thread(sync_from_github)
-            summary = await asyncio.to_thread(write_inventory, pdf_path)
+            previous_inventory = await asyncio.to_thread(load_inventory)
+            new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
+            report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
+            summary = await asyncio.to_thread(write_inventory_data, new_inventory)
             result = await asyncio.to_thread(publish_to_github, summary)
-            message = share_message(result, summary)
+            message = share_message(result, summary, report)
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:
@@ -334,14 +545,21 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     chat_id = update.effective_chat.id
     text = (update.message.text or "").strip()
-    if text == "/start":
+    key = command_key(text)
+    if key == "/start":
         await safe_send(bot, chat_id, "Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias.")
         return
-    if text == "/id":
+    if key == "/id":
         await safe_send(bot, chat_id, f"Chat ID: {chat_id}")
         return
-    if text.lower() in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
+    if key in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await safe_send(bot, chat_id, links_message())
+        return
+    if key in {"/whatsapp", "whatsapp", "texto whatsapp", "liga whatsapp"}:
+        await safe_send(bot, chat_id, whatsapp_message())
+        return
+    if key in {"/sinimagenes", "/sin_imagenes", "sin imagenes", "celulares sin imagen"}:
+        await safe_send(bot, chat_id, missing_images_message())
         return
     if await handle_product_image(bot, update):
         return
