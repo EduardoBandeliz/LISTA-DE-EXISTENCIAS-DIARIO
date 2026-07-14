@@ -351,15 +351,35 @@ def update_product_image_mapping(product_code: str, image_path: str) -> str:
         mapping = json.loads(PRODUCT_IMAGES_JSON.read_text(encoding="utf-8"))
     mapping[product_code] = image_path
     PRODUCT_IMAGES_JSON.write_text(json.dumps(mapping, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return "Imagen guardada localmente. Pendiente de publicar."
 
-    run(["git", "add", image_path, "product-images.json"])
-    status = run(["git", "status", "--short", image_path, "product-images.json"])
+
+def pending_image_status() -> str:
+    return run(["git", "status", "--short", "product-images.json", "img/celulares"])
+
+
+def pending_image_count() -> int:
+    status = pending_image_status()
     if not status:
-        return "La imagen ya estaba actualizada."
+        return 0
+    return sum(1 for line in status.splitlines() if line.strip())
 
-    run(["git", "commit", "-m", f"Agregar imagen de producto {product_code}"])
+
+def publish_pending_images() -> str:
+    status = pending_image_status()
+    if not status:
+        return "No hay imagenes pendientes por publicar."
+
+    run(["git", "add", "product-images.json", "img/celulares"])
+    staged = run(["git", "status", "--short", "product-images.json", "img/celulares"])
+    if not staged:
+        return "No hay imagenes pendientes por publicar."
+
+    count = pending_image_count()
+    run(["git", "commit", "-m", f"Publicar imagenes de productos ({count})"])
+    run(["git", "pull", "--rebase", "origin", "main"])
     run(["git", "push", "origin", "main"])
-    return "Imagen actualizada en GitHub. Netlify publicara el cambio automaticamente."
+    return f"Imagenes publicadas en GitHub ({count} cambios). Netlify publicara el lote automaticamente."
 
 
 def share_message(result: str, summary: str, report: str = "") -> str:
@@ -514,13 +534,12 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
             )
 
-            await safe_send(bot, chat_id, "Sincronizando catalogo y preparando imagen...")
-            await asyncio.to_thread(sync_from_github)
+            await safe_send(bot, chat_id, "Preparando imagen y guardandola localmente...")
             exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
             image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
 
-            await safe_send(bot, chat_id, "Subiendo imagen a GitHub para que Netlify la publique...")
             result = await asyncio.to_thread(update_product_image_mapping, product_code, image_path)
+            pending_count = await asyncio.to_thread(pending_image_count)
             if used_pending_code:
                 clear_pending_image_code(chat_id)
 
@@ -530,7 +549,8 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 chat_id,
                 (
                     f"Listo. Codigo {product_code}: {result}{warning}\n\n"
-                    f"Liga solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+                    f"Imagenes pendientes por publicar: {pending_count}\n"
+                    "Cuando termines de cargar imagenes, manda /publicarimagenes."
                 ),
             )
         except Exception as exc:
@@ -567,6 +587,33 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/sinimagenes", "/sin_imagenes", "sin imagenes", "celulares sin imagen"}:
         await safe_send(bot, chat_id, missing_images_message())
+        return
+    if key in {"/imagenespendientes", "/imagenes_pendientes", "imagenes pendientes"}:
+        pending_count = await asyncio.to_thread(pending_image_count)
+        await safe_send(bot, chat_id, f"Imagenes pendientes por publicar: {pending_count}")
+        return
+    if key in {"/publicarimagenes", "/publicar_imagenes", "publicar imagenes"}:
+        await safe_send(bot, chat_id, "Publicando imagenes pendientes en GitHub...")
+        try:
+            result = await asyncio.to_thread(publish_pending_images)
+            await safe_send(
+                bot,
+                chat_id,
+                (
+                    f"{result}\n\n"
+                    f"Liga solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+                ),
+            )
+        except Exception as exc:
+            await safe_send(
+                bot,
+                chat_id,
+                (
+                    f"No pude publicar las imagenes pendientes: {exc}\n\n"
+                    "Las imagenes siguen guardadas localmente. Puedes intentar otra vez con /publicarimagenes."
+                ),
+            )
+            raise
         return
     if await handle_product_image(bot, update):
         return
