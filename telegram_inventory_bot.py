@@ -204,10 +204,8 @@ def missing_images_message(limit: int = 35) -> str:
 
 def whatsapp_message() -> str:
     return (
-        "Lista de existencias actualizada\n\n"
-        f"Catalogo completo:\n{NETLIFY_SITE_URL}\n\n"
-        f"Liga DSE:\n{NETLIFY_SITE_URL.rstrip('/')}?DSE=1\n\n"
-        f"Solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+        "Lista de celulares actualizada:\n"
+        f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     )
 
 
