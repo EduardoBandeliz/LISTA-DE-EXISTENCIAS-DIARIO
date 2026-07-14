@@ -391,12 +391,21 @@ def error_message(exc: Exception) -> str:
 
 
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
-    try:
-        await bot.send_message(chat_id=chat_id, text=text)
-        return True
-    except TelegramError as exc:
-        print(f"No pude enviar mensaje a Telegram: {exc}")
-        return False
+    for attempt in range(1, 4):
+        try:
+            await bot.send_message(
+                chat_id=chat_id,
+                text=text,
+                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            )
+            return True
+        except TelegramError as exc:
+            print(f"No pude enviar mensaje a Telegram intento {attempt}/3: {exc}")
+            await asyncio.sleep(2 * attempt)
+    return False
 
 
 async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str) -> None:
@@ -578,14 +587,20 @@ async def handle_message(bot: Bot, update: Update) -> None:
 
 async def poll(token: str) -> None:
     request = HTTPXRequest(
-        read_timeout=30,
+        read_timeout=45,
         write_timeout=30,
         connect_timeout=30,
         pool_timeout=5,
         media_write_timeout=TELEGRAM_TIMEOUT_SECONDS,
     )
     bot = Bot(token, request=request)
-    me = await bot.get_me()
+    while True:
+        try:
+            me = await bot.get_me()
+            break
+        except (TimedOut, NetworkError) as exc:
+            print(f"Telegram get_me retry: {exc}")
+            await asyncio.sleep(3)
     print(f"Bot activo: @{me.username}")
     offset = None
 
