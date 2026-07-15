@@ -14,10 +14,12 @@ from telegram.request import HTTPXRequest
 from PIL import Image, ImageOps
 
 from parse_inventory_pdf import extract_inventory
+from parse_plus_pdf import extract_plus
 
 
 ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
+PLUS_JSON = ROOT / "plus.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
@@ -133,6 +135,25 @@ def publish_to_github(summary: str) -> str:
     run(["git", "commit", "-m", f"Actualizar inventario diario ({summary})"])
     run(["git", "push", "origin", "main"])
     return "Inventario actualizado en GitHub. Netlify publicara el cambio automaticamente."
+
+
+def write_plus_data(plus_inventory: dict) -> str:
+    PLUS_JSON.write_text(
+        json.dumps(plus_inventory, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return f"{plus_inventory['total_productos']} productos PL"
+
+
+def publish_plus_to_github(summary: str) -> str:
+    status = run(["git", "status", "--short", "plus.json"])
+    if not status:
+        return "La lista PL no tuvo cambios."
+
+    run(["git", "add", "plus.json"])
+    run(["git", "commit", "-m", f"Actualizar lista PL ({summary})"])
+    run(["git", "push", "origin", "main"])
+    return "Lista PL actualizada en GitHub. Netlify publicara el cambio automaticamente."
 
 
 def product_codes() -> set[str]:
@@ -395,11 +416,13 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
     celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+    pl_url = f"{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
     return (
         f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
         f"Liga DSE:\n{dse_url}"
         f"\n\nLiga solo celulares:\n{celulares_url}"
+        f"\n\nLiga PL:\n{pl_url}"
     )
 
 
@@ -408,6 +431,11 @@ def error_message(exc: Exception) -> str:
         f"No pude actualizar el inventario: {exc}\n\n"
         f"{links_message('Ligas actuales')}"
     )
+
+
+def is_plus_pdf(file_name: str) -> bool:
+    clean = file_name.lower()
+    return "plus" in clean or clean.startswith("pl")
 
 
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
@@ -450,7 +478,10 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
     if PDF_NAME_CONTAINS and PDF_NAME_CONTAINS not in file_name.lower():
         return
 
-    await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Actualizando inventario...")
+    if is_plus_pdf(file_name):
+        await safe_send(bot, chat_id, f"Recibi PDF PL: {file_name}. Actualizando lista PL...")
+    else:
+        await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Actualizando inventario...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
@@ -464,12 +495,21 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                 pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
             )
             await asyncio.to_thread(sync_from_github)
-            previous_inventory = await asyncio.to_thread(load_inventory)
-            new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
-            report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
-            summary = await asyncio.to_thread(write_inventory_data, new_inventory)
-            result = await asyncio.to_thread(publish_to_github, summary)
-            message = share_message(result, summary, report)
+            if is_plus_pdf(file_name):
+                plus_inventory = await asyncio.to_thread(extract_plus, pdf_path, INVENTORY_JSON)
+                summary = await asyncio.to_thread(write_plus_data, plus_inventory)
+                result = await asyncio.to_thread(publish_plus_to_github, summary)
+                message = (
+                    f"Listo: {summary}. {result}\n\n"
+                    f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
+                )
+            else:
+                previous_inventory = await asyncio.to_thread(load_inventory)
+                new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
+                report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
+                summary = await asyncio.to_thread(write_inventory_data, new_inventory)
+                result = await asyncio.to_thread(publish_to_github, summary)
+                message = share_message(result, summary, report)
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:

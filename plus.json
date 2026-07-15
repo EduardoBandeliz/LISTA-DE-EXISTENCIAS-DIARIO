@@ -1,0 +1,3973 @@
+{
+  "source_pdf": "plus.pdf",
+  "lista": "PL",
+  "total_productos": 398,
+  "productos": [
+    {
+      "id": 1,
+      "codigo": "7506250939631",
+      "nombre": "ADAPTADOR USB C A HDMI USB-4714 STEREN",
+      "precio_pl": 120.0,
+      "precio_lista_m": 120.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 2,
+      "codigo": "7506250918605",
+      "nombre": "ADAPTADOR USB C A JACK USB 3.0 OTG 10cm USB-470 STEREN",
+      "precio_pl": 70.0,
+      "precio_lista_m": 70.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 3,
+      "codigo": "7500821009099",
+      "nombre": "ANTENA INTERIOR HD CE-AT14",
+      "precio_pl": 70.0,
+      "precio_lista_m": 70.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 4,
+      "codigo": "7506250985171",
+      "nombre": "AUDIFONOS BT OVER EAR NOISE CANCELLING AUD-2540NE STEREN",
+      "precio_pl": 498.0,
+      "precio_lista_m": 498.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 5,
+      "codigo": "6918882674056",
+      "nombre": "AUDIFONOS BUYTITI ST-A010",
+      "precio_pl": 95.0,
+      "precio_lista_m": 95.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 6,
+      "codigo": "6974368775655",
+      "nombre": "AUT207 1HORA AUDIFONOS INALAMBRICOS NEGROS",
+      "precio_pl": 169.0,
+      "precio_lista_m": 169.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 7,
+      "codigo": "7500938140913",
+      "nombre": "BOCINA RD-260 LINK BITS",
+      "precio_pl": 202.0,
+      "precio_lista_m": 202.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 8,
+      "codigo": "6980202392148",
+      "nombre": "Bocina Moreka 406 RGB",
+      "precio_pl": 195.0,
+      "precio_lista_m": 195.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 9,
+      "codigo": "6925871003377",
+      "nombre": "Bocina Moreka M-337",
+      "precio_pl": 132.0,
+      "precio_lista_m": 132.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 10,
+      "codigo": "6986202504451",
+      "nombre": "Bocina Portatil Moreka A45",
+      "precio_pl": 690.0,
+      "precio_lista_m": 690.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 11,
+      "codigo": "7501483170042",
+      "nombre": "CABLE DE RED CAT6 DE 2.1m GRIS 368-507GR STEREN",
+      "precio_pl": 35.0,
+      "precio_lista_m": 35.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 12,
+      "codigo": "7501483170028",
+      "nombre": "CABLE DE RED CAT6 DE 5.1m GRIS 368-514GR STEREN",
+      "precio_pl": 61.0,
+      "precio_lista_m": 61.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 13,
+      "codigo": "7506250951114",
+      "nombre": "CABLE HDMI V2.0 ULTRA HIGH-SPEED 1m 295-501 STEREN",
+      "precio_pl": 72.0,
+      "precio_lista_m": 72.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 14,
+      "codigo": "7506250951084",
+      "nombre": "CABLE HDMI V2.0 ULTRA HIGH-SPEED 2m 295-502 STEREN",
+      "precio_pl": 110.0,
+      "precio_lista_m": 110.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 15,
+      "codigo": "7500821008177",
+      "nombre": "CONTROL HISENSE CE-CH37",
+      "precio_pl": 36.0,
+      "precio_lista_m": 36.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 16,
+      "codigo": "7500821010057",
+      "nombre": "CONTROL LG CE-CL2024",
+      "precio_pl": 35.0,
+      "precio_lista_m": 35.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 17,
+      "codigo": "7500821006197",
+      "nombre": "CONTROL ROKU CE-DRW1",
+      "precio_pl": 60.0,
+      "precio_lista_m": 60.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 18,
+      "codigo": "7503028873371",
+      "nombre": "CONTROL SAMSUNG CE-CS315",
+      "precio_pl": 34.0,
+      "precio_lista_m": 34.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 19,
+      "codigo": "7503025891736",
+      "nombre": "CONTROL SKY CE-SXY",
+      "precio_pl": 36.0,
+      "precio_lista_m": 36.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 20,
+      "codigo": "6925040886167",
+      "nombre": "Camara de Seguridad FH8616",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 21,
+      "codigo": "6989250609086",
+      "nombre": "Convertidor USB C a auxiliar de 3,5 mm Moreka AU-08",
+      "precio_pl": 20.0,
+      "precio_lista_m": 20.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 22,
+      "codigo": "6974368778045",
+      "nombre": "GAR143B 1HORA COMBO CARGADOR IP 2.4A 12W",
+      "precio_pl": 34.0,
+      "precio_lista_m": 34.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 23,
+      "codigo": "6974368775594",
+      "nombre": "GAR152N 1HORA CARGADOR USB-C 20W",
+      "precio_pl": 38.0,
+      "precio_lista_m": 38.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 24,
+      "codigo": "6974368773002",
+      "nombre": "GAR161B 1HORA CARGADOR (USB C Y USB A)20W",
+      "precio_pl": 45.0,
+      "precio_lista_m": 45.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 25,
+      "codigo": "6974368773026",
+      "nombre": "GAR163B 1HORA CARGADOR USB C Y USB A 20W Y CABLE IP",
+      "precio_pl": 62.0,
+      "precio_lista_m": 62.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 26,
+      "codigo": "6974368771886",
+      "nombre": "GAR241G 1Hora Cargador para Auto 3A TIPO C",
+      "precio_pl": 75.0,
+      "precio_lista_m": 75.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 27,
+      "codigo": "",
+      "nombre": "GAR281N 1Hora Cargador Inalambrico Magnetico",
+      "precio_pl": 98.0,
+      "precio_lista_m": 98.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 28,
+      "codigo": "6974368774672",
+      "nombre": "GAR322N 1HORA CARGADOR 65W y CABLE TIPOC 2M",
+      "precio_pl": 229.0,
+      "precio_lista_m": 229.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 29,
+      "codigo": "6923120120059",
+      "nombre": "LINTERNA CABEZA YL194-TD05",
+      "precio_pl": 170.0,
+      "precio_lista_m": 170.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 30,
+      "codigo": "7890306600119",
+      "nombre": "LINTERNA DE MANO ALI-11",
+      "precio_pl": 95.0,
+      "precio_lista_m": 95.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 31,
+      "codigo": "6956240619062",
+      "nombre": "M19-06 MOREKA SOPORTE MOTO/BICI",
+      "precio_pl": 62.0,
+      "precio_lista_m": 62.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 32,
+      "codigo": "6982023091637",
+      "nombre": "MHL-030 MOREKA SOPORTE AUTO",
+      "precio_pl": 54.0,
+      "precio_lista_m": 54.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 33,
+      "codigo": "F0013",
+      "nombre": "MICA HIDROGEL PRIVACIDAD RHINO",
+      "precio_pl": 35.0,
+      "precio_lista_m": 35.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 34,
+      "codigo": "6918882665054",
+      "nombre": "MR-116 BUYTITI CORTADORA DE CABELLO",
+      "precio_pl": 75.0,
+      "precio_lista_m": 75.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 35,
+      "codigo": "6918882674223",
+      "nombre": "MR-891 BUYTITI MICROFONO INALAMBRICO BLUTOOTH",
+      "precio_pl": 129.0,
+      "precio_lista_m": 129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 36,
+      "codigo": "6918882675824",
+      "nombre": "MR-925 BUYTITI ASPIRADORA/SOPLADORA",
+      "precio_pl": 180.0,
+      "precio_lista_m": 180.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 37,
+      "codigo": "6918882643489",
+      "nombre": "PL-19 BUYTITI MINI BATERIA MAGNETICA",
+      "precio_pl": 85.0,
+      "precio_lista_m": 85.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 38,
+      "codigo": "7506250971914",
+      "nombre": "REPETIDOR Wi-Fi 300 Mbps, 2.4 GHz COM-816 STEREN",
+      "precio_pl": 320.0,
+      "precio_lista_m": 320.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 39,
+      "codigo": "7506250951152",
+      "nombre": "REPETIDOR Wi-Fi AC1200 DOBLE BANDA COM-8300 STEREN",
+      "precio_pl": 510.0,
+      "precio_lista_m": 510.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 40,
+      "codigo": "6918882664996",
+      "nombre": "TRIPIE BLUETOOTH 360 BUYTITI JC-13",
+      "precio_pl": 89.0,
+      "precio_lista_m": 89.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 41,
+      "codigo": "6918882665009",
+      "nombre": "TRIPIE CON AROS DE LUZ 360 BUYTITI JC-15",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 42,
+      "codigo": "VENTILADORHC",
+      "nombre": "VENTILADOR DE PEDESTAL HC",
+      "precio_pl": 445.0,
+      "precio_lista_m": 445.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ACCESORIOS BODEGA"
+    },
+    {
+      "id": 43,
+      "codigo": "4",
+      "nombre": "ADAPTADOR ASIATICO",
+      "precio_pl": 8.0,
+      "precio_lista_m": 8.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ADAPTADORES"
+    },
+    {
+      "id": 44,
+      "codigo": "905102",
+      "nombre": "ADAPTADOR STEREN EUROPEO",
+      "precio_pl": 6.0,
+      "precio_lista_m": 6.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ADAPTADORES"
+    },
+    {
+      "id": 45,
+      "codigo": "887276746876",
+      "nombre": "CARGADOR SAMSUNG CARGA ULTRARRAPIDA T2510 25W CON CABLE C-C BLANCO",
+      "precio_pl": 269.0,
+      "precio_lista_m": 269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ADAPTADORES"
+    },
+    {
+      "id": 46,
+      "codigo": "887276746913",
+      "nombre": "CARGADOR SAMSUNG CARGA ULTRARRAPIDA T2510 25W CON CABLE C-C NEGRO",
+      "precio_pl": 269.0,
+      "precio_lista_m": 269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ADAPTADORES"
+    },
+    {
+      "id": 47,
+      "codigo": "887276830643",
+      "nombre": "CARGADOR SAMSUNG CARGA ULTRARRAPIDA T4511 45W CON CABLE C-C NEGRO",
+      "precio_pl": 339.0,
+      "precio_lista_m": 339.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ADAPTADORES"
+    },
+    {
+      "id": 48,
+      "codigo": "195950543698",
+      "nombre": "APPLE AIRPODS PRO 3",
+      "precio_pl": 4719.0,
+      "precio_lista_m": 4719.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 49,
+      "codigo": "195950621303",
+      "nombre": "APPLE IPHONE 17 AIR 12 GB 256 GB 5G NEGRO ESIM",
+      "precio_pl": 18499.0,
+      "precio_lista_m": 18499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 50,
+      "codigo": "195950621457",
+      "nombre": "APPLE IPHONE 17 AIR 12 GB 512 GB 5G NEGRO ESIM",
+      "precio_pl": 18709.0,
+      "precio_lista_m": 18709.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 51,
+      "codigo": "195950640878",
+      "nombre": "APPLE IPHONE 17 PRO MAX 12 GB 2TB 5G NARANJA ESIM",
+      "precio_pl": 42119.0,
+      "precio_lista_m": 42119.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 52,
+      "codigo": "195950638035",
+      "nombre": "APPLE IPHONE 17 PRO MAX 12 GB 512 GB 5G NARANJA ESIM",
+      "precio_pl": 27959.0,
+      "precio_lista_m": 27959.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 53,
+      "codigo": "4549995241983",
+      "nombre": "APPLE MAGIC KEYBOARD 13 BLANCO",
+      "precio_pl": 5589.0,
+      "precio_lista_m": 5589.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "APPLE"
+    },
+    {
+      "id": 54,
+      "codigo": "6974368777598",
+      "nombre": "AUT111N 1Hora Audifonos 3.5mm metalico",
+      "precio_pl": 35.0,
+      "precio_lista_m": 35.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "AUDIFONOS"
+    },
+    {
+      "id": 55,
+      "codigo": "6974368776829",
+      "nombre": "AUT125N 1Hora AudiÃ‚Â fonos 3.5mm Tipo-C",
+      "precio_pl": 45.0,
+      "precio_lista_m": 45.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "AUDIFONOS"
+    },
+    {
+      "id": 56,
+      "codigo": "6931548319078",
+      "nombre": "BLACKVIEW BV4800 PRO (4+8) GB 128 GB 4G NEGRO LATINO",
+      "precio_pl": 2099.0,
+      "precio_lista_m": 2099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLACKVIEW"
+    },
+    {
+      "id": 57,
+      "codigo": "6931548319092",
+      "nombre": "BLACKVIEW BV4800 PRO (4+8) GB 128 GB 4G VERDE LATINO",
+      "precio_pl": 2099.0,
+      "precio_lista_m": 2099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLACKVIEW"
+    },
+    {
+      "id": 58,
+      "codigo": "848958043546",
+      "nombre": "BLU A140 48 MB 128 MB 4G NEGRO NACIONAL",
+      "precio_pl": 349.0,
+      "precio_lista_m": 349.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 59,
+      "codigo": "848958044390",
+      "nombre": "BLU A160 32 MB 32 MB 2G NEGRO NACIONAL",
+      "precio_pl": 359.0,
+      "precio_lista_m": 359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 60,
+      "codigo": "848958043799",
+      "nombre": "BLU BOLD K10 (4+8) GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1439.0,
+      "precio_lista_m": 1439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 61,
+      "codigo": "848958043805",
+      "nombre": "BLU BOLD K10 (4+8) GB 128 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1439.0,
+      "precio_lista_m": 1439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 62,
+      "codigo": "848958044727",
+      "nombre": "BLU BOLD K12 (4+8) GB 128 GB 4G ROSA NACIONAL",
+      "precio_pl": 1689.0,
+      "precio_lista_m": 1689.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 63,
+      "codigo": "4895804476",
+      "nombre": "BLU BOLD K22 5G (4+8) GB 128 GB 5G AZUL NACIONAL",
+      "precio_pl": 2049.0,
+      "precio_lista_m": 2049.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 64,
+      "codigo": "4895804477",
+      "nombre": "BLU BOLD K22 5G (4+8) GB 128 GB 5G PLATA NACIONAL",
+      "precio_pl": 2049.0,
+      "precio_lista_m": 2049.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 65,
+      "codigo": "848958044307",
+      "nombre": "BLU BOLD K5 (4+4) GB 64 GB 4G AZUL NACIONAL",
+      "precio_pl": 1359.0,
+      "precio_lista_m": 1359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 66,
+      "codigo": "848958044314",
+      "nombre": "BLU BOLD K5 (4+4) GB 64 GB 4G BLANCO NACIONAL",
+      "precio_pl": 1359.0,
+      "precio_lista_m": 1359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 67,
+      "codigo": "848958044321",
+      "nombre": "BLU BOLD K5 (4+4) GB 64 GB 4G CREMA NACIONAL",
+      "precio_pl": 1359.0,
+      "precio_lista_m": 1359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 68,
+      "codigo": "848958044338",
+      "nombre": "BLU BOLD K5 (4+4) GB 64 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 1359.0,
+      "precio_lista_m": 1359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 69,
+      "codigo": "848958044529",
+      "nombre": "BLU BOLD N4 (8+24)GB 512 GB 5G BLANCO NACIONAL",
+      "precio_pl": 4879.0,
+      "precio_lista_m": 4879.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 70,
+      "codigo": "848958042983",
+      "nombre": "BLU C5L MAX 1 GB 16 GB 4G NEGRO NACIONAL",
+      "precio_pl": 749.0,
+      "precio_lista_m": 749.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 71,
+      "codigo": "848958043843",
+      "nombre": "BLU C9 (2+4) GB 64 GB 4G BLANCO NACIONAL",
+      "precio_pl": 1099.0,
+      "precio_lista_m": 1099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 72,
+      "codigo": "848958043737",
+      "nombre": "BLU C9 (2+4) GB 64 GB 4G GRIS NACIONAL",
+      "precio_pl": 1099.0,
+      "precio_lista_m": 1099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 73,
+      "codigo": "848958043720",
+      "nombre": "BLU C9 (2+4) GB 64 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1099.0,
+      "precio_lista_m": 1099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 74,
+      "codigo": "848958043836",
+      "nombre": "BLU C9 (2+4) GB 64 GB 4G VERDE NACIONAL",
+      "precio_pl": 1099.0,
+      "precio_lista_m": 1099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 75,
+      "codigo": "848958043744",
+      "nombre": "BLU C9 (2+4) GB 64 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 1099.0,
+      "precio_lista_m": 1099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 76,
+      "codigo": "848958044000",
+      "nombre": "BLU G44 (2+4) GB 64 GB 4G AZUL CLARO NACIONAL",
+      "precio_pl": 1139.0,
+      "precio_lista_m": 1139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 77,
+      "codigo": "848958044017",
+      "nombre": "BLU G44 (2+4) GB 64 GB 4G NARANJA NACIONAL",
+      "precio_pl": 1139.0,
+      "precio_lista_m": 1139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 78,
+      "codigo": "848958044024",
+      "nombre": "BLU G44 (2+4) GB 64 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 1139.0,
+      "precio_lista_m": 1139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 79,
+      "codigo": "848958044369",
+      "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL CIELO NACIONAL",
+      "precio_pl": 1279.0,
+      "precio_lista_m": 1279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 80,
+      "codigo": "848958044352",
+      "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL NACIONAL",
+      "precio_pl": 1279.0,
+      "precio_lista_m": 1279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 81,
+      "codigo": "g45azul",
+      "nombre": "BLU G45 (4+8) GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1559.0,
+      "precio_lista_m": 1559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 82,
+      "codigo": "848958044666",
+      "nombre": "BLU G45 (4+8) GB 128 GB 4G CREMA NACIONAL",
+      "precio_pl": 1559.0,
+      "precio_lista_m": 1559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 83,
+      "codigo": "848958044659",
+      "nombre": "BLU G45 (4+8) GB 128 GB 4G DORADO NACIONAL",
+      "precio_pl": 1559.0,
+      "precio_lista_m": 1559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 84,
+      "codigo": "848958044673",
+      "nombre": "BLU G45 (4+8) GB 128 GB 4G VERDE NACIONAL",
+      "precio_pl": 1559.0,
+      "precio_lista_m": 1559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 85,
+      "codigo": "848958044192",
+      "nombre": "BLU G64 (4+10) GB 256 GB 4G DORADO NACIONAL",
+      "precio_pl": 1799.0,
+      "precio_lista_m": 1799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 86,
+      "codigo": "848958043966",
+      "nombre": "BLU G64 (4+10) GB 256 GB 4G NARANJA NACIONAL",
+      "precio_pl": 1799.0,
+      "precio_lista_m": 1799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 87,
+      "codigo": "848958043775",
+      "nombre": "BLU G64 (4+10) GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1799.0,
+      "precio_lista_m": 1799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 88,
+      "codigo": "848958043980",
+      "nombre": "BLU G64 (4+10) GB 256 GB 4G VERDE NACIONAL",
+      "precio_pl": 1799.0,
+      "precio_lista_m": 1799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 89,
+      "codigo": "848958043973",
+      "nombre": "BLU G64 (4+10) GB 256 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 1799.0,
+      "precio_lista_m": 1799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 90,
+      "codigo": "848958044055",
+      "nombre": "BLU G64L (4+4) GB 64 GB 4G AZUL CLARO NACIONAL",
+      "precio_pl": 1299.0,
+      "precio_lista_m": 1299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 91,
+      "codigo": "848958044031",
+      "nombre": "BLU G64L (4+4) GB 64 GB 4G AZUL NACIONAL",
+      "precio_pl": 1299.0,
+      "precio_lista_m": 1299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 92,
+      "codigo": "848958044062",
+      "nombre": "BLU G64L (4+4) GB 64 GB 4G MORADO NACIONAL",
+      "precio_pl": 1299.0,
+      "precio_lista_m": 1299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 93,
+      "codigo": "848958044048",
+      "nombre": "BLU G64L (4+4) GB 64 GB 4G VERDE NACIONAL",
+      "precio_pl": 1299.0,
+      "precio_lista_m": 1299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 94,
+      "codigo": "848958044093",
+      "nombre": "BLU G64L (4+8) GB 128 GB 4G AZUL CLARO NACIONAL",
+      "precio_pl": 1479.0,
+      "precio_lista_m": 1479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 95,
+      "codigo": "848958044079",
+      "nombre": "BLU G64L (4+8) GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1479.0,
+      "precio_lista_m": 1479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 96,
+      "codigo": "848958044109",
+      "nombre": "BLU G64L (4+8) GB 128 GB 4G MORADO NACIONAL",
+      "precio_pl": 1479.0,
+      "precio_lista_m": 1479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 97,
+      "codigo": "848958044086",
+      "nombre": "BLU G64L (4+8) GB 128 GB 4G VERDE NACIONAL",
+      "precio_pl": 1479.0,
+      "precio_lista_m": 1479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 98,
+      "codigo": "848958044406",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G AZUL CIELO NACIONAL",
+      "precio_pl": 1509.0,
+      "precio_lista_m": 1509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 99,
+      "codigo": "848958044420",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1509.0,
+      "precio_lista_m": 1509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 100,
+      "codigo": "848958044444",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G DORADO NACIONAL",
+      "precio_pl": 1509.0,
+      "precio_lista_m": 1509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 101,
+      "codigo": "848958044413",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1509.0,
+      "precio_lista_m": 1509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 102,
+      "codigo": "848958044437",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G VERDE NACIONAL",
+      "precio_pl": 1509.0,
+      "precio_lista_m": 1509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 103,
+      "codigo": "848958043430",
+      "nombre": "BLU G73L (2+2) GB 64 GB 4G AZUL NACIONAL",
+      "precio_pl": 1179.0,
+      "precio_lista_m": 1179.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 104,
+      "codigo": "48958044758",
+      "nombre": "BLU G75 (4+10) GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 2239.0,
+      "precio_lista_m": 2239.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 105,
+      "codigo": "84958044697",
+      "nombre": "BLU G75 (4+10) GB 256 GB 4G BLANCO NACIONAL",
+      "precio_pl": 2239.0,
+      "precio_lista_m": 2239.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 106,
+      "codigo": "848958044536",
+      "nombre": "BLU G75 (4+10) GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 2239.0,
+      "precio_lista_m": 2239.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 107,
+      "codigo": "848958043782",
+      "nombre": "BLU G84 (8+16)GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 2399.0,
+      "precio_lista_m": 2399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 108,
+      "codigo": "848958044185",
+      "nombre": "BLU G84 (8+16)GB 256 GB 4G BLANCO NACIONAL",
+      "precio_pl": 2399.0,
+      "precio_lista_m": 2399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 109,
+      "codigo": "848958044512",
+      "nombre": "BLU G95 + ARIAPOD MINI (8+16)GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 2529.0,
+      "precio_lista_m": 2529.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 110,
+      "codigo": "848958043553",
+      "nombre": "BLU JOY 4G NEGRO NACIONAL",
+      "precio_pl": 509.0,
+      "precio_lista_m": 509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 111,
+      "codigo": "848958041078",
+      "nombre": "BLU JOY J012 24 MB 32 MB 2G NEGRO NACIONAL",
+      "precio_pl": 369.0,
+      "precio_lista_m": 369.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 112,
+      "codigo": "",
+      "nombre": "BLU K2 (4+4) GB 64 GB 0G AZUL NACIONAL",
+      "precio_pl": 1239.04,
+      "precio_lista_m": 1239.04,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 113,
+      "codigo": "",
+      "nombre": "BLU K2 (4+4) GB 64 GB 0G CREMA NACIONAL",
+      "precio_pl": 1239.04,
+      "precio_lista_m": 1239.04,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 114,
+      "codigo": "",
+      "nombre": "BLU K2 (4+4) GB 64 GB 0G DORADO NACIONAL",
+      "precio_pl": 1239.04,
+      "precio_lista_m": 1239.04,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 115,
+      "codigo": "",
+      "nombre": "BLU K2 (4+4) GB 64 GB 0G NEGRO NACIONAL",
+      "precio_pl": 1239.04,
+      "precio_lista_m": 1239.04,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 116,
+      "codigo": "",
+      "nombre": "BLU K2 (4+4) GB 64 GB 0G VERDE NACIONAL",
+      "precio_pl": 1239.04,
+      "precio_lista_m": 1239.04,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 117,
+      "codigo": "848958039075",
+      "nombre": "BLU TANK II T196 32 MB 32 MB 2G AZUL NACIONAL",
+      "precio_pl": 269.0,
+      "precio_lista_m": 269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 118,
+      "codigo": "848958012979",
+      "nombre": "BLU TANK II T196 32 MB 32 MB 2G NEGRO AZULADO NACIONAL",
+      "precio_pl": 269.0,
+      "precio_lista_m": 269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 119,
+      "codigo": "848958012986",
+      "nombre": "BLU TANK II T196 32 MB 32 MB 2G ROJO NACIONAL",
+      "precio_pl": 269.0,
+      "precio_lista_m": 269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 120,
+      "codigo": "848958044215",
+      "nombre": "BLU TANK MEGA 4G 32 MB 32 MB AZUL NACIONAL",
+      "precio_pl": 549.0,
+      "precio_lista_m": 549.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 121,
+      "codigo": "848958033004",
+      "nombre": "BLU TANK MEGA T573 32 MB 32 MB 3G NARANJA NACIONAL",
+      "precio_pl": 439.0,
+      "precio_lista_m": 439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 122,
+      "codigo": "848958032991",
+      "nombre": "BLU TANK MEGA T573 32 MB 32 MB 3G VERDE NACIONAL",
+      "precio_pl": 439.0,
+      "precio_lista_m": 439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 123,
+      "codigo": "848958039310",
+      "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G AZUL NACIONAL",
+      "precio_pl": 209.0,
+      "precio_lista_m": 209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 124,
+      "codigo": "848958039303",
+      "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G GRIS NACIONAL",
+      "precio_pl": 209.0,
+      "precio_lista_m": 209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 125,
+      "codigo": "848958039334",
+      "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G NEGRO NACIONAL",
+      "precio_pl": 209.0,
+      "precio_lista_m": 209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 126,
+      "codigo": "848958039327",
+      "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G ROJO NACIONAL",
+      "precio_pl": 209.0,
+      "precio_lista_m": 209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 127,
+      "codigo": "848958039785",
+      "nombre": "BLU TANK MINI ll T672 32 MB 32 MB 2G AZUL NACIONAL",
+      "precio_pl": 299.0,
+      "precio_lista_m": 299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 128,
+      "codigo": "848958039259",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G AZUL CIELO NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 129,
+      "codigo": "848958039280",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G AZUL NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 130,
+      "codigo": "848958039235",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-AZUL NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 131,
+      "codigo": "848958039242",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-ROJO NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 132,
+      "codigo": "848958039983",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G ROSA NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 133,
+      "codigo": "848958036319",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G AZUL CIELO NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 134,
+      "codigo": "848958036302",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G AZUL NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 135,
+      "codigo": "848958036326",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G GRIS NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 136,
+      "codigo": "848958040248",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G NARANJA NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 137,
+      "codigo": "848958036296",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G NEGRO NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 138,
+      "codigo": "848958040255",
+      "nombre": "BLU Z5 Z214 32 MB 32 MB 2G VERDE NACIONAL",
+      "precio_pl": 159.0,
+      "precio_lista_m": 159.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 139,
+      "codigo": "848958044345",
+      "nombre": "BLU ZOEY FLEX 4G 32 MB 32 MB NEGRO NACIONAL",
+      "precio_pl": 479.0,
+      "precio_lista_m": 479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 140,
+      "codigo": "848958034919",
+      "nombre": "BLU ZOEY FLEX Z132 32 MB 32 MB 2G NEGRO NACIONAL",
+      "precio_pl": 249.0,
+      "precio_lista_m": 249.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "BLU"
+    },
+    {
+      "id": 141,
+      "codigo": "6974368773477",
+      "nombre": "CAB164N 1Hora Cable TIPO C",
+      "precio_pl": 14.0,
+      "precio_lista_m": 14.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CABLES"
+    },
+    {
+      "id": 142,
+      "codigo": "7503031349436",
+      "nombre": "CAB251N 1Hora Cable TIPO C 3A",
+      "precio_pl": 17.0,
+      "precio_lista_m": 17.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CABLES"
+    },
+    {
+      "id": 143,
+      "codigo": "6974368777505",
+      "nombre": "CAB252B 1Hora Cable TIPO C a TIPO C 3A",
+      "precio_pl": 22.0,
+      "precio_lista_m": 22.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CABLES"
+    },
+    {
+      "id": 144,
+      "codigo": "6974368776898",
+      "nombre": "CAB257B 1Hora Cable Tipo C-IP 3A",
+      "precio_pl": 32.0,
+      "precio_lista_m": 32.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CABLES"
+    },
+    {
+      "id": 145,
+      "codigo": "6974368774689",
+      "nombre": "CAB270N 1Hora Cable Tipo C-C 3A",
+      "precio_pl": 30.0,
+      "precio_lista_m": 30.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CABLES"
+    },
+    {
+      "id": 146,
+      "codigo": "6924136723357",
+      "nombre": "CUBOT KINGKONG POWER 3 6 GB 256 GB 4G NEGRO LATINO",
+      "precio_pl": 3689.0,
+      "precio_lista_m": 3689.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CUBOT"
+    },
+    {
+      "id": 147,
+      "codigo": "6924136723456",
+      "nombre": "CUBOT KINGKONG STAR 2 12 GB 256 GB 5G NEGRO LATINO",
+      "precio_pl": 5729.0,
+      "precio_lista_m": 5729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "CUBOT"
+    },
+    {
+      "id": 148,
+      "codigo": "TMGMXBMA...",
+      "nombre": "TERM AX683 3G NEGRO BMOBILE",
+      "precio_pl": 419.0,
+      "precio_lista_m": 419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "DEMOS"
+    },
+    {
+      "id": 149,
+      "codigo": "TMGMXNK0N...",
+      "nombre": "TERM NOKIA GSM BLANCO N311",
+      "precio_pl": 419.0,
+      "precio_lista_m": 419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "DEMOS"
+    },
+    {
+      "id": 150,
+      "codigo": "",
+      "nombre": "DELL INSPIRON 15 DC15255 NEGRO/15in/AMD RYZEN 7 7730U/16GB/SSD/512GB/Windows Home S",
+      "precio_pl": 11319.0,
+      "precio_lista_m": 11319.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 151,
+      "codigo": "051791251935-R",
+      "nombre": "DELL REBURBISH OPTIPLEX 5040/TOWER CORE i7-6700/512GB/SSD/16GB/WIN10",
+      "precio_pl": 4679.0,
+      "precio_lista_m": 4679.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "EQUIPO DE COMPUTO"
+    },
+    {
+      "id": 152,
+      "codigo": "",
+      "nombre": "DELL REFURBISH OPTIPLEX 5040 SFF NEGRO/Intel Core i5-6500/16GB/SSD/512GB/Windows 10 Pro",
+      "precio_pl": 3619.0,
+      "precio_lista_m": 3619.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 153,
+      "codigo": "",
+      "nombre": "DELL REFURBISH OPTIPLEX 5040 SFF NEGRO/Intel Core i7-6700/16GB/SSD/512GB/Windows 10 Pro",
+      "precio_pl": 5359.0,
+      "precio_lista_m": 5359.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 154,
+      "codigo": "051791328101-R",
+      "nombre": "DELL RUFURBISH OPTIPLEX 5050/SFF/CORE i5-6500/256GB/SSD/16GB/WIN10",
+      "precio_pl": 3399.0,
+      "precio_lista_m": 3399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "EQUIPO DE COMPUTO"
+    },
+    {
+      "id": 155,
+      "codigo": "198990424910",
+      "nombre": "HP LAPTOP 14-DQ6012DX AZUL/14in/Intel N150/4GB/SSD/128GB/Windows 11 Home",
+      "precio_pl": 3649.0,
+      "precio_lista_m": 3649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "EQUIPO DE COMPUTO"
+    },
+    {
+      "id": 156,
+      "codigo": "199251872990",
+      "nombre": "HP LAPTOP 15-FC0146DX PLATA/15in/AMD RYZEN 5 7520U/8GB/SSD/512GB/Windows 11",
+      "precio_pl": 8479.0,
+      "precio_lista_m": 8479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "EQUIPO DE COMPUTO"
+    },
+    {
+      "id": 157,
+      "codigo": "",
+      "nombre": "LENOVO IDEACENTRE AIO 24IMB05 NEGRO/24in/Intel i3-10100T/8GB/SSD/256GB/Windows 10 Home",
+      "precio_pl": 13459.0,
+      "precio_lista_m": 13459.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 158,
+      "codigo": "",
+      "nombre": "LENOVO LAPTOP IDEAPAD 1 15AMN7 AZUL/15in/AMD Ryzen 3 7320U/4GB/SSD/128GB/Windows 11 Home In S Mode",
+      "precio_pl": 5429.0,
+      "precio_lista_m": 5429.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 159,
+      "codigo": "",
+      "nombre": "LENOVO LAPTOP V14 G4 IRU NEGRO/14in/intel i-7-13620H/16GB/SSD/512GB/Windows 11 Home",
+      "precio_pl": 10739.0,
+      "precio_lista_m": 10739.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 160,
+      "codigo": "",
+      "nombre": "LENOVO LOQ-E 15ARP10E GRIS GAMING LAPTOP/15in/AMD Ryzen 7/16GB/SSD/512GB/Windows 11 Home",
+      "precio_pl": 14829.0,
+      "precio_lista_m": 14829.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 161,
+      "codigo": "600603275821",
+      "nombre": "BEST BUY PORTABLE BATTERY 10,000 mAh",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 162,
+      "codigo": "",
+      "nombre": "CREALITY FILAMENTO DE IMPRESION 3D EN-PLA BLANCO",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL"
+    },
+    {
+      "id": 163,
+      "codigo": "EN-PLA-GRIS",
+      "nombre": "CREALITY FILAMENTO DE IMPRESION 3D EN-PLA GRIS",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 164,
+      "codigo": "CR-ABS-BL...",
+      "nombre": "FILAMENTO DE IMPRESION CREALITY CR-ABS BLANCO",
+      "precio_pl": 169.0,
+      "precio_lista_m": 169.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 165,
+      "codigo": "CR-ABS-NEGRO",
+      "nombre": "FILAMENTO DE IMPRESION CREALITY CR-ABS NEGRO",
+      "precio_pl": 169.0,
+      "precio_lista_m": 169.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 166,
+      "codigo": "CR-PETG-N...",
+      "nombre": "FILAMENTO DE IMPRESION CREALITY CR-PETG NEGRO",
+      "precio_pl": 129.0,
+      "precio_lista_m": 129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 167,
+      "codigo": "784300415480",
+      "nombre": "FRESHFUN SMARTWHATCH GRIS",
+      "precio_pl": 549.0,
+      "precio_lista_m": 549.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 168,
+      "codigo": "HIKING3G",
+      "nombre": "HIKING 3G TELEFONO INALAMBRICO G007",
+      "precio_pl": 449.0,
+      "precio_lista_m": 449.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 169,
+      "codigo": "819130029818",
+      "nombre": "HISENSE PORTABLE AIR CONDITIONER AP0822CW1W",
+      "precio_pl": 4800.0,
+      "precio_lista_m": 4800.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 170,
+      "codigo": "50036378246",
+      "nombre": "JBL CLIP 4 GRIS",
+      "precio_pl": 659.0,
+      "precio_lista_m": 659.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 171,
+      "codigo": "50036400077",
+      "nombre": "JBL CLIP 5 NEGRO",
+      "precio_pl": 789.0,
+      "precio_lista_m": 789.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 172,
+      "codigo": "50036400091",
+      "nombre": "JBL CLIP 5 ROJO",
+      "precio_pl": 789.0,
+      "precio_lista_m": 789.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 173,
+      "codigo": "50036384674",
+      "nombre": "JBL ENDURANCE RACE TWS NEGRO",
+      "precio_pl": 869.0,
+      "precio_lista_m": 869.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 174,
+      "codigo": "50036399333",
+      "nombre": "JBL GO 4 VERDE",
+      "precio_pl": 469.0,
+      "precio_lista_m": 469.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 175,
+      "codigo": "50036418478",
+      "nombre": "JBL GO 5 NEGRO",
+      "precio_pl": 569.0,
+      "precio_lista_m": 569.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 176,
+      "codigo": "VRBOX",
+      "nombre": "LENTES VR BOX",
+      "precio_pl": 29.0,
+      "precio_lista_m": 29.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 177,
+      "codigo": "6972895046033",
+      "nombre": "NEBRO BATERIA PORTATIL 10,000mAh",
+      "precio_pl": 149.0,
+      "precio_lista_m": 149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 178,
+      "codigo": "7500338470412",
+      "nombre": "POWER BANK SOLAR 5000 mAh NEGRO-AMARILLO",
+      "precio_pl": 69.0,
+      "precio_lista_m": 69.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 179,
+      "codigo": "6974368773033",
+      "nombre": "RAT001N 1Hora Mouse inalambirco 1.5V 50mh",
+      "precio_pl": 65.0,
+      "precio_lista_m": 65.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 180,
+      "codigo": "8806097349945",
+      "nombre": "SAMSUNG GALAXY BUDS CORE R410 BLANCO",
+      "precio_pl": 659.0,
+      "precio_lista_m": 659.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 181,
+      "codigo": "8806097349235",
+      "nombre": "SAMSUNG GALAXY BUDS CORE R410 NEGRO",
+      "precio_pl": 659.0,
+      "precio_lista_m": 659.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 182,
+      "codigo": "7505666363108",
+      "nombre": "SMART WATCH T500",
+      "precio_pl": 139.0,
+      "precio_lista_m": 139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 183,
+      "codigo": "U8PROMAX...",
+      "nombre": "SMART WATCH V BAND U8 PROMAX 45MM NEGRO",
+      "precio_pl": 439.0,
+      "precio_lista_m": 439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 184,
+      "codigo": "U8ULTRAPLATA",
+      "nombre": "SMART WATCH V BAND U8 ULTRA 49MM PLATA",
+      "precio_pl": 439.0,
+      "precio_lista_m": 439.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 185,
+      "codigo": "7804679190382",
+      "nombre": "SOYMOMO SMARTWHATCH KINDER SPACE 3.0 4G NEGRO",
+      "precio_pl": 2009.0,
+      "precio_lista_m": 2009.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 186,
+      "codigo": "7804679190368",
+      "nombre": "SOYMOMO SMARTWHATCH KINDER SPACE 3.0 4G ROSA",
+      "precio_pl": 2009.0,
+      "precio_lista_m": 2009.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 187,
+      "codigo": "GT06N",
+      "nombre": "ZENTTINEL GPS GT06N",
+      "precio_pl": 1969.0,
+      "precio_lista_m": 1969.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GADGETS"
+    },
+    {
+      "id": 188,
+      "codigo": "840353927759",
+      "nombre": "GOOGLE PIXEL 10 PRO XL 16 GB 256 GB 5G AZUL CLARO USA",
+      "precio_pl": 20479.0,
+      "precio_lista_m": 20479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GOOGLE"
+    },
+    {
+      "id": 189,
+      "codigo": "840353914353",
+      "nombre": "GOOGLE PIXEL 9 PRO XL 16 GB 256 GB 5G GRIS EUAS",
+      "precio_pl": 18329.0,
+      "precio_lista_m": 18329.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "GOOGLE"
+    },
+    {
+      "id": 190,
+      "codigo": "6936520864515",
+      "nombre": "HONOR PLAY 9S 8 GB 256 GB 4G NEGRO LATINO",
+      "precio_pl": 3629.0,
+      "precio_lista_m": 3629.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "HONOR"
+    },
+    {
+      "id": 191,
+      "codigo": "6936520864508",
+      "nombre": "HONOR PLAY 9S 8 GB 256 GB 4G VIOLETA LATINO",
+      "precio_pl": 3629.0,
+      "precio_lista_m": 3629.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "HONOR"
+    },
+    {
+      "id": 192,
+      "codigo": "7500647009204",
+      "nombre": "CREALITY 3D PRINTER K1 MAX",
+      "precio_pl": 15489.0,
+      "precio_lista_m": 15489.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "IMPRESORAS"
+    },
+    {
+      "id": 193,
+      "codigo": "4894947119767",
+      "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G NEGRO NACIONAL",
+      "precio_pl": 9259.0,
+      "precio_lista_m": 9259.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 194,
+      "codigo": "4894947119781",
+      "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G PLATA NACIONAL",
+      "precio_pl": 9259.0,
+      "precio_lista_m": 9259.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 195,
+      "codigo": "4894947119804",
+      "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G ROJO NACIONAL",
+      "precio_pl": 9259.0,
+      "precio_lista_m": 9259.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 196,
+      "codigo": "4894947086922N",
+      "nombre": "INFINIX GT30 PRO (12+12)GB 256 GB 5G BLANCO NACIONAL",
+      "precio_pl": 5649.0,
+      "precio_lista_m": 5649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 197,
+      "codigo": "4894947086915N",
+      "nombre": "INFINIX GT30 PRO (12+12)GB 256 GB 5G GRIS NACIONAL",
+      "precio_pl": 5649.0,
+      "precio_lista_m": 5649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 198,
+      "codigo": "4894947093456",
+      "nombre": "INFINIX HOT 60 PRO (8+8) GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 4189.0,
+      "precio_lista_m": 4189.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 199,
+      "codigo": "4894947093555",
+      "nombre": "INFINIX HOT 60 PRO (8+8) GB 256 GB 4G VERDE NACIONAL",
+      "precio_pl": 4189.0,
+      "precio_lista_m": 4189.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 200,
+      "codigo": "4894947092701",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G AMARILLO NACIONAL",
+      "precio_pl": 4729.0,
+      "precio_lista_m": 4729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 201,
+      "codigo": "4894947092596",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G PLATA NACIONAL",
+      "precio_pl": 4729.0,
+      "precio_lista_m": 4729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 202,
+      "codigo": "4894947092626",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G ROSA NACIONAL",
+      "precio_pl": 4729.0,
+      "precio_lista_m": 4729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 203,
+      "codigo": "4894947092688",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VERDE NACIONAL",
+      "precio_pl": 4729.0,
+      "precio_lista_m": 4729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 204,
+      "codigo": "4894947092657",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 4729.0,
+      "precio_lista_m": 4729.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 205,
+      "codigo": "4894947121685",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 206,
+      "codigo": "4894947121760",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G NARANJA NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 207,
+      "codigo": "4894947121661",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 208,
+      "codigo": "4894947121708",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G PLATA NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 209,
+      "codigo": "4894947121722",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G VERDE NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 210,
+      "codigo": "4894947121746",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 3129.0,
+      "precio_lista_m": 3129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 211,
+      "codigo": "4894947121845",
+      "nombre": "INFINIX HOT 70 (8+8) GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 3889.0,
+      "precio_lista_m": 3889.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 212,
+      "codigo": "4894947121807",
+      "nombre": "INFINIX HOT 70 (8+8) GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 3889.0,
+      "precio_lista_m": 3889.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 213,
+      "codigo": "4894947121883",
+      "nombre": "INFINIX HOT 70 (8+8) GB 256 GB 4G PLATA NACIONAL",
+      "precio_pl": 3889.0,
+      "precio_lista_m": 3889.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 214,
+      "codigo": "4894947120862",
+      "nombre": "INFINIX NOTE 60 ULTRA 12 GB 512 GB 5G NEGRO LATINO",
+      "precio_pl": 14039.0,
+      "precio_lista_m": 14039.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 215,
+      "codigo": "4894947120893",
+      "nombre": "INFINIX NOTE 60 ULTRA 12 GB 512 GB 5G PLATA LATINO",
+      "precio_pl": 14039.0,
+      "precio_lista_m": 14039.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 216,
+      "codigo": "4894947111181",
+      "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G AZUL NACIONAL",
+      "precio_pl": 5279.0,
+      "precio_lista_m": 5279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 217,
+      "codigo": "4894947111150",
+      "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G NEGRO NACIONAL",
+      "precio_pl": 5279.0,
+      "precio_lista_m": 5279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 218,
+      "codigo": "4894947111242",
+      "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G PLATA NACIONAL",
+      "precio_pl": 5279.0,
+      "precio_lista_m": 5279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 219,
+      "codigo": "4894947111211",
+      "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G VERDE NACIONAL",
+      "precio_pl": 5279.0,
+      "precio_lista_m": 5279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 220,
+      "codigo": "4894947116599",
+      "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 2359.0,
+      "precio_lista_m": 2359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 221,
+      "codigo": "4894947116568",
+      "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G GRIS NACIONAL",
+      "precio_pl": 2359.0,
+      "precio_lista_m": 2359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 222,
+      "codigo": "4894947116629",
+      "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G NARANJA NACIONAL",
+      "precio_pl": 2359.0,
+      "precio_lista_m": 2359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 223,
+      "codigo": "4894947116537",
+      "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G NEGRO NACIONAL",
+      "precio_pl": 2359.0,
+      "precio_lista_m": 2359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 224,
+      "codigo": "4894947116551",
+      "nombre": "INFINIX SMART 20 (4+4) GB 64 GB 4G GRIS NACIONAL",
+      "precio_pl": 2089.0,
+      "precio_lista_m": 2089.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 225,
+      "codigo": "4894947116520",
+      "nombre": "INFINIX SMART 20 (4+4) GB 64 GB 4G NEGRO NACIONAL",
+      "precio_pl": 2089.0,
+      "precio_lista_m": 2089.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "INFINIX"
+    },
+    {
+      "id": 226,
+      "codigo": "4894947014024",
+      "nombre": "ITEL A70 (3+5) GB 128 GB 4G NEGRO LATINO",
+      "precio_pl": 1479.0,
+      "precio_lista_m": 1479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ITEL"
+    },
+    {
+      "id": 227,
+      "codigo": "810039955017",
+      "nombre": "LOGIC G1L 3 EN 1 (4+10) GB 128 GB 4G GRIS",
+      "precio_pl": 2209.0,
+      "precio_lista_m": 2209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 228,
+      "codigo": "810039954584",
+      "nombre": "LOGIC L66 PRO (8+8) GB 128 GB 4G AZUL LATINO",
+      "precio_pl": 1419.0,
+      "precio_lista_m": 1419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 229,
+      "codigo": "810039954348",
+      "nombre": "LOGIC L66 PRO (8+8) GB 128 GB 4G NEGRO LATINO",
+      "precio_pl": 1419.0,
+      "precio_lista_m": 1419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 230,
+      "codigo": "810039954980",
+      "nombre": "LOGIC LIFE 10 SMARTWATCH NEGRO",
+      "precio_pl": 379.0,
+      "precio_lista_m": 379.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 231,
+      "codigo": "810039954997",
+      "nombre": "LOGIC LIFE 10 SMARTWATCH PLATA",
+      "precio_pl": 379.0,
+      "precio_lista_m": 379.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 232,
+      "codigo": "810039954973",
+      "nombre": "LOGIC LIFE 10 SMARTWATCH ROSA",
+      "precio_pl": 379.0,
+      "precio_lista_m": 379.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "LOGIC"
+    },
+    {
+      "id": 233,
+      "codigo": "6921958658065",
+      "nombre": "AOC ROKU SMART TV 58 4K UHD LED",
+      "precio_pl": 5279.0,
+      "precio_lista_m": 5279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 234,
+      "codigo": "6921958600507",
+      "nombre": "AOC ROKU TV 32 HD LED 32S5045",
+      "precio_pl": 1889.0,
+      "precio_lista_m": 1889.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 235,
+      "codigo": "6921958600514",
+      "nombre": "AOC ROKU TV 40 FHD LED 40S5045",
+      "precio_pl": 2639.0,
+      "precio_lista_m": 2639.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 236,
+      "codigo": "6921958643566",
+      "nombre": "AOC ROKU TV 43 FHD LED 43S5045",
+      "precio_pl": 2819.0,
+      "precio_lista_m": 2819.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 237,
+      "codigo": "6921958600651",
+      "nombre": "AOC ROKU TV 50 4K UHD LED 50U7045",
+      "precio_pl": 5129.0,
+      "precio_lista_m": 5129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 238,
+      "codigo": "GDOPELOTAS",
+      "nombre": "GDO PRO FRASCOS DE 3 PELOTAS PRESURIZADAS DE PADEL",
+      "precio_pl": 119.0,
+      "precio_lista_m": 119.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 239,
+      "codigo": "198957219535",
+      "nombre": "SAMSUNG CRYSTAL UHD SMART TV 65 UN65U7900FD",
+      "precio_pl": 7819.0,
+      "precio_lista_m": 7819.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 240,
+      "codigo": "VITRINAROJA",
+      "nombre": "VITRINA ARMABLE CON MUEBLE ROJO Y MESA ROJA",
+      "precio_pl": 6539.0,
+      "precio_lista_m": 6539.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MISCELANEOS"
+    },
+    {
+      "id": 241,
+      "codigo": "840023266157",
+      "nombre": "MOTOROLA MOTO EDGE 50 12 GB 512 GB 5G NARANJA EUAS",
+      "precio_pl": 4849.0,
+      "precio_lista_m": 4849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 242,
+      "codigo": "840023266164",
+      "nombre": "MOTOROLA MOTO EDGE 50 12 GB 512 GB 5G VERDE EUAS",
+      "precio_pl": 4849.0,
+      "precio_lista_m": 4849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 243,
+      "codigo": "840023296963",
+      "nombre": "MOTOROLA MOTO EDGE 60 12 GB 512 GB 5G AZUL LATINO",
+      "precio_pl": 5419.0,
+      "precio_lista_m": 5419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 244,
+      "codigo": "840023287190",
+      "nombre": "MOTOROLA MOTO EDGE 60 12 GB 512 GB 5G VERDE EURO",
+      "precio_pl": 5419.0,
+      "precio_lista_m": 5419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 245,
+      "codigo": "840023295881",
+      "nombre": "MOTOROLA MOTO EDGE 60 FUSION 8 GB 256 GB 5G GRIS EUAS",
+      "precio_pl": 4299.0,
+      "precio_lista_m": 4299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 246,
+      "codigo": "840493603728",
+      "nombre": "MOTOROLA MOTO EDGE 60 NEO 12 GB 256 GB 4G GRIS LATINO",
+      "precio_pl": 5209.0,
+      "precio_lista_m": 5209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 247,
+      "codigo": "840493602349",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G AZUL LATINO",
+      "precio_pl": 1839.0,
+      "precio_lista_m": 1839.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 248,
+      "codigo": "840493602363",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
+      "precio_pl": 1839.0,
+      "precio_lista_m": 1839.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 249,
+      "codigo": "840493602325",
+      "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G VERDE LATINO",
+      "precio_pl": 1839.0,
+      "precio_lista_m": 1839.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 250,
+      "codigo": "840493602370",
+      "nombre": "MOTOROLA MOTO G06 4 GB 256 GB 4G NARANJA LATINO",
+      "precio_pl": 2029.0,
+      "precio_lista_m": 2029.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 251,
+      "codigo": "840493602356",
+      "nombre": "MOTOROLA MOTO G06 4 GB 256 GB 4G VERDE LATINO",
+      "precio_pl": 2029.0,
+      "precio_lista_m": 2029.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 252,
+      "codigo": "840493602318",
+      "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G AZUL LATINO",
+      "precio_pl": 1739.0,
+      "precio_lista_m": 1739.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 253,
+      "codigo": "840493602387",
+      "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G NARANJA LATINO",
+      "precio_pl": 1739.0,
+      "precio_lista_m": 1739.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 254,
+      "codigo": "840493602332",
+      "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G VERDE LATINO",
+      "precio_pl": 1739.0,
+      "precio_lista_m": 1739.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 255,
+      "codigo": "840493613277",
+      "nombre": "MOTOROLA MOTO G17 4 GB 256 GB 4G AZUL CLARO LATINO",
+      "precio_pl": 2649.0,
+      "precio_lista_m": 2649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 256,
+      "codigo": "840493613239",
+      "nombre": "MOTOROLA MOTO G17 4 GB 256 GB 4G MORADO LATINO",
+      "precio_pl": 2649.0,
+      "precio_lista_m": 2649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 257,
+      "codigo": "840493613260",
+      "nombre": "MOTOROLA MOTO G17 4 GB 256 GB 4G ROSA LATINO",
+      "precio_pl": 2649.0,
+      "precio_lista_m": 2649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 258,
+      "codigo": "840023290800",
+      "nombre": "MOTOROLA MOTO G56 5G 8 GB 256 GB 5G AZUL LATINO",
+      "precio_pl": 0.0,
+      "precio_lista_m": 0.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 259,
+      "codigo": "840023290794",
+      "nombre": "MOTOROLA MOTO G56 5G 8 GB 256 GB 5G GRIS LATINO",
+      "precio_pl": 3499.0,
+      "precio_lista_m": 3499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 260,
+      "codigo": "840023290824",
+      "nombre": "MOTOROLA MOTO G56 5G 8 GB 256 GB 5G VERDE LATINO",
+      "precio_pl": 3499.0,
+      "precio_lista_m": 3499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 261,
+      "codigo": "8033779080494",
+      "nombre": "MOTOROLA MOTO G86 5G 8 GB 256 GB 5G AZUL EUAS",
+      "precio_pl": 3739.0,
+      "precio_lista_m": 3739.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 262,
+      "codigo": "8033779080500",
+      "nombre": "MOTOROLA MOTO G86 5G 8 GB 256 GB 5G VIOLETA EUAS",
+      "precio_pl": 3739.0,
+      "precio_lista_m": 3739.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 263,
+      "codigo": "840023297359",
+      "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G AZUL ASIAN",
+      "precio_pl": 4579.0,
+      "precio_lista_m": 4579.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 264,
+      "codigo": "840023297496",
+      "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G ROSA ASIAN",
+      "precio_pl": 4579.0,
+      "precio_lista_m": 4579.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 265,
+      "codigo": "840493607184",
+      "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G ROSA EURO",
+      "precio_pl": 4579.0,
+      "precio_lista_m": 4579.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 266,
+      "codigo": "840023297502",
+      "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G VERDE ASIAN",
+      "precio_pl": 4579.0,
+      "precio_lista_m": 4579.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 267,
+      "codigo": "840493607177",
+      "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G VERDE EURO",
+      "precio_pl": 4579.0,
+      "precio_lista_m": 4579.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "MOTOROLA"
+    },
+    {
+      "id": 268,
+      "codigo": "NAOMIGOL...",
+      "nombre": "NAOMI GOLD 2G ROJO NACIONAL",
+      "precio_pl": 419.0,
+      "precio_lista_m": 419.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "NAOMI"
+    },
+    {
+      "id": 269,
+      "codigo": "NP6800NEGRO",
+      "nombre": "NAOMI NP6800 OUTDOOR 32 MB 32 MB 4G NEGRO NACIONAL",
+      "precio_pl": 479.0,
+      "precio_lista_m": 479.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "NAOMI"
+    },
+    {
+      "id": 270,
+      "codigo": "N3VERDE",
+      "nombre": "NAOMICASE N3 3 GB 64 GB 4G VERDE LATINO",
+      "precio_pl": 1649.0,
+      "precio_lista_m": 1649.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "NAOMI"
+    },
+    {
+      "id": 271,
+      "codigo": "BLUCENEFA",
+      "nombre": "BLU CENEFA PROMOCIONAL",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 272,
+      "codigo": "BOCINAREALME",
+      "nombre": "BOCINA BLUETOOTH REALMEOW",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 273,
+      "codigo": "FLYERBLUG95",
+      "nombre": "FLYER PROMOCIONAL BLU G95",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 274,
+      "codigo": "9022725",
+      "nombre": "IMPERMEABLE BALON",
+      "precio_pl": 0.0,
+      "precio_lista_m": 0.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 275,
+      "codigo": "LLAVERORE...",
+      "nombre": "LLAVERO REALMEOW",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 276,
+      "codigo": "PLUMABAIT",
+      "nombre": "PLUMA BAIT",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 277,
+      "codigo": "HAYATODESING",
+      "nombre": "POP STICKER NEW CARD HAYATO DESING",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 278,
+      "codigo": "KELLYDESING",
+      "nombre": "POP STICKER NEW CARD KELLY DESING",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 279,
+      "codigo": "MOCODESING",
+      "nombre": "POP STICKER NEW CARD MOCO DESING",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 280,
+      "codigo": "WOLFRAHHD...",
+      "nombre": "POP STICKER NEW CARD WOLFRAHH DESING",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 281,
+      "codigo": "POSTERINFINIX",
+      "nombre": "POSTER INFINIX HOT 50 PRO PLUS (50X70)",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 282,
+      "codigo": "9021962",
+      "nombre": "RENATO POLAR PREPAGO 2025",
+      "precio_pl": 0.0,
+      "precio_lista_m": 0.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 283,
+      "codigo": "7500338470566",
+      "nombre": "SOUND JET BOCINA PORTATIL NEGRO",
+      "precio_pl": 59.0,
+      "precio_lista_m": 59.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 284,
+      "codigo": "STICKERARD...",
+      "nombre": "STICKER INFINIX HORIZONTAL ARDILLA",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 285,
+      "codigo": "STICKERPANDA",
+      "nombre": "STICKER INFINIX HORIZONTAL PANDA",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 286,
+      "codigo": "STICKERVE...",
+      "nombre": "STICKER INFINIX VERTICAL KELLY",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 287,
+      "codigo": "STICKERMOCO",
+      "nombre": "STICKER INFINIX VERTICAL MOCO",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 288,
+      "codigo": "STICKERHO...",
+      "nombre": "STIKCKER INFINIX HORIZONTAL KELLY",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 289,
+      "codigo": "4170000094000",
+      "nombre": "TECNO TUMBLER SPEAKER",
+      "precio_pl": 0.01,
+      "precio_lista_m": 0.01,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 290,
+      "codigo": "6972353246944",
+      "nombre": "WATCH SMART SPORTWATCH NEGRO",
+      "precio_pl": 79.0,
+      "precio_lista_m": 79.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 291,
+      "codigo": "6972353246946",
+      "nombre": "WATCH SMART SPORTWATCH VERDE",
+      "precio_pl": 79.0,
+      "precio_lista_m": 79.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 292,
+      "codigo": "WRISTBAN...",
+      "nombre": "WATCH SMART WRISTBAND NEGRO",
+      "precio_pl": 69.0,
+      "precio_lista_m": 69.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "PROMOCIONALES"
+    },
+    {
+      "id": 293,
+      "codigo": "7500647001604",
+      "nombre": "QTOUCH MONITOR 19.5 PULG QT-1900",
+      "precio_pl": 769.0,
+      "precio_lista_m": 769.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "QTOUCH"
+    },
+    {
+      "id": 294,
+      "codigo": "7500647001598",
+      "nombre": "QTOUCH MONITOR 22 PULG QT-2200",
+      "precio_pl": 1199.0,
+      "precio_lista_m": 1199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "QTOUCH"
+    },
+    {
+      "id": 295,
+      "codigo": "7500647004124",
+      "nombre": "QTOUCH MONITOR 24 PULG QT-2400",
+      "precio_pl": 1329.0,
+      "precio_lista_m": 1329.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "QTOUCH"
+    },
+    {
+      "id": 296,
+      "codigo": "7500647004131",
+      "nombre": "QTOUCH MONITOR 27 PULG QT-2700",
+      "precio_pl": 1559.0,
+      "precio_lista_m": 1559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "QTOUCH"
+    },
+    {
+      "id": 297,
+      "codigo": "7500647007798",
+      "nombre": "SMARTPHONE QTOUCH Q524 2 GB 32 GB 3G AZUL LATINO",
+      "precio_pl": 365.0,
+      "precio_lista_m": 365.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "QTOUCH"
+    },
+    {
+      "id": 298,
+      "codigo": "6941764465237",
+      "nombre": "REALME C71 8 GB 256 GB 4G BLANCO EURO",
+      "precio_pl": 2799.0,
+      "precio_lista_m": 2799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "REALME"
+    },
+    {
+      "id": 299,
+      "codigo": "6941764465282",
+      "nombre": "REALME C71 8 GB 256 GB 4G VERDE EURO",
+      "precio_pl": 2799.0,
+      "precio_lista_m": 2799.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "REALME"
+    },
+    {
+      "id": 300,
+      "codigo": "6941764481350",
+      "nombre": "REALME C85 8 GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 3399.0,
+      "precio_lista_m": 3399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "REALME"
+    },
+    {
+      "id": 301,
+      "codigo": "6941764481336",
+      "nombre": "REALME C85 8 GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 3399.0,
+      "precio_lista_m": 3399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "REALME"
+    },
+    {
+      "id": 302,
+      "codigo": "REALMENOT...",
+      "nombre": "REALME NOTE 70 4 GB 128 GB 4G DORADO NACIONAL",
+      "precio_pl": 1810.0,
+      "precio_lista_m": 1810.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "REALME"
+    },
+    {
+      "id": 303,
+      "codigo": "8806097102342",
+      "nombre": "SAMSUNG A26 5G 8 GB 256 GB 5G BLANCO EUAS",
+      "precio_pl": 4300.0,
+      "precio_lista_m": 4300.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 304,
+      "codigo": "8806097102434",
+      "nombre": "SAMSUNG A26 5G 8 GB 256 GB 5G NEGRO EUAS",
+      "precio_pl": 4300.0,
+      "precio_lista_m": 4300.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 305,
+      "codigo": "8806099062071",
+      "nombre": "SAMSUNG A37 5G 8 GB 256 GB 5G NEGRO LATINO",
+      "precio_pl": 6139.0,
+      "precio_lista_m": 6139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 306,
+      "codigo": "8806099061814",
+      "nombre": "SAMSUNG A37 5G 8 GB 256 GB 5G VERDE OSCURO LATINO",
+      "precio_pl": 6139.0,
+      "precio_lista_m": 6139.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 307,
+      "codigo": "8806097055655",
+      "nombre": "SAMSUNG A56 5G 8 GB 256 GB 5G NEGRO LATINO",
+      "precio_pl": 6389.0,
+      "precio_lista_m": 6389.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 308,
+      "codigo": "8806099052713",
+      "nombre": "SAMSUNG A57 5G 8 GB 128 GB 5G AZUL CIELO LATINO",
+      "precio_pl": 6329.0,
+      "precio_lista_m": 6329.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 309,
+      "codigo": "8806099052621",
+      "nombre": "SAMSUNG A57 5G 8 GB 128 GB 5G GRIS LATINO",
+      "precio_pl": 6329.0,
+      "precio_lista_m": 6329.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 310,
+      "codigo": "8806099057251",
+      "nombre": "SAMSUNG A57 5G 8 GB 256 GB 5G AZUL LATINO",
+      "precio_pl": 6859.0,
+      "precio_lista_m": 6859.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 311,
+      "codigo": "8806099052614",
+      "nombre": "SAMSUNG A57 5G 8 GB 256 GB 5G GRIS LATINO",
+      "precio_pl": 6859.0,
+      "precio_lista_m": 6859.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 312,
+      "codigo": "887276417578",
+      "nombre": "SAMSUNG A71 6 GB 128 GB 5G NEGRO LATINO PRE",
+      "precio_pl": 4469.0,
+      "precio_lista_m": 4469.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 313,
+      "codigo": "8806095655642",
+      "nombre": "SAMSUNG GALAXY R530 BUDS 3 BLANCO",
+      "precio_pl": 2669.0,
+      "precio_lista_m": 2669.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 314,
+      "codigo": "8806095655741",
+      "nombre": "SAMSUNG GALAXY R530 BUDS 3 PLATA",
+      "precio_pl": 2669.0,
+      "precio_lista_m": 2669.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 315,
+      "codigo": "8806095658339",
+      "nombre": "SAMSUNG GALAXY R630 BUDS 3PRO BLANCO",
+      "precio_pl": 3629.0,
+      "precio_lista_m": 3629.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 316,
+      "codigo": "8806095658353",
+      "nombre": "SAMSUNG GALAXY R630 BUDS 3PRO PLATA",
+      "precio_pl": 3629.0,
+      "precio_lista_m": 3629.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 317,
+      "codigo": "8806095031415",
+      "nombre": "SAMSUNG GALAXY SMARTTAG2 NEGRO",
+      "precio_pl": 379.0,
+      "precio_lista_m": 379.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 318,
+      "codigo": "S21BLANCO128",
+      "nombre": "SAMSUNG S21 5G 8 GB 128 GB 5G BLANCO GRADO A",
+      "precio_pl": 3679.0,
+      "precio_lista_m": 3679.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 319,
+      "codigo": "S21GRIS128",
+      "nombre": "SAMSUNG S21 5G 8 GB 128 GB 5G GRIS GRADO A",
+      "precio_pl": 3679.0,
+      "precio_lista_m": 3679.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 320,
+      "codigo": "S21ROSA128",
+      "nombre": "SAMSUNG S21 5G 8 GB 128 GB 5G ROSA GRADO A",
+      "precio_pl": 3679.0,
+      "precio_lista_m": 3679.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 321,
+      "codigo": "S21VIOLETA128",
+      "nombre": "SAMSUNG S21 5G 8 GB 128 GB 5G VIOLETA GRADO A",
+      "precio_pl": 3679.0,
+      "precio_lista_m": 3679.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 322,
+      "codigo": "S21GRIS256",
+      "nombre": "SAMSUNG S21 5G 8 GB 256 GB 5G GRIS GRADO A",
+      "precio_pl": 4019.0,
+      "precio_lista_m": 4019.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 323,
+      "codigo": "S22BLANCO128",
+      "nombre": "SAMSUNG S22 8 GB 128 GB 5G BLANCO GRADO A",
+      "precio_pl": 4199.0,
+      "precio_lista_m": 4199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 324,
+      "codigo": "S22DORADO128",
+      "nombre": "SAMSUNG S22 8 GB 128 GB 5G DORADO GRADO A",
+      "precio_pl": 4199.0,
+      "precio_lista_m": 4199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 325,
+      "codigo": "S22NEGRO1...",
+      "nombre": "SAMSUNG S22 8 GB 128 GB 5G NEGRO GRADO A",
+      "precio_pl": 4199.0,
+      "precio_lista_m": 4199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 326,
+      "codigo": "S22VERDE128",
+      "nombre": "SAMSUNG S22 8 GB 128 GB 5G VERDE GRADO A",
+      "precio_pl": 4199.0,
+      "precio_lista_m": 4199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 327,
+      "codigo": "S22VIOLETA128",
+      "nombre": "SAMSUNG S22 8 GB 128 GB 5G VIOLETA GRADO A",
+      "precio_pl": 4199.0,
+      "precio_lista_m": 4199.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 328,
+      "codigo": "S22PLUSNE...",
+      "nombre": "SAMSUNG S22 PLUS 8 GB 128 GB 5G NEGRO GRADO A",
+      "precio_pl": 4449.0,
+      "precio_lista_m": 4449.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 329,
+      "codigo": "S22PLUSNE...",
+      "nombre": "SAMSUNG S22 PLUS 8 GB 256 GB 5G NEGRO GRADO A",
+      "precio_pl": 4849.0,
+      "precio_lista_m": 4849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 330,
+      "codigo": "S22PLUSVE...",
+      "nombre": "SAMSUNG S22 PLUS 8 GB 256 GB 5G VERDE GRADO A",
+      "precio_pl": 4849.0,
+      "precio_lista_m": 4849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 331,
+      "codigo": "S22ULTRAN...",
+      "nombre": "SAMSUNG S22 ULTRA 8 GB 128 GB 5G NEGRO GRADO A",
+      "precio_pl": 7059.0,
+      "precio_lista_m": 7059.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 332,
+      "codigo": "S23NEGRO128",
+      "nombre": "SAMSUNG S23 8 GB 128 GB 5G NEGRO GRADO A",
+      "precio_pl": 5699.0,
+      "precio_lista_m": 5699.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 333,
+      "codigo": "S23NEGROA...",
+      "nombre": "SAMSUNG S23 8 GB 128 GB 5G NEGRO GRADO AB",
+      "precio_pl": 5499.0,
+      "precio_lista_m": 5499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 334,
+      "codigo": "S23ROSA128",
+      "nombre": "SAMSUNG S23 8 GB 128 GB 5G ROSA GRADO A",
+      "precio_pl": 5699.0,
+      "precio_lista_m": 5699.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 335,
+      "codigo": "S23VERDE128",
+      "nombre": "SAMSUNG S23 8 GB 128 GB 5G VERDE GRADO A",
+      "precio_pl": 5699.0,
+      "precio_lista_m": 5699.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 336,
+      "codigo": "S23VERDEA...",
+      "nombre": "SAMSUNG S23 8 GB 128 GB 5G VERDE GRADO AB",
+      "precio_pl": 5499.0,
+      "precio_lista_m": 5499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 337,
+      "codigo": "S23PLUSNE...",
+      "nombre": "SAMSUNG S23 PLUS 8 GB 256 GB 5G NEGRO GRADO A",
+      "precio_pl": 6749.0,
+      "precio_lista_m": 6749.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 338,
+      "codigo": "S23PLUSNE...",
+      "nombre": "SAMSUNG S23 PLUS 8 GB 512 GB 5G NEGRO GRADO A",
+      "precio_pl": 7359.0,
+      "precio_lista_m": 7359.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 339,
+      "codigo": "198957227639",
+      "nombre": "SAMSUNG S25 FE 8 GB 128 GB 5G NEGRO LATINO",
+      "precio_pl": 8349.0,
+      "precio_lista_m": 8349.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 340,
+      "codigo": "8806097896449",
+      "nombre": "SAMSUNG S26 ULTRA 12 GB 512 GB 5G AZUL CIELO LATINO",
+      "precio_pl": 22529.0,
+      "precio_lista_m": 22529.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 341,
+      "codigo": "887276845692",
+      "nombre": "SAMSUNG Z FOLD 6 12 GB 512 GB 5G ROSA LATINO",
+      "precio_pl": 23699.0,
+      "precio_lista_m": 23699.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SAMSUNG"
+    },
+    {
+      "id": 342,
+      "codigo": "7506227347575",
+      "nombre": "SENWA S301A 32 MB 32 MB 2G ROJO NACIONAL",
+      "precio_pl": 279.0,
+      "precio_lista_m": 279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SENWA"
+    },
+    {
+      "id": 343,
+      "codigo": "PR0024ROJO",
+      "nombre": "SENWA SPINNER SP-200 ROJO LATINO",
+      "precio_pl": 309.0,
+      "precio_lista_m": 309.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "SENWA"
+    },
+    {
+      "id": 344,
+      "codigo": "195950398021",
+      "nombre": "APPLE IPAD PRO 13 WIFI M5 12 GB 256 GB NEGRO",
+      "precio_pl": 27509.0,
+      "precio_lista_m": 27509.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 345,
+      "codigo": "848958041481",
+      "nombre": "BLU M8L 3 GB 32 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1029.0,
+      "precio_lista_m": 1029.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 346,
+      "codigo": "DIALNG10",
+      "nombre": "DIALN TAB G10 4 GB 64 GB 3G NEGRO LATINO",
+      "precio_pl": 1229.0,
+      "precio_lista_m": 1229.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 347,
+      "codigo": "8806097860471",
+      "nombre": "SAMSUNG GALAXY TAB A11 X133 4 GB 64 GB GRIS LATINO",
+      "precio_pl": 2229.0,
+      "precio_lista_m": 2229.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 348,
+      "codigo": "8806097804604",
+      "nombre": "SAMSUNG GALAXY TAB A11 X133 8 GB 128 GB GRIS EUAS",
+      "precio_pl": 3339.0,
+      "precio_lista_m": 3339.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 349,
+      "codigo": "8806097784708",
+      "nombre": "SAMSUNG GALAXY TAB A11 X135 4 GB 64 GB 4G GRIS LATINO",
+      "precio_pl": 3369.0,
+      "precio_lista_m": 3369.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 350,
+      "codigo": "8806097784593",
+      "nombre": "SAMSUNG GALAXY TAB A11 X135 4 GB 64 GB 4G PLATA LATINO",
+      "precio_pl": 3369.0,
+      "precio_lista_m": 3369.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 351,
+      "codigo": "8806097783220",
+      "nombre": "SAMSUNG GALAXY TAB A11 X135 8 GB 128 GB 4G PLATA EUAS",
+      "precio_pl": 4019.0,
+      "precio_lista_m": 4019.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 352,
+      "codigo": "8806097664758",
+      "nombre": "SAMSUNG GALAXY TAB S10 LITE 6 GB 128 GB PLATA EUAS",
+      "precio_pl": 5129.0,
+      "precio_lista_m": 5129.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TABLETS"
+    },
+    {
+      "id": 353,
+      "codigo": "860014222337",
+      "nombre": "TECHVIEW S1000PRO 8 GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1389.0,
+      "precio_lista_m": 1389.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECHVIEW"
+    },
+    {
+      "id": 354,
+      "codigo": "860014222313",
+      "nombre": "TECHVIEW S1000PRO 8 GB 128 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1389.0,
+      "precio_lista_m": 1389.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECHVIEW"
+    },
+    {
+      "id": 355,
+      "codigo": "860014222306",
+      "nombre": "TECHVIEW S15PRO 8 GB 128 GB 4G NEGRO NACIONAL",
+      "precio_pl": 1209.0,
+      "precio_lista_m": 1209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECHVIEW"
+    },
+    {
+      "id": 356,
+      "codigo": "860014222320",
+      "nombre": "TECHVIEW S15PRO 8 GB 128 GB 4G PLATA NACIONAL",
+      "precio_pl": 1209.0,
+      "precio_lista_m": 1209.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECHVIEW"
+    },
+    {
+      "id": 357,
+      "codigo": "4894947114731",
+      "nombre": "TECNO CAMON 50 PRO (8+8) GB 256 GB 4G VERDE LATINO",
+      "precio_pl": 5429.0,
+      "precio_lista_m": 5429.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 358,
+      "codigo": "4894947047442",
+      "nombre": "TECNO SPARK 30 PRO (8+8) GB 256 GB 4G NEGRO LATINO",
+      "precio_pl": 2839.0,
+      "precio_lista_m": 2839.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 359,
+      "codigo": "4894947117381",
+      "nombre": "TECNO SPARK 50 4 GB 256 GB 4G AZUL NACIONAL",
+      "precio_pl": 2849.0,
+      "precio_lista_m": 2849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 360,
+      "codigo": "4894947117398",
+      "nombre": "TECNO SPARK 50 4 GB 256 GB 4G GRIS NACIONAL",
+      "precio_pl": 2849.0,
+      "precio_lista_m": 2849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 361,
+      "codigo": "4894947117404",
+      "nombre": "TECNO SPARK 50 4 GB 256 GB 4G MORADO NACIONAL",
+      "precio_pl": 2849.0,
+      "precio_lista_m": 2849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 362,
+      "codigo": "4894947117374",
+      "nombre": "TECNO SPARK 50 4 GB 256 GB 4G NEGRO NACIONAL",
+      "precio_pl": 2849.0,
+      "precio_lista_m": 2849.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 363,
+      "codigo": "TECNOSPA...",
+      "nombre": "TECNO SPARK GO 2024 (4+4) GB 128 GB OPEN BOX",
+      "precio_pl": 1499.0,
+      "precio_lista_m": 1499.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 364,
+      "codigo": "4894947105319",
+      "nombre": "TECNO SPARK GO 3 4 GB 128 GB 4G AZUL NACIONAL",
+      "precio_pl": 1959.0,
+      "precio_lista_m": 1959.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 365,
+      "codigo": "4894947116384",
+      "nombre": "TECNO SPARK GO 3 4 GB 128 GB 4G BLANCO NACIONAL",
+      "precio_pl": 1959.0,
+      "precio_lista_m": 1959.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 366,
+      "codigo": "4894947105296",
+      "nombre": "TECNO SPARK GO 3 4 GB 128 GB 4G GRIS TITANEO NACIONAL",
+      "precio_pl": 1959.0,
+      "precio_lista_m": 1959.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 367,
+      "codigo": "4894947105333",
+      "nombre": "TECNO SPARK GO 3 4 GB 128 GB 4G VIOLETA NACIONAL",
+      "precio_pl": 1959.0,
+      "precio_lista_m": 1959.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "TECNO"
+    },
+    {
+      "id": 368,
+      "codigo": "810039953426",
+      "nombre": "UNONU Q5G 32 MB 32 MB 3G AMARILLO LATINO",
+      "precio_pl": 299.0,
+      "precio_lista_m": 299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "UNONU"
+    },
+    {
+      "id": 369,
+      "codigo": "810039953457",
+      "nombre": "UNONU Q5G 32 MB 32 MB 3G AZUL LATINO",
+      "precio_pl": 299.0,
+      "precio_lista_m": 299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "UNONU"
+    },
+    {
+      "id": 370,
+      "codigo": "810039953440",
+      "nombre": "UNONU Q5G 32 MB 32 MB 3G VERDE LATINO",
+      "precio_pl": 299.0,
+      "precio_lista_m": 299.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "UNONU"
+    },
+    {
+      "id": 371,
+      "codigo": "6932554445058",
+      "nombre": "XIAOMI REDMI 15 6 GB 128 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 2949.0,
+      "precio_lista_m": 2949.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 372,
+      "codigo": "6932554449681",
+      "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G GRIS NACIONAL PJ",
+      "precio_pl": 3469.0,
+      "precio_lista_m": 3469.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 373,
+      "codigo": "6932554445065",
+      "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 3469.0,
+      "precio_lista_m": 3469.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 374,
+      "codigo": "6932554450113",
+      "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G VIOLETA NACIONAL PJ",
+      "precio_pl": 3469.0,
+      "precio_lista_m": 3469.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 375,
+      "codigo": "6932554456016",
+      "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G AZUL NACIONAL PJ",
+      "precio_pl": 2319.0,
+      "precio_lista_m": 2319.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 376,
+      "codigo": "6932554444853",
+      "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 2319.0,
+      "precio_lista_m": 2319.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 377,
+      "codigo": "6932554455903",
+      "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G VERDE NACIONAL PJ",
+      "precio_pl": 2319.0,
+      "precio_lista_m": 2319.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 378,
+      "codigo": "6932554444815",
+      "nombre": "XIAOMI REDMI 15C 4 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 2559.0,
+      "precio_lista_m": 2559.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 379,
+      "codigo": "6932554444808",
+      "nombre": "XIAOMI REDMI 15C 8 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 2979.0,
+      "precio_lista_m": 2979.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 380,
+      "codigo": "6932554493387",
+      "nombre": "XIAOMI REDMI A7 PRO 4 GB 128 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 2269.0,
+      "precio_lista_m": 2269.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 381,
+      "codigo": "6932554493431",
+      "nombre": "XIAOMI REDMI A7 PRO 4 GB 64 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 1949.0,
+      "precio_lista_m": 1949.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 382,
+      "codigo": "6941812780718",
+      "nombre": "XIAOMI REDMI NOTE 14 PRO PLUS 5G 8 GB 256 GB 5G NEGRO NACIONAL",
+      "precio_pl": 6249.0,
+      "precio_lista_m": 6249.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 383,
+      "codigo": "6932554429133",
+      "nombre": "XIAOMI REDMI NOTE 14S 8 GB 256 GB 4G NEGRO LATINO",
+      "precio_pl": 4059.0,
+      "precio_lista_m": 4059.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 384,
+      "codigo": "6932554482442",
+      "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G AZUL NACIONAL PJ",
+      "precio_pl": 3399.0,
+      "precio_lista_m": 3399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 385,
+      "codigo": "6932554482992",
+      "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G VIOLETA NACIONAL PJ",
+      "precio_pl": 3399.0,
+      "precio_lista_m": 3399.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 386,
+      "codigo": "6932554483340",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G AZUL NACIONAL PJ",
+      "precio_pl": 3879.0,
+      "precio_lista_m": 3879.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 387,
+      "codigo": "6932554476076",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 3879.0,
+      "precio_lista_m": 3879.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 388,
+      "codigo": "6932554483111",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VERDE NACIONAL PJ",
+      "precio_pl": 3879.0,
+      "precio_lista_m": 3879.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 389,
+      "codigo": "6932554482374",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VIOLETA NACIONAL PJ",
+      "precio_pl": 3879.0,
+      "precio_lista_m": 3879.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 390,
+      "codigo": "6932554405397",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 512 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 4449.0,
+      "precio_lista_m": 4449.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 391,
+      "codigo": "6932554498481",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO 12 GB 512 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 6149.0,
+      "precio_lista_m": 6149.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 392,
+      "codigo": "6932554471217",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO 5G 8 GB 256 GB 5G NEGRO PJ",
+      "precio_pl": 5689.0,
+      "precio_lista_m": 5689.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 393,
+      "codigo": "6932554485245",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO 5G 8 GB 512 GB 5G AZUL CLARO PJ",
+      "precio_pl": 6279.0,
+      "precio_lista_m": 6279.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 394,
+      "codigo": "6932554480455",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO 8 GB 256 GB 4G GRIS TITANEO NACIONAL PJ",
+      "precio_pl": 5059.0,
+      "precio_lista_m": 5059.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 395,
+      "codigo": "6932554469764",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO 8 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "precio_pl": 5059.0,
+      "precio_lista_m": 5059.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 396,
+      "codigo": "6932554490256",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO PLUS 5G 8 GB 256 GB 5G NEGRO PJ",
+      "precio_pl": 6909.0,
+      "precio_lista_m": 6909.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "XIAOMI"
+    },
+    {
+      "id": 397,
+      "codigo": "7506227339075",
+      "nombre": "ZTE BLADE V20 SMART 4 GB 128 GB 4G AZUL LATINO",
+      "precio_pl": 4099.0,
+      "precio_lista_m": 4099.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ZTE"
+    },
+    {
+      "id": 398,
+      "codigo": "7506227337354",
+      "nombre": "ZTE BLADE V2020 4 GB 128 GB 4G BLANCO LATINO",
+      "precio_pl": 4300.0,
+      "precio_lista_m": 4300.0,
+      "disponible": true,
+      "lista": "PL",
+      "categoria_pdf": "ZTE"
+    }
+  ]
+}

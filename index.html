@@ -252,8 +252,9 @@ let activeBrand = 'Todos';
 
 const urlParams = new URLSearchParams(window.location.search);
 const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
+const IS_PL = urlParams.has('PL') || urlParams.has('pl');
 const ONLY_CELLPHONES = urlParams.has('celulares') || urlParams.has('CELULARES');
-const PRICE_DISCOUNT = IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0));
+const PRICE_DISCOUNT = IS_PL ? 0 : (IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0)));
 const CELLPHONE_BRANDS = new Set(['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','Itel','Cubot','Google','Naomi','Qtouch','Blackview','Techview','Logic']);
 
 function fmtPrice(p){
@@ -292,16 +293,20 @@ function normalizeProduct(item, index){
 }
 
 async function loadProducts(){
+  const inventoryFile = IS_PL ? 'plus.json' : 'inventario.json';
   const [response, imageResponse] = await Promise.all([
-    fetch('inventario.json?v=' + Date.now()),
+    fetch(inventoryFile + '?v=' + Date.now()),
     fetch('product-images.json?v=' + Date.now()).catch(() => null)
   ]);
-  if(!response.ok) throw new Error('No se pudo cargar inventario.json');
+  if(!response.ok) throw new Error('No se pudo cargar ' + inventoryFile);
   const data = await response.json();
   if(imageResponse && imageResponse.ok){
     PRODUCT_IMAGES = await imageResponse.json();
   }
   PRODUCTS = (data.productos || data).map(normalizeProduct);
+  if(IS_PL){
+    document.querySelector('.hero h1').textContent = 'LISTA PL';
+  }
 }
 
 function productImage(product){
@@ -379,7 +384,7 @@ async function init(){
     updateBrandChips();
     render();
   }catch(error){
-    document.getElementById('grid-wrap').innerHTML = `<div class="empty">No se pudo cargar el inventario. Revisa inventario.json.</div>`;
+    document.getElementById('grid-wrap').innerHTML = `<div class="empty">No se pudo cargar el inventario.</div>`;
     console.error(error);
   }
 }
