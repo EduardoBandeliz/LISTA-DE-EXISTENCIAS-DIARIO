@@ -120,10 +120,19 @@ def write_inventory_data(inventory: dict) -> str:
 
 
 def sync_from_github() -> None:
-    # If a previous run failed after writing inventario.json, discard that
-    # generated file before pulling. The current PDF will regenerate it.
-    run(["git", "restore", "--", "inventario.json"])
-    run(["git", "pull", "--rebase", "origin", "main"])
+    stashed_images = False
+    if pending_image_status():
+        run(["git", "stash", "push", "-u", "-m", "imagenes pendientes del bot", "--", "product-images.json", "img/celulares"])
+        stashed_images = True
+
+    try:
+        # If a previous run failed after writing inventario.json, discard that
+        # generated file before pulling. The current PDF will regenerate it.
+        run(["git", "restore", "--", "inventario.json"])
+        run(["git", "pull", "--rebase", "origin", "main"])
+    finally:
+        if stashed_images:
+            run(["git", "stash", "pop"])
 
 
 def publish_to_github(summary: str) -> str:
