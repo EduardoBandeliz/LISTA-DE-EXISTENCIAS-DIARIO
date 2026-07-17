@@ -392,7 +392,7 @@ def pending_image_count() -> int:
     status = pending_image_status()
     if not status:
         return 0
-    return sum(1 for line in status.splitlines() if line.strip())
+    return sum(1 for line in status.splitlines() if "img/celulares/" in line)
 
 
 def publish_pending_images() -> str:
