@@ -1,6 +1,6 @@
 {
-  "source_pdf": "1784401245_109.pdf",
-  "report_datetime": "2026-07-18T01:00:45",
+  "source_pdf": "1784552448_109.pdf",
+  "report_datetime": "2026-07-20T07:00:48",
   "total_productos": 391,
   "total_disponibles": 338,
   "total_agotados": 53,
@@ -2783,8 +2783,8 @@
       "clave_categoria": "MI...",
       "codigo": "6921958600514",
       "nombre": "AOC ROKU TV 40 FHD LED 40S5045",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 2759.0,
       "precio_publico": 3999.0
