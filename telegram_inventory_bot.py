@@ -41,6 +41,14 @@ AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
 IMPORTANT_PRICE_CHANGE_PERCENT = float(os.getenv("IMPORTANT_PRICE_CHANGE_PERCENT", "5") or 5)
+OPPORTUNITY_PRICE_DROP_AMOUNT = float(
+    os.getenv("OPPORTUNITY_PRICE_DROP_AMOUNT", str(IMPORTANT_PRICE_CHANGE_AMOUNT))
+    or IMPORTANT_PRICE_CHANGE_AMOUNT
+)
+OPPORTUNITY_PRICE_DROP_PERCENT = float(
+    os.getenv("OPPORTUNITY_PRICE_DROP_PERCENT", str(IMPORTANT_PRICE_CHANGE_PERCENT))
+    or IMPORTANT_PRICE_CHANGE_PERCENT
+)
 CELLPHONE_BRANDS = {
     "Apple",
     "Samsung",
@@ -379,16 +387,24 @@ def analyze_inventory_update(previous_inventory: dict, new_inventory: dict) -> d
         product for product in new_products if is_cellphone(product) and not product_image(product, images)
     ]
     important_price_changes = []
+    opportunities = []
     for product, old_price, new_price in price_changes:
         amount = abs(new_price - old_price)
         percent = (amount / old_price * 100) if old_price else 100
         if amount >= IMPORTANT_PRICE_CHANGE_AMOUNT or percent >= IMPORTANT_PRICE_CHANGE_PERCENT:
             important_price_changes.append((product, old_price, new_price, amount, percent))
+        if new_price < old_price:
+            drop_amount = old_price - new_price
+            drop_percent = (drop_amount / old_price * 100) if old_price else 100
+            if drop_amount >= OPPORTUNITY_PRICE_DROP_AMOUNT or drop_percent >= OPPORTUNITY_PRICE_DROP_PERCENT:
+                opportunities.append((product, old_price, new_price, drop_amount, drop_percent))
+    opportunities.sort(key=lambda item: (item[3], item[4]), reverse=True)
 
     return {
         "new_products": new_products,
         "price_changes": price_changes,
         "important_price_changes": important_price_changes,
+        "opportunities": opportunities,
         "new_without_image": new_without_image,
         "restocked": restocked,
         "depleted": depleted,
@@ -421,6 +437,16 @@ def save_update_report_state(analysis: dict, summary: str) -> None:
             }
             for product, old_price, new_price, amount, percent in analysis["important_price_changes"]
         ],
+        "opportunities": [
+            {
+                "producto": serialize_product(product),
+                "precio_anterior": old_price,
+                "precio_nuevo": new_price,
+                "ahorro": amount,
+                "porcentaje": percent,
+            }
+            for product, old_price, new_price, amount, percent in analysis["opportunities"]
+        ],
         "restocked": [serialize_product(product) for product in analysis["restocked"]],
         "depleted": [serialize_product(product) for product in analysis["depleted"]],
     }
@@ -441,6 +467,7 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
     new_products = analysis["new_products"]
     price_changes = analysis["price_changes"]
     important_price_changes = analysis["important_price_changes"]
+    opportunities = analysis["opportunities"]
     new_without_image = analysis["new_without_image"]
 
     lines = [
@@ -448,6 +475,7 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
         f"Productos nuevos: {len(new_products)}",
         f"Cambios de precio: {len(price_changes)}",
         f"Alertas importantes: {len(important_price_changes)}",
+        f"Oportunidades: {len(opportunities)}",
         f"Nuevos celulares sin imagen: {len(new_without_image)}",
     ]
 
@@ -477,6 +505,16 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
                 f"${old_price:,.2f} -> ${new_price:,.2f} ({direction} ${amount:,.2f}, {percent:.1f}%)"
             )
 
+    if opportunities:
+        lines.extend(["", "Lista de oportunidad:"])
+        for product, old_price, new_price, amount, percent in opportunities[:limit]:
+            lines.append(
+                f"{product.get('codigo')} - {product.get('nombre')} - "
+                f"${old_price:,.2f} -> ${new_price:,.2f} (ahorro ${amount:,.2f}, {percent:.1f}%)"
+            )
+        if len(opportunities) > limit:
+            lines.append(f"...y {len(opportunities) - limit} más.")
+
     if new_without_image:
         lines.extend(["", "Nuevos celulares sin imagen:"])
         lines.extend(product_label(product) for product in new_without_image[:limit])
@@ -491,12 +529,14 @@ def latest_new_products_message(limit: int = 25) -> str:
     new_products = state.get("new_products", [])
     new_without_image = state.get("new_without_image", [])
     alerts = state.get("important_price_changes", [])
+    opportunities = state.get("opportunities", [])
     lines = [
         "Ultimo reporte de productos nuevos:",
         state.get("summary", ""),
         f"Productos nuevos: {len(new_products)}",
         f"Nuevos celulares sin imagen: {len(new_without_image)}",
         f"Alertas importantes: {len(alerts)}",
+        f"Oportunidades: {len(opportunities)}",
     ]
     if new_products:
         lines.extend(["", "Nuevos:"])
@@ -508,6 +548,31 @@ def latest_new_products_message(limit: int = 25) -> str:
         lines.extend(["", "Nuevos sin imagen:"])
         for product in new_without_image[:limit]:
             lines.append(f"{product.get('codigo')} - {product.get('nombre')}")
+    return "\n".join(line for line in lines if line is not None)
+
+
+def opportunities_message(limit: int = 25) -> str:
+    state = load_update_report_state()
+    if not state:
+        return "Todavia no tengo reporte de oportunidades guardado. Se generara con el siguiente PDF de inventario."
+    opportunities = state.get("opportunities", [])
+    if not opportunities:
+        return "No detecte oportunidades en el ultimo inventario. Una oportunidad es una baja fuerte de precio."
+
+    lines = [
+        "Lista de oportunidad del ultimo inventario:",
+        state.get("summary", ""),
+        "",
+    ]
+    for item in opportunities[:limit]:
+        product = item.get("producto", {})
+        lines.append(
+            f"{product.get('codigo')} - {product.get('nombre')} - "
+            f"${item.get('precio_anterior', 0):,.2f} -> ${item.get('precio_nuevo', 0):,.2f} "
+            f"(ahorro ${item.get('ahorro', 0):,.2f}, {item.get('porcentaje', 0):.1f}%)"
+        )
+    if len(opportunities) > limit:
+        lines.append(f"...y {len(opportunities) - limit} más.")
     return "\n".join(line for line in lines if line is not None)
 
 
@@ -957,6 +1022,9 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/nuevos", "nuevos", "productos nuevos"}:
         await safe_send(bot, chat_id, latest_new_products_message())
+        return
+    if key in {"/oportunidades", "/oportunidad", "oportunidades", "lista de oportunidad"}:
+        await safe_send(bot, chat_id, opportunities_message())
         return
     if key in {"/alertas", "alertas", "cambios importantes"}:
         state = load_update_report_state()
