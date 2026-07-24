@@ -32,6 +32,7 @@ def extract_inventory(pdf_path: Path) -> dict:
     rows = []
     current_section = None
     report_datetime = None
+    omitted_zero_stock = 0
 
     with pdfplumber.open(str(pdf_path)) as pdf:
         for page in pdf.pages:
@@ -57,6 +58,11 @@ def extract_inventory(pdf_path: Path) -> dict:
                     continue
 
                 data = match.groupdict()
+                existencia_minima = stock_value(data["cantidad"])
+                if existencia_minima <= 0:
+                    omitted_zero_stock += 1
+                    continue
+
                 rows.append(
                     {
                         "id": len(rows) + 1,
@@ -65,8 +71,8 @@ def extract_inventory(pdf_path: Path) -> dict:
                         "codigo": data["codigo"],
                         "nombre": data["producto"],
                         "cantidad": data["cantidad"],
-                        "existencia_minima": stock_value(data["cantidad"]),
-                        "disponible": stock_value(data["cantidad"]) > 0,
+                        "existencia_minima": existencia_minima,
+                        "disponible": True,
                         "precio_lista_m": money(data["lista"]),
                         "precio_publico": money(data["publico"]),
                     }
@@ -78,6 +84,7 @@ def extract_inventory(pdf_path: Path) -> dict:
         "total_productos": len(rows),
         "total_disponibles": sum(1 for row in rows if row["disponible"]),
         "total_agotados": sum(1 for row in rows if not row["disponible"]),
+        "total_omitidos_cero": omitted_zero_stock,
         "productos": rows,
     }
 
@@ -94,7 +101,7 @@ def main() -> None:
     print(
         f"OK: {inventory['total_productos']} productos, "
         f"{inventory['total_disponibles']} disponibles, "
-        f"{inventory['total_agotados']} agotados -> {args.output}"
+        f"{inventory['total_omitidos_cero']} omitidos con existencia 0 -> {args.output}"
     )
 
 
