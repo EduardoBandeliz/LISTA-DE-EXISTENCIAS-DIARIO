@@ -254,6 +254,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
 const IS_PL = urlParams.has('PL') || urlParams.has('pl');
 const ONLY_CELLPHONES = urlParams.has('celulares') || urlParams.has('CELULARES');
+const INITIAL_QUERY = urlParams.get('q') || '';
 const PRICE_DISCOUNT = IS_PL ? 0 : (IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0)));
 const CELLPHONE_BRANDS = new Set(['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','Itel','Cubot','Google','Naomi','Qtouch','Blackview','Techview','Logic']);
 
@@ -306,6 +307,9 @@ async function loadProducts(){
   PRODUCTS = (data.productos || data).map(normalizeProduct);
   if(IS_PL){
     document.querySelector('.hero h1').textContent = 'LISTA PL';
+  }
+  if(INITIAL_QUERY){
+    document.getElementById('search').value = INITIAL_QUERY;
   }
 }
 

@@ -5,8 +5,11 @@ import os
 import re
 import subprocess
 import tempfile
+from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Optional, Union
+from urllib.parse import quote
 
 from telegram import Bot, Update
 from telegram.error import NetworkError, TelegramError, TimedOut
@@ -23,6 +26,8 @@ PLUS_JSON = ROOT / "plus.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
+REPORT_STATE_JSON = ROOT / ".telegram-report-state.json"
+AUTO_PUBLISH_STATE_JSON = ROOT / ".telegram-auto-publish-state.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 BROADCAST_CHAT_IDS = [
@@ -32,6 +37,10 @@ BROADCAST_CHAT_IDS = [
 ]
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
 TELEGRAM_TIMEOUT_SECONDS = 120
+AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
+AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
+IMPORTANT_PRICE_CHANGE_PERCENT = float(os.getenv("IMPORTANT_PRICE_CHANGE_PERCENT", "5") or 5)
 CELLPHONE_BRANDS = {
     "Apple",
     "Samsung",
@@ -101,6 +110,12 @@ def load_product_images() -> dict:
     if not PRODUCT_IMAGES_JSON.exists():
         return {}
     return json.loads(PRODUCT_IMAGES_JSON.read_text(encoding="utf-8"))
+
+
+def load_plus_inventory() -> dict:
+    if not PLUS_JSON.exists():
+        return {"productos": []}
+    return json.loads(PLUS_JSON.read_text(encoding="utf-8"))
 
 
 def inventory_summary(inventory: dict) -> str:
@@ -204,6 +219,78 @@ def product_label(product: dict) -> str:
     return f"{code} - {name} - ${float(price or 0):,.2f}"
 
 
+def normalize_text(value: str) -> str:
+    return re.sub(r"[^A-Z0-9]+", " ", str(value or "").upper()).strip()
+
+
+def compact_model_name(name: str) -> str:
+    text = normalize_text(name)
+    color_words = {
+        "AZUL", "NEGRO", "BLANCO", "GRIS", "VERDE", "VIOLETA", "MORADO", "ROSA",
+        "DORADO", "PLATA", "NARANJA", "ROJO", "AMARILLO", "CREMA", "LATINO",
+        "NACIONAL", "PJ", "ESIM", "CLARO", "CIELO", "TITANEO",
+    }
+    tokens = [token for token in text.split() if token not in color_words]
+    return " ".join(tokens)
+
+
+def find_product(query: str, inventory: Optional[dict] = None) -> Optional[dict]:
+    inventory = inventory or load_inventory()
+    clean_query = normalize_text(query)
+    if not clean_query:
+        return None
+    for product in inventory.get("productos", []):
+        if normalize_text(str(product.get("codigo", ""))) == clean_query:
+            return product
+    matches = [
+        product
+        for product in inventory.get("productos", [])
+        if clean_query in normalize_text(product.get("nombre", ""))
+    ]
+    return matches[0] if matches else None
+
+
+def plus_price_for_product(product: dict) -> Optional[float]:
+    plus_inventory = load_plus_inventory()
+    code = str(product.get("codigo", "")).strip()
+    product_name = normalize_text(product.get("nombre", ""))
+    for plus_product in plus_inventory.get("productos", []):
+        if code and str(plus_product.get("codigo", "")).strip() == code:
+            return float(plus_product.get("precio_pl", plus_product.get("precio_lista_m", 0)) or 0)
+    for plus_product in plus_inventory.get("productos", []):
+        if normalize_text(plus_product.get("nombre", "")) == product_name:
+            return float(plus_product.get("precio_pl", plus_product.get("precio_lista_m", 0)) or 0)
+    return None
+
+
+def product_message(query: str) -> str:
+    product = find_product(query)
+    if not product:
+        return f"No encontre producto para: {query}"
+
+    images = load_product_images()
+    price = price_value(product)
+    dse_price = max(0, price - 30)
+    pl_price = plus_price_for_product(product)
+    image_status = "Si" if product_image(product, images) else "No"
+    availability = "Disponible" if product.get("disponible") else "Agotado"
+    search_term = quote(str(product.get("nombre", "")))
+    lines = [
+        f"Producto: {product.get('nombre')}",
+        f"Codigo: {product.get('codigo')}",
+        f"Marca/grupo: {normalized_brand(product)}",
+        f"Estatus: {availability}",
+        f"Precio normal: ${price:,.2f}",
+        f"Precio DSE: ${dse_price:,.2f}",
+        f"Precio PL: ${pl_price:,.2f}" if pl_price is not None else "Precio PL: No disponible",
+        f"Tiene imagen: {image_status}",
+        "",
+        f"Liga celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1",
+        f"Busqueda sugerida:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1&q={search_term}",
+    ]
+    return "\n".join(lines)
+
+
 def missing_cellphone_images() -> list[dict]:
     inventory = load_inventory()
     images = load_product_images()
@@ -251,7 +338,7 @@ def price_value(product: dict) -> float:
     return float(product.get("precio_lista_m", product.get("precio", 0)) or 0)
 
 
-def build_update_report(previous_inventory: dict, new_inventory: dict, limit: int = 12) -> str:
+def analyze_inventory_update(previous_inventory: dict, new_inventory: dict) -> dict:
     previous_by_code = inventory_by_code(previous_inventory)
     new_by_code = inventory_by_code(new_inventory)
 
@@ -270,10 +357,96 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
         if old_price != new_price:
             price_changes.append((product, old_price, new_price))
 
+    restocked = [
+        product
+        for code, product in new_by_code.items()
+        if previous_by_code.get(code)
+        and not previous_by_code[code].get("disponible")
+        and product.get("disponible")
+    ]
+    depleted = [
+        product
+        for code, product in new_by_code.items()
+        if previous_by_code.get(code)
+        and previous_by_code[code].get("disponible")
+        and not product.get("disponible")
+    ]
+
+    images = load_product_images()
+    new_without_image = [
+        product for product in new_products if is_cellphone(product) and not product_image(product, images)
+    ]
+    important_price_changes = []
+    for product, old_price, new_price in price_changes:
+        amount = abs(new_price - old_price)
+        percent = (amount / old_price * 100) if old_price else 100
+        if amount >= IMPORTANT_PRICE_CHANGE_AMOUNT or percent >= IMPORTANT_PRICE_CHANGE_PERCENT:
+            important_price_changes.append((product, old_price, new_price, amount, percent))
+
+    return {
+        "new_products": new_products,
+        "price_changes": price_changes,
+        "important_price_changes": important_price_changes,
+        "new_without_image": new_without_image,
+        "restocked": restocked,
+        "depleted": depleted,
+    }
+
+
+def serialize_product(product: dict) -> dict:
+    return {
+        "codigo": str(product.get("codigo", "")),
+        "nombre": str(product.get("nombre", "")),
+        "precio_lista_m": price_value(product),
+        "disponible": bool(product.get("disponible", True)),
+        "marca": normalized_brand(product),
+    }
+
+
+def save_update_report_state(analysis: dict, summary: str) -> None:
+    state = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "summary": summary,
+        "new_products": [serialize_product(product) for product in analysis["new_products"]],
+        "new_without_image": [serialize_product(product) for product in analysis["new_without_image"]],
+        "important_price_changes": [
+            {
+                "producto": serialize_product(product),
+                "precio_anterior": old_price,
+                "precio_nuevo": new_price,
+                "cambio": amount,
+                "porcentaje": percent,
+            }
+            for product, old_price, new_price, amount, percent in analysis["important_price_changes"]
+        ],
+        "restocked": [serialize_product(product) for product in analysis["restocked"]],
+        "depleted": [serialize_product(product) for product in analysis["depleted"]],
+    }
+    REPORT_STATE_JSON.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def load_update_report_state() -> dict:
+    if not REPORT_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(REPORT_STATE_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def build_update_report(previous_inventory: dict, new_inventory: dict, limit: int = 12) -> str:
+    analysis = analyze_inventory_update(previous_inventory, new_inventory)
+    new_products = analysis["new_products"]
+    price_changes = analysis["price_changes"]
+    important_price_changes = analysis["important_price_changes"]
+    new_without_image = analysis["new_without_image"]
+
     lines = [
         "Reporte de actualización:",
         f"Productos nuevos: {len(new_products)}",
         f"Cambios de precio: {len(price_changes)}",
+        f"Alertas importantes: {len(important_price_changes)}",
+        f"Nuevos celulares sin imagen: {len(new_without_image)}",
     ]
 
     if new_products:
@@ -293,7 +466,47 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
         if len(price_changes) > limit:
             lines.append(f"...y {len(price_changes) - limit} más.")
 
+    if important_price_changes:
+        lines.extend(["", "Alertas importantes:"])
+        for product, old_price, new_price, amount, percent in important_price_changes[:limit]:
+            direction = "subio" if new_price > old_price else "bajo"
+            lines.append(
+                f"{product.get('codigo')} - {product.get('nombre')} - "
+                f"${old_price:,.2f} -> ${new_price:,.2f} ({direction} ${amount:,.2f}, {percent:.1f}%)"
+            )
+
+    if new_without_image:
+        lines.extend(["", "Nuevos celulares sin imagen:"])
+        lines.extend(product_label(product) for product in new_without_image[:limit])
+
     return "\n".join(lines)
+
+
+def latest_new_products_message(limit: int = 25) -> str:
+    state = load_update_report_state()
+    if not state:
+        return "Todavia no tengo reporte de productos nuevos guardado."
+    new_products = state.get("new_products", [])
+    new_without_image = state.get("new_without_image", [])
+    alerts = state.get("important_price_changes", [])
+    lines = [
+        "Ultimo reporte de productos nuevos:",
+        state.get("summary", ""),
+        f"Productos nuevos: {len(new_products)}",
+        f"Nuevos celulares sin imagen: {len(new_without_image)}",
+        f"Alertas importantes: {len(alerts)}",
+    ]
+    if new_products:
+        lines.extend(["", "Nuevos:"])
+        for product in new_products[:limit]:
+            lines.append(f"{product.get('codigo')} - {product.get('nombre')} - ${product.get('precio_lista_m', 0):,.2f}")
+        if len(new_products) > limit:
+            lines.append(f"...y {len(new_products) - limit} más.")
+    if new_without_image:
+        lines.extend(["", "Nuevos sin imagen:"])
+        for product in new_without_image[:limit]:
+            lines.append(f"{product.get('codigo')} - {product.get('nombre')}")
+    return "\n".join(line for line in lines if line is not None)
 
 
 def extract_product_code(text: str) -> Optional[str]:
@@ -384,6 +597,56 @@ def update_product_image_mapping(product_code: str, image_path: str) -> str:
     return "Imagen guardada localmente. Pendiente de publicar."
 
 
+def copy_product_image(source_code: str, target_code: str) -> str:
+    mapping = load_product_images()
+    image_path = mapping.get(source_code)
+    if not image_path:
+        return f"No encontre imagen publicada o pendiente para el codigo origen {source_code}."
+    if target_code not in product_codes():
+        return f"No encontre el codigo destino {target_code} en el inventario actual."
+    mapping[target_code] = image_path
+    PRODUCT_IMAGES_JSON.write_text(json.dumps(mapping, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return f"Imagen copiada de {source_code} a {target_code}. Pendiente de publicar."
+
+
+def similar_products_for_image(product_code: str, limit: int = 5) -> list[dict]:
+    inventory = load_inventory()
+    images = load_product_images()
+    source_product = None
+    for product in inventory.get("productos", []):
+        if str(product.get("codigo", "")).strip() == product_code:
+            source_product = product
+            break
+    if not source_product:
+        return []
+
+    source_key = compact_model_name(source_product.get("nombre", ""))
+    suggestions = []
+    for product in inventory.get("productos", []):
+        code = str(product.get("codigo", "")).strip()
+        if code == product_code or product_image(product, images):
+            continue
+        score = SequenceMatcher(None, source_key, compact_model_name(product.get("nombre", ""))).ratio()
+        if score >= 0.82:
+            suggestions.append((score, product))
+    suggestions.sort(key=lambda item: item[0], reverse=True)
+    return [product for _, product in suggestions[:limit]]
+
+
+def similar_products_message(product_code: str) -> str:
+    suggestions = similar_products_for_image(product_code)
+    if not suggestions:
+        return ""
+    lines = [
+        "",
+        "Modelos parecidos sin imagen:",
+        *[f"{product.get('codigo')} - {product.get('nombre')}" for product in suggestions],
+        "",
+        "Puedes reenviar la misma imagen con alguno de esos codigos si aplica.",
+    ]
+    return "\n".join(lines)
+
+
 def pending_image_status() -> str:
     return run(["git", "status", "--short", "product-images.json", "img/celulares"])
 
@@ -410,6 +673,54 @@ def publish_pending_images() -> str:
     run(["git", "pull", "--rebase", "origin", "main"])
     run(["git", "push", "origin", "main"])
     return f"Imagenes publicadas en GitHub ({count} cambios). Netlify publicara el lote automaticamente."
+
+
+def read_auto_publish_state() -> dict:
+    if not AUTO_PUBLISH_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(AUTO_PUBLISH_STATE_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def write_auto_publish_state(state: dict) -> None:
+    AUTO_PUBLISH_STATE_JSON.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def should_auto_publish_images(now: Optional[datetime] = None) -> bool:
+    if not AUTO_PUBLISH_ENABLED or not AUTO_PUBLISH_IMAGES_AT:
+        return False
+    now = now or datetime.now()
+    match = re.fullmatch(r"(\d{1,2}):(\d{2})", AUTO_PUBLISH_IMAGES_AT)
+    if not match:
+        return False
+    target_hour = int(match.group(1))
+    target_minute = int(match.group(2))
+    if now.hour != target_hour or now.minute != target_minute:
+        return False
+    state = read_auto_publish_state()
+    return state.get("last_run_date") != now.date().isoformat()
+
+
+async def maybe_auto_publish_images(bot: Bot) -> None:
+    if not should_auto_publish_images():
+        return
+    state = read_auto_publish_state()
+    state["last_run_date"] = datetime.now().date().isoformat()
+    write_auto_publish_state(state)
+
+    pending_count = await asyncio.to_thread(pending_image_count)
+    if pending_count <= 0:
+        return
+    result = await asyncio.to_thread(publish_pending_images)
+    message = (
+        f"Publicacion automatica de imagenes ({AUTO_PUBLISH_IMAGES_AT}):\n"
+        f"{result}\n\n"
+        f"Liga solo celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
+    )
+    for chat_id in BROADCAST_CHAT_IDS:
+        await safe_send(bot, chat_id, message)
 
 
 def share_message(result: str, summary: str, report: str = "") -> str:
@@ -515,8 +826,10 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             else:
                 previous_inventory = await asyncio.to_thread(load_inventory)
                 new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
+                analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
                 report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
                 summary = await asyncio.to_thread(write_inventory_data, new_inventory)
+                await asyncio.to_thread(save_update_report_state, analysis, summary)
                 result = await asyncio.to_thread(publish_to_github, summary)
                 message = share_message(result, summary, report)
             await safe_send(bot, chat_id, message)
@@ -593,6 +906,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 clear_pending_image_code(chat_id)
 
             warning = "" if exists_in_inventory else "\n\nOjo: no encontre ese codigo en el inventario actual, pero deje la imagen guardada para cuando aparezca."
+            similar_message = await asyncio.to_thread(similar_products_message, product_code)
             await safe_send(
                 bot,
                 chat_id,
@@ -600,6 +914,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                     f"Listo. Codigo {product_code}: {result}{warning}\n\n"
                     f"Imagenes pendientes por publicar: {pending_count}\n"
                     "Cuando termines de cargar imagenes, manda /publicarimagenes."
+                    f"{similar_message}"
                 ),
             )
         except Exception as exc:
@@ -633,6 +948,53 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/whatsapp", "whatsapp", "texto whatsapp", "liga whatsapp"}:
         await safe_send(bot, chat_id, whatsapp_message())
+        return
+    if key.startswith("/producto ") or key.startswith("producto "):
+        query = text.split(maxsplit=1)[1] if len(text.split(maxsplit=1)) > 1 else ""
+        await safe_send(bot, chat_id, product_message(query))
+        return
+    if key in {"/nuevos", "nuevos", "productos nuevos"}:
+        await safe_send(bot, chat_id, latest_new_products_message())
+        return
+    if key in {"/alertas", "alertas", "cambios importantes"}:
+        state = load_update_report_state()
+        alerts = state.get("important_price_changes", []) if state else []
+        if not alerts:
+            await safe_send(bot, chat_id, "No tengo alertas importantes guardadas del ultimo inventario.")
+        else:
+            lines = ["Alertas importantes del ultimo inventario:"]
+            for alert in alerts[:25]:
+                product = alert.get("producto", {})
+                lines.append(
+                    f"{product.get('codigo')} - {product.get('nombre')} - "
+                    f"${alert.get('precio_anterior', 0):,.2f} -> ${alert.get('precio_nuevo', 0):,.2f}"
+                )
+            await safe_send(bot, chat_id, "\n".join(lines))
+        return
+    if key in {"/autopublicacion", "/autoimagenes", "auto imagenes"}:
+        status = "activa" if AUTO_PUBLISH_ENABLED else "apagada"
+        await safe_send(
+            bot,
+            chat_id,
+            f"Publicacion automatica de imagenes: {status}\nHora configurada: {AUTO_PUBLISH_IMAGES_AT}",
+        )
+        return
+    if key.startswith("/copiarimagen ") or key.startswith("copiar imagen "):
+        parts = text.split()
+        if key.startswith("copiar imagen "):
+            source_target = parts[-2:] if len(parts) >= 4 else []
+        else:
+            source_target = parts[1:3]
+        if len(source_target) < 2:
+            await safe_send(bot, chat_id, "Uso: /copiarimagen CODIGO_ORIGEN CODIGO_DESTINO")
+        else:
+            result = await asyncio.to_thread(copy_product_image, source_target[0].strip(), source_target[1].strip())
+            pending_count = await asyncio.to_thread(pending_image_count)
+            await safe_send(
+                bot,
+                chat_id,
+                f"{result}\nImagenes pendientes por publicar: {pending_count}\nManda /publicarimagenes cuando quieras actualizar Netlify.",
+            )
         return
     if key in {"/sinimagenes", "/sin_imagenes", "sin imagenes", "celulares sin imagen"}:
         await safe_send(bot, chat_id, missing_images_message())
@@ -705,6 +1067,10 @@ async def poll(token: str) -> None:
             updates = await bot.get_updates(offset=offset, timeout=30, allowed_updates=["message"])
         except (TimedOut, NetworkError) as exc:
             print(f"Telegram polling retry: {exc}")
+            try:
+                await maybe_auto_publish_images(bot)
+            except Exception as auto_exc:
+                print(f"Error en publicacion automatica de imagenes: {auto_exc}")
             await asyncio.sleep(2)
             continue
 
@@ -714,6 +1080,10 @@ async def poll(token: str) -> None:
                 await handle_message(bot, update)
             except Exception as exc:
                 print(f"Error procesando update {update.update_id}: {exc}")
+        try:
+            await maybe_auto_publish_images(bot)
+        except Exception as exc:
+            print(f"Error en publicacion automatica de imagenes: {exc}")
         await asyncio.sleep(0.2)
 
 

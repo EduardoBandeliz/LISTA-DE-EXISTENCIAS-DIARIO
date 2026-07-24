@@ -1,5 +1,7 @@
 .env
 .telegram-image-state.json
+.telegram-report-state.json
+.telegram-auto-publish-state.json
 .venv
 .venv/
 __pycache__/
