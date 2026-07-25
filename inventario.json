@@ -1,10 +1,10 @@
 {
-  "source_pdf": "1784919645_109.pdf",
-  "report_datetime": "2026-07-24T01:00:45",
-  "total_productos": 325,
-  "total_disponibles": 325,
+  "source_pdf": "1784984448_109.pdf",
+  "report_datetime": "2026-07-25T07:00:48",
+  "total_productos": 324,
+  "total_disponibles": 324,
   "total_agotados": 0,
-  "total_omitidos_cero": 53,
+  "total_omitidos_cero": 51,
   "productos": [
     {
       "id": 1,
@@ -1416,8 +1416,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958034919",
       "nombre": "BLU ZOEY FLEX Z132 32 MB 32 MB 2G NEGRO NACIONAL",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 259.0,
       "precio_publico": 299.0
@@ -2340,8 +2340,8 @@
       "clave_categoria": "MI...",
       "codigo": "6921958643566",
       "nombre": "AOC ROKU TV 43 FHD LED 43S5045",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 2869.0,
       "precio_publico": 3999.0
@@ -3600,8 +3600,8 @@
       "clave_categoria": "XIAOMI",
       "codigo": "6932554449681",
       "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G GRIS NACIONAL PJ",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3539.0,
       "precio_publico": 4499.0
@@ -3742,9 +3742,9 @@
       "id": 312,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
-      "codigo": "6932554482442",
-      "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G AZUL NACIONAL PJ",
-      "cantidad": "1+",
+      "codigo": "6932554482992",
+      "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G VIOLETA NACIONAL PJ",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3459.0,
@@ -3752,18 +3752,6 @@
     },
     {
       "id": 313,
-      "categoria_pdf": "XIAOMI",
-      "clave_categoria": "XIAOMI",
-      "codigo": "6932554482992",
-      "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G VIOLETA NACIONAL PJ",
-      "cantidad": "10+",
-      "existencia_minima": 10,
-      "disponible": true,
-      "precio_lista_m": 3459.0,
-      "precio_publico": 5499.0
-    },
-    {
-      "id": 314,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483340",
@@ -3775,7 +3763,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 315,
+      "id": 314,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554476076",
@@ -3787,31 +3775,31 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 316,
+      "id": 315,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483111",
       "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VERDE NACIONAL PJ",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3949.0,
+      "precio_publico": 5999.0
+    },
+    {
+      "id": 316,
+      "categoria_pdf": "XIAOMI",
+      "clave_categoria": "XIAOMI",
+      "codigo": "6932554482374",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VIOLETA NACIONAL PJ",
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3949.0,
       "precio_publico": 5999.0
     },
     {
       "id": 317,
-      "categoria_pdf": "XIAOMI",
-      "clave_categoria": "XIAOMI",
-      "codigo": "6932554482374",
-      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VIOLETA NACIONAL PJ",
-      "cantidad": "10+",
-      "existencia_minima": 10,
-      "disponible": true,
-      "precio_lista_m": 3949.0,
-      "precio_publico": 5999.0
-    },
-    {
-      "id": 318,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405397",
@@ -3823,7 +3811,7 @@
       "precio_publico": 6999.0
     },
     {
-      "id": 319,
+      "id": 318,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498481",
@@ -3835,7 +3823,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 320,
+      "id": 319,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554471217",
@@ -3847,7 +3835,7 @@
       "precio_publico": 9499.0
     },
     {
-      "id": 321,
+      "id": 320,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554485245",
@@ -3859,7 +3847,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 322,
+      "id": 321,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554469764",
@@ -3871,7 +3859,7 @@
       "precio_publico": 8999.0
     },
     {
-      "id": 323,
+      "id": 322,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554490256",
@@ -3883,7 +3871,7 @@
       "precio_publico": 10999.0
     },
     {
-      "id": 324,
+      "id": 323,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227339075",
@@ -3895,7 +3883,7 @@
       "precio_publico": 5299.0
     },
     {
-      "id": 325,
+      "id": 324,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227337354",
