@@ -23,6 +23,7 @@ from parse_plus_pdf import extract_plus
 ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
 PLUS_JSON = ROOT / "plus.json"
+LISTA_G_JSON = ROOT / "listag.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
@@ -126,6 +127,12 @@ def load_plus_inventory() -> dict:
     return json.loads(PLUS_JSON.read_text(encoding="utf-8"))
 
 
+def load_lista_g_inventory() -> dict:
+    if not LISTA_G_JSON.exists():
+        return {"productos": []}
+    return json.loads(LISTA_G_JSON.read_text(encoding="utf-8"))
+
+
 def inventory_summary(inventory: dict) -> str:
     omitted = int(inventory.get("total_omitidos_cero", 0) or 0)
     omitted_text = f", {omitted} omitidos con existencia 0" if omitted else ""
@@ -188,6 +195,25 @@ def publish_plus_to_github(summary: str) -> str:
     run(["git", "commit", "-m", f"Actualizar lista PL ({summary})"])
     run(["git", "push", "origin", "main"])
     return "Lista PL actualizada en GitHub. Netlify publicara el cambio automaticamente."
+
+
+def write_lista_g_data(inventory: dict) -> str:
+    LISTA_G_JSON.write_text(
+        json.dumps(inventory, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return f"{inventory['total_productos']} productos Lista G"
+
+
+def publish_lista_g_to_github(summary: str) -> str:
+    status = run(["git", "status", "--short", "listag.json"])
+    if not status:
+        return "La Lista G no tuvo cambios."
+
+    run(["git", "add", "listag.json"])
+    run(["git", "commit", "-m", f"Actualizar Lista G ({summary})"])
+    run(["git", "push", "origin", "main"])
+    return "Lista G actualizada en GitHub. Netlify publicara el cambio automaticamente."
 
 
 def product_codes() -> set[str]:
@@ -273,6 +299,19 @@ def plus_price_for_product(product: dict) -> Optional[float]:
     return None
 
 
+def lista_g_price_for_product(product: dict) -> Optional[float]:
+    lista_g_inventory = load_lista_g_inventory()
+    code = str(product.get("codigo", "")).strip()
+    product_name = normalize_text(product.get("nombre", ""))
+    for lista_g_product in lista_g_inventory.get("productos", []):
+        if code and str(lista_g_product.get("codigo", "")).strip() == code:
+            return float(lista_g_product.get("precio_lista_m", lista_g_product.get("precio", 0)) or 0)
+    for lista_g_product in lista_g_inventory.get("productos", []):
+        if normalize_text(lista_g_product.get("nombre", "")) == product_name:
+            return float(lista_g_product.get("precio_lista_m", lista_g_product.get("precio", 0)) or 0)
+    return None
+
+
 def product_message(query: str) -> str:
     product = find_product(query)
     if not product:
@@ -282,6 +321,7 @@ def product_message(query: str) -> str:
     price = price_value(product)
     dse_price = max(0, price - 30)
     pl_price = plus_price_for_product(product)
+    lista_g_price = lista_g_price_for_product(product)
     image_status = "Si" if product_image(product, images) else "No"
     availability = "Disponible" if product.get("disponible") else "Agotado"
     search_term = quote(str(product.get("nombre", "")))
@@ -293,6 +333,7 @@ def product_message(query: str) -> str:
         f"Precio normal: ${price:,.2f}",
         f"Precio DSE: ${dse_price:,.2f}",
         f"Precio PL: ${pl_price:,.2f}" if pl_price is not None else "Precio PL: No disponible",
+        f"Precio Lista G: ${lista_g_price:,.2f}" if lista_g_price is not None else "Precio Lista G: No disponible",
         f"Tiene imagen: {image_status}",
         "",
         f"Liga celulares:\n{NETLIFY_SITE_URL.rstrip('/')}?celulares=1",
@@ -804,12 +845,14 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
     celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     pl_url = f"{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
+    lista_g_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
     return (
         f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
         f"Liga DSE:\n{dse_url}"
         f"\n\nLiga solo celulares:\n{celulares_url}"
         f"\n\nLiga PL:\n{pl_url}"
+        f"\n\nLiga Lista G:\n{lista_g_url}"
     )
 
 
@@ -823,6 +866,15 @@ def error_message(exc: Exception) -> str:
 def is_plus_pdf(file_name: str) -> bool:
     clean = file_name.lower()
     return "plus" in clean or clean.startswith("pl")
+
+
+def is_lista_g_pdf(file_name: str, inventory: Optional[dict] = None) -> bool:
+    clean = re.sub(r"[^a-z0-9]+", "", file_name.lower())
+    if "listag" in clean:
+        return True
+    title = str((inventory or {}).get("report_title", ""))
+    lista = str((inventory or {}).get("lista", ""))
+    return "LISTA G" in title.upper() or lista.upper() == "G"
 
 
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
@@ -868,7 +920,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
     if is_plus_pdf(file_name):
         await safe_send(bot, chat_id, f"Recibi PDF PL: {file_name}. Actualizando lista PL...")
     else:
-        await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Actualizando inventario...")
+        await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Revisando tipo de lista...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
@@ -891,14 +943,22 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
                 )
             else:
-                previous_inventory = await asyncio.to_thread(load_inventory)
                 new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
-                analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
-                report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
-                summary = await asyncio.to_thread(write_inventory_data, new_inventory)
-                await asyncio.to_thread(save_update_report_state, analysis, summary)
-                result = await asyncio.to_thread(publish_to_github, summary)
-                message = share_message(result, summary, report)
+                if is_lista_g_pdf(file_name, new_inventory):
+                    summary = await asyncio.to_thread(write_lista_g_data, new_inventory)
+                    result = await asyncio.to_thread(publish_lista_g_to_github, summary)
+                    message = (
+                        f"Listo: {summary}. {result}\n\n"
+                        f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
+                    )
+                else:
+                    previous_inventory = await asyncio.to_thread(load_inventory)
+                    analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
+                    report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
+                    summary = await asyncio.to_thread(write_inventory_data, new_inventory)
+                    await asyncio.to_thread(save_update_report_state, analysis, summary)
+                    result = await asyncio.to_thread(publish_to_github, summary)
+                    message = share_message(result, summary, report)
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:

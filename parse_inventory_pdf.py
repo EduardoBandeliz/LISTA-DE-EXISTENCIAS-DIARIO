@@ -32,6 +32,7 @@ def extract_inventory(pdf_path: Path) -> dict:
     rows = []
     current_section = None
     report_datetime = None
+    report_title = None
     omitted_zero_stock = 0
 
     with pdfplumber.open(str(pdf_path)) as pdf:
@@ -39,7 +40,11 @@ def extract_inventory(pdf_path: Path) -> dict:
             text = page.extract_text(x_tolerance=1, y_tolerance=3) or ""
             for raw_line in text.splitlines():
                 line = " ".join(raw_line.split())
-                if not line or line.startswith("Reporte de") or line.startswith("Cat..."):
+                if not line or line.startswith("Cat..."):
+                    continue
+                if line.startswith("Reporte de"):
+                    if report_title is None:
+                        report_title = line
                     continue
 
                 footer = FOOTER_RE.search(line)
@@ -80,6 +85,8 @@ def extract_inventory(pdf_path: Path) -> dict:
 
     return {
         "source_pdf": pdf_path.name,
+        "report_title": report_title,
+        "lista": "G" if report_title and "LISTA G" in report_title.upper() else "M",
         "report_datetime": report_datetime,
         "total_productos": len(rows),
         "total_disponibles": sum(1 for row in rows if row["disponible"]),
