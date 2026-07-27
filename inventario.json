@@ -1,10 +1,10 @@
 {
-  "source_pdf": "1784984448_109.pdf",
-  "report_datetime": "2026-07-25T07:00:48",
+  "source_pdf": "1785157249_109.pdf",
+  "report_datetime": "2026-07-27T07:00:49",
   "total_productos": 324,
   "total_disponibles": 324,
   "total_agotados": 0,
-  "total_omitidos_cero": 51,
+  "total_omitidos_cero": 49,
   "productos": [
     {
       "id": 1,
@@ -420,8 +420,8 @@
       "clave_categoria": "AC...",
       "codigo": "6918882674223",
       "nombre": "MR-891 BUYTITI MICROFONO INALAMBRICO BLUTOOTH",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 129.0,
       "precio_publico": 249.0
