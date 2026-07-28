@@ -1,12 +1,12 @@
 {
-  "source_pdf": "1785178858_109.pdf",
+  "source_pdf": "1785243649_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-07-27T01:00:58",
+  "report_datetime": "2026-07-28T07:00:48",
   "total_productos": 322,
   "total_disponibles": 322,
   "total_agotados": 0,
-  "total_omitidos_cero": 51,
+  "total_omitidos_cero": 50,
   "productos": [
     {
       "id": 1,
@@ -1094,8 +1094,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958044598",
       "nombre": "BLU K2 (4+4) GB 64 GB 4G AZUL NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 1289.0,
       "precio_publico": 1999.0
@@ -1130,8 +1130,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958044581",
       "nombre": "BLU K2 (4+4) GB 64 GB 4G NEGRO NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 1289.0,
       "precio_publico": 1999.0
@@ -1142,8 +1142,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958044604",
       "nombre": "BLU K2 (4+4) GB 64 GB 4G VERDE NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 1289.0,
       "precio_publico": 1999.0
@@ -1226,8 +1226,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958039310",
       "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G AZUL NACIONAL",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 219.0,
       "precio_publico": 399.0
@@ -1250,8 +1250,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958039334",
       "nombre": "BLU TANK MINI T652 32 MB 32 MB 2G NEGRO NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 219.0,
       "precio_publico": 399.0
