@@ -1,12 +1,12 @@
 {
-  "source_pdf": "1785891644_109.pdf",
+  "source_pdf": "1786021249_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-08-04T07:00:44",
+  "report_datetime": "2026-08-06T07:00:49",
   "total_productos": 324,
   "total_disponibles": 324,
   "total_agotados": 0,
-  "total_omitidos_cero": 48,
+  "total_omitidos_cero": 47,
   "productos": [
     {
       "id": 1,
@@ -290,8 +290,8 @@
       "clave_categoria": "AC...",
       "codigo": "6974368773002",
       "nombre": "GAR161B 1HORA CARGADOR (USB C Y USB A)20W",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 45.0,
       "precio_publico": 120.0
@@ -2486,8 +2486,8 @@
       "clave_categoria": "M...",
       "codigo": "840493613239",
       "nombre": "MOTOROLA MOTO G17 4 GB 256 GB 4G MORADO LATINO",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 2869.0,
       "precio_publico": 5499.0
@@ -2976,6 +2976,18 @@
       "id": 248,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
+      "codigo": "8806097668046",
+      "nombre": "SAMSUNG A17 4 GB 128 GB 4G AZUL LATINO",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2769.0,
+      "precio_publico": 4599.0
+    },
+    {
+      "id": 249,
+      "categoria_pdf": "SAMSUNG",
+      "clave_categoria": "SA...",
       "codigo": "A17128GRISAK",
       "nombre": "SAMSUNG A17 4 GB 128 GB 4G GRIS NACIONAL AK",
       "cantidad": "10+",
@@ -2985,7 +2997,7 @@
       "precio_publico": 4599.0
     },
     {
-      "id": 249,
+      "id": 250,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097666882",
@@ -2997,7 +3009,7 @@
       "precio_publico": 4599.0
     },
     {
-      "id": 250,
+      "id": 251,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099353476",
@@ -3009,7 +3021,7 @@
       "precio_publico": 6599.0
     },
     {
-      "id": 251,
+      "id": 252,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099062101",
@@ -3021,7 +3033,7 @@
       "precio_publico": 7999.0
     },
     {
-      "id": 252,
+      "id": 253,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099061821",
@@ -3033,7 +3045,7 @@
       "precio_publico": 7999.0
     },
     {
-      "id": 253,
+      "id": 254,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099056346",
@@ -3045,7 +3057,7 @@
       "precio_publico": 7999.0
     },
     {
-      "id": 254,
+      "id": 255,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099062071",
@@ -3057,7 +3069,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 255,
+      "id": 256,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099061814",
@@ -3069,7 +3081,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 256,
+      "id": 257,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097055655",
@@ -3081,7 +3093,7 @@
       "precio_publico": 8900.0
     },
     {
-      "id": 257,
+      "id": 258,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052621",
@@ -3093,7 +3105,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 258,
+      "id": 259,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099057251",
@@ -3105,7 +3117,7 @@
       "precio_publico": 11999.0
     },
     {
-      "id": 259,
+      "id": 260,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052614",
@@ -3117,7 +3129,7 @@
       "precio_publico": 11999.0
     },
     {
-      "id": 260,
+      "id": 261,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655642",
@@ -3129,7 +3141,7 @@
       "precio_publico": 2899.0
     },
     {
-      "id": 261,
+      "id": 262,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655741",
@@ -3141,7 +3153,7 @@
       "precio_publico": 2899.0
     },
     {
-      "id": 262,
+      "id": 263,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658339",
@@ -3153,7 +3165,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 263,
+      "id": 264,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658353",
@@ -3165,7 +3177,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 264,
+      "id": 265,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095031415",
@@ -3177,7 +3189,7 @@
       "precio_publico": 599.0
     },
     {
-      "id": 265,
+      "id": 266,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21BLANCO128",
@@ -3189,7 +3201,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 266,
+      "id": 267,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21GRIS128",
@@ -3201,7 +3213,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 267,
+      "id": 268,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21ROSA128",
@@ -3213,7 +3225,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 268,
+      "id": 269,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21VIOLETA128",
@@ -3225,7 +3237,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 269,
+      "id": 270,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S21GRIS256",
@@ -3237,7 +3249,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 270,
+      "id": 271,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22BLANCO128",
@@ -3249,7 +3261,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 271,
+      "id": 272,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22DORADO128",
@@ -3261,7 +3273,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 272,
+      "id": 273,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22NEGRO1...",
@@ -3273,7 +3285,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 273,
+      "id": 274,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22VERDE128",
@@ -3285,7 +3297,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 274,
+      "id": 275,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22VIOLETA128",
@@ -3297,7 +3309,7 @@
       "precio_publico": 14499.0
     },
     {
-      "id": 275,
+      "id": 276,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSNE...",
@@ -3309,7 +3321,7 @@
       "precio_publico": 13999.0
     },
     {
-      "id": 276,
+      "id": 277,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSNE...",
@@ -3321,7 +3333,7 @@
       "precio_publico": 23999.0
     },
     {
-      "id": 277,
+      "id": 278,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22ULTRAN...",
@@ -3333,7 +3345,7 @@
       "precio_publico": 9999.0
     },
     {
-      "id": 278,
+      "id": 279,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23NEGROA...",
@@ -3345,7 +3357,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 279,
+      "id": 280,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23ROSA128",
@@ -3357,7 +3369,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 280,
+      "id": 281,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23VERDEA...",
@@ -3369,7 +3381,7 @@
       "precio_publico": 21999.0
     },
     {
-      "id": 281,
+      "id": 282,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "198957227639",
@@ -3381,7 +3393,7 @@
       "precio_publico": 15499.0
     },
     {
-      "id": 282,
+      "id": 283,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "195950398021",
@@ -3391,18 +3403,6 @@
       "disponible": true,
       "precio_lista_m": 28259.0,
       "precio_publico": 32499.0
-    },
-    {
-      "id": 283,
-      "categoria_pdf": "TABLETS",
-      "clave_categoria": "TA...",
-      "codigo": "848958041481",
-      "nombre": "BLU M8L 3 GB 32 GB 4G NEGRO NACIONAL",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1069.0,
-      "precio_publico": 1399.0
     },
     {
       "id": 284,
