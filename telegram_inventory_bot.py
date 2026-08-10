@@ -320,7 +320,7 @@ def sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
     service.spreadsheets().values().update(
         spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
         range=f"'{tab_name}'!A1",
-        valueInputOption="USER_ENTERED",
+        valueInputOption="RAW",
         body={"values": rows},
     ).execute()
     return f"Google Sheets actualizado: {tab_name} ({len(rows) - 1} productos)."
