@@ -46,6 +46,8 @@ GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() 
 TELEGRAM_TIMEOUT_SECONDS = 120
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+PENDING_ADVERTISEMENT_CHATS: set[str] = set()
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
 IMPORTANT_PRICE_CHANGE_PERCENT = float(os.getenv("IMPORTANT_PRICE_CHANGE_PERCENT", "5") or 5)
 OPPORTUNITY_PRICE_DROP_AMOUNT = float(
@@ -1196,6 +1198,77 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
     return True
 
 
+def advertisement_features(update: Update) -> Optional[str]:
+    if not update.message:
+        return None
+    caption = (update.message.caption or "").strip()
+    if not caption.lower().startswith("/publicidad"):
+        return None
+    return caption[len("/publicidad"):].strip()
+
+
+async def handle_advertisement_image(bot: Bot, update: Update) -> bool:
+    if not update.message or not update.effective_chat:
+        return False
+    chat_id = str(update.effective_chat.id)
+    caption_features = advertisement_features(update)
+    pending = chat_id in PENDING_ADVERTISEMENT_CHATS
+    if caption_features is None and not pending:
+        return False
+
+    document = update.message.document
+    has_image_document = bool(document and (document.mime_type or "").startswith("image/"))
+    has_photo = bool(update.message.photo)
+    if not has_photo and not has_image_document:
+        return False
+    features = caption_features or (update.message.caption or "").strip()
+    if not features:
+        await safe_send(
+            bot,
+            chat_id,
+            "Faltan las caracteristicas. Envia la foto con un pie como: /publicidad NOMBRE DEL PRODUCTO y sus caracteristicas.",
+        )
+        return True
+    if not OPENAI_API_KEY:
+        await safe_send(bot, chat_id, "La generacion de publicidad aun no tiene configurada la clave de OpenAI.")
+        return True
+    try:
+        from advertising import generate_advertisement
+    except ImportError as exc:
+        await safe_send(bot, chat_id, f"No puedo generar publicidad porque falta una dependencia: {exc}")
+        return True
+
+    PENDING_ADVERTISEMENT_CHATS.discard(chat_id)
+    await safe_send(bot, chat_id, "Creando una publicidad nueva. Puede tardar hasta 2 minutos...")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_root = Path(temp_dir)
+        reference_path = temp_root / ("referencia.jpg" if has_photo else (document.file_name or "referencia.png"))
+        output_path = temp_root / "publicidad.jpg"
+        file_id = update.message.photo[-1].file_id if has_photo else document.file_id
+        try:
+            telegram_file = await bot.get_file(file_id)
+            await telegram_file.download_to_drive(custom_path=reference_path)
+            style = await asyncio.to_thread(generate_advertisement, reference_path, features, output_path)
+            with output_path.open("rb") as image_file:
+                await bot.send_photo(
+                    chat_id=chat_id,
+                    photo=image_file,
+                    caption=f"Publicidad lista - estilo {style}.\n\nPara otra version, reenvia la foto con /publicidad y las caracteristicas.",
+                    read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                )
+        except Exception as exc:
+            print(f"Error generando publicidad: {type(exc).__name__}: {exc}")
+            await safe_send(
+                bot,
+                chat_id,
+                "No pude generar la publicidad. Revisa que la cuenta de OpenAI tenga saldo y vuelve a intentarlo.",
+            )
+        return True
+
+
 async def handle_message(bot: Bot, update: Update) -> None:
     if not update.message or not update.effective_chat:
         return
@@ -1203,7 +1276,15 @@ async def handle_message(bot: Bot, update: Update) -> None:
     text = (update.message.text or "").strip()
     key = command_key(text)
     if key == "/start":
-        await safe_send(bot, chat_id, "Listo. Reenvíame el PDF de inventario y actualizaré la lista de existencias.")
+        await safe_send(
+            bot,
+            chat_id,
+            "Listo. Reenvíame el PDF de inventario para actualizar existencias. Para crear un anuncio usa /publicidad y luego envia la foto con las caracteristicas.",
+        )
+        return
+    if key == "/publicidad":
+        PENDING_ADVERTISEMENT_CHATS.add(str(chat_id))
+        await safe_send(bot, chat_id, "Envia ahora una foto del producto. En el pie escribe el nombre y todas las caracteristicas que deben aparecer.")
         return
     if key == "/id":
         await safe_send(bot, chat_id, f"Chat ID: {chat_id}")
@@ -1296,6 +1377,8 @@ async def handle_message(bot: Bot, update: Update) -> None:
                 ),
             )
             raise
+        return
+    if await handle_advertisement_image(bot, update):
         return
     if await handle_product_image(bot, update):
         return
