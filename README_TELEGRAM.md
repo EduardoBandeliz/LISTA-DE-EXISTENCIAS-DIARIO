@@ -68,7 +68,7 @@ El bot puede actualizar una hoja de Google Sheets al mismo tiempo que Netlify. U
 export GOOGLE_SHEETS_ENABLED="1"
 export GOOGLE_SHEETS_SPREADSHEET_ID="1eSgzIz6sKCkOZ8JttDH_Vks5pZM92moHfDs3ToEoGfE"
 export GOOGLE_SHEETS_CREDENTIALS_FILE="/ruta/segura/google-service-account.json"
-export GOOGLE_SHEETS_TAB_M="LISTA M"
+export GOOGLE_SHEETS_TAB_M="Existencias"
 export GOOGLE_SHEETS_TAB_G="LISTA G"
 export GOOGLE_SHEETS_TAB_PL="LISTA PL"
 ```

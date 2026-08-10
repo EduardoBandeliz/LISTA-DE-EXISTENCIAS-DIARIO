@@ -113,7 +113,7 @@ KNOWN_BRANDS = [
     "Blackview",
 ]
 GOOGLE_SHEET_TABS = {
-    "M": os.getenv("GOOGLE_SHEETS_TAB_M", "LISTA M").strip() or "LISTA M",
+    "M": os.getenv("GOOGLE_SHEETS_TAB_M", "Existencias").strip() or "Existencias",
     "G": os.getenv("GOOGLE_SHEETS_TAB_G", "LISTA G").strip() or "LISTA G",
     "PL": os.getenv("GOOGLE_SHEETS_TAB_PL", "LISTA PL").strip() or "LISTA PL",
 }
@@ -283,7 +283,6 @@ def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
         "Cantidad",
         "Precio lista",
         "Precio publico",
-        "Lista",
         "Fecha actualizacion",
     ]
     rows = [headers]
@@ -296,7 +295,6 @@ def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
                 sheet_safe_value(product.get("cantidad", "")),
                 price,
                 product.get("precio_publico", ""),
-                list_key,
                 updated_at,
             ]
         )
