@@ -288,6 +288,8 @@ def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
     rows = [headers]
     for product in inventory.get("productos", []):
         price = product.get("precio_pl", product.get("precio_lista_m", product.get("precio", "")))
+        if float(price or 0) <= 1:
+            continue
         rows.append(
             [
                 sheet_safe_value(product.get("codigo", "")),
