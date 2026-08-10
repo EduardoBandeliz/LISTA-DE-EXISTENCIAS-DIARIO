@@ -1,2 +1,4 @@
 pdfplumber==0.11.7
 python-telegram-bot==22.3
+google-api-python-client==2.179.0
+google-auth==2.40.3

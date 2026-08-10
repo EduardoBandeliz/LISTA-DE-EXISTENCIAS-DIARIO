@@ -37,6 +37,12 @@ BROADCAST_CHAT_IDS = [
     if chat_id.strip()
 ]
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
+GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
+    "GOOGLE_SHEETS_SPREADSHEET_ID",
+    "1x9cXtAMaipv1WPmfCc4AX8xK--Bfd0nW",
+).strip()
+GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
+GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
 TELEGRAM_TIMEOUT_SECONDS = 120
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
@@ -102,6 +108,11 @@ KNOWN_BRANDS = [
     "Qtouch",
     "Blackview",
 ]
+GOOGLE_SHEET_TABS = {
+    "M": os.getenv("GOOGLE_SHEETS_TAB_M", "LISTA M").strip() or "LISTA M",
+    "G": os.getenv("GOOGLE_SHEETS_TAB_G", "LISTA G").strip() or "LISTA G",
+    "PL": os.getenv("GOOGLE_SHEETS_TAB_PL", "LISTA PL").strip() or "LISTA PL",
+}
 
 
 def run(command: list[str]) -> str:
@@ -214,6 +225,101 @@ def publish_lista_g_to_github(summary: str) -> str:
     run(["git", "commit", "-m", f"Actualizar Lista G ({summary})"])
     run(["git", "push", "origin", "main"])
     return "Lista G actualizada en GitHub. Netlify publicara el cambio automaticamente."
+
+
+def google_sheets_configured() -> bool:
+    return (
+        GOOGLE_SHEETS_ENABLED
+        and bool(GOOGLE_SHEETS_SPREADSHEET_ID)
+        and bool(GOOGLE_SHEETS_CREDENTIALS_FILE)
+        and Path(GOOGLE_SHEETS_CREDENTIALS_FILE).exists()
+    )
+
+
+def google_sheets_service():
+    from google.oauth2.service_account import Credentials
+    from googleapiclient.discovery import build
+
+    scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+    credentials = Credentials.from_service_account_file(
+        GOOGLE_SHEETS_CREDENTIALS_FILE,
+        scopes=scopes,
+    )
+    return build("sheets", "v4", credentials=credentials, cache_discovery=False)
+
+
+def ensure_google_sheet_tab(service, tab_name: str) -> None:
+    metadata = service.spreadsheets().get(
+        spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
+        fields="sheets(properties(title))",
+    ).execute()
+    titles = {
+        sheet.get("properties", {}).get("title")
+        for sheet in metadata.get("sheets", [])
+    }
+    if tab_name in titles:
+        return
+    service.spreadsheets().batchUpdate(
+        spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
+        body={"requests": [{"addSheet": {"properties": {"title": tab_name}}}]},
+    ).execute()
+
+
+def sheet_safe_value(value) -> str:
+    if value is None:
+        return ""
+    return str(value)
+
+
+def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
+    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    headers = [
+        "Codigo",
+        "Producto",
+        "Cantidad",
+        "Precio lista",
+        "Precio publico",
+        "Lista",
+        "Fecha actualizacion",
+    ]
+    rows = [headers]
+    for product in inventory.get("productos", []):
+        price = product.get("precio_pl", product.get("precio_lista_m", product.get("precio", "")))
+        rows.append(
+            [
+                sheet_safe_value(product.get("codigo", "")),
+                sheet_safe_value(product.get("nombre", "")),
+                sheet_safe_value(product.get("cantidad", "")),
+                price,
+                product.get("precio_publico", ""),
+                list_key,
+                updated_at,
+            ]
+        )
+    return rows
+
+
+def sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
+    if not google_sheets_configured():
+        return "Google Sheets no configurado."
+
+    tab_name = GOOGLE_SHEET_TABS.get(list_key, list_key)
+    service = google_sheets_service()
+    ensure_google_sheet_tab(service, tab_name)
+    rows = google_sheet_rows(inventory, list_key)
+
+    service.spreadsheets().values().clear(
+        spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
+        range=f"'{tab_name}'!A:Z",
+        body={},
+    ).execute()
+    service.spreadsheets().values().update(
+        spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
+        range=f"'{tab_name}'!A1",
+        valueInputOption="USER_ENTERED",
+        body={"values": rows},
+    ).execute()
+    return f"Google Sheets actualizado: {tab_name} ({len(rows) - 1} productos)."
 
 
 def product_codes() -> set[str]:
@@ -375,6 +481,19 @@ def whatsapp_message() -> str:
         "Lista de celulares actualizada:\n"
         f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     )
+
+
+def google_sheets_status_message() -> str:
+    credentials_path = Path(GOOGLE_SHEETS_CREDENTIALS_FILE) if GOOGLE_SHEETS_CREDENTIALS_FILE else None
+    lines = [
+        "Estado Google Sheets:",
+        f"Activo: {'Si' if GOOGLE_SHEETS_ENABLED else 'No'}",
+        f"Spreadsheet ID: {GOOGLE_SHEETS_SPREADSHEET_ID or 'No configurado'}",
+        f"Credencial: {GOOGLE_SHEETS_CREDENTIALS_FILE or 'No configurada'}",
+        f"Archivo existe: {'Si' if credentials_path and credentials_path.exists() else 'No'}",
+        f"Pestañas: M={GOOGLE_SHEET_TABS['M']}, G={GOOGLE_SHEET_TABS['G']}, PL={GOOGLE_SHEET_TABS['PL']}",
+    ]
+    return "\n".join(lines)
 
 
 def inventory_by_code(inventory: dict) -> dict[str, dict]:
@@ -840,6 +959,19 @@ def share_message(result: str, summary: str, report: str = "") -> str:
     )
 
 
+def append_google_sheets_result(message: str, sheets_result: str) -> str:
+    if not sheets_result:
+        return message
+    return f"{message}\n\nDrive/Sheets: {sheets_result}"
+
+
+def safe_sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
+    try:
+        return sync_inventory_to_google_sheets(inventory, list_key)
+    except Exception as exc:
+        return f"No pude actualizar Google Sheets: {exc}"
+
+
 def links_message(prefix: str = "Ligas disponibles") -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
@@ -938,19 +1070,23 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                 plus_inventory = await asyncio.to_thread(extract_plus, pdf_path, INVENTORY_JSON)
                 summary = await asyncio.to_thread(write_plus_data, plus_inventory)
                 result = await asyncio.to_thread(publish_plus_to_github, summary)
+                sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, plus_inventory, "PL")
                 message = (
                     f"Listo: {summary}. {result}\n\n"
                     f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
                 )
+                message = append_google_sheets_result(message, sheets_result)
             else:
                 new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
                 if is_lista_g_pdf(file_name, new_inventory):
                     summary = await asyncio.to_thread(write_lista_g_data, new_inventory)
                     result = await asyncio.to_thread(publish_lista_g_to_github, summary)
+                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, new_inventory, "G")
                     message = (
                         f"Listo: {summary}. {result}\n\n"
                         f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
                     )
+                    message = append_google_sheets_result(message, sheets_result)
                 else:
                     previous_inventory = await asyncio.to_thread(load_inventory)
                     analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
@@ -958,7 +1094,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     summary = await asyncio.to_thread(write_inventory_data, new_inventory)
                     await asyncio.to_thread(save_update_report_state, analysis, summary)
                     result = await asyncio.to_thread(publish_to_github, summary)
+                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, new_inventory, "M")
                     message = share_message(result, summary, report)
+                    message = append_google_sheets_result(message, sheets_result)
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:
@@ -1075,6 +1213,9 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/whatsapp", "whatsapp", "texto whatsapp", "liga whatsapp"}:
         await safe_send(bot, chat_id, whatsapp_message())
+        return
+    if key in {"/drive", "/sheets", "drive", "google sheets"}:
+        await safe_send(bot, chat_id, google_sheets_status_message())
         return
     if key.startswith("/producto ") or key.startswith("producto "):
         query = text.split(maxsplit=1)[1] if len(text.split(maxsplit=1)) > 1 else ""

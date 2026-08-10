@@ -1,4 +1,7 @@
 .env
+google-service-account.json
+*service-account*.json
+*credentials*.json
 .telegram-image-state.json
 .telegram-report-state.json
 .telegram-auto-publish-state.json

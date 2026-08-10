@@ -44,6 +44,7 @@ Cuando llegue un PDF, el bot:
 2. Regenera `inventario.json`.
 3. Hace commit y push a GitHub.
 4. Netlify publica la actualizacion automaticamente.
+5. Si Google Sheets esta configurado, actualiza la pestaña correspondiente en Drive.
 
 ## Variables opcionales para grupo
 
@@ -58,6 +59,21 @@ Procesar solo PDFs cuyo nombre contenga una palabra:
 ```bash
 export PDF_NAME_CONTAINS="inventario"
 ```
+
+## Variables opcionales para Google Sheets
+
+El bot puede actualizar una hoja de Google Sheets al mismo tiempo que Netlify. Usa una cuenta de servicio de Google y comparte la hoja con el correo `client_email` de esa credencial.
+
+```bash
+export GOOGLE_SHEETS_ENABLED="1"
+export GOOGLE_SHEETS_SPREADSHEET_ID="1x9cXtAMaipv1WPmfCc4AX8xK--Bfd0nW"
+export GOOGLE_SHEETS_CREDENTIALS_FILE="/ruta/segura/google-service-account.json"
+export GOOGLE_SHEETS_TAB_M="LISTA M"
+export GOOGLE_SHEETS_TAB_G="LISTA G"
+export GOOGLE_SHEETS_TAB_PL="LISTA PL"
+```
+
+Desde Telegram puedes mandar `/drive` para revisar si la configuracion esta activa.
 
 ## Importante
 
