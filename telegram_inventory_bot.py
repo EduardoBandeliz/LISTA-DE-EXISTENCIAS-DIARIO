@@ -39,7 +39,7 @@ BROADCAST_CHAT_IDS = [
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
 GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
     "GOOGLE_SHEETS_SPREADSHEET_ID",
-    "1x9cXtAMaipv1WPmfCc4AX8xK--Bfd0nW",
+    "1eSgzIz6sKCkOZ8JttDH_Vks5pZM92moHfDs3ToEoGfE",
 ).strip()
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
