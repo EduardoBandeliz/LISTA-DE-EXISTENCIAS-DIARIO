@@ -5,6 +5,7 @@ import os
 import re
 import subprocess
 import tempfile
+import traceback
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -12,7 +13,7 @@ from typing import Optional, Union
 from urllib.parse import quote
 
 from telegram import Bot, Update
-from telegram.error import NetworkError, TelegramError, TimedOut
+from telegram.error import Conflict, NetworkError, RetryAfter, TelegramError, TimedOut
 from telegram.request import HTTPXRequest
 from PIL import Image, ImageOps
 
@@ -44,6 +45,7 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
 TELEGRAM_TIMEOUT_SECONDS = 120
+TELEGRAM_MEDIA_TIMEOUT_SECONDS = 300
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
@@ -1029,6 +1031,32 @@ async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
     return False
 
 
+async def download_telegram_file_with_retries(bot: Bot, file_id: str, destination: Path, attempts: int = 3) -> None:
+    last_error: Optional[Exception] = None
+    for attempt in range(1, attempts + 1):
+        try:
+            telegram_file = await bot.get_file(
+                file_id,
+                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            )
+            await telegram_file.download_to_drive(
+                custom_path=destination,
+                read_timeout=TELEGRAM_MEDIA_TIMEOUT_SECONDS,
+                write_timeout=TELEGRAM_MEDIA_TIMEOUT_SECONDS,
+                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            )
+            return
+        except (TimedOut, NetworkError) as exc:
+            last_error = exc
+            print(f"Descarga Telegram intento {attempt}/{attempts} fallo: {exc}")
+            await asyncio.sleep(3 * attempt)
+    raise last_error or TimedOut("No pude descargar el archivo desde Telegram.")
+
+
 async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str) -> None:
     for target_chat_id in BROADCAST_CHAT_IDS:
         if target_chat_id == source_chat_id:
@@ -1059,14 +1087,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
         try:
-            telegram_file = await bot.get_file(document.file_id)
-            await telegram_file.download_to_drive(
-                custom_path=pdf_path,
-                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
-            )
+            await download_telegram_file_with_retries(bot, document.file_id, pdf_path)
             await asyncio.to_thread(sync_from_github)
             if is_plus_pdf(file_name):
                 plus_inventory = await asyncio.to_thread(extract_plus, pdf_path, INVENTORY_JSON)
@@ -1154,14 +1175,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
 
         try:
             await safe_send(bot, chat_id, "Descargando imagen desde Telegram...")
-            telegram_file = await bot.get_file(file_id)
-            await telegram_file.download_to_drive(
-                custom_path=temp_path,
-                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
-            )
+            await download_telegram_file_with_retries(bot, file_id, temp_path)
 
             await safe_send(bot, chat_id, "Preparando imagen y guardandola localmente...")
             exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
@@ -1246,8 +1260,7 @@ async def handle_advertisement_image(bot: Bot, update: Update) -> bool:
         output_path = temp_root / "publicidad.jpg"
         file_id = update.message.photo[-1].file_id if has_photo else document.file_id
         try:
-            telegram_file = await bot.get_file(file_id)
-            await telegram_file.download_to_drive(custom_path=reference_path)
+            await download_telegram_file_with_retries(bot, file_id, reference_path)
             style = await asyncio.to_thread(generate_advertisement, reference_path, features, output_path)
             with output_path.open("rb") as image_file:
                 await bot.send_photo(
@@ -1410,6 +1423,13 @@ async def poll(token: str) -> None:
         try:
             me = await bot.get_me()
             break
+        except RetryAfter as exc:
+            delay = int(getattr(exc, "retry_after", 5) or 5)
+            print(f"Telegram get_me flood control: esperando {delay}s")
+            await asyncio.sleep(delay + 1)
+        except Conflict as exc:
+            print(f"Telegram get_me conflict: {exc}")
+            await asyncio.sleep(10)
         except (TimedOut, NetworkError) as exc:
             print(f"Telegram get_me retry: {exc}")
             await asyncio.sleep(3)
@@ -1419,6 +1439,15 @@ async def poll(token: str) -> None:
     while True:
         try:
             updates = await bot.get_updates(offset=offset, timeout=30, allowed_updates=["message"])
+        except RetryAfter as exc:
+            delay = int(getattr(exc, "retry_after", 5) or 5)
+            print(f"Telegram polling flood control: esperando {delay}s")
+            await asyncio.sleep(delay + 1)
+            continue
+        except Conflict as exc:
+            print(f"Telegram polling conflict: {exc}")
+            await asyncio.sleep(10)
+            continue
         except (TimedOut, NetworkError) as exc:
             print(f"Telegram polling retry: {exc}")
             try:
@@ -1434,6 +1463,7 @@ async def poll(token: str) -> None:
                 await handle_message(bot, update)
             except Exception as exc:
                 print(f"Error procesando update {update.update_id}: {exc}")
+                traceback.print_exc()
         try:
             await maybe_auto_publish_images(bot)
         except Exception as exc:
