@@ -1,12 +1,12 @@
 {
-  "source_pdf": "1786388445_109.pdf",
+  "source_pdf": "1786453249_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-08-10T01:00:45",
-  "total_productos": 315,
-  "total_disponibles": 315,
+  "report_datetime": "2026-08-11T07:00:49",
+  "total_productos": 316,
+  "total_disponibles": 316,
   "total_agotados": 0,
-  "total_omitidos_cero": 58,
+  "total_omitidos_cero": 56,
   "productos": [
     {
       "id": 1,
@@ -950,8 +950,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958044437",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G VERDE NACIONAL",
-      "cantidad": "50+",
-      "existencia_minima": 50,
+      "cantidad": "10+",
+      "existencia_minima": 10,
       "disponible": true,
       "precio_lista_m": 1579.0,
       "precio_publico": 2585.0
@@ -1870,6 +1870,18 @@
     },
     {
       "id": 156,
+      "categoria_pdf": "HONOR",
+      "clave_categoria": "H...",
+      "codigo": "6936520888207",
+      "nombre": "HONOR X9D 5G 8 GB 512 GB 5G NEGRO LATINO",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 5719.0,
+      "precio_publico": 9599.0
+    },
+    {
+      "id": 157,
       "categoria_pdf": "INFINIX",
       "clave_categoria": "INFINIX",
       "codigo": "4894947119767",
@@ -1881,7 +1893,7 @@
       "precio_publico": 15325.0
     },
     {
-      "id": 157,
+      "id": 158,
       "categoria_pdf": "INFINIX",
       "clave_categoria": "INFINIX",
       "codigo": "4894947119781",
@@ -1893,7 +1905,7 @@
       "precio_publico": 15325.0
     },
     {
-      "id": 158,
+      "id": 159,
       "categoria_pdf": "INFINIX",
       "clave_categoria": "INFINIX",
       "codigo": "4894947119804",
@@ -1905,25 +1917,13 @@
       "precio_publico": 15325.0
     },
     {
-      "id": 159,
+      "id": 160,
       "categoria_pdf": "INFINIX",
       "clave_categoria": "INFINIX",
       "codigo": "4894947093456",
       "nombre": "INFINIX HOT 60 PRO (8+8) GB 256 GB 4G NEGRO NACIONAL",
       "cantidad": "100+",
       "existencia_minima": 100,
-      "disponible": true,
-      "precio_lista_m": 3869.0,
-      "precio_publico": 5654.0
-    },
-    {
-      "id": 160,
-      "categoria_pdf": "INFINIX",
-      "clave_categoria": "INFINIX",
-      "codigo": "4894947093555",
-      "nombre": "INFINIX HOT 60 PRO (8+8) GB 256 GB 4G VERDE NACIONAL",
-      "cantidad": "1+",
-      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3869.0,
       "precio_publico": 5654.0
@@ -2582,8 +2582,8 @@
       "clave_categoria": "PR...",
       "codigo": "71004756",
       "nombre": "ZTE 4G Z2466-2 BLADE A35E 64GB GRI-V2 IU",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 0.0,
       "precio_publico": 0.0
@@ -2954,8 +2954,8 @@
       "clave_categoria": "SA...",
       "codigo": "A17128GRISAK",
       "nombre": "SAMSUNG A17 4 GB 128 GB 4G GRIS NACIONAL AK",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 2769.0,
       "precio_publico": 4956.0
@@ -3588,6 +3588,18 @@
       "id": 299,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
+      "codigo": "6932554444808",
+      "nombre": "XIAOMI REDMI 15C 8 GB 256 GB 4G NEGRO NACIONAL PJ",
+      "cantidad": "10+",
+      "existencia_minima": 10,
+      "disponible": true,
+      "precio_lista_m": 3039.0,
+      "precio_publico": 4871.0
+    },
+    {
+      "id": 300,
+      "categoria_pdf": "XIAOMI",
+      "clave_categoria": "XIAOMI",
       "codigo": "6932554493387",
       "nombre": "XIAOMI REDMI A7 PRO 4 GB 128 GB 4G NEGRO NACIONAL PJ",
       "cantidad": "50+",
@@ -3597,7 +3609,7 @@
       "precio_publico": 3447.0
     },
     {
-      "id": 300,
+      "id": 301,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554493431",
@@ -3609,7 +3621,7 @@
       "precio_publico": 3082.0
     },
     {
-      "id": 301,
+      "id": 302,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812780718",
@@ -3621,7 +3633,7 @@
       "precio_publico": 10344.0
     },
     {
-      "id": 302,
+      "id": 303,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554429133",
@@ -3633,19 +3645,19 @@
       "precio_publico": 6328.0
     },
     {
-      "id": 303,
+      "id": 304,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482992",
       "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G VIOLETA NACIONAL PJ",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3459.0,
       "precio_publico": 5564.0
     },
     {
-      "id": 304,
+      "id": 305,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483340",
@@ -3657,7 +3669,7 @@
       "precio_publico": 6348.0
     },
     {
-      "id": 305,
+      "id": 306,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554476076",
@@ -3669,7 +3681,7 @@
       "precio_publico": 6348.0
     },
     {
-      "id": 306,
+      "id": 307,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483111",
@@ -3681,7 +3693,7 @@
       "precio_publico": 6289.0
     },
     {
-      "id": 307,
+      "id": 308,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482374",
@@ -3693,7 +3705,7 @@
       "precio_publico": 6289.0
     },
     {
-      "id": 308,
+      "id": 309,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405397",
@@ -3705,7 +3717,7 @@
       "precio_publico": 7298.0
     },
     {
-      "id": 309,
+      "id": 310,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498481",
@@ -3717,7 +3729,7 @@
       "precio_publico": 10085.0
     },
     {
-      "id": 310,
+      "id": 311,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554471217",
@@ -3729,7 +3741,7 @@
       "precio_publico": 9327.0
     },
     {
-      "id": 311,
+      "id": 312,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554485245",
@@ -3741,7 +3753,7 @@
       "precio_publico": 10017.0
     },
     {
-      "id": 312,
+      "id": 313,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554469764",
@@ -3753,7 +3765,7 @@
       "precio_publico": 8070.0
     },
     {
-      "id": 313,
+      "id": 314,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554490256",
@@ -3765,7 +3777,7 @@
       "precio_publico": 11022.0
     },
     {
-      "id": 314,
+      "id": 315,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227339075",
@@ -3777,7 +3789,7 @@
       "precio_publico": 6214.0
     },
     {
-      "id": 315,
+      "id": 316,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227337354",
