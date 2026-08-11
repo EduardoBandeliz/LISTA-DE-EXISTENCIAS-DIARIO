@@ -521,7 +521,10 @@ def payjoy_whatsapp_messages(max_length: int = 3600) -> list[str]:
         "💰 Precios actualizados:\n\n"
     )
     footer = (
-        "\n🔎 Consulta la lista completa aquí:\n"
+        "\n🔎 *CATÁLOGOS:*\n"
+        "📦 Equipos con existencia:\n"
+        f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1\n\n"
+        "💳 Equipos Payjoy - Payphone:\n"
         f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1\n\n"
         "📲 Pregunta por disponibilidad y condiciones."
     )
@@ -537,7 +540,7 @@ def payjoy_whatsapp_messages(max_length: int = 3600) -> list[str]:
         addition = brand_line + product_line
         if len(current) + len(addition) + len(footer) > max_length and current != header:
             messages.append(current.rstrip())
-            current = "📱 *EQUIPOS PAYJOY - PAYPHONE (continuación)*\n\n" + brand_line + product_line
+            current = brand_line.lstrip("\n") + product_line
         else:
             current += addition
         current_brand = brand
