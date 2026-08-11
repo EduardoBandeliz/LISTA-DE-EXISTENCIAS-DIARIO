@@ -291,7 +291,8 @@ function normalizeProduct(item, index){
     precio: item.precio_lista_m ?? item.precio ?? 0,
     precio_publico: item.precio_publico ?? null,
     marca: item.marca || inferBrand(item.nombre || '', item.categoria_pdf),
-    categoria: item.categoria || inferBrand(item.nombre || '', item.categoria_pdf)
+    categoria: item.categoria || inferBrand(item.nombre || '', item.categoria_pdf),
+    imagen: item.imagen || ''
   };
 }
 
@@ -322,7 +323,7 @@ async function loadProducts(){
 }
 
 function productImage(product){
-  return PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
+  return product.imagen || PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
 }
 
 function isCellphone(product){

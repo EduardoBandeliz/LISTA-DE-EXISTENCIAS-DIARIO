@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 from pyxlsb import open_workbook
 
@@ -21,9 +23,42 @@ def _stable_code(name: str) -> str:
     return f"PAY-{digest}"
 
 
-def extract_payjoy_excel(excel_path: Path) -> dict:
+def _normalized_name(value: str) -> str:
+    value = str(value).upper()
+    value = re.sub(r"\b(?:NACIONAL|PJ)\b", " ", value)
+    value = re.sub(r"[^A-Z0-9]+", " ", value)
+    return " ".join(value.split())
+
+
+def _existing_images(inventory_paths: list[Path], product_images_path: Path) -> dict[str, tuple[str, str]]:
+    if not product_images_path.exists():
+        return {}
+    images = json.loads(product_images_path.read_text(encoding="utf-8"))
+    result: dict[str, tuple[str, str]] = {}
+    for inventory_path in inventory_paths:
+        if not inventory_path.exists():
+            continue
+        inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+        for product in inventory.get("productos", []):
+            code = str(product.get("codigo", ""))
+            name = str(product.get("nombre", ""))
+            image = images.get(code) or images.get(name)
+            if image:
+                result.setdefault(_normalized_name(name), (code, image))
+    return result
+
+
+def extract_payjoy_excel(
+    excel_path: Path,
+    inventory_paths: Optional[list[Path]] = None,
+    product_images_path: Optional[Path] = None,
+) -> dict:
     rows: list[dict] = []
     header_found = False
+    existing_images = _existing_images(
+        inventory_paths or [],
+        product_images_path or Path("product-images.json"),
+    )
     with open_workbook(str(excel_path)) as workbook:
         if not workbook.sheets:
             raise ValueError("El Excel no contiene hojas.")
@@ -45,10 +80,10 @@ def extract_payjoy_excel(excel_path: Path) -> dict:
                     raise ValueError(f"Costo invalido para {first}: {second!r}")
                 if price < 0:
                     raise ValueError(f"Costo negativo para {first}: {price}")
-                rows.append(
-                    {
+                existing = existing_images.get(_normalized_name(first))
+                product = {
                         "id": len(rows) + 1,
-                        "codigo": _stable_code(first),
+                        "codigo": existing[0] if existing else _stable_code(first),
                         "nombre": first,
                         "precio_lista_m": price,
                         "precio_payjoy": price,
@@ -56,7 +91,9 @@ def extract_payjoy_excel(excel_path: Path) -> dict:
                         "lista": "PAYJOY",
                         "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
                     }
-                )
+                if existing:
+                    product["imagen"] = existing[1]
+                rows.append(product)
 
     if not header_found:
         raise ValueError("No encontre las columnas PRODUCTO y COSTO.")

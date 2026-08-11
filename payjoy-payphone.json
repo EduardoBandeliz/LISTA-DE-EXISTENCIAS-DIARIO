@@ -1,6 +1,6 @@
 {
   "source_excel": "1786453285_109.xlsb",
-  "report_datetime": "2026-08-11T14:03:16",
+  "report_datetime": "2026-08-11T14:28:25",
   "lista": "PAYJOY",
   "nombre_lista": "Equipos Payjoy - Payphone",
   "total_productos": 134,
@@ -9,13 +9,14 @@
   "productos": [
     {
       "id": 1,
-      "codigo": "PAY-D4F88A5BFA40",
+      "codigo": "848958044727",
       "nombre": "BLU BOLD K12 (4+8) GB 128 GB 4G ROSA NACIONAL",
       "precio_lista_m": 1759.0,
       "precio_payjoy": 1759.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/848958044727.webp"
     },
     {
       "id": 2,
@@ -39,43 +40,47 @@
     },
     {
       "id": 4,
-      "codigo": "PAY-5E4344488C8E",
+      "codigo": "848958044000",
       "nombre": "BLU G44 (2+4) GB 64 GB 4G AZUL CLARO NACIONAL",
       "precio_lista_m": 1179.0,
       "precio_payjoy": 1179.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g44-azulclaro.png"
     },
     {
       "id": 5,
-      "codigo": "PAY-88DC9BD2E4B5",
+      "codigo": "848958044024",
       "nombre": "BLU G44 (2+4) GB 64 GB 4G VIOLETA NACIONAL",
       "precio_lista_m": 1179.0,
       "precio_payjoy": 1179.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g44-violeta.png"
     },
     {
       "id": 6,
-      "codigo": "PAY-7CAE5242624F",
+      "codigo": "848958044369",
       "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL CIELO NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g44plus.png"
     },
     {
       "id": 7,
-      "codigo": "PAY-9EC881938C60",
+      "codigo": "848958044352",
       "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g44-azul.png"
     },
     {
       "id": 8,
@@ -89,113 +94,124 @@
     },
     {
       "id": 9,
-      "codigo": "PAY-59D506EBF61F",
+      "codigo": "848958044192",
       "nombre": "BLU G64 (4+10) GB 256 GB 4G DORADO NACIONAL",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64-dorado.png"
     },
     {
       "id": 10,
-      "codigo": "PAY-1C9D2D42CE83",
+      "codigo": "848958043966",
       "nombre": "BLU G64 (4+10) GB 256 GB 4G NARANJA NACIONAL",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64-naranja.png"
     },
     {
       "id": 11,
-      "codigo": "PAY-E68B2D86F362",
+      "codigo": "848958043775",
       "nombre": "BLU G64 (4+10) GB 256 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64-negro.png"
     },
     {
       "id": 12,
-      "codigo": "PAY-6D7C54C7A340",
+      "codigo": "848958043980",
       "nombre": "BLU G64 (4+10) GB 256 GB 4G VERDE NACIONAL",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64-verde.png"
     },
     {
       "id": 13,
-      "codigo": "PAY-E45F706F59D9",
+      "codigo": "848958043973",
       "nombre": "BLU G64 (4+10) GB 256 GB 4G VIOLETA NACIONAL",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64-violeta.png"
     },
     {
       "id": 14,
-      "codigo": "PAY-F7AC345DD645",
+      "codigo": "848958044055",
       "nombre": "BLU G64L (4+4) GB 64 GB 4G AZUL CLARO NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-azulclaro.png"
     },
     {
       "id": 15,
-      "codigo": "PAY-14F8D9EA6647",
+      "codigo": "848958044031",
       "nombre": "BLU G64L (4+4) GB 64 GB 4G AZUL NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-azul.png"
     },
     {
       "id": 16,
-      "codigo": "PAY-EA53E39AB7E9",
+      "codigo": "848958044062",
       "nombre": "BLU G64L (4+4) GB 64 GB 4G MORADO NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-azul.png"
     },
     {
       "id": 17,
-      "codigo": "PAY-DF9D6DFB4A12",
+      "codigo": "848958044048",
       "nombre": "BLU G64L (4+4) GB 64 GB 4G VERDE NACIONAL",
       "precio_lista_m": 1319.0,
       "precio_payjoy": 1319.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-verde.png"
     },
     {
       "id": 18,
-      "codigo": "PAY-E115F74B19CC",
+      "codigo": "848958044093",
       "nombre": "BLU G64L (4+8) GB 128 GB 4G AZUL CLARO NACIONAL",
       "precio_lista_m": 1539.0,
       "precio_payjoy": 1539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-azulclaro.png"
     },
     {
       "id": 19,
-      "codigo": "PAY-A6BCC5BEFC64",
+      "codigo": "848958044079",
       "nombre": "BLU G64L (4+8) GB 128 GB 4G AZUL NACIONAL",
       "precio_lista_m": 1539.0,
       "precio_payjoy": 1539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-azul.png"
     },
     {
       "id": 20,
@@ -209,123 +225,135 @@
     },
     {
       "id": 21,
-      "codigo": "PAY-285AA4E6E94B",
+      "codigo": "848958044086",
       "nombre": "BLU G64L (4+8) GB 128 GB 4G VERDE NACIONAL",
       "precio_lista_m": 1539.0,
       "precio_payjoy": 1539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g64l-verde.png"
     },
     {
       "id": 22,
-      "codigo": "PAY-91ED9ABF1A2F",
+      "codigo": "848958044406",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G AZUL CIELO NACIONAL",
       "precio_lista_m": 1579.0,
       "precio_payjoy": 1579.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g65l-azul.png"
     },
     {
       "id": 23,
-      "codigo": "PAY-D776D7A11B78",
+      "codigo": "848958044420",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G AZUL NACIONAL",
       "precio_lista_m": 1579.0,
       "precio_payjoy": 1579.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g65l-azul.png"
     },
     {
       "id": 24,
-      "codigo": "PAY-F1FEE44A651D",
+      "codigo": "848958044444",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G DORADO NACIONAL",
       "precio_lista_m": 1579.0,
       "precio_payjoy": 1579.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g65l-dorado.png"
     },
     {
       "id": 25,
-      "codigo": "PAY-50D8FB9F96D4",
+      "codigo": "848958044413",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 1579.0,
       "precio_payjoy": 1579.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/848958044413.webp"
     },
     {
       "id": 26,
-      "codigo": "PAY-68EA5C2B9078",
+      "codigo": "848958044437",
       "nombre": "BLU G65L (4+8) GB 128 GB 4G VERDE NACIONAL",
       "precio_lista_m": 1579.0,
       "precio_payjoy": 1579.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g65l-azul.png"
     },
     {
       "id": 27,
-      "codigo": "PAY-CB383784A832",
+      "codigo": "848958043430",
       "nombre": "BLU G73L (2+2) GB 64 GB 4G AZUL NACIONAL",
       "precio_lista_m": 1219.0,
       "precio_payjoy": 1219.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-G73L-Azul.jpg"
     },
     {
       "id": 28,
-      "codigo": "PAY-A4CABFBE0493",
+      "codigo": "48958044758",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G AZUL NACIONAL",
       "precio_lista_m": 2309.0,
       "precio_payjoy": 2309.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g75-azul.jpg"
     },
     {
       "id": 29,
-      "codigo": "PAY-AFE48E37F786",
+      "codigo": "84958044697",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G BLANCO NACIONAL",
       "precio_lista_m": 2309.0,
       "precio_payjoy": 2309.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g75-blanco.png"
     },
     {
       "id": 30,
-      "codigo": "PAY-9EE471B3D140",
+      "codigo": "848958044536",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 2309.0,
       "precio_payjoy": 2309.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g75-negro.png"
     },
     {
       "id": 31,
-      "codigo": "PAY-B6D29F668A1B",
+      "codigo": "848958043782",
       "nombre": "BLU G84 (8+16)GB 256 GB 4G AZUL NACIONAL",
       "precio_lista_m": 2489.0,
       "precio_payjoy": 2489.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g84.png"
     },
     {
       "id": 32,
-      "codigo": "PAY-3893BEA24735",
+      "codigo": "848958044185",
       "nombre": "BLU G84 (8+16)GB 256 GB 4G BLANCO NACIONAL",
       "precio_lista_m": 2489.0,
       "precio_payjoy": 2489.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/blu-g84-blanco.png"
     },
     {
       "id": 33,
@@ -359,53 +387,58 @@
     },
     {
       "id": 36,
-      "codigo": "PAY-FE090A73F8A8",
+      "codigo": "6936520877201",
       "nombre": "HONOR PLAY 10 4 GB 128 GB 4G AZUL CLARO LATINO",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6936520877201.webp"
     },
     {
       "id": 37,
-      "codigo": "PAY-CAE20D301F0A",
+      "codigo": "6936520877195",
       "nombre": "HONOR PLAY 10 4 GB 128 GB 4G NEGRO LATINO",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6936520877195.webp"
     },
     {
       "id": 38,
-      "codigo": "PAY-92423CBD5ADE",
+      "codigo": "6936520877218",
       "nombre": "HONOR PLAY 10 4 GB 128 GB 4G VIOLETA LATINO",
       "precio_lista_m": 1859.0,
       "precio_payjoy": 1859.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6936520877218.webp"
     },
     {
       "id": 39,
-      "codigo": "PAY-780C80E4811C",
+      "codigo": "6936520864515",
       "nombre": "HONOR PLAY 9S 8 GB 256 GB 4G NEGRO LATINO",
       "precio_lista_m": 3699.0,
       "precio_payjoy": 3699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://fdn2.gsmarena.com/vv/bigpic/honor-play9t.jpg"
     },
     {
       "id": 40,
-      "codigo": "PAY-6CB867C5E0D8",
+      "codigo": "6936520864508",
       "nombre": "HONOR PLAY 9S 8 GB 256 GB 4G VIOLETA LATINO",
       "precio_lista_m": 3699.0,
       "precio_payjoy": 3699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/honor-9s-violeta.avif"
     },
     {
       "id": 41,
@@ -429,413 +462,454 @@
     },
     {
       "id": 43,
-      "codigo": "PAY-B6505CF7E5FB",
+      "codigo": "4894947119767",
       "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G NEGRO NACIONAL",
       "precio_lista_m": 9429.0,
       "precio_payjoy": 9429.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947119767.webp"
     },
     {
       "id": 44,
-      "codigo": "PAY-9463C40906E8",
+      "codigo": "4894947119781",
       "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G PLATA NACIONAL",
       "precio_lista_m": 9429.0,
       "precio_payjoy": 9429.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947119781.webp"
     },
     {
       "id": 45,
-      "codigo": "PAY-DE91FBCA3220",
+      "codigo": "4894947119804",
       "nombre": "INFINIX GT 50 PRO (12+12)GB 256 GB 5G ROJO NACIONAL",
       "precio_lista_m": 9429.0,
       "precio_payjoy": 9429.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947119804.webp"
     },
     {
       "id": 46,
-      "codigo": "PAY-3A532ED41F1A",
+      "codigo": "4894947086922N",
       "nombre": "INFINIX GT30 PRO (12+12)GB 256 GB 5G BLANCO NACIONAL",
       "precio_lista_m": 5759.0,
       "precio_payjoy": 5759.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/INFINIX-GT30-PRO-BLANCO.jpg"
     },
     {
       "id": 47,
-      "codigo": "PAY-4CA29A2ACC44",
+      "codigo": "4894947093456",
       "nombre": "INFINIX HOT 60 PRO (8+8) GB 256 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 3869.0,
       "precio_payjoy": 3869.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/infinix-hot60pro-negro.jpg"
     },
     {
       "id": 48,
-      "codigo": "PAY-045AD80C8A57",
+      "codigo": "4894947092701",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G AMARILLO NACIONAL",
       "precio_lista_m": 4199.0,
       "precio_payjoy": 4199.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/INFINIX-HOT60-PROPLUS-AMARILLO.jpg"
     },
     {
       "id": 49,
-      "codigo": "PAY-2CDA777C2DB9",
+      "codigo": "4894947092596",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G PLATA NACIONAL",
       "precio_lista_m": 4199.0,
       "precio_payjoy": 4199.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/INFINIX-HOT60-PROPLUS-PLATA.jpg"
     },
     {
       "id": 50,
-      "codigo": "PAY-B1856EF287DE",
+      "codigo": "4894947092626",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G ROSA NACIONAL",
       "precio_lista_m": 4199.0,
       "precio_payjoy": 4199.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/INIFNIX-60PRO-PLUS-ROSA.jpg"
     },
     {
       "id": 51,
-      "codigo": "PAY-2F28ED189D22",
+      "codigo": "4894947092688",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VERDE NACIONAL",
       "precio_lista_m": 4199.0,
       "precio_payjoy": 4199.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947092688.webp"
     },
     {
       "id": 52,
-      "codigo": "PAY-EB382FF83810",
+      "codigo": "4894947092657",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VIOLETA NACIONAL",
       "precio_lista_m": 4199.0,
       "precio_payjoy": 4199.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/INFINIX-HOT60-PROPLUS-VIOLETA.jpg"
     },
     {
       "id": 53,
-      "codigo": "PAY-27C46A3A93E3",
+      "codigo": "4894947121685",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G AZUL NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121685.webp"
     },
     {
       "id": 54,
-      "codigo": "PAY-09FFECAB9583",
+      "codigo": "4894947121760",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G NARANJA NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121760.webp"
     },
     {
       "id": 55,
-      "codigo": "PAY-57FD9DE7BD65",
+      "codigo": "4894947121661",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121661.webp"
     },
     {
       "id": 56,
-      "codigo": "PAY-E24FA4EFB1F9",
+      "codigo": "4894947121708",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G PLATA NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121708.webp"
     },
     {
       "id": 57,
-      "codigo": "PAY-3392BB41F57A",
+      "codigo": "4894947121722",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G VERDE NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121722.webp"
     },
     {
       "id": 58,
-      "codigo": "PAY-914536C935BA",
+      "codigo": "4894947121746",
       "nombre": "INFINIX HOT 70 (4+4) GB 256 GB 4G VIOLETA NACIONAL",
       "precio_lista_m": 3229.0,
       "precio_payjoy": 3229.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947121746.webp"
     },
     {
       "id": 59,
-      "codigo": "PAY-0EEBF0FFFC0A",
+      "codigo": "4894947120862",
       "nombre": "INFINIX NOTE 60 ULTRA 12 GB 512 GB 5G NEGRO LATINO",
       "precio_lista_m": 14299.0,
       "precio_payjoy": 14299.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947120862.webp"
     },
     {
       "id": 60,
-      "codigo": "PAY-17282A0645E2",
+      "codigo": "4894947120893",
       "nombre": "INFINIX NOTE 60 ULTRA 12 GB 512 GB 5G PLATA LATINO",
       "precio_lista_m": 14299.0,
       "precio_payjoy": 14299.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947120893.webp"
     },
     {
       "id": 61,
-      "codigo": "PAY-E71542FAAEE8",
+      "codigo": "4894947111181",
       "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G AZUL NACIONAL",
       "precio_lista_m": 5379.0,
       "precio_payjoy": 5379.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/infinix-noteedge-azul.jpg"
     },
     {
       "id": 62,
-      "codigo": "PAY-02D3C02E16C2",
+      "codigo": "4894947111150",
       "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G NEGRO NACIONAL",
       "precio_lista_m": 5379.0,
       "precio_payjoy": 5379.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/infinix-noteedge-negro.jpg"
     },
     {
       "id": 63,
-      "codigo": "PAY-22FFD2BB6466",
+      "codigo": "4894947111211",
       "nombre": "INFINIX NOTE EDGE 5G (8+8) GB 256 GB 5G VERDE NACIONAL",
       "precio_lista_m": 5379.0,
       "precio_payjoy": 5379.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/infinix-noteedge-verde.jpg"
     },
     {
       "id": 64,
-      "codigo": "PAY-3B2DE134C25C",
+      "codigo": "4894947116599",
       "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G AZUL NACIONAL",
       "precio_lista_m": 2399.0,
       "precio_payjoy": 2399.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116599.webp"
     },
     {
       "id": 65,
-      "codigo": "PAY-7974EC58A5B1",
+      "codigo": "4894947116568",
       "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G GRIS NACIONAL",
       "precio_lista_m": 2399.0,
       "precio_payjoy": 2399.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116568.webp"
     },
     {
       "id": 66,
-      "codigo": "PAY-ED719D2CFDB2",
+      "codigo": "4894947116629",
       "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G NARANJA NACIONAL",
       "precio_lista_m": 2399.0,
       "precio_payjoy": 2399.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116629.webp"
     },
     {
       "id": 67,
-      "codigo": "PAY-331B2E44204E",
+      "codigo": "4894947116537",
       "nombre": "INFINIX SMART 20 (4+4) GB 128 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 2399.0,
       "precio_payjoy": 2399.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116537.webp"
     },
     {
       "id": 68,
-      "codigo": "PAY-8157DFBAA903",
+      "codigo": "4894947116551",
       "nombre": "INFINIX SMART 20 (4+4) GB 64 GB 4G GRIS NACIONAL",
       "precio_lista_m": 2159.0,
       "precio_payjoy": 2159.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116551.webp"
     },
     {
       "id": 69,
-      "codigo": "PAY-1F510AFE82B3",
+      "codigo": "4894947116520",
       "nombre": "INFINIX SMART 20 (4+4) GB 64 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 2159.0,
       "precio_payjoy": 2159.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947116520.webp"
     },
     {
       "id": 70,
-      "codigo": "PAY-A088AF0F7B57",
+      "codigo": "840023266164",
       "nombre": "MOTOROLA MOTO EDGE 50 12 GB 512 GB 5G VERDE EUAS",
       "precio_lista_m": 4979.0,
       "precio_payjoy": 4979.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-EDGE50-VERDE.jpg"
     },
     {
       "id": 71,
-      "codigo": "PAY-CA5045563F24",
+      "codigo": "840023296963",
       "nombre": "MOTOROLA MOTO EDGE 60 12 GB 512 GB 5G AZUL LATINO",
       "precio_lista_m": 5559.0,
       "precio_payjoy": 5559.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-EDGE60-AZUL.jpg"
     },
     {
       "id": 72,
-      "codigo": "PAY-17A8B296D966",
+      "codigo": "840023287190",
       "nombre": "MOTOROLA MOTO EDGE 60 12 GB 512 GB 5G VERDE EURO",
       "precio_lista_m": 5559.0,
       "precio_payjoy": 5559.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-EDGE60-VERDE.jpg"
     },
     {
       "id": 73,
-      "codigo": "PAY-188691DB50D2",
+      "codigo": "840493603728",
       "nombre": "MOTOROLA MOTO EDGE 60 NEO 12 GB 256 GB 4G GRIS LATINO",
       "precio_lista_m": 5309.0,
       "precio_payjoy": 5309.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493603728.webp"
     },
     {
       "id": 74,
-      "codigo": "PAY-4F912FAE9F63",
+      "codigo": "840493602349",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G AZUL LATINO",
       "precio_lista_m": 2109.0,
       "precio_payjoy": 2109.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602349.webp"
     },
     {
       "id": 75,
-      "codigo": "PAY-3D60DD72BF09",
+      "codigo": "840493602363",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
       "precio_lista_m": 2109.0,
       "precio_payjoy": 2109.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602363.webp"
     },
     {
       "id": 76,
-      "codigo": "PAY-0EF9B90E9B4C",
+      "codigo": "840493602325",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G VERDE LATINO",
       "precio_lista_m": 2109.0,
       "precio_payjoy": 2109.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602325.webp"
     },
     {
       "id": 77,
-      "codigo": "PAY-F2C7631BE4DE",
+      "codigo": "840493602394",
       "nombre": "MOTOROLA MOTO G06 4 GB 256 GB 4G AZUL LATINO",
       "precio_lista_m": 2449.0,
       "precio_payjoy": 2449.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602394.webp"
     },
     {
       "id": 78,
-      "codigo": "PAY-92B7744F4BAE",
+      "codigo": "840493602370",
       "nombre": "MOTOROLA MOTO G06 4 GB 256 GB 4G NARANJA LATINO",
       "precio_lista_m": 2449.0,
       "precio_payjoy": 2449.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602370.webp"
     },
     {
       "id": 79,
-      "codigo": "PAY-D31C58406BFD",
+      "codigo": "840493602356",
       "nombre": "MOTOROLA MOTO G06 4 GB 256 GB 4G VERDE LATINO",
       "precio_lista_m": 2449.0,
       "precio_payjoy": 2449.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602356.webp"
     },
     {
       "id": 80,
-      "codigo": "PAY-7260848E6656",
+      "codigo": "840493602318",
       "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G AZUL LATINO",
       "precio_lista_m": 1969.0,
       "precio_payjoy": 1969.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602318.webp"
     },
     {
       "id": 81,
-      "codigo": "PAY-B2957DBE0BB0",
+      "codigo": "840493602387",
       "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G NARANJA LATINO",
       "precio_lista_m": 1969.0,
       "precio_payjoy": 1969.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602387.webp"
     },
     {
       "id": 82,
-      "codigo": "PAY-DFDC6FEF6FC6",
+      "codigo": "840493602332",
       "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G VERDE LATINO",
       "precio_lista_m": 1969.0,
       "precio_payjoy": 1969.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493602332.webp"
     },
     {
       "id": 83,
-      "codigo": "PAY-02A88582A4AF",
+      "codigo": "8033779086939",
       "nombre": "MOTOROLA MOTO G47 8 GB 128 GB 5G AZUL EUAS",
       "precio_lista_m": 3299.0,
       "precio_payjoy": 3299.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8033779086939.webp"
     },
     {
       "id": 84,
@@ -849,123 +923,135 @@
     },
     {
       "id": 85,
-      "codigo": "PAY-8B2BBFA2B47A",
+      "codigo": "840493619057",
       "nombre": "MOTOROLA MOTO G57 8 GB 256 GB 5G VERDE EUAS",
       "precio_lista_m": 3699.0,
       "precio_payjoy": 3699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/840493619057.webp"
     },
     {
       "id": 86,
-      "codigo": "PAY-361D716BC5C8",
+      "codigo": "8033779085307",
       "nombre": "MOTOROLA MOTO G77 8 GB 256 GB 5G VERDE LATINO",
       "precio_lista_m": 5649.0,
       "precio_payjoy": 5649.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8033779085307.webp"
     },
     {
       "id": 87,
-      "codigo": "PAY-D9D356F9F7B9",
+      "codigo": "8033779080500",
       "nombre": "MOTOROLA MOTO G86 5G 8 GB 256 GB 5G VIOLETA EUAS",
       "precio_lista_m": 3799.0,
       "precio_payjoy": 3799.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-G86-VIOLETA.jpg"
     },
     {
       "id": 88,
-      "codigo": "PAY-DFA5C36DFEED",
+      "codigo": "840023297359",
       "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G AZUL ASIAN",
       "precio_lista_m": 4699.0,
       "precio_payjoy": 4699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g86-power.jpg"
     },
     {
       "id": 89,
-      "codigo": "PAY-B662DF547451",
+      "codigo": "840023297496",
       "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G ROSA ASIAN",
       "precio_lista_m": 4699.0,
       "precio_payjoy": 4699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-G86POWER-ROSA.jpg"
     },
     {
       "id": 90,
-      "codigo": "PAY-9C33D6B6F4FD",
+      "codigo": "840493607184",
       "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G ROSA EURO",
       "precio_lista_m": 4699.0,
       "precio_payjoy": 4699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-G86POWER-ROSA.jpg"
     },
     {
       "id": 91,
-      "codigo": "PAY-B98F982326F3",
+      "codigo": "840493607177",
       "nombre": "MOTOROLA MOTO G86 POWER 5G 8 GB 512 GB 5G VERDE EURO",
       "precio_lista_m": 4699.0,
       "precio_payjoy": 4699.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/MOTO-G86POWER-VERDE.jpg"
     },
     {
       "id": 92,
-      "codigo": "PAY-7F6FF52D8180",
+      "codigo": "6941764465237",
       "nombre": "REALME C71 8 GB 256 GB 4G BLANCO EURO",
       "precio_lista_m": 2889.0,
       "precio_payjoy": 2889.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6941764465237.webp"
     },
     {
       "id": 93,
-      "codigo": "PAY-C332DB3CF6EE",
+      "codigo": "6941764465282",
       "nombre": "REALME C71 8 GB 256 GB 4G VERDE EURO",
       "precio_lista_m": 2889.0,
       "precio_payjoy": 2889.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6941764465282.webp"
     },
     {
       "id": 94,
-      "codigo": "PAY-83F69DAD292F",
+      "codigo": "6941764481350",
       "nombre": "REALME C85 8 GB 256 GB 4G AZUL NACIONAL",
       "precio_lista_m": 3509.0,
       "precio_payjoy": 3509.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/REALME-C85-AZUL.jpg"
     },
     {
       "id": 95,
-      "codigo": "PAY-501B164285A9",
+      "codigo": "6941764481336",
       "nombre": "REALME C85 8 GB 256 GB 4G NEGRO NACIONAL",
       "precio_lista_m": 3509.0,
       "precio_payjoy": 3509.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://fdn2.gsmarena.com/vv/bigpic/realme-c85.jpg"
     },
     {
       "id": 96,
-      "codigo": "PAY-DF5F552AA884",
+      "codigo": "8806097668046",
       "nombre": "SAMSUNG A17 4 GB 128 GB 4G AZUL LATINO",
       "precio_lista_m": 2769.0,
       "precio_payjoy": 2769.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806097668046.webp"
     },
     {
       "id": 97,
@@ -989,33 +1075,36 @@
     },
     {
       "id": 99,
-      "codigo": "PAY-DB95706DF511",
+      "codigo": "8806099353476",
       "nombre": "SAMSUNG A27 5G 6 GB 128 GB 5G NEGRO LATINO",
       "precio_lista_m": 4499.0,
       "precio_payjoy": 4499.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806099353476.webp"
     },
     {
       "id": 100,
-      "codigo": "PAY-D9B2B23E709E",
+      "codigo": "8806099062101",
       "nombre": "SAMSUNG A37 5G 6 GB 128 GB 5G NEGRO LATINO",
       "precio_lista_m": 4829.0,
       "precio_payjoy": 4829.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806099062101.webp"
     },
     {
       "id": 101,
-      "codigo": "PAY-D8A4EF1FBCFB",
+      "codigo": "8806099061821",
       "nombre": "SAMSUNG A37 5G 6 GB 128 GB 5G VERDE OSCURO LATINO",
       "precio_lista_m": 4829.0,
       "precio_payjoy": 4829.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806099061821.webp"
     },
     {
       "id": 102,
@@ -1029,33 +1118,36 @@
     },
     {
       "id": 103,
-      "codigo": "PAY-D226DED2AC43",
+      "codigo": "8806099061814",
       "nombre": "SAMSUNG A37 5G 8 GB 256 GB 5G VERDE OSCURO LATINO",
       "precio_lista_m": 6249.0,
       "precio_payjoy": 6249.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806099061814.webp"
     },
     {
       "id": 104,
-      "codigo": "PAY-DD3805EA0DD7",
+      "codigo": "8806097055655",
       "nombre": "SAMSUNG A56 5G 8 GB 256 GB 5G NEGRO LATINO",
       "precio_lista_m": 6509.0,
       "precio_payjoy": 6509.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/samsung-a56-negro.jpg"
     },
     {
       "id": 105,
-      "codigo": "PAY-0625DFDE6FF6",
+      "codigo": "8806099052621",
       "nombre": "SAMSUNG A57 5G 8 GB 128 GB 5G GRIS LATINO",
       "precio_lista_m": 6349.0,
       "precio_payjoy": 6349.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/8806099052621.webp"
     },
     {
       "id": 106,
@@ -1089,193 +1181,212 @@
     },
     {
       "id": 109,
-      "codigo": "PAY-8CB95026BFEB",
+      "codigo": "4894947114731",
       "nombre": "TECNO CAMON 50 PRO (8+8) GB 256 GB 4G VERDE LATINO",
       "precio_lista_m": 5529.0,
       "precio_payjoy": 5529.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/tecno-camon50pro-verde.jpg"
     },
     {
       "id": 110,
-      "codigo": "PAY-93AB11ABAD57",
+      "codigo": "4894947117381",
       "nombre": "TECNO SPARK 50 4 GB 256 GB 4G AZUL NACIONAL",
       "precio_lista_m": 2939.0,
       "precio_payjoy": 2939.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947117381.webp"
     },
     {
       "id": 111,
-      "codigo": "PAY-F07CC74F1714",
+      "codigo": "4894947117398",
       "nombre": "TECNO SPARK 50 4 GB 256 GB 4G GRIS NACIONAL",
       "precio_lista_m": 2939.0,
       "precio_payjoy": 2939.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/4894947117398.webp"
     },
     {
       "id": 112,
-      "codigo": "PAY-8389FDCD627F",
+      "codigo": "6932554445058",
       "nombre": "XIAOMI REDMI 15 6 GB 128 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 3009.0,
       "precio_payjoy": 3009.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554445058.webp"
     },
     {
       "id": 113,
-      "codigo": "PAY-1CC8BA1E4EFA",
+      "codigo": "6932554449681",
       "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G GRIS NACIONAL PJ",
       "precio_lista_m": 3539.0,
       "precio_payjoy": 3539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554449681.webp"
     },
     {
       "id": 114,
-      "codigo": "PAY-344D44866F78",
+      "codigo": "6932554445065",
       "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 3539.0,
       "precio_payjoy": 3539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-15-negro.jpg"
     },
     {
       "id": 115,
-      "codigo": "PAY-15847C691F6C",
+      "codigo": "6932554450113",
       "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G VIOLETA NACIONAL PJ",
       "precio_lista_m": 3539.0,
       "precio_payjoy": 3539.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554450113.webp"
     },
     {
       "id": 116,
-      "codigo": "PAY-755CDEC44C75",
+      "codigo": "6932554456016",
       "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G AZUL NACIONAL PJ",
       "precio_lista_m": 2369.0,
       "precio_payjoy": 2369.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-15c-azul.jpg"
     },
     {
       "id": 117,
-      "codigo": "PAY-27E97D89D686",
+      "codigo": "6932554444853",
       "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 2369.0,
       "precio_payjoy": 2369.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-15c-negro.jpg"
     },
     {
       "id": 118,
-      "codigo": "PAY-47AC35929326",
+      "codigo": "6932554455903",
       "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G VERDE NACIONAL PJ",
       "precio_lista_m": 2369.0,
       "precio_payjoy": 2369.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-15c-verde.jpg"
     },
     {
       "id": 119,
-      "codigo": "PAY-816683779457",
+      "codigo": "6932554444808",
       "nombre": "XIAOMI REDMI 15C 8 GB 256 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 3039.0,
       "precio_payjoy": 3039.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-15c-negro.jpg"
     },
     {
       "id": 120,
-      "codigo": "PAY-5BF161BEE10E",
+      "codigo": "6932554493387",
       "nombre": "XIAOMI REDMI A7 PRO 4 GB 128 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 2349.0,
       "precio_payjoy": 2349.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554493387.webp"
     },
     {
       "id": 121,
-      "codigo": "PAY-19812314A97E",
+      "codigo": "6932554493431",
       "nombre": "XIAOMI REDMI A7 PRO 4 GB 64 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 2019.0,
       "precio_payjoy": 2019.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554493431.webp"
     },
     {
       "id": 122,
-      "codigo": "PAY-A50E5DC5AECA",
+      "codigo": "6941812780718",
       "nombre": "XIAOMI REDMI NOTE 14 PRO PLUS 5G 8 GB 256 GB 5G NEGRO NACIONAL",
       "precio_lista_m": 6419.0,
       "precio_payjoy": 6419.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-note-14pro+-negro.jpg"
     },
     {
       "id": 123,
-      "codigo": "PAY-C892D0565E7A",
+      "codigo": "6932554429133",
       "nombre": "XIAOMI REDMI NOTE 14S 8 GB 256 GB 4G NEGRO LATINO",
       "precio_lista_m": 4169.0,
       "precio_payjoy": 4169.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-note-14s-negro.jpg"
     },
     {
       "id": 124,
-      "codigo": "PAY-540CCC8582E8",
+      "codigo": "6932554482992",
       "nombre": "XIAOMI REDMI NOTE 15 6 GB 128 GB 4G VIOLETA NACIONAL PJ",
       "precio_lista_m": 3459.0,
       "precio_payjoy": 3459.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-15-global.jpg"
     },
     {
       "id": 125,
-      "codigo": "PAY-BD665A52ABED",
+      "codigo": "6932554483340",
       "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G AZUL NACIONAL PJ",
       "precio_lista_m": 3949.0,
       "precio_payjoy": 3949.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554483340.webp"
     },
     {
       "id": 126,
-      "codigo": "PAY-082770F78BDA",
+      "codigo": "6932554476076",
       "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 3949.0,
       "precio_payjoy": 3949.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554476076.webp"
     },
     {
       "id": 127,
-      "codigo": "PAY-8CB26A8EF7D8",
+      "codigo": "6932554483111",
       "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB 4G VERDE NACIONAL PJ",
       "precio_lista_m": 3949.0,
       "precio_payjoy": 3949.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "img/celulares/6932554483111.webp"
     },
     {
       "id": 128,
@@ -1309,43 +1420,47 @@
     },
     {
       "id": 131,
-      "codigo": "PAY-87CE7AEDEE64",
+      "codigo": "6932554471217",
       "nombre": "XIAOMI REDMI NOTE 15 PRO 5G 8 GB 256 GB 5G NEGRO PJ",
       "precio_lista_m": 5799.0,
       "precio_payjoy": 5799.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-note-15pro5g-negro.jpg"
     },
     {
       "id": 132,
-      "codigo": "PAY-254A2BA81D5E",
+      "codigo": "6932554485245",
       "nombre": "XIAOMI REDMI NOTE 15 PRO 5G 8 GB 512 GB 5G AZUL CLARO PJ",
       "precio_lista_m": 6399.0,
       "precio_payjoy": 6399.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-15-pro-5g.jpg"
     },
     {
       "id": 133,
-      "codigo": "PAY-3A4A211AE8C8",
+      "codigo": "6932554469764",
       "nombre": "XIAOMI REDMI NOTE 15 PRO 8 GB 256 GB 4G NEGRO NACIONAL PJ",
       "precio_lista_m": 5159.0,
       "precio_payjoy": 5159.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-note-15pro-negro.jpg"
     },
     {
       "id": 134,
-      "codigo": "PAY-48A7AF0764F9",
+      "codigo": "6932554490256",
       "nombre": "XIAOMI REDMI NOTE 15 PRO PLUS 5G 8 GB 256 GB 5G NEGRO PJ",
       "precio_lista_m": 7039.0,
       "precio_payjoy": 7039.0,
       "disponible": true,
       "lista": "PAYJOY",
-      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE"
+      "categoria_pdf": "EQUIPOS PAYJOY - PAYPHONE",
+      "imagen": "https://catalogodepreciosbn.netlify.app/imgs/redmi-note-15pro+-negro.jpg"
     }
   ]
 }

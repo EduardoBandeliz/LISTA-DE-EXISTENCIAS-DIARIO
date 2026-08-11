@@ -1106,7 +1106,12 @@ async def handle_payjoy_excel(bot: Bot, update: Update) -> bool:
         try:
             await download_telegram_file_with_retries(bot, document.file_id, excel_path)
             await asyncio.to_thread(sync_from_github)
-            inventory = await asyncio.to_thread(extract_payjoy_excel, excel_path)
+            inventory = await asyncio.to_thread(
+                extract_payjoy_excel,
+                excel_path,
+                [INVENTORY_JSON, LISTA_G_JSON, PLUS_JSON],
+                PRODUCT_IMAGES_JSON,
+            )
             summary = await asyncio.to_thread(write_payjoy_data, inventory)
             result = await asyncio.to_thread(publish_payjoy_to_github, summary)
             message = (
