@@ -509,6 +509,43 @@ def whatsapp_message() -> str:
     )
 
 
+def payjoy_whatsapp_messages(max_length: int = 3600) -> list[str]:
+    inventory = json.loads(PAYJOY_JSON.read_text(encoding="utf-8")) if PAYJOY_JSON.exists() else {"productos": []}
+    products = inventory.get("productos", [])
+    if not products:
+        return ["Todavia no hay equipos en la lista Payjoy - Payphone."]
+
+    header = (
+        "📱✨ *EQUIPOS PAYJOY - PAYPHONE* ✨📱\n"
+        "💳 Opciones para estrenar equipo\n"
+        "💰 Precios actualizados:\n\n"
+    )
+    footer = (
+        "\n🔎 Consulta la lista completa aquí:\n"
+        f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1\n\n"
+        "📲 Pregunta por disponibilidad y condiciones."
+    )
+    messages: list[str] = []
+    current = header
+    current_brand = ""
+    for product in products:
+        name = str(product.get("nombre", "")).strip()
+        price = float(product.get("precio_payjoy", product.get("precio_lista_m", 0)) or 0)
+        brand = name.split(maxsplit=1)[0].upper() if name else "OTROS"
+        brand_line = f"\n🔹 *{brand}*\n" if brand != current_brand else ""
+        product_line = f"📱 {name} — *${price:,.2f}*\n"
+        addition = brand_line + product_line
+        if len(current) + len(addition) + len(footer) > max_length and current != header:
+            messages.append(current.rstrip())
+            current = "📱 *EQUIPOS PAYJOY - PAYPHONE (continuación)*\n\n" + brand_line + product_line
+        else:
+            current += addition
+        current_brand = brand
+    current += footer
+    messages.append(current.rstrip())
+    return messages
+
+
 def google_sheets_status_message() -> str:
     credentials_path = Path(GOOGLE_SHEETS_CREDENTIALS_FILE) if GOOGLE_SHEETS_CREDENTIALS_FILE else None
     lines = [
@@ -1369,6 +1406,10 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/whatsapp", "whatsapp", "texto whatsapp", "liga whatsapp"}:
         await safe_send(bot, chat_id, whatsapp_message())
+        return
+    if key in {"/whatsapppayjoy", "/payjoywhatsapp", "whatsapp payjoy", "texto payjoy"}:
+        for message in payjoy_whatsapp_messages():
+            await safe_send(bot, chat_id, message)
         return
     if key in {"/drive", "/sheets", "drive", "google sheets"}:
         await safe_send(bot, chat_id, google_sheets_status_message())
