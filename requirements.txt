@@ -3,3 +3,4 @@ python-telegram-bot==22.3
 google-api-python-client==2.179.0
 google-auth==2.40.3
 openai>=2.0.0,<3
+pyxlsb==1.0.10

@@ -19,12 +19,14 @@ from PIL import Image, ImageOps
 
 from parse_inventory_pdf import extract_inventory
 from parse_plus_pdf import extract_plus
+from parse_payjoy_excel import extract_payjoy_excel
 
 
 ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
 PLUS_JSON = ROOT / "plus.json"
 LISTA_G_JSON = ROOT / "listag.json"
+PAYJOY_JSON = ROOT / "payjoy-payphone.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
@@ -148,6 +150,24 @@ def load_lista_g_inventory() -> dict:
     return json.loads(LISTA_G_JSON.read_text(encoding="utf-8"))
 
 
+def write_payjoy_data(inventory: dict) -> str:
+    PAYJOY_JSON.write_text(
+        json.dumps(inventory, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return f"{inventory['total_productos']} equipos Payjoy - Payphone"
+
+
+def publish_payjoy_to_github(summary: str) -> str:
+    status = run(["git", "status", "--short", PAYJOY_JSON.name])
+    if not status:
+        return "La lista Equipos Payjoy - Payphone no tuvo cambios."
+    run(["git", "add", PAYJOY_JSON.name])
+    run(["git", "commit", "-m", f"Actualizar Equipos Payjoy - Payphone ({summary})"])
+    run(["git", "push", "origin", "main"])
+    return "Lista Equipos Payjoy - Payphone actualizada en GitHub. Netlify publicara el cambio automaticamente."
+
+
 def inventory_summary(inventory: dict) -> str:
     omitted = int(inventory.get("total_omitidos_cero", 0) or 0)
     omitted_text = f", {omitted} omitidos con existencia 0" if omitted else ""
@@ -176,6 +196,8 @@ def sync_from_github() -> None:
         # If a previous run failed after writing inventario.json, discard that
         # generated file before pulling. The current PDF will regenerate it.
         run(["git", "restore", "--", "inventario.json"])
+        if PAYJOY_JSON.exists():
+            run(["git", "restore", "--", PAYJOY_JSON.name])
         run(["git", "pull", "--rebase", "origin", "main"])
     finally:
         if stashed_images:
@@ -982,6 +1004,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     pl_url = f"{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
     lista_g_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
+    payjoy_url = f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1"
     return (
         f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
@@ -989,6 +1012,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
         f"\n\nLiga solo celulares:\n{celulares_url}"
         f"\n\nLiga PL:\n{pl_url}"
         f"\n\nLiga Lista G:\n{lista_g_url}"
+        f"\n\nEquipos Payjoy - Payphone:\n{payjoy_url}"
     )
 
 
@@ -1062,6 +1086,39 @@ async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str
         if target_chat_id == source_chat_id:
             continue
         await safe_send(bot, target_chat_id, message)
+
+
+async def handle_payjoy_excel(bot: Bot, update: Update) -> bool:
+    if not update.message or not update.message.document:
+        return False
+    chat_id = str(update.effective_chat.id) if update.effective_chat else ""
+    if ALLOWED_CHAT_ID and chat_id != ALLOWED_CHAT_ID:
+        return True
+
+    document = update.message.document
+    file_name = document.file_name or "equipos-payjoy.xlsb"
+    if not file_name.lower().endswith(".xlsb"):
+        return False
+
+    await safe_send(bot, chat_id, f"Recibi Excel Payjoy - Payphone: {file_name}. Actualizando lista...")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        excel_path = Path(temp_dir) / file_name
+        try:
+            await download_telegram_file_with_retries(bot, document.file_id, excel_path)
+            await asyncio.to_thread(sync_from_github)
+            inventory = await asyncio.to_thread(extract_payjoy_excel, excel_path)
+            summary = await asyncio.to_thread(write_payjoy_data, inventory)
+            result = await asyncio.to_thread(publish_payjoy_to_github, summary)
+            message = (
+                f"Listo: {summary}. {result}\n\n"
+                f"Liga Equipos Payjoy - Payphone:\n{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1"
+            )
+            await safe_send(bot, chat_id, message)
+            await broadcast_inventory_update(bot, chat_id, message)
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"No pude actualizar Equipos Payjoy - Payphone: {exc}")
+            raise
+    return True
 
 
 async def handle_pdf(bot: Bot, update: Update) -> None:
@@ -1406,6 +1463,8 @@ async def handle_message(bot: Bot, update: Update) -> None:
                 "Ahora reenvia la imagen y la guardare con ese codigo."
             ),
         )
+        return
+    if await handle_payjoy_excel(bot, update):
         return
     await handle_pdf(bot, update)
 
