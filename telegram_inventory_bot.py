@@ -6,6 +6,8 @@ import re
 import subprocess
 import tempfile
 import traceback
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -32,6 +34,7 @@ PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 REPORT_STATE_JSON = ROOT / ".telegram-report-state.json"
 AUTO_PUBLISH_STATE_JSON = ROOT / ".telegram-auto-publish-state.json"
+NETLIFY_MONITOR_STATE_JSON = ROOT / ".netlify-monitor-state.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 BROADCAST_CHAT_IDS = [
@@ -50,6 +53,8 @@ TELEGRAM_TIMEOUT_SECONDS = 120
 TELEGRAM_MEDIA_TIMEOUT_SECONDS = 300
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+NETLIFY_MONITOR_ENABLED = os.getenv("NETLIFY_MONITOR_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+NETLIFY_MONITOR_INTERVAL_SECONDS = max(60, int(os.getenv("NETLIFY_MONITOR_INTERVAL_SECONDS", "300") or 300))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 PENDING_ADVERTISEMENT_CHATS: set[str] = set()
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
@@ -1063,6 +1068,121 @@ def error_message(exc: Exception) -> str:
     )
 
 
+NETLIFY_CHECKS = (
+    ("Lista M", "inventario.json", "productos"),
+    ("Lista G", "listag.json", "productos"),
+    ("Lista PL", "plus.json", "productos"),
+    ("Payjoy - Payphone", "payjoy-payphone.json", "productos"),
+    ("Imagenes", "product-images.json", None),
+)
+
+
+def read_netlify_monitor_state() -> dict:
+    if not NETLIFY_MONITOR_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(NETLIFY_MONITOR_STATE_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def write_netlify_monitor_state(state: dict) -> None:
+    NETLIFY_MONITOR_STATE_JSON.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def check_netlify_health() -> dict:
+    results = []
+    cache_buster = int(datetime.now().timestamp())
+    for name, file_name, collection_key in NETLIFY_CHECKS:
+        url = f"{NETLIFY_SITE_URL.rstrip('/')}/{file_name}?monitor={cache_buster}"
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": "CelucenterBotMonitor/1.0"})
+            with urllib.request.urlopen(request, timeout=25) as response:
+                if response.status != 200:
+                    raise ValueError(f"HTTP {response.status}")
+                payload = json.loads(response.read().decode("utf-8"))
+            collection = payload.get(collection_key, []) if collection_key else payload
+            count = len(collection) if isinstance(collection, (list, dict)) else 0
+            if count <= 0:
+                raise ValueError("archivo vacio")
+            results.append({"name": name, "ok": True, "count": count})
+        except Exception as exc:
+            results.append({"name": name, "ok": False, "count": 0, "error": str(exc)[:180]})
+    return {
+        "ok": all(item["ok"] for item in results),
+        "checked_at": datetime.now().isoformat(timespec="seconds"),
+        "results": results,
+    }
+
+
+def netlify_status_message(health: dict, title: str = "Estado del catalogo") -> str:
+    lines = [f"{'✅' if health.get('ok') else '🚨'} {title}", f"Revision: {health.get('checked_at', 'ahora')}", ""]
+    for item in health.get("results", []):
+        if item.get("ok"):
+            lines.append(f"✅ {item['name']}: {item.get('count', 0)}")
+        else:
+            lines.append(f"❌ {item['name']}: {item.get('error', 'no disponible')}")
+    lines.append(f"\n🌐 {NETLIFY_SITE_URL}")
+    return "\n".join(lines)
+
+
+def force_netlify_redeploy() -> str:
+    sync_from_github()
+    run(["git", "commit", "--allow-empty", "-m", "Forzar republicacion del catalogo"])
+    run(["git", "push", "origin", "main"])
+    return "Republicacion enviada a Netlify. Puede tardar entre 1 y 3 minutos."
+
+
+def monitor_notification_targets() -> list[str]:
+    targets = list(BROADCAST_CHAT_IDS)
+    if ALLOWED_CHAT_ID and ALLOWED_CHAT_ID not in targets:
+        targets.append(ALLOWED_CHAT_ID)
+    return targets
+
+
+async def maybe_monitor_netlify(bot: Bot, force: bool = False) -> Optional[dict]:
+    if not NETLIFY_MONITOR_ENABLED and not force:
+        return None
+    state = read_netlify_monitor_state()
+    now = datetime.now()
+    last_check = state.get("last_check")
+    if not force and last_check:
+        try:
+            elapsed = (now - datetime.fromisoformat(last_check)).total_seconds()
+            if elapsed < NETLIFY_MONITOR_INTERVAL_SECONDS:
+                return None
+        except ValueError:
+            pass
+
+    health = await asyncio.to_thread(check_netlify_health)
+    was_down = state.get("status") == "down"
+    failures = 0 if health["ok"] else int(state.get("consecutive_failures", 0)) + 1
+    state.update({
+        "last_check": now.isoformat(timespec="seconds"),
+        "last_health": health,
+        "consecutive_failures": failures,
+    })
+
+    notification = None
+    if not health["ok"] and failures >= 2 and not was_down:
+        state["status"] = "down"
+        notification = netlify_status_message(health, "Falla confirmada en las listas") + "\n\nUsa /reparar para forzar una republicacion."
+    elif health["ok"] and was_down:
+        state["status"] = "ok"
+        notification = netlify_status_message(health, "Listas recuperadas")
+    elif health["ok"]:
+        state["status"] = "ok"
+    write_netlify_monitor_state(state)
+
+    if notification:
+        for target in monitor_notification_targets():
+            await safe_send(bot, target, notification)
+    return health
+
+
 def is_plus_pdf(file_name: str) -> bool:
     clean = file_name.lower()
     return "plus" in clean or clean.startswith("pl")
@@ -1404,6 +1524,23 @@ async def handle_message(bot: Bot, update: Update) -> None:
     if key == "/id":
         await safe_send(bot, chat_id, f"Chat ID: {chat_id}")
         return
+    if key in {"/estado", "estado"}:
+        await safe_send(bot, chat_id, "Revisando Netlify y todas las listas...")
+        health = await asyncio.to_thread(check_netlify_health)
+        await safe_send(bot, chat_id, netlify_status_message(health))
+        return
+    if key in {"/reparar", "reparar"}:
+        await safe_send(bot, chat_id, "Forzando una nueva publicacion del ultimo catalogo valido...")
+        try:
+            result = await asyncio.to_thread(force_netlify_redeploy)
+            state = read_netlify_monitor_state()
+            state["last_check"] = ""
+            write_netlify_monitor_state(state)
+            await safe_send(bot, chat_id, f"✅ {result}\n\nConsulta /estado dentro de unos minutos.")
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"❌ No pude iniciar la reparacion: {exc}")
+            raise
+        return
     if key in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await safe_send(bot, chat_id, links_message())
         return
@@ -1562,6 +1699,10 @@ async def poll(token: str) -> None:
                 await maybe_auto_publish_images(bot)
             except Exception as auto_exc:
                 print(f"Error en publicacion automatica de imagenes: {auto_exc}")
+            try:
+                await maybe_monitor_netlify(bot)
+            except Exception as monitor_exc:
+                print(f"Error en monitor de Netlify: {monitor_exc}")
             await asyncio.sleep(2)
             continue
 
@@ -1576,6 +1717,10 @@ async def poll(token: str) -> None:
             await maybe_auto_publish_images(bot)
         except Exception as exc:
             print(f"Error en publicacion automatica de imagenes: {exc}")
+        try:
+            await maybe_monitor_netlify(bot)
+        except Exception as exc:
+            print(f"Error en monitor de Netlify: {exc}")
         await asyncio.sleep(0.2)
 
 

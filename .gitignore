@@ -5,6 +5,7 @@ google-service-account.json
 .telegram-image-state.json
 .telegram-report-state.json
 .telegram-auto-publish-state.json
+.netlify-monitor-state.json
 .venv
 .venv/
 __pycache__/
