@@ -3,6 +3,7 @@ import asyncio
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import traceback
@@ -35,6 +36,8 @@ PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 REPORT_STATE_JSON = ROOT / ".telegram-report-state.json"
 AUTO_PUBLISH_STATE_JSON = ROOT / ".telegram-auto-publish-state.json"
 NETLIFY_MONITOR_STATE_JSON = ROOT / ".netlify-monitor-state.json"
+OPERATIONS_STATE_JSON = ROOT / ".operations-state.json"
+BACKUP_DIR = ROOT / "backups"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 BROADCAST_CHAT_IDS = [
@@ -55,6 +58,9 @@ AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 NETLIFY_MONITOR_ENABLED = os.getenv("NETLIFY_MONITOR_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 NETLIFY_MONITOR_INTERVAL_SECONDS = max(60, int(os.getenv("NETLIFY_MONITOR_INTERVAL_SECONDS", "300") or 300))
+INVENTORY_MIN_PRODUCTS = max(1, int(os.getenv("INVENTORY_MIN_PRODUCTS", "50") or 50))
+INVENTORY_MAX_DROP_PERCENT = min(95, max(10, int(os.getenv("INVENTORY_MAX_DROP_PERCENT", "50") or 50)))
+BACKUP_RETENTION = max(5, int(os.getenv("BACKUP_RETENTION", "15") or 15))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 PENDING_ADVERTISEMENT_CHATS: set[str] = set()
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
@@ -155,11 +161,121 @@ def load_lista_g_inventory() -> dict:
     return json.loads(LISTA_G_JSON.read_text(encoding="utf-8"))
 
 
+LIST_FILES = {
+    "M": INVENTORY_JSON,
+    "G": LISTA_G_JSON,
+    "PL": PLUS_JSON,
+    "PAYJOY": PAYJOY_JSON,
+}
+
+
+def read_operations_state() -> dict:
+    if not OPERATIONS_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(OPERATIONS_STATE_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def write_operations_state(state: dict) -> None:
+    OPERATIONS_STATE_JSON.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def validate_inventory_update(new_inventory: dict, current_path: Path, list_name: str) -> None:
+    products = new_inventory.get("productos")
+    if not isinstance(products, list) or len(products) < INVENTORY_MIN_PRODUCTS:
+        raise ValueError(
+            f"Proteccion activa: {list_name} contiene solo {len(products) if isinstance(products, list) else 0} productos; no se publico."
+        )
+    missing_names = [p for p in products if not str(p.get("nombre", "")).strip()]
+    invalid_prices = [p for p in products if float(p.get("precio_lista_m", p.get("precio", 0)) or 0) <= 0]
+    if missing_names:
+        raise ValueError(f"Proteccion activa: {len(missing_names)} productos de {list_name} no tienen nombre.")
+    if len(invalid_prices) > max(5, int(len(products) * 0.05)):
+        raise ValueError(f"Proteccion activa: {len(invalid_prices)} productos de {list_name} no tienen precio valido.")
+    if current_path.exists():
+        try:
+            current_count = len(json.loads(current_path.read_text(encoding="utf-8")).get("productos", []))
+        except (json.JSONDecodeError, OSError):
+            current_count = 0
+        if current_count >= INVENTORY_MIN_PRODUCTS:
+            drop_percent = (current_count - len(products)) * 100 / current_count
+            if drop_percent > INVENTORY_MAX_DROP_PERCENT:
+                raise ValueError(
+                    f"Proteccion activa: {list_name} bajaria de {current_count} a {len(products)} productos ({drop_percent:.0f}% menos); no se publico."
+                )
+
+
+def backup_file(source: Path, list_key: str) -> Optional[Path]:
+    if not source.exists() or source.stat().st_size <= 2:
+        return None
+    target_dir = BACKUP_DIR / list_key.upper()
+    target_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+    target = target_dir / f"{stamp}-{source.name}"
+    shutil.copy2(source, target)
+    backups = sorted(target_dir.glob(f"*-{source.name}"), reverse=True)
+    for old in backups[BACKUP_RETENTION:]:
+        old.unlink(missing_ok=True)
+    return target
+
+
+def record_successful_update(list_key: str, count: int, source_name: str) -> None:
+    state = read_operations_state()
+    updates = state.setdefault("last_updates", {})
+    updates[list_key.upper()] = {
+        "at": datetime.now().isoformat(timespec="seconds"),
+        "count": count,
+        "source": source_name,
+    }
+    write_operations_state(state)
+
+
+def daily_backup_if_needed() -> bool:
+    state = read_operations_state()
+    today = datetime.now().date().isoformat()
+    if state.get("last_daily_backup") == today:
+        return False
+    for key, path in LIST_FILES.items():
+        backup_file(path, key)
+    backup_file(PRODUCT_IMAGES_JSON, "IMAGES")
+    state["last_daily_backup"] = today
+    state["last_daily_backup_at"] = datetime.now().isoformat(timespec="seconds")
+    write_operations_state(state)
+    return True
+
+
+def restore_latest_backup(list_key: str) -> str:
+    key = list_key.upper().strip()
+    aliases = {"LISTAM": "M", "LISTAG": "G", "PLUS": "PL", "PAYPHONE": "PAYJOY"}
+    key = aliases.get(key, key)
+    if key not in LIST_FILES:
+        raise ValueError("Indica una lista: /restaurar M, /restaurar G, /restaurar PL o /restaurar PAYJOY")
+    destination = LIST_FILES[key]
+    backups = sorted((BACKUP_DIR / key).glob(f"*-{destination.name}"), reverse=True)
+    if not backups:
+        raise ValueError(f"No hay respaldos disponibles para {key}.")
+    backup_file(destination, f"{key}-ANTES-RESTAURAR")
+    shutil.copy2(backups[0], destination)
+    restored = json.loads(destination.read_text(encoding="utf-8"))
+    validate_inventory_update(restored, Path("/archivo-que-no-existe"), key)
+    run(["git", "add", destination.name])
+    run(["git", "commit", "-m", f"Restaurar lista {key} desde respaldo"])
+    run(["git", "push", "origin", "main"])
+    count = len(restored.get("productos", []))
+    record_successful_update(key, count, f"respaldo {backups[0].name}")
+    return f"Lista {key} restaurada con {count} productos. Netlify publicara el cambio automaticamente."
+
+
 def write_payjoy_data(inventory: dict) -> str:
+    validate_inventory_update(inventory, PAYJOY_JSON, "Payjoy - Payphone")
+    backup_file(PAYJOY_JSON, "PAYJOY")
     PAYJOY_JSON.write_text(
         json.dumps(inventory, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    record_successful_update("PAYJOY", inventory["total_productos"], inventory.get("source_excel", "Excel"))
     return f"{inventory['total_productos']} equipos Payjoy - Payphone"
 
 
@@ -184,10 +300,13 @@ def inventory_summary(inventory: dict) -> str:
 
 
 def write_inventory_data(inventory: dict) -> str:
+    validate_inventory_update(inventory, INVENTORY_JSON, "Lista M")
+    backup_file(INVENTORY_JSON, "M")
     INVENTORY_JSON.write_text(
         __import__("json").dumps(inventory, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    record_successful_update("M", inventory["total_productos"], inventory.get("source_pdf", "PDF"))
     return inventory_summary(inventory)
 
 
@@ -221,10 +340,13 @@ def publish_to_github(summary: str) -> str:
 
 
 def write_plus_data(plus_inventory: dict) -> str:
+    validate_inventory_update(plus_inventory, PLUS_JSON, "Lista PL")
+    backup_file(PLUS_JSON, "PL")
     PLUS_JSON.write_text(
         json.dumps(plus_inventory, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    record_successful_update("PL", plus_inventory["total_productos"], plus_inventory.get("source_pdf", "PDF"))
     return f"{plus_inventory['total_productos']} productos PL"
 
 
@@ -240,10 +362,13 @@ def publish_plus_to_github(summary: str) -> str:
 
 
 def write_lista_g_data(inventory: dict) -> str:
+    validate_inventory_update(inventory, LISTA_G_JSON, "Lista G")
+    backup_file(LISTA_G_JSON, "G")
     LISTA_G_JSON.write_text(
         json.dumps(inventory, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    record_successful_update("G", inventory["total_productos"], inventory.get("source_pdf", "PDF"))
     return f"{inventory['total_productos']} productos Lista G"
 
 
@@ -1143,6 +1268,64 @@ def monitor_notification_targets() -> list[str]:
     return targets
 
 
+def is_admin_chat(chat_id: Union[str, int]) -> bool:
+    configured = set(monitor_notification_targets())
+    return not configured or str(chat_id) in configured
+
+
+def operations_status_message() -> str:
+    state = read_operations_state()
+    lines = ["🛡️ Estado operativo remoto", ""]
+    for key, path in LIST_FILES.items():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            count = len(data.get("productos", []))
+            updated = state.get("last_updates", {}).get(key, {}).get("at") or datetime.fromtimestamp(path.stat().st_mtime).isoformat(timespec="seconds")
+            lines.append(f"✅ {key}: {count} productos · {updated}")
+        except Exception as exc:
+            lines.append(f"❌ {key}: {exc}")
+    image_count = len(load_product_images())
+    lines.extend([
+        f"✅ Imágenes registradas: {image_count}",
+        f"✅ Monitor Netlify: cada {NETLIFY_MONITOR_INTERVAL_SECONDS // 60} min",
+        f"✅ Protección: mínimo {INVENTORY_MIN_PRODUCTS} productos; caída máxima {INVENTORY_MAX_DROP_PERCENT}%",
+        f"✅ Respaldos: {BACKUP_RETENTION} versiones por lista",
+        f"Último respaldo diario: {state.get('last_daily_backup_at', 'pendiente')}",
+    ])
+    return "\n".join(lines)
+
+
+def recent_errors_message(lines_count: int = 35) -> str:
+    candidates = [ROOT / "telegram-bot.err.log", ROOT / "telegram-bot.log"]
+    selected = []
+    for path in candidates:
+        if not path.exists():
+            continue
+        content = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        for line in content[-500:]:
+            if any(token in line.lower() for token in ("error", "traceback", "failed", "fatal", "exception")):
+                selected.append(line.strip())
+    if not selected:
+        return "✅ No encontré errores recientes en los registros del bot."
+    selected = selected[-lines_count:]
+    message = "⚠️ Últimos errores registrados:\n\n" + "\n".join(selected)
+    return message[-3800:]
+
+
+def commands_message() -> str:
+    return (
+        "🛠️ Comandos de operación remota\n\n"
+        "/estado — revisa Netlify y las cinco fuentes\n"
+        "/operacion — resumen local, respaldos y protecciones\n"
+        "/reparar — fuerza una republicación\n"
+        "/restaurar M|G|PL|PAYJOY — recupera el respaldo anterior\n"
+        "/reiniciar — reinicia este bot\n"
+        "/ultimoserrores — muestra errores recientes\n"
+        "/respaldo — crea un respaldo inmediato\n"
+        "/ligas — muestra todas las ligas"
+    )
+
+
 async def maybe_monitor_netlify(bot: Bot, force: bool = False) -> Optional[dict]:
     if not NETLIFY_MONITOR_ENABLED and not force:
         return None
@@ -1169,7 +1352,21 @@ async def maybe_monitor_netlify(bot: Bot, force: bool = False) -> Optional[dict]
     notification = None
     if not health["ok"] and failures >= 2 and not was_down:
         state["status"] = "down"
-        notification = netlify_status_message(health, "Falla confirmada en las listas") + "\n\nUsa /reparar para forzar una republicacion."
+        repair_note = ""
+        try:
+            last_repair = state.get("last_auto_repair")
+            can_repair = True
+            if last_repair:
+                can_repair = (now - datetime.fromisoformat(last_repair)).total_seconds() >= 3600
+            if can_repair:
+                repair_result = await asyncio.to_thread(force_netlify_redeploy)
+                state["last_auto_repair"] = now.isoformat(timespec="seconds")
+                repair_note = f"\n\n🔄 Reparación automática iniciada: {repair_result}"
+            else:
+                repair_note = "\n\nLa reparación automática ya se ejecutó durante la última hora."
+        except Exception as exc:
+            repair_note = f"\n\n❌ La reparación automática no pudo iniciarse: {exc}\nUsa /reparar."
+        notification = netlify_status_message(health, "Falla confirmada en las listas") + repair_note
     elif health["ok"] and was_down:
         state["status"] = "ok"
         notification = netlify_status_message(health, "Listas recuperadas")
@@ -1527,9 +1724,18 @@ async def handle_message(bot: Bot, update: Update) -> None:
     if key in {"/estado", "estado"}:
         await safe_send(bot, chat_id, "Revisando Netlify y todas las listas...")
         health = await asyncio.to_thread(check_netlify_health)
-        await safe_send(bot, chat_id, netlify_status_message(health))
+        await safe_send(bot, chat_id, netlify_status_message(health) + "\n\n" + operations_status_message())
+        return
+    if key in {"/operacion", "/operación", "operacion", "operación"}:
+        await safe_send(bot, chat_id, operations_status_message())
+        return
+    if key in {"/comandos", "comandos", "/ayudaoperacion"}:
+        await safe_send(bot, chat_id, commands_message())
         return
     if key in {"/reparar", "reparar"}:
+        if not is_admin_chat(chat_id):
+            await safe_send(bot, chat_id, "Este comando está limitado a los chats administrativos.")
+            return
         await safe_send(bot, chat_id, "Forzando una nueva publicacion del ultimo catalogo valido...")
         try:
             result = await asyncio.to_thread(force_netlify_redeploy)
@@ -1540,6 +1746,41 @@ async def handle_message(bot: Bot, update: Update) -> None:
         except Exception as exc:
             await safe_send(bot, chat_id, f"❌ No pude iniciar la reparacion: {exc}")
             raise
+        return
+    if key.startswith("/restaurar") or key.startswith("restaurar"):
+        if not is_admin_chat(chat_id):
+            await safe_send(bot, chat_id, "Este comando está limitado a los chats administrativos.")
+            return
+        parts = text.split(maxsplit=1)
+        list_key = parts[1] if len(parts) > 1 else ""
+        await safe_send(bot, chat_id, f"Restaurando la última versión respaldada de {list_key.upper() or 'la lista indicada'}...")
+        try:
+            result = await asyncio.to_thread(restore_latest_backup, list_key)
+            await safe_send(bot, chat_id, f"✅ {result}\n\nRevisa /estado dentro de unos minutos.")
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"❌ No pude restaurar: {exc}")
+        return
+    if key in {"/respaldo", "respaldo"}:
+        if not is_admin_chat(chat_id):
+            await safe_send(bot, chat_id, "Este comando está limitado a los chats administrativos.")
+            return
+        for list_key, path in LIST_FILES.items():
+            await asyncio.to_thread(backup_file, path, list_key)
+        await asyncio.to_thread(backup_file, PRODUCT_IMAGES_JSON, "IMAGES")
+        state = read_operations_state()
+        state["last_manual_backup_at"] = datetime.now().isoformat(timespec="seconds")
+        write_operations_state(state)
+        await safe_send(bot, chat_id, "✅ Respaldo inmediato creado para M, G, PL, Payjoy e imágenes.")
+        return
+    if key in {"/ultimoserrores", "/errores", "ultimos errores"}:
+        await safe_send(bot, chat_id, recent_errors_message())
+        return
+    if key in {"/reiniciar", "reiniciar"}:
+        if not is_admin_chat(chat_id):
+            await safe_send(bot, chat_id, "Este comando está limitado a los chats administrativos.")
+            return
+        await safe_send(bot, chat_id, "🔄 Reiniciando el bot. Volverá automáticamente en unos segundos.")
+        asyncio.get_running_loop().call_later(1.0, lambda: os._exit(0))
         return
     if key in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await safe_send(bot, chat_id, links_message())
@@ -1721,6 +1962,10 @@ async def poll(token: str) -> None:
             await maybe_monitor_netlify(bot)
         except Exception as exc:
             print(f"Error en monitor de Netlify: {exc}")
+        try:
+            await asyncio.to_thread(daily_backup_if_needed)
+        except Exception as exc:
+            print(f"Error en respaldo diario: {exc}")
         await asyncio.sleep(0.2)
 
 
