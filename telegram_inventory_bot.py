@@ -1394,6 +1394,44 @@ def is_lista_g_pdf(file_name: str, inventory: Optional[dict] = None) -> bool:
     return "LISTA G" in title.upper() or lista.upper() == "G"
 
 
+def requested_pdf_list(caption: str) -> Optional[str]:
+    """Allow an explicit list type when a supplier sends generic numeric filenames."""
+    clean = re.sub(r"[^a-z0-9]+", "", (caption or "").lower())
+    aliases = {
+        "listam": "M", "m": "M",
+        "listag": "G", "g": "G",
+        "listapl": "PL", "pl": "PL", "plus": "PL", "listaplus": "PL",
+    }
+    return aliases.get(clean)
+
+
+def classify_and_extract_pdf(pdf_path: Path, file_name: str, caption: str = "") -> tuple[str, dict]:
+    """Classify PDFs by their contents, using filename/caption only as useful hints."""
+    forced = requested_pdf_list(caption)
+    if forced == "PL" or (not forced and is_plus_pdf(file_name)):
+        inventory = extract_plus(pdf_path, INVENTORY_JSON)
+        return "PL", inventory
+
+    regular = extract_inventory(pdf_path)
+    regular_count = len(regular.get("productos", []))
+    if forced in {"M", "G"}:
+        regular["lista"] = forced
+        return forced, regular
+    if regular_count >= INVENTORY_MIN_PRODUCTS:
+        list_type = "G" if is_lista_g_pdf(file_name, regular) else "M"
+        regular["lista"] = list_type
+        return list_type, regular
+
+    # PL reports use a different layout and often arrive with numeric filenames.
+    plus = extract_plus(pdf_path, INVENTORY_JSON)
+    if len(plus.get("productos", [])) >= INVENTORY_MIN_PRODUCTS:
+        return "PL", plus
+    raise ValueError(
+        "No pude identificar el PDF como Lista M, Lista G o Lista PL. "
+        "Reenvialo con el texto /lista_m, /lista_g o /lista_pl en el caption."
+    )
+
+
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
     for attempt in range(1, 4):
         try:
@@ -1493,43 +1531,47 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
 
     document = update.message.document
     file_name = document.file_name or "inventario.pdf"
+    caption = update.message.caption or ""
     if not file_name.lower().endswith(".pdf"):
         return
     if PDF_NAME_CONTAINS and PDF_NAME_CONTAINS not in file_name.lower():
         return
 
-    if is_plus_pdf(file_name):
-        await safe_send(bot, chat_id, f"Recibi PDF PL: {file_name}. Actualizando lista PL...")
-    else:
-        await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Revisando tipo de lista...")
+    await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Revisando si es Lista M, G o PL...")
+    print(f"PDF recibido chat={chat_id} archivo={file_name!r} caption={caption!r}")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         pdf_path = Path(temp_dir) / file_name
         try:
             await download_telegram_file_with_retries(bot, document.file_id, pdf_path)
             await asyncio.to_thread(sync_from_github)
-            if is_plus_pdf(file_name):
-                plus_inventory = await asyncio.to_thread(extract_plus, pdf_path, INVENTORY_JSON)
-                summary = await asyncio.to_thread(write_plus_data, plus_inventory)
+            list_type, parsed_inventory = await asyncio.to_thread(
+                classify_and_extract_pdf, pdf_path, file_name, caption
+            )
+            product_count = len(parsed_inventory.get("productos", []))
+            print(f"PDF clasificado archivo={file_name!r} lista={list_type} productos={product_count}")
+            await safe_send(bot, chat_id, f"Detectada Lista {list_type}: {product_count} productos. Publicando...")
+            if list_type == "PL":
+                summary = await asyncio.to_thread(write_plus_data, parsed_inventory)
                 result = await asyncio.to_thread(publish_plus_to_github, summary)
-                sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, plus_inventory, "PL")
+                sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, parsed_inventory, "PL")
                 message = (
                     f"Listo: {summary}. {result}\n\n"
                     f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
                 )
                 message = append_google_sheets_result(message, sheets_result)
             else:
-                new_inventory = await asyncio.to_thread(extract_inventory, pdf_path)
-                if is_lista_g_pdf(file_name, new_inventory):
-                    summary = await asyncio.to_thread(write_lista_g_data, new_inventory)
+                if list_type == "G":
+                    summary = await asyncio.to_thread(write_lista_g_data, parsed_inventory)
                     result = await asyncio.to_thread(publish_lista_g_to_github, summary)
-                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, new_inventory, "G")
+                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, parsed_inventory, "G")
                     message = (
                         f"Listo: {summary}. {result}\n\n"
                         f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
                     )
                     message = append_google_sheets_result(message, sheets_result)
                 else:
+                    new_inventory = parsed_inventory
                     previous_inventory = await asyncio.to_thread(load_inventory)
                     analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
                     report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
@@ -1542,6 +1584,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
         except Exception as exc:
+            print(f"PDF rechazado archivo={file_name!r}: {type(exc).__name__}: {exc}")
             await safe_send(bot, chat_id, error_message(exc))
             raise
 
