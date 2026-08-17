@@ -1474,7 +1474,9 @@ async def download_telegram_file_with_retries(bot: Bot, file_id: str, destinatio
                 subprocess.run,
                 [
                     "/usr/bin/curl", "-4", "--fail", "--silent", "--show-error",
-                    "--location", "--connect-timeout", "15", "--max-time",
+                    "--location", "--http1.1", "--tlsv1.2", "--retry", "4",
+                    "--retry-all-errors", "--retry-delay", "2",
+                    "--connect-timeout", "10", "--max-time",
                     str(TELEGRAM_MEDIA_TIMEOUT_SECONDS), "--output", str(destination),
                     str(telegram_file.file_path),
                 ],
