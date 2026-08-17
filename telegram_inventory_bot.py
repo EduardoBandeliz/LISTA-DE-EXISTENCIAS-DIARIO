@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Optional, Union
 from urllib.parse import quote
 
+import httpx
 from telegram import Bot, Update
 from telegram.error import Conflict, NetworkError, RetryAfter, TelegramError, TimedOut
 from telegram.request import HTTPXRequest
@@ -52,8 +53,8 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
 ).strip()
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
-TELEGRAM_TIMEOUT_SECONDS = 120
-TELEGRAM_MEDIA_TIMEOUT_SECONDS = 300
+TELEGRAM_TIMEOUT_SECONDS = 45
+TELEGRAM_MEDIA_TIMEOUT_SECONDS = 90
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
 AUTO_PUBLISH_ENABLED = os.getenv("AUTO_PUBLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 NETLIFY_MONITOR_ENABLED = os.getenv("NETLIFY_MONITOR_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
@@ -1397,6 +1398,12 @@ def is_lista_g_pdf(file_name: str, inventory: Optional[dict] = None) -> bool:
 def requested_pdf_list(caption: str) -> Optional[str]:
     """Allow an explicit list type when a supplier sends generic numeric filenames."""
     clean = re.sub(r"[^a-z0-9]+", "", (caption or "").lower())
+    if "listapl" in clean or "listaplus" in clean:
+        return "PL"
+    if "listag" in clean:
+        return "G"
+    if "listam" in clean:
+        return "M"
     aliases = {
         "listam": "M", "m": "M",
         "listag": "G", "g": "G",
@@ -1940,12 +1947,16 @@ async def handle_message(bot: Bot, update: Update) -> None:
 
 
 async def poll(token: str) -> None:
+    # Telegram's IPv6 route is unreliable on this Mac. Binding the client to an
+    # IPv4 address avoids multi-minute stalls while IPv6 connections time out.
+    ipv4_transport = httpx.AsyncHTTPTransport(local_address="0.0.0.0")
     request = HTTPXRequest(
         read_timeout=45,
         write_timeout=30,
         connect_timeout=30,
         pool_timeout=5,
         media_write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+        httpx_kwargs={"transport": ipv4_transport},
     )
     bot = Bot(token, request=request)
     while True:
