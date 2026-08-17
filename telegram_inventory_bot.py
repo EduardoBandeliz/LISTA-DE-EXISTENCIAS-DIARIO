@@ -1468,15 +1468,24 @@ async def download_telegram_file_with_retries(bot: Bot, file_id: str, destinatio
                 connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
                 pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
             )
-            await telegram_file.download_to_drive(
-                custom_path=destination,
-                read_timeout=TELEGRAM_MEDIA_TIMEOUT_SECONDS,
-                write_timeout=TELEGRAM_MEDIA_TIMEOUT_SECONDS,
-                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+            # The library's media connection can stall on this Mac even when
+            # Bot API calls work. curl -4 reliably downloads the same URL.
+            await asyncio.to_thread(
+                subprocess.run,
+                [
+                    "/usr/bin/curl", "-4", "--fail", "--silent", "--show-error",
+                    "--location", "--connect-timeout", "15", "--max-time",
+                    str(TELEGRAM_MEDIA_TIMEOUT_SECONDS), "--output", str(destination),
+                    str(telegram_file.file_path),
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
             )
+            if not destination.exists() or destination.stat().st_size == 0:
+                raise OSError("Telegram devolvio un archivo vacio.")
             return
-        except (TimedOut, NetworkError) as exc:
+        except (TimedOut, NetworkError, OSError, subprocess.CalledProcessError) as exc:
             last_error = exc
             print(f"Descarga Telegram intento {attempt}/{attempts} fallo: {exc}")
             await asyncio.sleep(3 * attempt)
