@@ -1814,6 +1814,9 @@ async def handle_message(bot: Bot, update: Update) -> None:
     chat_id = update.effective_chat.id
     text = (update.message.text or "").strip()
     key = command_key(text)
+    if key.startswith("/start ") and any(word in key for word in {"alertas", "suscribirme", "precios"}):
+        await safe_send(bot, chat_id, add_subscriber(chat_id))
+        return
     if key == "/start":
         await safe_send(
             bot,
