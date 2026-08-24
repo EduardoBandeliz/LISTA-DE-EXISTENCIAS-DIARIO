@@ -8,6 +8,7 @@ google-service-account.json
 .netlify-monitor-state.json
 .operations-state.json
 backups/
+.telegram-subscribers.json
 .venv
 .venv/
 __pycache__/

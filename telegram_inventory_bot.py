@@ -39,6 +39,7 @@ AUTO_PUBLISH_STATE_JSON = ROOT / ".telegram-auto-publish-state.json"
 NETLIFY_MONITOR_STATE_JSON = ROOT / ".netlify-monitor-state.json"
 OPERATIONS_STATE_JSON = ROOT / ".operations-state.json"
 BACKUP_DIR = ROOT / "backups"
+SUBSCRIBERS_JSON = ROOT / ".telegram-subscribers.json"
 PDF_NAME_CONTAINS = os.getenv("PDF_NAME_CONTAINS", "").lower().strip()
 ALLOWED_CHAT_ID = os.getenv("ALLOWED_CHAT_ID", "").strip()
 BROADCAST_CHAT_IDS = [
@@ -819,6 +820,51 @@ def load_update_report_state() -> dict:
         return {}
 
 
+def read_subscribers() -> set[str]:
+    if not SUBSCRIBERS_JSON.exists():
+        return set()
+    try:
+        data = json.loads(SUBSCRIBERS_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return set()
+    if isinstance(data, list):
+        return {str(chat_id).strip() for chat_id in data if str(chat_id).strip()}
+    return set()
+
+
+def write_subscribers(chat_ids: set[str]) -> None:
+    SUBSCRIBERS_JSON.write_text(
+        json.dumps(sorted(chat_ids), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def add_subscriber(chat_id: Union[str, int]) -> str:
+    subscribers = read_subscribers()
+    clean_chat_id = str(chat_id).strip()
+    if clean_chat_id in subscribers:
+        return "Ya estabas suscrito a las alertas de cambios de precio."
+    subscribers.add(clean_chat_id)
+    write_subscribers(subscribers)
+    return "Listo. Ya recibirás alertas de cambios de precio, altas y bajas del inventario."
+
+
+def remove_subscriber(chat_id: Union[str, int]) -> str:
+    subscribers = read_subscribers()
+    clean_chat_id = str(chat_id).strip()
+    if clean_chat_id not in subscribers:
+        return "No estabas suscrito a las alertas."
+    subscribers.remove(clean_chat_id)
+    write_subscribers(subscribers)
+    return "Listo. Ya no recibirás alertas automáticas de cambios de precio."
+
+
+def broadcast_chat_ids() -> list[str]:
+    chat_ids = {chat_id for chat_id in BROADCAST_CHAT_IDS if chat_id}
+    chat_ids.update(read_subscribers())
+    return sorted(chat_ids)
+
+
 def build_update_report(previous_inventory: dict, new_inventory: dict, limit: int = 12) -> str:
     analysis = analyze_inventory_update(previous_inventory, new_inventory)
     new_products = analysis["new_products"]
@@ -1495,7 +1541,7 @@ async def download_telegram_file_with_retries(bot: Bot, file_id: str, destinatio
 
 
 async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str) -> None:
-    for target_chat_id in BROADCAST_CHAT_IDS:
+    for target_chat_id in broadcast_chat_ids():
         if target_chat_id == source_chat_id:
             continue
         await safe_send(bot, target_chat_id, message)
@@ -1781,6 +1827,12 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key == "/id":
         await safe_send(bot, chat_id, f"Chat ID: {chat_id}")
+        return
+    if key in {"/suscribirme", "suscribirme", "activar alertas", "/alertasprecio"}:
+        await safe_send(bot, chat_id, add_subscriber(chat_id))
+        return
+    if key in {"/cancelaralertas", "/cancelar_alertas", "cancelar alertas", "desactivar alertas"}:
+        await safe_send(bot, chat_id, remove_subscriber(chat_id))
         return
     if key in {"/estado", "estado"}:
         await safe_send(bot, chat_id, "Revisando Netlify y todas las listas...")
