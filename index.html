@@ -164,7 +164,7 @@
     align-items:center;
     gap:4px;
     flex:0 0 auto;
-    padding:4px 7px;
+    padding:5px 8px;
     border-radius:999px;
     background:#EAF8DD;
     border:1px solid rgba(90,145,40,.28);
@@ -450,7 +450,7 @@ function render(){
         ${image ? `<div class="card-media"><img loading="lazy" src="${image}" alt="${p.nombre.replace(/"/g, '&quot;')}"></div>` : ''}
         <div class="card-topline">
           <div class="card-brand">${p.marca}</div>
-          ${isPayjoyCompatible(p) ? '<div class="payjoy-badge" title="Compatible con Payjoy">PAYJOY</div>' : ''}
+          ${isPayjoyCompatible(p) ? '<div class="payjoy-badge" title="Compatible con Payjoy">PAYJOY COMPATIBLE</div>' : ''}
         </div>
         <div class="card-name">${p.nombre}</div>
         <div class="card-price">${fmtPrice(price)}</div>
