@@ -158,8 +158,14 @@
     gap:8px;
     min-height:22px;
   }
+  .card-badges{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:5px;
+  }
   .card-brand{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--blue);}
-  .payjoy-badge{
+  .compat-badge{
     display:inline-flex;
     align-items:center;
     gap:4px;
@@ -173,7 +179,7 @@
     font-weight:800;
     line-height:1;
   }
-  .payjoy-badge::before{
+  .compat-badge::before{
     content:"";
     width:8px;
     height:8px;
@@ -181,6 +187,12 @@
     background:var(--green);
     transform:rotate(-25deg);
   }
+  .payphone-badge{
+    background:#F2EAFE;
+    border-color:rgba(126,58,242,.26);
+    color:#6D28D9;
+  }
+  .payphone-badge::before{background:#8B5CF6;}
   .card-name{font-size:14px;font-weight:600;line-height:1.35;color:var(--ink);min-height:38px;}
   .card-price{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--green-deep);margin-top:2px;}
   .card-cta{
@@ -450,7 +462,7 @@ function render(){
         ${image ? `<div class="card-media"><img loading="lazy" src="${image}" alt="${p.nombre.replace(/"/g, '&quot;')}"></div>` : ''}
         <div class="card-topline">
           <div class="card-brand">${p.marca}</div>
-          ${isPayjoyCompatible(p) ? '<div class="payjoy-badge" title="Compatible con Payjoy">PAYJOY COMPATIBLE</div>' : ''}
+          ${isPayjoyCompatible(p) ? '<div class="card-badges"><div class="compat-badge payjoy-badge" title="Compatible con Payjoy">PAYJOY COMPATIBLE</div><div class="compat-badge payphone-badge" title="Compatible con Payphone">PAYPHONE COMPATIBLE</div></div>' : ''}
         </div>
         <div class="card-name">${p.nombre}</div>
         <div class="card-price">${fmtPrice(price)}</div>
