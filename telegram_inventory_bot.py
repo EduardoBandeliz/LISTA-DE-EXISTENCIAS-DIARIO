@@ -65,6 +65,12 @@ INVENTORY_MIN_PRODUCTS = max(1, int(os.getenv("INVENTORY_MIN_PRODUCTS", "50") or
 INVENTORY_MAX_DROP_PERCENT = min(95, max(10, int(os.getenv("INVENTORY_MAX_DROP_PERCENT", "50") or 50)))
 BACKUP_RETENTION = max(5, int(os.getenv("BACKUP_RETENTION", "15") or 15))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+OPENAI_INVENTORY_MODEL = os.getenv("OPENAI_INVENTORY_MODEL", "gpt-6-astra").strip() or "gpt-6-astra"
+ASTRA_PDF_FALLBACK_ENABLED = os.getenv("ASTRA_PDF_FALLBACK_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+ASTRA_AUDIT_ENABLED = os.getenv("ASTRA_AUDIT_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+ASTRA_IMAGE_VALIDATION_ENABLED = os.getenv("ASTRA_IMAGE_VALIDATION_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+ASTRA_NATURAL_COMMANDS_ENABLED = os.getenv("ASTRA_NATURAL_COMMANDS_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+ASTRA_EXECUTIVE_REPORT_ENABLED = os.getenv("ASTRA_EXECUTIVE_REPORT_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 PENDING_ADVERTISEMENT_CHATS: set[str] = set()
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
 IMPORTANT_PRICE_CHANGE_PERCENT = float(os.getenv("IMPORTANT_PRICE_CHANGE_PERCENT", "5") or 5)
@@ -609,6 +615,29 @@ def compact_model_name(name: str) -> str:
     return " ".join(tokens)
 
 
+def model_family_name(name: str) -> str:
+    text = compact_model_name(name)
+    ignored = {
+        "GB", "MB", "TB", "RAM", "ROM", "4G", "5G", "8G", "LATINO", "NACIONAL",
+        "EUAS", "NUEVO", "OPEN", "BOX", "GRADO", "PRE",
+    }
+    tokens = [token for token in text.split() if token not in ignored and not token.isdigit()]
+    return " ".join(tokens[:6])
+
+
+def known_inventory_codes() -> set[str]:
+    state = read_operations_state()
+    return {str(code) for code in state.get("known_inventory_codes", []) if code}
+
+
+def remember_inventory_codes(inventory: dict) -> None:
+    state = read_operations_state()
+    known = {str(code) for code in state.get("known_inventory_codes", []) if code}
+    known.update(inventory_by_code(inventory))
+    state["known_inventory_codes"] = sorted(known)
+    write_operations_state(state)
+
+
 def find_product(query: str, inventory: Optional[dict] = None) -> Optional[dict]:
     inventory = inventory or load_inventory()
     clean_query = normalize_text(query)
@@ -785,11 +814,30 @@ def price_value(product: dict) -> float:
 def analyze_inventory_update(previous_inventory: dict, new_inventory: dict) -> dict:
     previous_by_code = inventory_by_code(previous_inventory)
     new_by_code = inventory_by_code(new_inventory)
+    historical_codes = known_inventory_codes() or set(previous_by_code)
 
     new_products = [
         product
         for code, product in new_by_code.items()
         if code not in previous_by_code
+    ]
+    returned_products = [
+        product for product in new_products
+        if str(product.get("codigo", "")).strip() in historical_codes
+    ]
+    previous_families = {
+        model_family_name(product.get("nombre", ""))
+        for product in previous_by_code.values()
+        if model_family_name(product.get("nombre", ""))
+    }
+    new_variants = [
+        product for product in new_products
+        if product not in returned_products
+        and model_family_name(product.get("nombre", "")) in previous_families
+    ]
+    brand_new_products = [
+        product for product in new_products
+        if product not in returned_products and product not in new_variants
     ]
     price_changes = []
     for code, product in new_by_code.items():
@@ -836,6 +884,9 @@ def analyze_inventory_update(previous_inventory: dict, new_inventory: dict) -> d
 
     return {
         "new_products": new_products,
+        "brand_new_products": brand_new_products,
+        "new_variants": new_variants,
+        "returned_products": returned_products,
         "price_changes": price_changes,
         "important_price_changes": important_price_changes,
         "opportunities": opportunities,
@@ -860,6 +911,9 @@ def save_update_report_state(analysis: dict, summary: str) -> None:
         "created_at": datetime.now(timezone.utc).isoformat(),
         "summary": summary,
         "new_products": [serialize_product(product) for product in analysis["new_products"]],
+        "brand_new_products": [serialize_product(product) for product in analysis["brand_new_products"]],
+        "new_variants": [serialize_product(product) for product in analysis["new_variants"]],
+        "returned_products": [serialize_product(product) for product in analysis["returned_products"]],
         "new_without_image": [serialize_product(product) for product in analysis["new_without_image"]],
         "important_price_changes": [
             {
@@ -894,6 +948,103 @@ def load_update_report_state() -> dict:
         return json.loads(REPORT_STATE_JSON.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return {}
+
+
+def inventory_quality_checks(previous_inventory: dict, new_inventory: dict) -> dict:
+    products = new_inventory.get("productos", [])
+    previous_count = len(previous_inventory.get("productos", []))
+    codes = [str(product.get("codigo", "")).strip() for product in products]
+    duplicate_codes = sorted({code for code in codes if code and codes.count(code) > 1})
+    missing_codes = sum(1 for code in codes if not code)
+    invalid_names = sum(1 for product in products if not str(product.get("nombre", "")).strip())
+    invalid_prices = sum(1 for product in products if price_value(product) <= 1)
+    invalid_stock = sum(
+        1 for product in products
+        if int(product.get("existencia_minima", str(product.get("cantidad", "0")).rstrip("+") or 0) or 0) < 1
+    )
+    drop_percent = ((previous_count - len(products)) * 100 / previous_count) if previous_count else 0
+    severe = []
+    warnings = []
+    if duplicate_codes:
+        warnings.append(f"Codigos repetidos en el PDF: {', '.join(duplicate_codes[:10])}")
+    if missing_codes:
+        severe.append(f"{missing_codes} productos sin codigo")
+    if invalid_names:
+        severe.append(f"{invalid_names} productos sin nombre")
+    if invalid_prices:
+        warnings.append(f"{invalid_prices} productos con precio de 1 peso o menos; se omiten de Google Sheets")
+        if invalid_prices > max(5, int(len(products) * 0.05)):
+            severe.append("Demasiados productos tienen precio invalido")
+    if invalid_stock:
+        severe.append(f"{invalid_stock} productos con existencia menor a 1")
+    if drop_percent > 25:
+        warnings.append(f"El inventario bajo {drop_percent:.1f}% respecto al anterior")
+    return {
+        "ok": not severe,
+        "severe": severe,
+        "warnings": warnings,
+        "stats": {
+            "productos_anteriores": previous_count,
+            "productos_actuales": len(products),
+            "caida_porcentaje": round(drop_percent, 2),
+        },
+    }
+
+
+def astra_audit_message(previous_inventory: dict, new_inventory: dict, analysis: dict, quality: dict) -> str:
+    if not OPENAI_API_KEY or not ASTRA_AUDIT_ENABLED:
+        return ""
+    try:
+        from astra_inventory import audit_inventory
+
+        payload = {
+            **quality["stats"],
+            "productos_nuevos": len(analysis["new_products"]),
+            "variantes_nuevas": len(analysis["new_variants"]),
+            "reingresos": len(analysis["returned_products"]),
+            "cambios_precio": len(analysis["price_changes"]),
+            "alertas_precio": len(analysis["important_price_changes"]),
+            "advertencias_reglas": quality["warnings"],
+            "muestra_nuevos": [serialize_product(item) for item in analysis["new_products"][:12]],
+        }
+        result = audit_inventory(payload)
+        findings = result.get("findings", [])
+        detail = "\n".join(f"- {item}" for item in findings[:5])
+        return f"Revision Astra ({result.get('risk', 'low')}): {result.get('summary', '')}" + (f"\n{detail}" if detail else "")
+    except Exception as exc:
+        print(f"Auditoria Astra no disponible: {type(exc).__name__}: {exc}")
+        return "Revision Astra no disponible; se aplicaron todas las validaciones locales."
+
+
+def astra_executive_report(analysis: dict, quality: dict) -> str:
+    if not OPENAI_API_KEY or not ASTRA_EXECUTIVE_REPORT_ENABLED:
+        return ""
+    try:
+        from astra_inventory import executive_summary
+
+        payload = {
+            "productos_nuevos": len(analysis["brand_new_products"]),
+            "variantes_nuevas": len(analysis["new_variants"]),
+            "reingresos": len(analysis["returned_products"]),
+            "cambios_precio": len(analysis["price_changes"]),
+            "alertas_importantes": len(analysis["important_price_changes"]),
+            "oportunidades": len(analysis["opportunities"]),
+            "nuevos_sin_imagen": len(analysis["new_without_image"]),
+            "advertencias": quality["warnings"],
+            "muestra_nuevos": [product_label(item) for item in analysis["new_products"][:8]],
+        }
+        return executive_summary(payload)
+    except Exception as exc:
+        print(f"Reporte ejecutivo Astra no disponible: {type(exc).__name__}: {exc}")
+        return ""
+
+
+def save_executive_report(report: str) -> None:
+    if not report:
+        return
+    state = load_update_report_state()
+    state["executive_report"] = report
+    REPORT_STATE_JSON.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def read_subscribers() -> set[str]:
@@ -951,7 +1102,9 @@ def build_update_report(previous_inventory: dict, new_inventory: dict, limit: in
 
     lines = [
         "Reporte de actualización:",
-        f"Productos nuevos: {len(new_products)}",
+        f"Modelos completamente nuevos: {len(analysis['brand_new_products'])}",
+        f"Variantes nuevas: {len(analysis['new_variants'])}",
+        f"Reingresos a bodega: {len(analysis['returned_products'])}",
         f"Cambios de precio: {len(price_changes)}",
         f"Alertas importantes: {len(important_price_changes)}",
         f"Oportunidades: {len(opportunities)}",
@@ -1013,6 +1166,9 @@ def latest_new_products_message(limit: int = 25) -> str:
         "Ultimo reporte de productos nuevos:",
         state.get("summary", ""),
         f"Productos nuevos: {len(new_products)}",
+        f"Modelos completamente nuevos: {len(state.get('brand_new_products', []))}",
+        f"Variantes nuevas: {len(state.get('new_variants', []))}",
+        f"Reingresos a bodega: {len(state.get('returned_products', []))}",
         f"Nuevos celulares sin imagen: {len(new_without_image)}",
         f"Alertas importantes: {len(alerts)}",
         f"Oportunidades: {len(opportunities)}",
@@ -1449,8 +1605,80 @@ def commands_message() -> str:
         "/reiniciar — reinicia este bot\n"
         "/ultimoserrores — muestra errores recientes\n"
         "/respaldo — crea un respaldo inmediato\n"
-        "/ligas — muestra todas las ligas"
+        "/ligas — muestra todas las ligas\n"
+        "/resumen — muestra el ultimo reporte ejecutivo\n\n"
+        "Tambien puedes preguntar con lenguaje normal, por ejemplo: Samsung sin imagen o que precios bajaron."
     )
+
+
+def executive_report_message() -> str:
+    state = load_update_report_state()
+    report = state.get("executive_report", "")
+    if not report:
+        return "El reporte ejecutivo se generara con la siguiente actualizacion de Lista M."
+    return f"Resumen ejecutivo del ultimo inventario:\n\n{report}"
+
+
+def matching_products_message(query: str, limit: int = 20) -> str:
+    clean = normalize_text(query)
+    matches = [
+        product for product in load_inventory().get("productos", [])
+        if clean and clean in normalize_text(product.get("nombre", ""))
+    ]
+    if not matches:
+        return product_message(query)
+    lines = [f"Resultados para {query}: {len(matches)}"]
+    lines.extend(product_label(product) for product in matches[:limit])
+    if len(matches) > limit:
+        lines.append(f"...y {len(matches) - limit} mas.")
+    return "\n".join(lines)
+
+
+def astra_natural_language_reply(text: str) -> Optional[str]:
+    if not text or text.startswith("/") or not OPENAI_API_KEY or not ASTRA_NATURAL_COMMANDS_ENABLED:
+        return None
+    try:
+        from astra_inventory import interpret_inventory_request
+
+        state = load_update_report_state()
+        intent = interpret_inventory_request(
+            text,
+            {
+                "productos": len(load_inventory().get("productos", [])),
+                "productos_nuevos": len(state.get("new_products", [])),
+                "acciones_disponibles": [
+                    "buscar producto", "nuevos", "oportunidades", "alertas",
+                    "sin imagen", "ligas", "estado", "ayuda",
+                ],
+            },
+        )
+        action = intent.get("action")
+        query = intent.get("query", "").strip()
+        if action == "product":
+            return matching_products_message(query or text)
+        if action == "new":
+            return latest_new_products_message()
+        if action == "opportunities":
+            return opportunities_message()
+        if action == "alerts":
+            alerts = load_update_report_state().get("important_price_changes", [])
+            if not alerts:
+                return "No tengo alertas importantes guardadas del ultimo inventario."
+            return "Alertas importantes:\n" + "\n".join(
+                f"{item.get('producto', {}).get('codigo')} - {item.get('producto', {}).get('nombre')}"
+                for item in alerts[:25]
+            )
+        if action == "missing_images":
+            return missing_images_message()
+        if action == "links":
+            return links_message()
+        if action == "status":
+            return operations_status_message()
+        if action == "help":
+            return commands_message()
+    except Exception as exc:
+        print(f"Comando natural Astra no disponible: {type(exc).__name__}: {exc}")
+    return None
 
 
 async def maybe_monitor_netlify(bot: Bot, force: bool = False) -> Optional[dict]:
@@ -1538,7 +1766,7 @@ def requested_pdf_list(caption: str) -> Optional[str]:
     return aliases.get(clean)
 
 
-def classify_and_extract_pdf(pdf_path: Path, file_name: str, caption: str = "") -> tuple[str, dict]:
+def classify_and_extract_pdf_local(pdf_path: Path, file_name: str, caption: str = "") -> tuple[str, dict]:
     """Classify PDFs by their contents, using filename/caption only as useful hints."""
     forced = requested_pdf_list(caption)
     if forced == "PL" or (not forced and is_plus_pdf(file_name)):
@@ -1565,22 +1793,65 @@ def classify_and_extract_pdf(pdf_path: Path, file_name: str, caption: str = "") 
     )
 
 
+def classify_and_extract_pdf(pdf_path: Path, file_name: str, caption: str = "") -> tuple[str, dict]:
+    try:
+        return classify_and_extract_pdf_local(pdf_path, file_name, caption)
+    except Exception as local_exc:
+        if not OPENAI_API_KEY or not ASTRA_PDF_FALLBACK_ENABLED:
+            raise
+        print(f"Parser local no reconocio el PDF; usando Astra: {type(local_exc).__name__}: {local_exc}")
+        from astra_inventory import extract_inventory_pdf
+
+        list_type, inventory = extract_inventory_pdf(pdf_path, caption or file_name)
+        if len(inventory.get("productos", [])) < INVENTORY_MIN_PRODUCTS:
+            raise ValueError(
+                f"Astra solo encontro {len(inventory.get('productos', []))} productos; no se publico."
+            ) from local_exc
+        return list_type, inventory
+
+
+def telegram_message_chunks(text: str, limit: int = 3900) -> list[str]:
+    if len(text) <= limit:
+        return [text]
+    chunks = []
+    current = ""
+    for line in text.splitlines(keepends=True):
+        while len(line) > limit:
+            if current:
+                chunks.append(current.rstrip())
+                current = ""
+            chunks.append(line[:limit].rstrip())
+            line = line[limit:]
+        if current and len(current) + len(line) > limit:
+            chunks.append(current.rstrip())
+            current = ""
+        current += line
+    if current.strip():
+        chunks.append(current.rstrip())
+    return chunks
+
+
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
-    for attempt in range(1, 4):
-        try:
-            await bot.send_message(
-                chat_id=chat_id,
-                text=text,
-                read_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                write_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
-            )
-            return True
-        except TelegramError as exc:
-            print(f"No pude enviar mensaje a Telegram intento {attempt}/3: {exc}")
-            await asyncio.sleep(2 * attempt)
-    return False
+    for chunk in telegram_message_chunks(text):
+        sent = False
+        for attempt in range(1, 4):
+            try:
+                await bot.send_message(
+                    chat_id=chat_id,
+                    text=chunk,
+                    read_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    write_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                )
+                sent = True
+                break
+            except TelegramError as exc:
+                print(f"No pude enviar mensaje a Telegram intento {attempt}/3: {exc}")
+                await asyncio.sleep(2 * attempt)
+        if not sent:
+            return False
+    return True
 
 
 async def download_telegram_file_with_retries(bot: Bot, file_id: str, destination: Path, attempts: int = 3) -> None:
@@ -1718,9 +1989,28 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     new_inventory = parsed_inventory
                     previous_inventory = await asyncio.to_thread(load_inventory)
                     analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
+                    quality = await asyncio.to_thread(inventory_quality_checks, previous_inventory, new_inventory)
+                    if quality["severe"]:
+                        raise ValueError("Control de calidad detuvo la publicacion: " + "; ".join(quality["severe"]))
+                    astra_audit = await asyncio.to_thread(
+                        astra_audit_message,
+                        previous_inventory,
+                        new_inventory,
+                        analysis,
+                        quality,
+                    )
                     report = await asyncio.to_thread(build_update_report, previous_inventory, new_inventory)
+                    executive_report = await asyncio.to_thread(astra_executive_report, analysis, quality)
+                    if executive_report:
+                        report = f"Resumen ejecutivo:\n{executive_report}\n\n{report}"
+                    if quality["warnings"]:
+                        report += "\n\nControl de calidad:\n" + "\n".join(f"- {item}" for item in quality["warnings"])
+                    if astra_audit:
+                        report += f"\n\n{astra_audit}"
                     summary = await asyncio.to_thread(write_inventory_data, new_inventory)
                     await asyncio.to_thread(save_update_report_state, analysis, summary)
+                    await asyncio.to_thread(save_executive_report, executive_report)
+                    await asyncio.to_thread(remember_inventory_codes, new_inventory)
                     result = await asyncio.to_thread(publish_to_github, summary)
                     new_product_codes = {
                         str(product.get("codigo", "")).strip()
@@ -1793,6 +2083,39 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
             await safe_send(bot, chat_id, "Descargando imagen desde Telegram...")
             await download_telegram_file_with_retries(bot, file_id, temp_path)
 
+            expected_product = await asyncio.to_thread(find_product_by_code, product_code)
+            image_review = ""
+            if OPENAI_API_KEY and ASTRA_IMAGE_VALIDATION_ENABLED and expected_product:
+                try:
+                    from astra_inventory import validate_product_image
+
+                    review = await asyncio.to_thread(
+                        validate_product_image,
+                        temp_path,
+                        serialize_product(expected_product),
+                    )
+                    confidence = float(review.get("confidence", 0) or 0)
+                    image_review = (
+                        f"Revision Astra: {review.get('note', '')} "
+                        f"(confianza {confidence * 100:.0f}%)"
+                    ).strip()
+                    if not review.get("matches") and confidence >= 0.85:
+                        await safe_send(
+                            bot,
+                            chat_id,
+                            (
+                                f"No guarde la imagen porque parece corresponder a otro equipo.\n"
+                                f"Esperado: {expected_product.get('nombre')}\n"
+                                f"Detectado: {review.get('detected', 'no identificado')}\n"
+                                f"{image_review}\n\n"
+                                "Revisa el codigo y vuelve a enviarla."
+                            ),
+                        )
+                        return True
+                except Exception as review_exc:
+                    print(f"Validacion de imagen Astra no disponible: {type(review_exc).__name__}: {review_exc}")
+                    image_review = "Revision visual de Astra no disponible; imagen procesada con las validaciones normales."
+
             await safe_send(bot, chat_id, "Preparando imagen y guardandola localmente...")
             exists_in_inventory = product_code in await asyncio.to_thread(product_codes)
             image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
@@ -1816,7 +2139,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 bot,
                 chat_id,
                 (
-                    f"Listo. Codigo {product_code}: {result}\n{drive_result}{warning}\n\n"
+                    f"Listo. Codigo {product_code}: {result}\n{drive_result}\n{image_review}{warning}\n\n"
                     f"Imagenes pendientes por publicar: {pending_count}\n"
                     "Cuando termines de cargar imagenes, manda /publicarimagenes."
                     f"{similar_message}"
@@ -2016,6 +2339,9 @@ async def handle_message(bot: Bot, update: Update) -> None:
     if key in {"/nuevos", "nuevos", "productos nuevos"}:
         await safe_send(bot, chat_id, latest_new_products_message())
         return
+    if key in {"/resumen", "resumen ejecutivo", "reporte ejecutivo"}:
+        await safe_send(bot, chat_id, executive_report_message())
+        return
     if key in {"/oportunidades", "/oportunidad", "oportunidades", "lista de oportunidad"}:
         await safe_send(bot, chat_id, opportunities_message())
         return
@@ -2104,6 +2430,10 @@ async def handle_message(bot: Bot, update: Update) -> None:
                 "Ahora reenvia la imagen y la guardare con ese codigo."
             ),
         )
+        return
+    natural_reply = await asyncio.to_thread(astra_natural_language_reply, text)
+    if natural_reply:
+        await safe_send(bot, chat_id, natural_reply)
         return
     if await handle_payjoy_excel(bot, update):
         return

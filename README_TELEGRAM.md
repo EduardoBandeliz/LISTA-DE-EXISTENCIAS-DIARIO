@@ -80,6 +80,21 @@ Al recibir una imagen, el bot conserva la copia local para Netlify y tambien la 
 en la carpeta de Drive como `CODIGO - NOMBRE DEL PRODUCTO.webp`. La carpeta debe estar
 compartida como editor con el correo `client_email` de la cuenta de servicio.
 
+## Funciones inteligentes con GPT-6 Astra
+
+Si `OPENAI_API_KEY` esta configurada, el bot puede usar Astra como respaldo para PDFs
+no reconocidos, auditar actualizaciones, validar fotos, interpretar solicitudes en lenguaje
+natural y redactar un reporte ejecutivo. Las reglas locales siguen siendo la fuente de verdad.
+
+```bash
+export OPENAI_INVENTORY_MODEL="gpt-6-astra"
+export ASTRA_PDF_FALLBACK_ENABLED="1"
+export ASTRA_AUDIT_ENABLED="1"
+export ASTRA_IMAGE_VALIDATION_ENABLED="1"
+export ASTRA_NATURAL_COMMANDS_ENABLED="1"
+export ASTRA_EXECUTIVE_REPORT_ENABLED="1"
+```
+
 ## Importante
 
 La computadora o servidor donde corra el bot debe permanecer encendido. Para que sea 24/7, conviene correrlo en un servidor como Render, Railway, Fly.io, VPS, o una computadora siempre encendida.
