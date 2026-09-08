@@ -54,6 +54,7 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
 ).strip()
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
+GOOGLE_DRIVE_IMAGES_FOLDER_ID = os.getenv("GOOGLE_DRIVE_IMAGES_FOLDER_ID", "").strip()
 TELEGRAM_TIMEOUT_SECONDS = 45
 TELEGRAM_MEDIA_TIMEOUT_SECONDS = 90
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
@@ -394,16 +395,29 @@ def google_sheets_configured() -> bool:
     )
 
 
-def google_sheets_service():
+def google_credentials():
     from google.oauth2.service_account import Credentials
-    from googleapiclient.discovery import build
 
-    scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-    credentials = Credentials.from_service_account_file(
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
+    return Credentials.from_service_account_file(
         GOOGLE_SHEETS_CREDENTIALS_FILE,
         scopes=scopes,
     )
-    return build("sheets", "v4", credentials=credentials, cache_discovery=False)
+
+
+def google_sheets_service():
+    from googleapiclient.discovery import build
+
+    return build("sheets", "v4", credentials=google_credentials(), cache_discovery=False)
+
+
+def google_drive_service():
+    from googleapiclient.discovery import build
+
+    return build("drive", "v3", credentials=google_credentials(), cache_discovery=False)
 
 
 def ensure_google_sheet_tab(service, tab_name: str) -> None:
@@ -429,8 +443,9 @@ def sheet_safe_value(value) -> str:
     return str(value)
 
 
-def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
+def google_sheet_rows(inventory: dict, list_key: str, new_product_codes: Optional[set[str]] = None) -> list[list]:
     updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    new_product_codes = new_product_codes or set()
     headers = [
         "Codigo",
         "Producto",
@@ -438,6 +453,7 @@ def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
         "Precio lista",
         "Precio publico",
         "Fecha actualizacion",
+        "Recien llegado a bodega",
     ]
     rows = [headers]
     for product in inventory.get("productos", []):
@@ -452,19 +468,24 @@ def google_sheet_rows(inventory: dict, list_key: str) -> list[list]:
                 price,
                 product.get("precio_publico", ""),
                 updated_at,
+                "SI" if str(product.get("codigo", "")).strip() in new_product_codes else "",
             ]
         )
     return rows
 
 
-def sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
+def sync_inventory_to_google_sheets(
+    inventory: dict,
+    list_key: str,
+    new_product_codes: Optional[set[str]] = None,
+) -> str:
     if not google_sheets_configured():
         return "Google Sheets no configurado."
 
     tab_name = GOOGLE_SHEET_TABS.get(list_key, list_key)
     service = google_sheets_service()
     ensure_google_sheet_tab(service, tab_name)
-    rows = google_sheet_rows(inventory, list_key)
+    rows = google_sheet_rows(inventory, list_key, new_product_codes)
 
     service.spreadsheets().values().clear(
         spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
@@ -483,6 +504,60 @@ def sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
 def product_codes() -> set[str]:
     data = load_inventory()
     return {str(item.get("codigo", "")).strip() for item in data.get("productos", []) if item.get("codigo")}
+
+
+def find_product_by_code(product_code: str) -> Optional[dict]:
+    for inventory in (load_inventory(), load_lista_g_inventory(), load_plus_inventory()):
+        for product in inventory.get("productos", []):
+            if str(product.get("codigo", "")).strip() == product_code:
+                return product
+    return None
+
+
+def drive_image_filename(product_code: str, product_name: str) -> str:
+    safe_name = re.sub(r"[\\/:*?\"<>|]+", " ", product_name).strip()
+    safe_name = re.sub(r"\s+", " ", safe_name)
+    return f"{product_code} - {safe_name or 'PRODUCTO'}.webp"
+
+
+def upload_product_image_to_google_drive(product_code: str, image_path: str) -> str:
+    if not GOOGLE_DRIVE_IMAGES_FOLDER_ID:
+        return "Drive no configurado para imagenes."
+    if not google_sheets_configured():
+        return "Drive no disponible: falta la credencial de Google."
+
+    from googleapiclient.http import MediaFileUpload
+
+    product = find_product_by_code(product_code) or {}
+    file_name = drive_image_filename(product_code, str(product.get("nombre", "")))
+    local_path = ROOT / image_path
+    service = google_drive_service()
+    escaped_code = product_code.replace("'", "\\'")
+    response = service.files().list(
+        q=(
+            f"'{GOOGLE_DRIVE_IMAGES_FOLDER_ID}' in parents and "
+            f"name contains '{escaped_code} - ' and trashed = false"
+        ),
+        fields="files(id,name)",
+        pageSize=10,
+    ).execute()
+    media = MediaFileUpload(str(local_path), mimetype="image/webp", resumable=False)
+    matches = response.get("files", [])
+    if matches:
+        service.files().update(
+            fileId=matches[0]["id"],
+            body={"name": file_name},
+            media_body=media,
+            fields="id,name,webViewLink",
+        ).execute()
+        return f"Imagen reemplazada en Drive: {file_name}"
+
+    service.files().create(
+        body={"name": file_name, "parents": [GOOGLE_DRIVE_IMAGES_FOLDER_ID]},
+        media_body=media,
+        fields="id,name,webViewLink",
+    ).execute()
+    return f"Imagen guardada en Drive: {file_name}"
 
 
 def infer_brand(name: str, fallback: str) -> str:
@@ -690,6 +765,7 @@ def google_sheets_status_message() -> str:
         f"Credencial: {GOOGLE_SHEETS_CREDENTIALS_FILE or 'No configurada'}",
         f"Archivo existe: {'Si' if credentials_path and credentials_path.exists() else 'No'}",
         f"Pestañas: M={GOOGLE_SHEET_TABS['M']}, G={GOOGLE_SHEET_TABS['G']}, PL={GOOGLE_SHEET_TABS['PL']}",
+        f"Carpeta de imagenes: {GOOGLE_DRIVE_IMAGES_FOLDER_ID or 'No configurada'}",
     ]
     return "\n".join(lines)
 
@@ -1208,9 +1284,13 @@ def append_google_sheets_result(message: str, sheets_result: str) -> str:
     return f"{message}\n\nDrive/Sheets: {sheets_result}"
 
 
-def safe_sync_inventory_to_google_sheets(inventory: dict, list_key: str) -> str:
+def safe_sync_inventory_to_google_sheets(
+    inventory: dict,
+    list_key: str,
+    new_product_codes: Optional[set[str]] = None,
+) -> str:
     try:
-        return sync_inventory_to_google_sheets(inventory, list_key)
+        return sync_inventory_to_google_sheets(inventory, list_key, new_product_codes)
     except Exception as exc:
         return f"No pude actualizar Google Sheets: {exc}"
 
@@ -1642,7 +1722,17 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     summary = await asyncio.to_thread(write_inventory_data, new_inventory)
                     await asyncio.to_thread(save_update_report_state, analysis, summary)
                     result = await asyncio.to_thread(publish_to_github, summary)
-                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, new_inventory, "M")
+                    new_product_codes = {
+                        str(product.get("codigo", "")).strip()
+                        for product in analysis["new_products"]
+                        if product.get("codigo")
+                    }
+                    sheets_result = await asyncio.to_thread(
+                        safe_sync_inventory_to_google_sheets,
+                        new_inventory,
+                        "M",
+                        new_product_codes,
+                    )
                     message = share_message(result, summary, report)
                     message = append_google_sheets_result(message, sheets_result)
             await safe_send(bot, chat_id, message)
@@ -1708,6 +1798,14 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
             image_path = await asyncio.to_thread(optimize_product_image, temp_path, product_code)
 
             result = await asyncio.to_thread(update_product_image_mapping, product_code, image_path)
+            try:
+                drive_result = await asyncio.to_thread(
+                    upload_product_image_to_google_drive,
+                    product_code,
+                    image_path,
+                )
+            except Exception as drive_exc:
+                drive_result = f"No pude guardar la imagen en Drive: {drive_exc}"
             pending_count = await asyncio.to_thread(pending_image_count)
             if used_pending_code:
                 clear_pending_image_code(chat_id)
@@ -1718,7 +1816,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 bot,
                 chat_id,
                 (
-                    f"Listo. Codigo {product_code}: {result}{warning}\n\n"
+                    f"Listo. Codigo {product_code}: {result}\n{drive_result}{warning}\n\n"
                     f"Imagenes pendientes por publicar: {pending_count}\n"
                     "Cuando termines de cargar imagenes, manda /publicarimagenes."
                     f"{similar_message}"

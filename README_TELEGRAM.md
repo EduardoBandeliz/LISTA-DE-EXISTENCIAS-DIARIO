@@ -71,9 +71,14 @@ export GOOGLE_SHEETS_CREDENTIALS_FILE="/ruta/segura/google-service-account.json"
 export GOOGLE_SHEETS_TAB_M="Existencias"
 export GOOGLE_SHEETS_TAB_G="LISTA G"
 export GOOGLE_SHEETS_TAB_PL="LISTA PL"
+export GOOGLE_DRIVE_IMAGES_FOLDER_ID="ID_DE_LA_CARPETA_DE_DRIVE"
 ```
 
 Desde Telegram puedes mandar `/drive` para revisar si la configuracion esta activa.
+
+Al recibir una imagen, el bot conserva la copia local para Netlify y tambien la guarda
+en la carpeta de Drive como `CODIGO - NOMBRE DEL PRODUCTO.webp`. La carpeta debe estar
+compartida como editor con el correo `client_email` de la cuenta de servicio.
 
 ## Importante
 
