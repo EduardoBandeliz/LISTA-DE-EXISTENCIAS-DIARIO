@@ -72,6 +72,7 @@ export GOOGLE_SHEETS_TAB_M="Existencias"
 export GOOGLE_SHEETS_TAB_G="LISTA G"
 export GOOGLE_SHEETS_TAB_PL="LISTA PL"
 export GOOGLE_DRIVE_IMAGES_FOLDER_ID="ID_DE_LA_CARPETA_DE_DRIVE"
+export NEW_PRODUCT_BADGE_DAYS="7"
 ```
 
 Desde Telegram puedes mandar `/drive` para revisar si la configuracion esta activa.
@@ -79,6 +80,10 @@ Desde Telegram puedes mandar `/drive` para revisar si la configuracion esta acti
 Al recibir una imagen, el bot conserva la copia local para Netlify y tambien la guarda
 en la carpeta de Drive como `CODIGO - NOMBRE DEL PRODUCTO.webp`. La carpeta debe estar
 compartida como editor con el correo `client_email` de la cuenta de servicio.
+
+La columna `Recien llegado a bodega` conserva el valor `SI` durante siete dias desde
+la primera aparicion del producto. El plazo se aplica por separado a M, G y PL, y se
+puede ajustar con `NEW_PRODUCT_BADGE_DAYS`.
 
 ## Funciones inteligentes con GPT-6 Astra
 

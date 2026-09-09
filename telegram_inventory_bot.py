@@ -9,7 +9,7 @@ import tempfile
 import traceback
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Optional, Union
@@ -55,6 +55,7 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
 GOOGLE_DRIVE_IMAGES_FOLDER_ID = os.getenv("GOOGLE_DRIVE_IMAGES_FOLDER_ID", "").strip()
+NEW_PRODUCT_BADGE_DAYS = max(1, int(os.getenv("NEW_PRODUCT_BADGE_DAYS", "7") or 7))
 TELEGRAM_TIMEOUT_SECONDS = 45
 TELEGRAM_MEDIA_TIMEOUT_SECONDS = 90
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
@@ -449,9 +450,17 @@ def sheet_safe_value(value) -> str:
     return str(value)
 
 
-def google_sheet_rows(inventory: dict, list_key: str, new_product_codes: Optional[set[str]] = None) -> list[list]:
+def product_state_key(product: dict) -> str:
+    code = str(product.get("codigo", "")).strip()
+    if code:
+        return f"CODIGO:{code}"
+    name = normalize_text(product.get("nombre", ""))
+    return f"NOMBRE:{name}" if name else ""
+
+
+def google_sheet_rows(inventory: dict, list_key: str, new_product_keys: Optional[set[str]] = None) -> list[list]:
     updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    new_product_codes = new_product_codes or set()
+    new_product_keys = new_product_keys or set()
     headers = [
         "Codigo",
         "Producto",
@@ -474,7 +483,7 @@ def google_sheet_rows(inventory: dict, list_key: str, new_product_codes: Optiona
                 price,
                 product.get("precio_publico", ""),
                 updated_at,
-                "SI" if str(product.get("codigo", "")).strip() in new_product_codes else "",
+                "SI" if product_state_key(product) in new_product_keys else "",
             ]
         )
     return rows
@@ -483,7 +492,7 @@ def google_sheet_rows(inventory: dict, list_key: str, new_product_codes: Optiona
 def sync_inventory_to_google_sheets(
     inventory: dict,
     list_key: str,
-    new_product_codes: Optional[set[str]] = None,
+    new_product_keys: Optional[set[str]] = None,
 ) -> str:
     if not google_sheets_configured():
         return "Google Sheets no configurado."
@@ -491,7 +500,7 @@ def sync_inventory_to_google_sheets(
     tab_name = GOOGLE_SHEET_TABS.get(list_key, list_key)
     service = google_sheets_service()
     ensure_google_sheet_tab(service, tab_name)
-    rows = google_sheet_rows(inventory, list_key, new_product_codes)
+    rows = google_sheet_rows(inventory, list_key, new_product_keys)
 
     service.spreadsheets().values().clear(
         spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
@@ -636,6 +645,74 @@ def remember_inventory_codes(inventory: dict) -> None:
     known.update(inventory_by_code(inventory))
     state["known_inventory_codes"] = sorted(known)
     write_operations_state(state)
+
+
+def newly_added_products(previous_inventory: dict, new_inventory: dict) -> list[dict]:
+    previous_keys = {
+        product_state_key(product)
+        for product in previous_inventory.get("productos", [])
+        if product_state_key(product)
+    }
+    return [
+        product
+        for product in new_inventory.get("productos", [])
+        if product_state_key(product) and product_state_key(product) not in previous_keys
+    ]
+
+
+def active_new_product_keys(
+    list_key: str,
+    new_products: list[dict],
+    now: Optional[datetime] = None,
+) -> set[str]:
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=timezone.utc)
+    state = read_operations_state()
+    all_lists = state.get("new_product_first_seen", {})
+    if not isinstance(all_lists, dict):
+        all_lists = {}
+    raw_entries = all_lists.get(list_key, {})
+    if not isinstance(raw_entries, dict):
+        raw_entries = {}
+
+    entries: dict[str, datetime] = {}
+    for key, value in raw_entries.items():
+        try:
+            seen = datetime.fromisoformat(str(value))
+            entries[str(key)] = seen if seen.tzinfo else seen.replace(tzinfo=timezone.utc)
+        except (TypeError, ValueError):
+            continue
+
+    # Preserve the newest M-list report when upgrading from the old one-update behavior.
+    if list_key == "M" and not entries:
+        report = load_update_report_state()
+        try:
+            report_time = datetime.fromisoformat(str(report.get("created_at", "")))
+            if report_time.tzinfo is None:
+                report_time = report_time.replace(tzinfo=timezone.utc)
+        except (TypeError, ValueError):
+            report_time = None
+        if report_time and report_time >= now - timedelta(days=NEW_PRODUCT_BADGE_DAYS):
+            for product in report.get("new_products", []):
+                key = product_state_key(product)
+                if key:
+                    entries[key] = report_time
+
+    for product in new_products:
+        key = product_state_key(product)
+        if key and key not in entries:
+            entries[key] = now
+
+    cutoff = now - timedelta(days=NEW_PRODUCT_BADGE_DAYS)
+    entries = {key: seen for key, seen in entries.items() if seen >= cutoff}
+    all_lists[list_key] = {
+        key: seen.isoformat(timespec="seconds")
+        for key, seen in sorted(entries.items())
+    }
+    state["new_product_first_seen"] = all_lists
+    write_operations_state(state)
+    return set(entries)
 
 
 def find_product(query: str, inventory: Optional[dict] = None) -> Optional[dict]:
@@ -1967,9 +2044,14 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             print(f"PDF clasificado archivo={file_name!r} lista={list_type} productos={product_count}")
             await safe_send(bot, chat_id, f"Detectada Lista {list_type}: {product_count} productos. Publicando...")
             if list_type == "PL":
+                previous_inventory = await asyncio.to_thread(load_plus_inventory)
+                new_products = await asyncio.to_thread(newly_added_products, previous_inventory, parsed_inventory)
                 summary = await asyncio.to_thread(write_plus_data, parsed_inventory)
                 result = await asyncio.to_thread(publish_plus_to_github, summary)
-                sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, parsed_inventory, "PL")
+                new_product_keys = await asyncio.to_thread(active_new_product_keys, "PL", new_products)
+                sheets_result = await asyncio.to_thread(
+                    safe_sync_inventory_to_google_sheets, parsed_inventory, "PL", new_product_keys
+                )
                 message = (
                     f"Listo: {summary}. {result}\n\n"
                     f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
@@ -1977,9 +2059,14 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                 message = append_google_sheets_result(message, sheets_result)
             else:
                 if list_type == "G":
+                    previous_inventory = await asyncio.to_thread(load_lista_g_inventory)
+                    new_products = await asyncio.to_thread(newly_added_products, previous_inventory, parsed_inventory)
                     summary = await asyncio.to_thread(write_lista_g_data, parsed_inventory)
                     result = await asyncio.to_thread(publish_lista_g_to_github, summary)
-                    sheets_result = await asyncio.to_thread(safe_sync_inventory_to_google_sheets, parsed_inventory, "G")
+                    new_product_keys = await asyncio.to_thread(active_new_product_keys, "G", new_products)
+                    sheets_result = await asyncio.to_thread(
+                        safe_sync_inventory_to_google_sheets, parsed_inventory, "G", new_product_keys
+                    )
                     message = (
                         f"Listo: {summary}. {result}\n\n"
                         f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
@@ -2012,16 +2099,14 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     await asyncio.to_thread(save_executive_report, executive_report)
                     await asyncio.to_thread(remember_inventory_codes, new_inventory)
                     result = await asyncio.to_thread(publish_to_github, summary)
-                    new_product_codes = {
-                        str(product.get("codigo", "")).strip()
-                        for product in analysis["new_products"]
-                        if product.get("codigo")
-                    }
+                    new_product_keys = await asyncio.to_thread(
+                        active_new_product_keys, "M", analysis["new_products"]
+                    )
                     sheets_result = await asyncio.to_thread(
                         safe_sync_inventory_to_google_sheets,
                         new_inventory,
                         "M",
-                        new_product_codes,
+                        new_product_keys,
                     )
                     message = share_message(result, summary, report)
                     message = append_google_sheets_result(message, sheets_result)
