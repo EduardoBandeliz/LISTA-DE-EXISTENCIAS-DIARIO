@@ -1534,6 +1534,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     celulares_url = f"{NETLIFY_SITE_URL.rstrip('/')}?celulares=1"
     pl_url = f"{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
     lista_g_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
+    lista_g_sin_precios_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1"
     payjoy_url = f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1"
     return (
         f"{prefix}:\n\n"
@@ -1542,6 +1543,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
         f"\n\nLiga solo celulares:\n{celulares_url}"
         f"\n\nLiga PL:\n{pl_url}"
         f"\n\nLiga Lista G:\n{lista_g_url}"
+        f"\n\nLiga Lista G sin precios:\n{lista_g_sin_precios_url}"
         f"\n\nEquipos Payjoy - Payphone:\n{payjoy_url}"
     )
 
@@ -1683,6 +1685,7 @@ def commands_message() -> str:
         "/ultimoserrores — muestra errores recientes\n"
         "/respaldo — crea un respaldo inmediato\n"
         "/ligas — muestra todas las ligas\n"
+        "/listagsinprecios — comparte Lista G sin costos\n"
         "/resumen — muestra el ultimo reporte ejecutivo\n\n"
         "Tambien puedes preguntar con lenguaje normal, por ejemplo: Samsung sin imagen o que precios bajaron."
     )
@@ -2069,7 +2072,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     )
                     message = (
                         f"Listo: {summary}. {result}\n\n"
-                        f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
+                        f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1\n\n"
+                        f"Liga Lista G sin precios:\n"
+                        f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1"
                     )
                     message = append_google_sheets_result(message, sheets_result)
                 else:
@@ -2406,6 +2411,13 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await safe_send(bot, chat_id, links_message())
+        return
+    if key in {"/listagsinprecios", "lista g sin precios", "liga g sin precios"}:
+        await safe_send(
+            bot,
+            chat_id,
+            f"Liga Lista G sin precios:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1",
+        )
         return
     if key in {"/whatsapp", "whatsapp", "texto whatsapp", "liga whatsapp"}:
         await safe_send(bot, chat_id, whatsapp_message())

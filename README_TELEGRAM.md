@@ -46,6 +46,9 @@ Cuando llegue un PDF, el bot:
 4. Netlify publica la actualizacion automaticamente.
 5. Si Google Sheets esta configurado, actualiza la pestaña correspondiente en Drive.
 
+El comando `/listagsinprecios` entrega la vista de Lista G sin importes. Esta vista usa
+el mismo inventario de Lista G y no requiere una publicacion adicional.
+
 ## Variables opcionales para grupo
 
 Permitir solo un grupo especifico:
