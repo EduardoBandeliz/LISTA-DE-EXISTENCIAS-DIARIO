@@ -51,6 +51,10 @@ el texto `/lista_m`. Como este formato no incluye codigos ni cantidades exactas,
 los codigos conocidos, actualiza precios y marca la existencia como `1+`. Los modelos nuevos
 reciben un identificador secundario estable hasta que vuelva a llegar el PDF detallado.
 
+Un archivo `.xls` combinado que incluya las columnas `CODIGO`, `PRODUCTO`, `CANTIDAD`,
+`LISTA M` y `LISTA G` actualiza ambas listas en una sola carga y un solo despliegue.
+Las filas con cantidad cero se omiten automáticamente.
+
 Los comandos `/equiposgeneral` y `/listagsinprecios` entregan la Liga de Equipos General sin importes. Esta vista usa
 el mismo inventario de Lista G y no requiere una publicacion adicional.
 

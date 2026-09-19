@@ -24,6 +24,7 @@ from PIL import Image, ImageOps
 from parse_inventory_pdf import extract_inventory
 from parse_plus_pdf import extract_plus
 from parse_payjoy_excel import extract_payjoy_excel
+from parse_combined_inventory_xls import extract_combined_inventory
 from parse_visual_inventory_pdf import extract_visual_inventory
 
 
@@ -332,6 +333,8 @@ def sync_from_github() -> None:
         # If a previous run failed after writing inventario.json, discard that
         # generated file before pulling. The current PDF will regenerate it.
         run(["git", "restore", "--", "inventario.json"])
+        run(["git", "restore", "--", "listag.json"])
+        run(["git", "restore", "--", "plus.json"])
         if PAYJOY_JSON.exists():
             run(["git", "restore", "--", PAYJOY_JSON.name])
         run(["git", "pull", "--rebase", "origin", "main"])
@@ -393,6 +396,16 @@ def publish_lista_g_to_github(summary: str) -> str:
     run(["git", "commit", "-m", f"Actualizar Lista G ({summary})"])
     run(["git", "push", "origin", "main"])
     return "Lista G actualizada en GitHub. Netlify publicara el cambio automaticamente."
+
+
+def publish_m_and_g_to_github(summary_m: str, summary_g: str) -> str:
+    status = run(["git", "status", "--short", "inventario.json", "listag.json"])
+    if not status:
+        return "Las listas M y G no tuvieron cambios."
+    run(["git", "add", "inventario.json", "listag.json"])
+    run(["git", "commit", "-m", f"Actualizar listas M y G ({summary_m}; {summary_g})"])
+    run(["git", "push", "origin", "main"])
+    return "Listas M y G actualizadas en un solo envio. Netlify publicara el cambio automaticamente."
 
 
 def google_sheets_configured() -> bool:
@@ -2039,6 +2052,68 @@ async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str
         await safe_send(bot, target_chat_id, message)
 
 
+async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
+    if not update.message or not update.message.document:
+        return False
+    chat_id = str(update.effective_chat.id) if update.effective_chat else ""
+    if ALLOWED_CHAT_ID and chat_id != ALLOWED_CHAT_ID:
+        return True
+
+    document = update.message.document
+    file_name = document.file_name or "inventario-m-g.xls"
+    if not file_name.lower().endswith(".xls"):
+        return False
+
+    await safe_send(bot, chat_id, f"Recibi XLS de inventario: {file_name}. Preparando Lista M y Lista G...")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        excel_path = Path(temp_dir) / file_name
+        try:
+            await download_telegram_file_with_retries(bot, document.file_id, excel_path)
+            await asyncio.to_thread(sync_from_github)
+            previous_m = await asyncio.to_thread(load_inventory)
+            previous_g = await asyncio.to_thread(load_lista_g_inventory)
+            inventory_m, inventory_g = await asyncio.to_thread(extract_combined_inventory, excel_path)
+            await asyncio.to_thread(validate_inventory_update, inventory_m, INVENTORY_JSON, "Lista M")
+            await asyncio.to_thread(validate_inventory_update, inventory_g, LISTA_G_JSON, "Lista G")
+
+            analysis_m = await asyncio.to_thread(analyze_inventory_update, previous_m, inventory_m)
+            quality_m = await asyncio.to_thread(inventory_quality_checks, previous_m, inventory_m)
+            quality_g = await asyncio.to_thread(inventory_quality_checks, previous_g, inventory_g)
+            severe = quality_m["severe"] + quality_g["severe"]
+            if severe:
+                raise ValueError("Control de calidad detuvo la publicacion: " + "; ".join(severe))
+
+            summary_m = await asyncio.to_thread(write_inventory_data, inventory_m)
+            summary_g = await asyncio.to_thread(write_lista_g_data, inventory_g)
+            await asyncio.to_thread(save_update_report_state, analysis_m, summary_m)
+            await asyncio.to_thread(remember_inventory_codes, inventory_m)
+            result = await asyncio.to_thread(publish_m_and_g_to_github, summary_m, summary_g)
+
+            new_keys_m = await asyncio.to_thread(active_new_product_keys, "M", analysis_m["new_products"])
+            new_products_g = await asyncio.to_thread(newly_added_products, previous_g, inventory_g)
+            new_keys_g = await asyncio.to_thread(active_new_product_keys, "G", new_products_g)
+            sheets_m = await asyncio.to_thread(
+                safe_sync_inventory_to_google_sheets, inventory_m, "M", new_keys_m
+            )
+            sheets_g = await asyncio.to_thread(
+                safe_sync_inventory_to_google_sheets, inventory_g, "G", new_keys_g
+            )
+            message = (
+                f"Listo. {result}\n\n"
+                f"Lista M: {summary_m}\n"
+                f"Lista G: {summary_g}\n\n"
+                f"Liga Lista M:\n{NETLIFY_SITE_URL}\n\n"
+                f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1\n\n"
+                f"Drive/Sheets:\n{sheets_m}\n{sheets_g}"
+            )
+            await safe_send(bot, chat_id, message)
+            await broadcast_inventory_update(bot, chat_id, message)
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"No pude actualizar M y G desde el XLS: {exc}")
+            raise
+    return True
+
+
 async def handle_payjoy_excel(bot: Bot, update: Update) -> bool:
     if not update.message or not update.message.document:
         return False
@@ -2603,6 +2678,8 @@ async def handle_message(bot: Bot, update: Update) -> None:
     natural_reply = await asyncio.to_thread(astra_natural_language_reply, text)
     if natural_reply:
         await safe_send(bot, chat_id, natural_reply)
+        return
+    if await handle_combined_inventory_xls(bot, update):
         return
     if await handle_payjoy_excel(bot, update):
         return
