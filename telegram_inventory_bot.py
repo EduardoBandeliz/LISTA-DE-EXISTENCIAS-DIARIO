@@ -32,6 +32,7 @@ PLUS_JSON = ROOT / "plus.json"
 LISTA_G_JSON = ROOT / "listag.json"
 PAYJOY_JSON = ROOT / "payjoy-payphone.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
+PRODUCT_SPECS_JSON = ROOT / "product-specs.json"
 PRODUCT_IMAGE_DIR = ROOT / "img" / "celulares"
 PENDING_IMAGE_STATE_JSON = ROOT / ".telegram-image-state.json"
 REPORT_STATE_JSON = ROOT / ".telegram-report-state.json"
@@ -323,7 +324,7 @@ def write_inventory_data(inventory: dict) -> str:
 def sync_from_github() -> None:
     stashed_images = False
     if pending_image_status():
-        run(["git", "stash", "push", "-u", "-m", "imagenes pendientes del bot", "--", "product-images.json", "img/celulares"])
+        run(["git", "stash", "push", "-u", "-m", "imagenes pendientes del bot", "--", "product-images.json", "product-specs.json", "img/celulares"])
         stashed_images = True
 
     try:
@@ -1306,6 +1307,47 @@ def extract_product_code(text: str) -> Optional[str]:
     return None
 
 
+def extract_product_specs(text: str) -> dict[str, str]:
+    field_patterns = {
+        "bateria": r"bater[ií]a",
+        "camara_frontal": r"c[aá]mara\s+frontal",
+        "camara_trasera": r"c[aá]mara\s+trasera",
+        "android": r"(?:sistema\s+operativo|android)",
+        "pantalla": r"pantalla",
+        "procesador": r"procesador",
+        "dual_sim": r"dual\s+sim",
+        "huella": r"(?:bloqueo\s+por\s+huella|huella)",
+    }
+    specs = {}
+    for key, label_pattern in field_patterns.items():
+        match = re.search(
+            rf"(?:^|\n)\s*{label_pattern}\s*:\s*([^\n\r]+)",
+            text or "",
+            flags=re.IGNORECASE,
+        )
+        if match:
+            value = re.sub(r"[*_`]", "", match.group(1)).strip(" .")
+            if value:
+                specs[key] = value
+    return specs
+
+
+def update_product_specs(product_code: str, text: str) -> int:
+    specs = extract_product_specs(text)
+    if not specs:
+        return 0
+    try:
+        data = json.loads(PRODUCT_SPECS_JSON.read_text(encoding="utf-8")) if PRODUCT_SPECS_JSON.exists() else {}
+    except (json.JSONDecodeError, OSError):
+        data = {}
+    current = data.get(product_code, {}) if isinstance(data.get(product_code), dict) else {}
+    current.update(specs)
+    current["actualizado"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    data[product_code] = current
+    PRODUCT_SPECS_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return len(specs)
+
+
 def command_key(text: str) -> str:
     clean = (text or "").strip().lower()
     if not clean.startswith("/"):
@@ -1427,7 +1469,7 @@ def similar_products_message(product_code: str) -> str:
 
 
 def pending_image_status() -> str:
-    return run(["git", "status", "--short", "product-images.json", "img/celulares"])
+    return run(["git", "status", "--short", "product-images.json", "product-specs.json", "img/celulares"])
 
 
 def pending_image_count() -> int:
@@ -1442,16 +1484,16 @@ def publish_pending_images() -> str:
     if not status:
         return "No hay imagenes pendientes por publicar."
 
-    run(["git", "add", "product-images.json", "img/celulares"])
-    staged = run(["git", "status", "--short", "product-images.json", "img/celulares"])
+    run(["git", "add", "product-images.json", "product-specs.json", "img/celulares"])
+    staged = run(["git", "status", "--short", "product-images.json", "product-specs.json", "img/celulares"])
     if not staged:
         return "No hay imagenes pendientes por publicar."
 
     count = pending_image_count()
-    run(["git", "commit", "-m", f"Publicar imagenes de productos ({count})"])
+    run(["git", "commit", "-m", f"Publicar imagenes y caracteristicas de productos ({count})"])
     run(["git", "pull", "--rebase", "origin", "main"])
     run(["git", "push", "origin", "main"])
-    return f"Imagenes publicadas en GitHub ({count} cambios). Netlify publicara el lote automaticamente."
+    return f"Imagenes y caracteristicas publicadas en GitHub ({count} imagenes). Netlify publicara el lote automaticamente."
 
 
 def read_auto_publish_state() -> dict:
@@ -2157,6 +2199,7 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
         return True
 
     source_note = " del mensaje anterior" if used_pending_code else ""
+    saved_specs = await asyncio.to_thread(update_product_specs, product_code, caption)
     await safe_send(bot, chat_id, f"Recibi imagen para codigo {product_code}{source_note}. Actualizando...")
 
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -2229,7 +2272,8 @@ async def handle_product_image(bot: Bot, update: Update) -> bool:
                 bot,
                 chat_id,
                 (
-                    f"Listo. Codigo {product_code}: {result}\n{drive_result}\n{image_review}{warning}\n\n"
+                    f"Listo. Codigo {product_code}: {result}\n{drive_result}\n{image_review}{warning}\n"
+                    f"Caracteristicas guardadas: {saved_specs}\n\n"
                     f"Imagenes pendientes por publicar: {pending_count}\n"
                     "Cuando termines de cargar imagenes, manda /publicarimagenes."
                     f"{similar_message}"
@@ -2525,12 +2569,14 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     pending_product_code = extract_product_code(text)
     if pending_product_code:
+        saved_specs = await asyncio.to_thread(update_product_specs, pending_product_code, text)
         set_pending_image_code(str(chat_id), pending_product_code)
         await safe_send(
             bot,
             chat_id,
             (
                 f"Codigo detectado: {pending_product_code}.\n"
+                f"Caracteristicas guardadas: {saved_specs}.\n"
                 "Ahora reenvia la imagen y la guardare con ese codigo."
             ),
         )

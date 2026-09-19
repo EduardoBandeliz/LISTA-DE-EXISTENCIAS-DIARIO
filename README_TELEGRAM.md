@@ -49,6 +49,10 @@ Cuando llegue un PDF, el bot:
 Los comandos `/equiposgeneral` y `/listagsinprecios` entregan la Liga de Equipos General sin importes. Esta vista usa
 el mismo inventario de Lista G y no requiere una publicacion adicional.
 
+Cuando el bot recibe un mensaje con `CODIGO:` tambien conserva las caracteristicas
+disponibles: camaras, bateria, Android, pantalla, procesador, Dual SIM y huella. Se
+publican junto con las imagenes al usar `/publicarimagenes` y aparecen en la ficha del producto.
+
 ## Variables opcionales para grupo
 
 Permitir solo un grupo especifico:

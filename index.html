@@ -327,6 +327,7 @@
 const WSP_NUMBER = '523332559420';
 let PRODUCTS = [];
 let PRODUCT_IMAGES = {};
+let PRODUCT_SPECS = {};
 let PAYJOY_CODES = new Set();
 let PAYJOY_MODEL_KEYS = new Set();
 
@@ -417,10 +418,11 @@ function normalizeProduct(item, index){
 
 async function loadProducts(){
   const inventoryFile = IS_PAYJOY ? 'payjoy-payphone.json' : (IS_PL ? 'plus.json' : (IS_LISTA_G ? 'listag.json' : 'inventario.json'));
-  const [response, imageResponse, payjoyResponse] = await Promise.all([
+  const [response, imageResponse, payjoyResponse, specsResponse] = await Promise.all([
     fetch(inventoryFile + '?v=' + Date.now()),
     fetch('product-images.json?v=' + Date.now()).catch(() => null),
-    fetch('payjoy-payphone.json?v=' + Date.now()).catch(() => null)
+    fetch('payjoy-payphone.json?v=' + Date.now()).catch(() => null),
+    fetch('product-specs.json?v=' + Date.now()).catch(() => null)
   ]);
   if(!response.ok) throw new Error('No se pudo cargar ' + inventoryFile);
   const data = await response.json();
@@ -430,6 +432,9 @@ async function loadProducts(){
   if(payjoyResponse && payjoyResponse.ok){
     const payjoyData = await payjoyResponse.json();
     buildPayjoyLookup(payjoyData.productos || payjoyData);
+  }
+  if(specsResponse && specsResponse.ok){
+    PRODUCT_SPECS = await specsResponse.json();
   }
   PRODUCTS = (data.productos || data).map(normalizeProduct);
   if(IS_PL){
@@ -470,6 +475,7 @@ function inferredSpecs(product){
 function openProductDetail(product){
   const modal = document.getElementById('detail-modal');
   const details = inferredSpecs(product);
+  const saved = PRODUCT_SPECS[String(product.codigo)] || {};
   const image = productImage(product);
   const price = displayPrice(product);
   const compatible = isPayjoyCompatible(product);
@@ -484,6 +490,14 @@ function openProductDetail(product){
     ['Memoria', details.memoria],
     ['Color', details.color],
     ['Red', details.red],
+    ['Android', saved.android || 'No especificado'],
+    ['Pantalla', saved.pantalla || 'No especificada'],
+    ['Procesador', saved.procesador || 'No especificado'],
+    ['Cámara frontal', saved.camara_frontal || 'No especificada'],
+    ['Cámara trasera', saved.camara_trasera || 'No especificada'],
+    ['Batería', saved.bateria || 'No especificada'],
+    ['Dual SIM', saved.dual_sim || 'No especificado'],
+    ['Huella', saved.huella || 'No especificada'],
     ['Financiamiento', compatible ? 'Payjoy / Payphone' : 'No especificado']
   ];
   document.getElementById('detail-content').innerHTML = `
