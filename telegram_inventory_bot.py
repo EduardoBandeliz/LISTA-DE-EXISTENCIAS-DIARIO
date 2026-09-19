@@ -24,6 +24,7 @@ from PIL import Image, ImageOps
 from parse_inventory_pdf import extract_inventory
 from parse_plus_pdf import extract_plus
 from parse_payjoy_excel import extract_payjoy_excel
+from parse_visual_inventory_pdf import extract_visual_inventory
 
 
 ROOT = Path(__file__).resolve().parent
@@ -1871,6 +1872,18 @@ def is_lista_g_pdf(file_name: str, inventory: Optional[dict] = None) -> bool:
     return "LISTA G" in title.upper() or lista.upper() == "G"
 
 
+def visual_inventory_reference() -> dict:
+    products = []
+    seen_codes = set()
+    for inventory in (load_inventory(), load_lista_g_inventory(), load_plus_inventory()):
+        for product in inventory.get("productos", []):
+            code = str(product.get("codigo", "")).strip()
+            if code and code not in seen_codes:
+                products.append(product)
+                seen_codes.add(code)
+    return {"productos": products}
+
+
 def requested_pdf_list(caption: str) -> Optional[str]:
     """Allow an explicit list type when a supplier sends generic numeric filenames."""
     clean = re.sub(r"[^a-z0-9]+", "", (caption or "").lower())
@@ -1898,12 +1911,18 @@ def classify_and_extract_pdf_local(pdf_path: Path, file_name: str, caption: str 
     regular = extract_inventory(pdf_path)
     regular_count = len(regular.get("productos", []))
     if forced in {"M", "G"}:
+        if forced == "M" and regular_count < INVENTORY_MIN_PRODUCTS:
+            return "M", extract_visual_inventory(pdf_path, visual_inventory_reference())
         regular["lista"] = forced
         return forced, regular
     if regular_count >= INVENTORY_MIN_PRODUCTS:
         list_type = "G" if is_lista_g_pdf(file_name, regular) else "M"
         regular["lista"] = list_type
         return list_type, regular
+
+    clean_file_name = re.sub(r"[^a-z0-9]+", "", file_name.lower())
+    if "listam" in clean_file_name:
+        return "M", extract_visual_inventory(pdf_path, visual_inventory_reference())
 
     # PL reports use a different layout and often arrive with numeric filenames.
     plus = extract_plus(pdf_path, INVENTORY_JSON)

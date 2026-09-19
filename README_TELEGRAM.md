@@ -46,6 +46,11 @@ Cuando llegue un PDF, el bot:
 4. Netlify publica la actualizacion automaticamente.
 5. Si Google Sheets esta configurado, actualiza la pestaña correspondiente en Drive.
 
+El bot tambien reconoce catalogos visuales llamados `LISTA_M...pdf` o reenviados con
+el texto `/lista_m`. Como este formato no incluye codigos ni cantidades exactas, reutiliza
+los codigos conocidos, actualiza precios y marca la existencia como `1+`. Los modelos nuevos
+reciben un identificador secundario estable hasta que vuelva a llegar el PDF detallado.
+
 Los comandos `/equiposgeneral` y `/listagsinprecios` entregan la Liga de Equipos General sin importes. Esta vista usa
 el mismo inventario de Lista G y no requiere una publicacion adicional.
 
