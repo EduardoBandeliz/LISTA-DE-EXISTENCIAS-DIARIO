@@ -205,6 +205,31 @@
   }
   .card-cta:hover{background:var(--green-deep);}
 
+  .detail-modal{
+    position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;
+    padding:20px;background:rgba(11,18,32,.68);backdrop-filter:blur(4px);
+  }
+  .detail-modal.open{display:flex;}
+  .detail-panel{
+    width:min(760px,100%);max-height:min(88vh,780px);overflow:auto;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 70px rgba(11,18,32,.28);
+  }
+  .detail-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);}
+  .detail-head strong{font-family:'Space Grotesk',sans-serif;font-size:16px;}
+  .detail-close{width:38px;height:38px;border:0;border-radius:8px;background:var(--paper);font-size:25px;line-height:1;cursor:pointer;color:var(--ink);}
+  .detail-content{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:22px;padding:20px;}
+  .detail-image{width:100%;aspect-ratio:1/1;object-fit:contain;background:#EEF3F7;border:1px solid var(--line);border-radius:8px;}
+  .detail-image-placeholder{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;}
+  .detail-brand{font-size:12px;font-weight:800;color:var(--blue);text-transform:uppercase;}
+  .detail-name{font-family:'Space Grotesk',sans-serif;font-size:22px;line-height:1.25;margin:6px 0 16px;}
+  .detail-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);}
+  .detail-spec{padding:12px 8px 12px 0;border-bottom:1px solid var(--line);}
+  .detail-spec-label{font-size:10px;font-weight:800;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+  .detail-spec-value{font-size:14px;font-weight:600;overflow-wrap:anywhere;}
+  .detail-price{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--green-deep);margin-top:16px;}
+  .detail-actions{margin-top:16px;}
+  .card-name{cursor:pointer;}
+
   .empty{max-width:1180px;margin:60px auto;text-align:center;color:var(--muted);font-size:15px;padding:0 24px;}
 
   .footer-cta{
@@ -231,6 +256,10 @@
     .grid{padding:14px 14px 60px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
     .footer-cta{padding:0 14px;}
     .footer-cta-inner{flex-direction:column;align-items:flex-start;}
+    .detail-modal{padding:0;align-items:flex-end;}
+    .detail-panel{width:100%;max-height:92vh;border-radius:12px 12px 0 0;}
+    .detail-content{grid-template-columns:1fr;padding:16px;}
+    .detail-image{max-height:300px;}
   }
 </style>
 </head>
@@ -270,6 +299,16 @@
 </div>
 
 <div id="grid-wrap"></div>
+
+<div class="detail-modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+  <div class="detail-panel">
+    <div class="detail-head">
+      <strong>Características del equipo</strong>
+      <button class="detail-close" id="detail-close" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="detail-content" id="detail-content"></div>
+  </div>
+</div>
 
 <div class="footer-cta">
   <div class="footer-cta-inner">
@@ -411,6 +450,82 @@ function productImage(product){
   return product.imagen || PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
 }
 
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+function inferredSpecs(product){
+  const name = normalizeText(product.nombre);
+  const capacities = [...name.matchAll(/(\d+)\s*(GB|TB)/g)].map(match => `${match[1]} ${match[2]}`);
+  const colors = ['AZUL','NEGRO','BLANCO','GRIS','VERDE','VIOLETA','MORADO','ROSA','DORADO','PLATA','NARANJA','ROJO','AMARILLO','CREMA'];
+  return {
+    memoria: capacities.length >= 2 ? capacities.slice(0,2).join(' + ') : (capacities[0] || 'No especificada'),
+    red: name.includes('5G') ? '5G' : (name.includes('4G') ? '4G' : 'No especificada'),
+    color: colors.filter(color => name.split(' ').includes(color)).join(', ') || 'No especificado'
+  };
+}
+
+function openProductDetail(product){
+  const modal = document.getElementById('detail-modal');
+  const details = inferredSpecs(product);
+  const image = productImage(product);
+  const price = displayPrice(product);
+  const compatible = isPayjoyCompatible(product);
+  const msg = encodeURIComponent(
+    HIDE_PRICES
+      ? `Hola! Me interesa el producto: *${product.nombre}*. ¿Me das más info?`
+      : `Hola! Me interesa el producto: *${product.nombre}* - ${fmtPrice(price)}. ¿Me das más info?`
+  );
+  const specs = [
+    ['Código', product.codigo || 'No disponible'],
+    ['Existencia', product.cantidad || (product.disponible ? 'Disponible' : 'Agotado')],
+    ['Memoria', details.memoria],
+    ['Color', details.color],
+    ['Red', details.red],
+    ['Financiamiento', compatible ? 'Payjoy / Payphone' : 'No especificado']
+  ];
+  document.getElementById('detail-content').innerHTML = `
+    ${image ? `<img class="detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(product.nombre)}">` : '<div class="detail-image detail-image-placeholder">Imagen no disponible</div>'}
+    <div>
+      <div class="detail-brand">${escapeHtml(product.marca)}</div>
+      <h2 class="detail-name" id="detail-title">${escapeHtml(product.nombre)}</h2>
+      <div class="detail-specs">${specs.map(([label,value]) => `
+        <div class="detail-spec"><div class="detail-spec-label">${label}</div><div class="detail-spec-value">${escapeHtml(value)}</div></div>
+      `).join('')}</div>
+      ${HIDE_PRICES ? '' : `<div class="detail-price">${fmtPrice(price)}</div>`}
+      <div class="detail-actions"><a class="card-cta" target="_blank" href="https://wa.me/${WSP_NUMBER}?text=${msg}">Cotizar por WhatsApp</a></div>
+    </div>`;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('detail-close').focus();
+}
+
+function closeProductDetail(){
+  document.getElementById('detail-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function bindProductDetails(list){
+  document.querySelectorAll('.card').forEach((card, index) => {
+    let timer;
+    let startX = 0;
+    let startY = 0;
+    const cancel = () => { clearTimeout(timer); timer = null; };
+    card.addEventListener('pointerdown', event => {
+      if(event.target.closest('a')) return;
+      startX = event.clientX; startY = event.clientY;
+      timer = setTimeout(() => openProductDetail(list[index]), 550);
+    });
+    card.addEventListener('pointermove', event => {
+      if(Math.abs(event.clientX-startX) > 10 || Math.abs(event.clientY-startY) > 10) cancel();
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(name => card.addEventListener(name, cancel));
+    card.querySelector('.card-name').addEventListener('click', () => openProductDetail(list[index]));
+  });
+}
+
 function isCellphone(product){
   return CELLPHONE_BRANDS.has(product.marca);
 }
@@ -478,10 +593,18 @@ function render(){
       </div>`;
     }).join('')
   }</div>`;
+  bindProductDetails(list);
 }
 
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('sort').addEventListener('change', render);
+document.getElementById('detail-close').addEventListener('click', closeProductDetail);
+document.getElementById('detail-modal').addEventListener('click', event => {
+  if(event.target.id === 'detail-modal') closeProductDetail();
+});
+document.addEventListener('keydown', event => {
+  if(event.key === 'Escape') closeProductDetail();
+});
 
 async function init(){
   try{
