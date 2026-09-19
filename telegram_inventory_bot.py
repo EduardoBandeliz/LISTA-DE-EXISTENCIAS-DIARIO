@@ -2102,6 +2102,7 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
                 f"Listo. {result}\n\n"
                 f"Lista M: {summary_m}\n"
                 f"Lista G: {summary_g}\n\n"
+                "Columnas omitidas: COSTO y LISTA PLUS. La Lista PL no fue modificada.\n\n"
                 f"Liga Lista M:\n{NETLIFY_SITE_URL}\n\n"
                 f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1\n\n"
                 f"Drive/Sheets:\n{sheets_m}\n{sheets_g}"
