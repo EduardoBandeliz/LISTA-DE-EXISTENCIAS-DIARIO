@@ -53,6 +53,7 @@ reciben un identificador secundario estable hasta que vuelva a llegar el PDF det
 
 Un archivo `.xls` combinado que incluya las columnas `CODIGO`, `PRODUCTO`, `CANTIDAD`,
 `LISTA M` y `LISTA G` actualiza ambas listas en una sola carga y un solo despliegue.
+Tambien se puede enviar un `.zip` que contenga exactamente un archivo `.xls` sin contrasena.
 Las filas con cantidad cero se omiten automáticamente.
 Las columnas `COSTO` y `LISTA PLUS` se ignoran siempre; este flujo no modifica `plus.json`
 ni la pestaña de Lista PL en Google Sheets.

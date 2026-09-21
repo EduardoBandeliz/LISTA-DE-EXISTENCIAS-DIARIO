@@ -9,6 +9,7 @@ import tempfile
 import traceback
 import urllib.error
 import urllib.request
+import zipfile
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -1184,6 +1185,52 @@ def broadcast_chat_ids() -> list[str]:
     return sorted(chat_ids)
 
 
+def _supabase_creds() -> tuple[str, str]:
+    """Return the credentials used to publish inventory news to EB Mobile."""
+    url = os.environ.get("SUPABASE_URL", "https://ulokdlzgxeyioalcruub.supabase.co")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE", "")
+    if not key:
+        try:
+            with open(os.path.expanduser("~/celu-bot/.env")) as env_file:
+                for line in env_file:
+                    if line.startswith("SUPABASE_SERVICE_ROLE="):
+                        key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                        break
+        except Exception:
+            pass
+    return url, key
+
+
+def guardar_novedad_app(titulo: str, resumen: str, cuerpo: str) -> None:
+    """Publish an inventory report to EB Mobile without interrupting the bot."""
+    try:
+        base, key = _supabase_creds()
+        if not key:
+            print("novedad app: sin llave service_role, no se guardo")
+            return
+        body = json.dumps({
+            "tipo": "inventario",
+            "titulo": titulo,
+            "resumen": resumen[:900] if resumen else None,
+            "cuerpo": cuerpo,
+        }).encode("utf-8")
+        request = urllib.request.Request(
+            f"{base}/rest/v1/novedades",
+            data=body,
+            method="POST",
+            headers={
+                "apikey": key,
+                "Authorization": f"Bearer {key}",
+                "Content-Type": "application/json",
+                "Prefer": "return=minimal",
+            },
+        )
+        urllib.request.urlopen(request, timeout=15)
+        print("novedad app: guardada")
+    except Exception as exc:
+        print(f"novedad app no guardada: {exc}")
+
+
 def build_update_report(previous_inventory: dict, new_inventory: dict, limit: int = 12) -> str:
     analysis = analyze_inventory_update(previous_inventory, new_inventory)
     new_products = analysis["new_products"]
@@ -2052,6 +2099,36 @@ async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str
         await safe_send(bot, target_chat_id, message)
 
 
+def extract_single_xls_from_zip(zip_path: Path, destination_dir: Path) -> Path:
+    destination_dir.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(zip_path) as archive:
+        candidates = [
+            item
+            for item in archive.infolist()
+            if not item.is_dir() and Path(item.filename).suffix.lower() == ".xls"
+        ]
+        if not candidates:
+            raise ValueError("El ZIP no contiene ningun archivo .xls.")
+        if len(candidates) > 1:
+            raise ValueError("El ZIP contiene varios archivos .xls; envia solo uno por ZIP.")
+
+        item = candidates[0]
+        if item.flag_bits & 0x1:
+            raise ValueError("El archivo .xls dentro del ZIP tiene contrasena.")
+        if item.file_size > 100 * 1024 * 1024:
+            raise ValueError("El archivo .xls dentro del ZIP supera el limite de 100 MB.")
+
+        destination = destination_dir / Path(item.filename).name
+        try:
+            with archive.open(item) as source, destination.open("wb") as target:
+                shutil.copyfileobj(source, target)
+        except RuntimeError as exc:
+            raise ValueError("No pude abrir el ZIP; verifica que no tenga contrasena.") from exc
+        if not destination.exists() or destination.stat().st_size == 0:
+            raise ValueError("El archivo .xls dentro del ZIP esta vacio.")
+        return destination
+
+
 async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
     if not update.message or not update.message.document:
         return False
@@ -2061,14 +2138,21 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
 
     document = update.message.document
     file_name = document.file_name or "inventario-m-g.xls"
-    if not file_name.lower().endswith(".xls"):
+    suffix = Path(file_name).suffix.lower()
+    if suffix not in {".xls", ".zip"}:
         return False
 
-    await safe_send(bot, chat_id, f"Recibi XLS de inventario: {file_name}. Preparando Lista M y Lista G...")
+    await safe_send(bot, chat_id, f"Recibi inventario: {file_name}. Preparando Lista M y Lista G...")
     with tempfile.TemporaryDirectory() as temp_dir:
-        excel_path = Path(temp_dir) / file_name
+        temp_root = Path(temp_dir)
+        received_path = temp_root / Path(file_name).name
         try:
-            await download_telegram_file_with_retries(bot, document.file_id, excel_path)
+            await download_telegram_file_with_retries(bot, document.file_id, received_path)
+            excel_path = (
+                await asyncio.to_thread(extract_single_xls_from_zip, received_path, temp_root)
+                if suffix == ".zip"
+                else received_path
+            )
             await asyncio.to_thread(sync_from_github)
             previous_m = await asyncio.to_thread(load_inventory)
             previous_g = await asyncio.to_thread(load_lista_g_inventory)
