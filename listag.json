@@ -1,12 +1,12 @@
 {
-  "fecha_actualizacion": "2026-09-19T12:23:35",
-  "source_pdf": "1789606882_109 3.xls",
+  "fecha_actualizacion": "2026-09-21T14:06:01",
+  "source_pdf": "1789520483_109.xls",
   "source_type": "xls_combinado_m_g",
   "lista": "G",
-  "total_productos": 387,
-  "total_disponibles": 387,
+  "total_productos": 390,
+  "total_disponibles": 390,
   "total_agotados": 0,
-  "total_omitidos_cero": 24,
+  "total_omitidos_cero": 21,
   "productos": [
     {
       "categoria_pdf": "ACCESORIOS BODEGA",
@@ -433,8 +433,8 @@
       "clave_categoria": "/PREPAGO/ADICIONALES/ACCESORIOS BODEGA/",
       "codigo": "193474001076",
       "nombre": "MR MEMORY 32GB U2SVTRA SILVER",
-      "cantidad": "42",
-      "existencia_minima": 42,
+      "cantidad": "46",
+      "existencia_minima": 46,
       "disponible": true,
       "precio_publico": 159.0,
       "id": 36,
@@ -445,8 +445,8 @@
       "clave_categoria": "/PREPAGO/ADICIONALES/ACCESORIOS BODEGA/",
       "codigo": "193474001236",
       "nombre": "MR MEMORY USB 16GB VR30 BLUE",
-      "cantidad": "34",
-      "existencia_minima": 34,
+      "cantidad": "38",
+      "existencia_minima": 38,
       "disponible": true,
       "precio_publico": 130.0,
       "id": 37,
@@ -553,8 +553,8 @@
       "clave_categoria": "/PREPAGO/LIBRES/ADAPTADORES/",
       "codigo": "887276830643",
       "nombre": "CARGADOR SAMSUNG CARGA ULTRARRAPIDA T4511 45W CON CABLE C-C NEGRO",
-      "cantidad": "210",
-      "existencia_minima": 210,
+      "cantidad": "212",
+      "existencia_minima": 212,
       "disponible": true,
       "precio_publico": 799.0,
       "id": 46,
@@ -611,13 +611,25 @@
     {
       "categoria_pdf": "APPLE",
       "clave_categoria": "/PREPAGO/LIBRES/APPLE/",
+      "codigo": "195950626186",
+      "nombre": "APPLE IPHONE 17 PRO 12 GB 256 GB 5G AZUL ESIM",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_publico": 28499.0,
+      "id": 51,
+      "precio_lista_m": 21149.0
+    },
+    {
+      "categoria_pdf": "APPLE",
+      "clave_categoria": "/PREPAGO/LIBRES/APPLE/",
       "codigo": "195950637151",
       "nombre": "APPLE IPHONE 17 PRO MAX 12 GB 256 GB 5G PLATA ESIM",
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 30999.0,
-      "id": 51,
+      "id": 52,
       "precio_lista_m": 23109.0
     },
     {
@@ -629,7 +641,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 14999.0,
-      "id": 52,
+      "id": 53,
       "precio_lista_m": 12869.0
     },
     {
@@ -641,7 +653,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 14999.0,
-      "id": 53,
+      "id": 54,
       "precio_lista_m": 12869.0
     },
     {
@@ -653,7 +665,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 14999.0,
-      "id": 54,
+      "id": 55,
       "precio_lista_m": 12869.0
     },
     {
@@ -665,7 +677,7 @@
       "existencia_minima": 4,
       "disponible": true,
       "precio_publico": 7999.0,
-      "id": 55,
+      "id": 56,
       "precio_lista_m": 5899.0
     },
     {
@@ -677,7 +689,7 @@
       "existencia_minima": 55,
       "disponible": true,
       "precio_publico": 69.0,
-      "id": 56,
+      "id": 57,
       "precio_lista_m": 36.0
     },
     {
@@ -689,7 +701,7 @@
       "existencia_minima": 84,
       "disponible": true,
       "precio_publico": 89.0,
-      "id": 57,
+      "id": 58,
       "precio_lista_m": 46.0
     },
     {
@@ -701,7 +713,7 @@
       "existencia_minima": 17,
       "disponible": true,
       "precio_publico": 290.0,
-      "id": 58,
+      "id": 59,
       "precio_lista_m": 150.0
     },
     {
@@ -713,7 +725,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 3509.0,
-      "id": 59,
+      "id": 60,
       "precio_lista_m": 2199.0
     },
     {
@@ -725,7 +737,7 @@
       "existencia_minima": 11,
       "disponible": true,
       "precio_publico": 3509.0,
-      "id": 60,
+      "id": 61,
       "precio_lista_m": 2199.0
     },
     {
@@ -737,7 +749,7 @@
       "existencia_minima": 366,
       "disponible": true,
       "precio_publico": 538.0,
-      "id": 61,
+      "id": 62,
       "precio_lista_m": 359.0
     },
     {
@@ -749,7 +761,7 @@
       "existencia_minima": 393,
       "disponible": true,
       "precio_publico": 514.0,
-      "id": 62,
+      "id": 63,
       "precio_lista_m": 389.0
     },
     {
@@ -761,7 +773,7 @@
       "existencia_minima": 67,
       "disponible": true,
       "precio_publico": 2508.0,
-      "id": 63,
+      "id": 64,
       "precio_lista_m": 1799.0
     },
     {
@@ -769,11 +781,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "848958044703",
       "nombre": "BLU BOLD K12 (4+8) GB 128 GB 4G NEGRO NACIONAL",
-      "cantidad": "34",
-      "existencia_minima": 34,
+      "cantidad": "35",
+      "existencia_minima": 35,
       "disponible": true,
       "precio_publico": 2508.0,
-      "id": 64,
+      "id": 65,
       "precio_lista_m": 1799.0
     },
     {
@@ -785,7 +797,7 @@
       "existencia_minima": 39,
       "disponible": true,
       "precio_publico": 2508.0,
-      "id": 65,
+      "id": 66,
       "precio_lista_m": 1799.0
     },
     {
@@ -793,11 +805,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "848958044727",
       "nombre": "BLU BOLD K12 (4+8) GB 128 GB 4G ROSA NACIONAL",
-      "cantidad": "61",
-      "existencia_minima": 61,
+      "cantidad": "62",
+      "existencia_minima": 62,
       "disponible": true,
       "precio_publico": 2508.0,
-      "id": 66,
+      "id": 67,
       "precio_lista_m": 1799.0
     },
     {
@@ -809,7 +821,7 @@
       "existencia_minima": 68,
       "disponible": true,
       "precio_publico": 2508.0,
-      "id": 67,
+      "id": 68,
       "precio_lista_m": 1799.0
     },
     {
@@ -821,7 +833,7 @@
       "existencia_minima": 98,
       "disponible": true,
       "precio_publico": 3030.0,
-      "id": 68,
+      "id": 69,
       "precio_lista_m": 2189.0
     },
     {
@@ -833,7 +845,7 @@
       "existencia_minima": 105,
       "disponible": true,
       "precio_publico": 3030.0,
-      "id": 69,
+      "id": 70,
       "precio_lista_m": 2189.0
     },
     {
@@ -845,7 +857,7 @@
       "existencia_minima": 38,
       "disponible": true,
       "precio_publico": 7425.0,
-      "id": 70,
+      "id": 71,
       "precio_lista_m": 5089.0
     },
     {
@@ -857,7 +869,7 @@
       "existencia_minima": 377,
       "disponible": true,
       "precio_publico": 1292.0,
-      "id": 71,
+      "id": 72,
       "precio_lista_m": 799.0
     },
     {
@@ -865,11 +877,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "848958044369",
       "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL CIELO NACIONAL",
-      "cantidad": "123",
-      "existencia_minima": 123,
+      "cantidad": "125",
+      "existencia_minima": 125,
       "disponible": true,
       "precio_publico": 2068.0,
-      "id": 72,
+      "id": 73,
       "precio_lista_m": 1359.0
     },
     {
@@ -877,11 +889,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "848958044352",
       "nombre": "BLU G44 PLUS (4+4) GB 64 GB 4G AZUL NACIONAL",
-      "cantidad": "99",
-      "existencia_minima": 99,
+      "cantidad": "102",
+      "existencia_minima": 102,
       "disponible": true,
       "precio_publico": 2068.0,
-      "id": 73,
+      "id": 74,
       "precio_lista_m": 1359.0
     },
     {
@@ -893,7 +905,7 @@
       "existencia_minima": 58,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 74,
+      "id": 75,
       "precio_lista_m": 1669.0
     },
     {
@@ -905,7 +917,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 75,
+      "id": 76,
       "precio_lista_m": 1669.0
     },
     {
@@ -917,7 +929,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 76,
+      "id": 77,
       "precio_lista_m": 1669.0
     },
     {
@@ -929,7 +941,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 77,
+      "id": 78,
       "precio_lista_m": 1669.0
     },
     {
@@ -941,7 +953,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 78,
+      "id": 79,
       "precio_lista_m": 1669.0
     },
     {
@@ -953,7 +965,7 @@
       "existencia_minima": 188,
       "disponible": true,
       "precio_publico": 3275.0,
-      "id": 79,
+      "id": 80,
       "precio_lista_m": 1909.0
     },
     {
@@ -965,7 +977,7 @@
       "existencia_minima": 219,
       "disponible": true,
       "precio_publico": 3275.0,
-      "id": 80,
+      "id": 81,
       "precio_lista_m": 1909.0
     },
     {
@@ -977,7 +989,7 @@
       "existencia_minima": 104,
       "disponible": true,
       "precio_publico": 3275.0,
-      "id": 81,
+      "id": 82,
       "precio_lista_m": 1909.0
     },
     {
@@ -989,7 +1001,7 @@
       "existencia_minima": 215,
       "disponible": true,
       "precio_publico": 3275.0,
-      "id": 82,
+      "id": 83,
       "precio_lista_m": 1909.0
     },
     {
@@ -1001,19 +1013,31 @@
       "existencia_minima": 198,
       "disponible": true,
       "precio_publico": 3275.0,
-      "id": 83,
+      "id": 84,
       "precio_lista_m": 1909.0
+    },
+    {
+      "categoria_pdf": "BLU",
+      "clave_categoria": "/PREPAGO/LIBRES/BLU/",
+      "codigo": "848958044413",
+      "nombre": "BLU G65L (4+8) GB 128 GB 4G NEGRO NACIONAL",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_publico": 2585.0,
+      "id": 85,
+      "precio_lista_m": 1639.0
     },
     {
       "categoria_pdf": "BLU",
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "48958044758",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G AZUL NACIONAL",
-      "cantidad": "181",
-      "existencia_minima": 181,
+      "cantidad": "182",
+      "existencia_minima": 182,
       "disponible": true,
       "precio_publico": 2956.0,
-      "id": 84,
+      "id": 86,
       "precio_lista_m": 2399.0
     },
     {
@@ -1021,11 +1045,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "84958044697",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G BLANCO NACIONAL",
-      "cantidad": "93",
-      "existencia_minima": 93,
+      "cantidad": "94",
+      "existencia_minima": 94,
       "disponible": true,
       "precio_publico": 2956.0,
-      "id": 85,
+      "id": 87,
       "precio_lista_m": 2399.0
     },
     {
@@ -1037,7 +1061,7 @@
       "existencia_minima": 249,
       "disponible": true,
       "precio_publico": 2956.0,
-      "id": 86,
+      "id": 88,
       "precio_lista_m": 2399.0
     },
     {
@@ -1049,7 +1073,7 @@
       "existencia_minima": 17,
       "disponible": true,
       "precio_publico": 3534.0,
-      "id": 87,
+      "id": 89,
       "precio_lista_m": 2549.0
     },
     {
@@ -1061,7 +1085,7 @@
       "existencia_minima": 28,
       "disponible": true,
       "precio_publico": 3534.0,
-      "id": 88,
+      "id": 90,
       "precio_lista_m": 2549.0
     },
     {
@@ -1073,7 +1097,7 @@
       "existencia_minima": 303,
       "disponible": true,
       "precio_publico": 671.0,
-      "id": 89,
+      "id": 91,
       "precio_lista_m": 539.0
     },
     {
@@ -1085,7 +1109,7 @@
       "existencia_minima": 613,
       "disponible": true,
       "precio_publico": 471.0,
-      "id": 90,
+      "id": 92,
       "precio_lista_m": 399.0
     },
     {
@@ -1097,7 +1121,7 @@
       "existencia_minima": 92,
       "disponible": true,
       "precio_publico": 1820.0,
-      "id": 91,
+      "id": 93,
       "precio_lista_m": 1319.0
     },
     {
@@ -1109,7 +1133,7 @@
       "existencia_minima": 92,
       "disponible": true,
       "precio_publico": 1824.0,
-      "id": 92,
+      "id": 94,
       "precio_lista_m": 1319.0
     },
     {
@@ -1121,7 +1145,7 @@
       "existencia_minima": 114,
       "disponible": true,
       "precio_publico": 1824.0,
-      "id": 93,
+      "id": 95,
       "precio_lista_m": 1319.0
     },
     {
@@ -1133,7 +1157,7 @@
       "existencia_minima": 45,
       "disponible": true,
       "precio_publico": 1820.0,
-      "id": 94,
+      "id": 96,
       "precio_lista_m": 1319.0
     },
     {
@@ -1145,7 +1169,7 @@
       "existencia_minima": 127,
       "disponible": true,
       "precio_publico": 1823.0,
-      "id": 95,
+      "id": 97,
       "precio_lista_m": 1319.0
     },
     {
@@ -1157,7 +1181,7 @@
       "existencia_minima": 225,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 96,
+      "id": 98,
       "precio_lista_m": 289.0
     },
     {
@@ -1169,7 +1193,7 @@
       "existencia_minima": 165,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 97,
+      "id": 99,
       "precio_lista_m": 289.0
     },
     {
@@ -1181,7 +1205,7 @@
       "existencia_minima": 94,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 98,
+      "id": 100,
       "precio_lista_m": 289.0
     },
     {
@@ -1193,7 +1217,7 @@
       "existencia_minima": 92,
       "disponible": true,
       "precio_publico": 719.0,
-      "id": 99,
+      "id": 101,
       "precio_lista_m": 579.0
     },
     {
@@ -1205,7 +1229,7 @@
       "existencia_minima": 48,
       "disponible": true,
       "precio_publico": 639.0,
-      "id": 100,
+      "id": 102,
       "precio_lista_m": 479.0
     },
     {
@@ -1217,7 +1241,7 @@
       "existencia_minima": 44,
       "disponible": true,
       "precio_publico": 639.0,
-      "id": 101,
+      "id": 103,
       "precio_lista_m": 479.0
     },
     {
@@ -1229,7 +1253,7 @@
       "existencia_minima": 330,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 102,
+      "id": 104,
       "precio_lista_m": 229.0
     },
     {
@@ -1241,7 +1265,7 @@
       "existencia_minima": 320,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 103,
+      "id": 105,
       "precio_lista_m": 229.0
     },
     {
@@ -1253,7 +1277,7 @@
       "existencia_minima": 376,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 104,
+      "id": 106,
       "precio_lista_m": 229.0
     },
     {
@@ -1265,7 +1289,7 @@
       "existencia_minima": 386,
       "disponible": true,
       "precio_publico": 344.0,
-      "id": 105,
+      "id": 107,
       "precio_lista_m": 229.0
     },
     {
@@ -1277,7 +1301,7 @@
       "existencia_minima": 202,
       "disponible": true,
       "precio_publico": 430.0,
-      "id": 106,
+      "id": 108,
       "precio_lista_m": 319.0
     },
     {
@@ -1289,7 +1313,7 @@
       "existencia_minima": 196,
       "disponible": true,
       "precio_publico": 430.0,
-      "id": 107,
+      "id": 109,
       "precio_lista_m": 319.0
     },
     {
@@ -1301,7 +1325,7 @@
       "existencia_minima": 196,
       "disponible": true,
       "precio_publico": 430.0,
-      "id": 108,
+      "id": 110,
       "precio_lista_m": 319.0
     },
     {
@@ -1313,7 +1337,7 @@
       "existencia_minima": 308,
       "disponible": true,
       "precio_publico": 387.0,
-      "id": 109,
+      "id": 111,
       "precio_lista_m": 169.0
     },
     {
@@ -1321,32 +1345,8 @@
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
       "codigo": "848958039280",
       "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G AZUL NACIONAL",
-      "cantidad": "297",
-      "existencia_minima": 297,
-      "disponible": true,
-      "precio_publico": 387.0,
-      "id": 110,
-      "precio_lista_m": 169.0
-    },
-    {
-      "categoria_pdf": "BLU",
-      "clave_categoria": "/PREPAGO/LIBRES/BLU/",
-      "codigo": "848958039235",
-      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-AZUL NACIONAL",
-      "cantidad": "1150",
-      "existencia_minima": 1150,
-      "disponible": true,
-      "precio_publico": 387.0,
-      "id": 111,
-      "precio_lista_m": 169.0
-    },
-    {
-      "categoria_pdf": "BLU",
-      "clave_categoria": "/PREPAGO/LIBRES/BLU/",
-      "codigo": "848958039242",
-      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-ROJO NACIONAL",
-      "cantidad": "256",
-      "existencia_minima": 256,
+      "cantidad": "298",
+      "existencia_minima": 298,
       "disponible": true,
       "precio_publico": 387.0,
       "id": 112,
@@ -1355,13 +1355,37 @@
     {
       "categoria_pdf": "BLU",
       "clave_categoria": "/PREPAGO/LIBRES/BLU/",
-      "codigo": "848958039983",
-      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G ROSA NACIONAL",
-      "cantidad": "455",
-      "existencia_minima": 455,
+      "codigo": "848958039235",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-AZUL NACIONAL",
+      "cantidad": "1151",
+      "existencia_minima": 1151,
       "disponible": true,
       "precio_publico": 387.0,
       "id": 113,
+      "precio_lista_m": 169.0
+    },
+    {
+      "categoria_pdf": "BLU",
+      "clave_categoria": "/PREPAGO/LIBRES/BLU/",
+      "codigo": "848958039242",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G NEGRO-ROJO NACIONAL",
+      "cantidad": "257",
+      "existencia_minima": 257,
+      "disponible": true,
+      "precio_publico": 387.0,
+      "id": 114,
+      "precio_lista_m": 169.0
+    },
+    {
+      "categoria_pdf": "BLU",
+      "clave_categoria": "/PREPAGO/LIBRES/BLU/",
+      "codigo": "848958039983",
+      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB 2G ROSA NACIONAL",
+      "cantidad": "456",
+      "existencia_minima": 456,
+      "disponible": true,
+      "precio_publico": 387.0,
+      "id": 115,
       "precio_lista_m": 169.0
     },
     {
@@ -1373,7 +1397,7 @@
       "existencia_minima": 507,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 114,
+      "id": 116,
       "precio_lista_m": 169.0
     },
     {
@@ -1385,7 +1409,7 @@
       "existencia_minima": 544,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 115,
+      "id": 117,
       "precio_lista_m": 169.0
     },
     {
@@ -1397,7 +1421,7 @@
       "existencia_minima": 541,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 116,
+      "id": 118,
       "precio_lista_m": 169.0
     },
     {
@@ -1409,7 +1433,7 @@
       "existencia_minima": 380,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 117,
+      "id": 119,
       "precio_lista_m": 169.0
     },
     {
@@ -1421,7 +1445,7 @@
       "existencia_minima": 523,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 118,
+      "id": 120,
       "precio_lista_m": 169.0
     },
     {
@@ -1433,7 +1457,7 @@
       "existencia_minima": 673,
       "disponible": true,
       "precio_publico": 275.0,
-      "id": 119,
+      "id": 121,
       "precio_lista_m": 169.0
     },
     {
@@ -1445,7 +1469,7 @@
       "existencia_minima": 93,
       "disponible": true,
       "precio_publico": 303.0,
-      "id": 120,
+      "id": 122,
       "precio_lista_m": 269.0
     },
     {
@@ -1457,7 +1481,7 @@
       "existencia_minima": 82,
       "disponible": true,
       "precio_publico": 59.0,
-      "id": 121,
+      "id": 123,
       "precio_lista_m": 15.0
     },
     {
@@ -1469,7 +1493,7 @@
       "existencia_minima": 234,
       "disponible": true,
       "precio_publico": 69.0,
-      "id": 122,
+      "id": 124,
       "precio_lista_m": 18.0
     },
     {
@@ -1481,7 +1505,7 @@
       "existencia_minima": 245,
       "disponible": true,
       "precio_publico": 89.0,
-      "id": 123,
+      "id": 125,
       "precio_lista_m": 23.0
     },
     {
@@ -1493,7 +1517,7 @@
       "existencia_minima": 148,
       "disponible": true,
       "precio_publico": 95.0,
-      "id": 124,
+      "id": 126,
       "precio_lista_m": 33.0
     },
     {
@@ -1505,7 +1529,7 @@
       "existencia_minima": 374,
       "disponible": true,
       "precio_publico": 120.0,
-      "id": 125,
+      "id": 127,
       "precio_lista_m": 31.0
     },
     {
@@ -1517,7 +1541,7 @@
       "existencia_minima": 1401,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 126,
+      "id": 128,
       "precio_lista_m": 2649.0
     },
     {
@@ -1529,7 +1553,7 @@
       "existencia_minima": 17,
       "disponible": true,
       "precio_publico": 9056.0,
-      "id": 127,
+      "id": 129,
       "precio_lista_m": 6039.0
     },
     {
@@ -1541,7 +1565,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 716.0,
-      "id": 128,
+      "id": 130,
       "precio_lista_m": 419.0
     },
     {
@@ -1553,7 +1577,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 651.0,
-      "id": 129,
+      "id": 131,
       "precio_lista_m": 419.0
     },
     {
@@ -1565,7 +1589,7 @@
       "existencia_minima": 31,
       "disponible": true,
       "precio_publico": 13999.0,
-      "id": 130,
+      "id": 132,
       "precio_lista_m": 12349.0
     },
     {
@@ -1577,7 +1601,7 @@
       "existencia_minima": 14,
       "disponible": true,
       "precio_publico": 6199.0,
-      "id": 131,
+      "id": 133,
       "precio_lista_m": 5089.0
     },
     {
@@ -1589,7 +1613,7 @@
       "existencia_minima": 12,
       "disponible": true,
       "precio_publico": 4799.0,
-      "id": 132,
+      "id": 134,
       "precio_lista_m": 3809.0
     },
     {
@@ -1601,7 +1625,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 6999.0,
-      "id": 133,
+      "id": 135,
       "precio_lista_m": 5639.0
     },
     {
@@ -1613,7 +1637,7 @@
       "existencia_minima": 29,
       "disponible": true,
       "precio_publico": 4799.0,
-      "id": 134,
+      "id": 136,
       "precio_lista_m": 3689.0
     },
     {
@@ -1625,7 +1649,7 @@
       "existencia_minima": 46,
       "disponible": true,
       "precio_publico": 12999.0,
-      "id": 135,
+      "id": 137,
       "precio_lista_m": 9259.0
     },
     {
@@ -1637,7 +1661,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 9999.0,
-      "id": 136,
+      "id": 138,
       "precio_lista_m": 7689.0
     },
     {
@@ -1649,7 +1673,7 @@
       "existencia_minima": 60,
       "disponible": true,
       "precio_publico": 18999.0,
-      "id": 137,
+      "id": 139,
       "precio_lista_m": 14639.0
     },
     {
@@ -1661,7 +1685,7 @@
       "existencia_minima": 346,
       "disponible": true,
       "precio_publico": 8499.0,
-      "id": 138,
+      "id": 140,
       "precio_lista_m": 5709.0
     },
     {
@@ -1673,7 +1697,7 @@
       "existencia_minima": 70,
       "disponible": true,
       "precio_publico": 16999.0,
-      "id": 139,
+      "id": 141,
       "precio_lista_m": 12889.0
     },
     {
@@ -1685,7 +1709,7 @@
       "existencia_minima": 5646,
       "disponible": true,
       "precio_publico": 249.0,
-      "id": 140,
+      "id": 142,
       "precio_lista_m": 169.0
     },
     {
@@ -1697,7 +1721,7 @@
       "existencia_minima": 4,
       "disponible": true,
       "precio_publico": 199.0,
-      "id": 141,
+      "id": 143,
       "precio_lista_m": 169.0
     },
     {
@@ -1709,7 +1733,7 @@
       "existencia_minima": 7,
       "disponible": true,
       "precio_publico": 199.0,
-      "id": 142,
+      "id": 144,
       "precio_lista_m": 169.0
     },
     {
@@ -1721,7 +1745,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 229.0,
-      "id": 143,
+      "id": 145,
       "precio_lista_m": 179.0
     },
     {
@@ -1733,7 +1757,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 229.0,
-      "id": 144,
+      "id": 146,
       "precio_lista_m": 179.0
     },
     {
@@ -1745,7 +1769,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 179.0,
-      "id": 145,
+      "id": 147,
       "precio_lista_m": 139.0
     },
     {
@@ -1757,7 +1781,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 799.0,
-      "id": 146,
+      "id": 148,
       "precio_lista_m": 599.0
     },
     {
@@ -1769,7 +1793,7 @@
       "existencia_minima": 79,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 147,
+      "id": 149,
       "precio_lista_m": 549.0
     },
     {
@@ -1781,7 +1805,7 @@
       "existencia_minima": 101,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 148,
+      "id": 150,
       "precio_lista_m": 549.0
     },
     {
@@ -1793,7 +1817,7 @@
       "existencia_minima": 26,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 149,
+      "id": 151,
       "precio_lista_m": 549.0
     },
     {
@@ -1805,7 +1829,7 @@
       "existencia_minima": 118,
       "disponible": true,
       "precio_publico": 799.0,
-      "id": 150,
+      "id": 152,
       "precio_lista_m": 469.0
     },
     {
@@ -1817,7 +1841,7 @@
       "existencia_minima": 118,
       "disponible": true,
       "precio_publico": 1499.0,
-      "id": 151,
+      "id": 153,
       "precio_lista_m": 829.0
     },
     {
@@ -1825,11 +1849,11 @@
       "clave_categoria": "/PREPAGO/ADICIONALES/GADGETS/",
       "codigo": "50036384674",
       "nombre": "JBL ENDURANCE RACE TWS NEGRO",
-      "cantidad": "49",
-      "existencia_minima": 49,
+      "cantidad": "53",
+      "existencia_minima": 53,
       "disponible": true,
       "precio_publico": 1999.0,
-      "id": 152,
+      "id": 154,
       "precio_lista_m": 949.0
     },
     {
@@ -1841,7 +1865,7 @@
       "existencia_minima": 69,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 153,
+      "id": 155,
       "precio_lista_m": 1629.0
     },
     {
@@ -1853,7 +1877,7 @@
       "existencia_minima": 73,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 154,
+      "id": 156,
       "precio_lista_m": 1629.0
     },
     {
@@ -1865,7 +1889,7 @@
       "existencia_minima": 52,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 155,
+      "id": 157,
       "precio_lista_m": 1629.0
     },
     {
@@ -1877,7 +1901,7 @@
       "existencia_minima": 74,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 156,
+      "id": 158,
       "precio_lista_m": 1629.0
     },
     {
@@ -1889,7 +1913,7 @@
       "existencia_minima": 78,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 157,
+      "id": 159,
       "precio_lista_m": 1629.0
     },
     {
@@ -1901,7 +1925,7 @@
       "existencia_minima": 71,
       "disponible": true,
       "precio_publico": 3699.0,
-      "id": 158,
+      "id": 160,
       "precio_lista_m": 1629.0
     },
     {
@@ -1913,7 +1937,7 @@
       "existencia_minima": 2118,
       "disponible": true,
       "precio_publico": 1099.0,
-      "id": 159,
+      "id": 161,
       "precio_lista_m": 519.0
     },
     {
@@ -1921,11 +1945,11 @@
       "clave_categoria": "/PREPAGO/ADICIONALES/GADGETS/",
       "codigo": "50036411059",
       "nombre": "JBL PARTYBOX ENCORE ESSENTIAL 2",
-      "cantidad": "30",
-      "existencia_minima": 30,
+      "cantidad": "31",
+      "existencia_minima": 31,
       "disponible": true,
       "precio_publico": 6999.0,
-      "id": 160,
+      "id": 162,
       "precio_lista_m": 4409.0
     },
     {
@@ -1937,7 +1961,7 @@
       "existencia_minima": 46,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 161,
+      "id": 163,
       "precio_lista_m": 1699.0
     },
     {
@@ -1949,7 +1973,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 279.0,
-      "id": 162,
+      "id": 164,
       "precio_lista_m": 169.0
     },
     {
@@ -1961,7 +1985,7 @@
       "existencia_minima": 155,
       "disponible": true,
       "precio_publico": 99.0,
-      "id": 163,
+      "id": 165,
       "precio_lista_m": 79.0
     },
     {
@@ -1973,7 +1997,7 @@
       "existencia_minima": 87,
       "disponible": true,
       "precio_publico": 140.0,
-      "id": 164,
+      "id": 166,
       "precio_lista_m": 70.0
     },
     {
@@ -1985,7 +2009,7 @@
       "existencia_minima": 123,
       "disponible": true,
       "precio_publico": 999.0,
-      "id": 165,
+      "id": 167,
       "precio_lista_m": 699.0
     },
     {
@@ -1997,7 +2021,7 @@
       "existencia_minima": 1208,
       "disponible": true,
       "precio_publico": 999.0,
-      "id": 166,
+      "id": 168,
       "precio_lista_m": 699.0
     },
     {
@@ -2009,7 +2033,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 5599.0,
-      "id": 167,
+      "id": 169,
       "precio_lista_m": 4159.0
     },
     {
@@ -2021,7 +2045,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 249.0,
-      "id": 168,
+      "id": 170,
       "precio_lista_m": 159.0
     },
     {
@@ -2033,7 +2057,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 799.0,
-      "id": 169,
+      "id": 171,
       "precio_lista_m": 459.0
     },
     {
@@ -2045,7 +2069,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 999.0,
-      "id": 170,
+      "id": 172,
       "precio_lista_m": 459.0
     },
     {
@@ -2057,7 +2081,7 @@
       "existencia_minima": 136,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 171,
+      "id": 173,
       "precio_lista_m": 2189.0
     },
     {
@@ -2069,7 +2093,7 @@
       "existencia_minima": 22,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 172,
+      "id": 174,
       "precio_lista_m": 2189.0
     },
     {
@@ -2081,7 +2105,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 2499.0,
-      "id": 173,
+      "id": 175,
       "precio_lista_m": 1979.0
     },
     {
@@ -2093,7 +2117,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 17628.0,
-      "id": 174,
+      "id": 176,
       "precio_lista_m": 11439.0
     },
     {
@@ -2105,7 +2129,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 17628.0,
-      "id": 175,
+      "id": 177,
       "precio_lista_m": 11439.0
     },
     {
@@ -2117,7 +2141,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 19396.0,
-      "id": 176,
+      "id": 178,
       "precio_lista_m": 11469.0
     },
     {
@@ -2129,7 +2153,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 19396.0,
-      "id": 177,
+      "id": 179,
       "precio_lista_m": 11469.0
     },
     {
@@ -2141,7 +2165,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 19396.0,
-      "id": 178,
+      "id": 180,
       "precio_lista_m": 11469.0
     },
     {
@@ -2153,7 +2177,7 @@
       "existencia_minima": 30,
       "disponible": true,
       "precio_publico": 22894.0,
-      "id": 179,
+      "id": 181,
       "precio_lista_m": 14189.0
     },
     {
@@ -2165,7 +2189,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 31346.0,
-      "id": 180,
+      "id": 182,
       "precio_lista_m": 21619.0
     },
     {
@@ -2177,7 +2201,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 9020.0,
-      "id": 181,
+      "id": 183,
       "precio_lista_m": 5569.0
     },
     {
@@ -2189,7 +2213,7 @@
       "existencia_minima": 9,
       "disponible": true,
       "precio_publico": 10611.0,
-      "id": 182,
+      "id": 184,
       "precio_lista_m": 6839.0
     },
     {
@@ -2201,7 +2225,7 @@
       "existencia_minima": 4,
       "disponible": true,
       "precio_publico": 28397.0,
-      "id": 183,
+      "id": 185,
       "precio_lista_m": 19359.0
     },
     {
@@ -2213,7 +2237,7 @@
       "existencia_minima": 93,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 184,
+      "id": 186,
       "precio_lista_m": 1989.0
     },
     {
@@ -2225,7 +2249,7 @@
       "existencia_minima": 39,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 185,
+      "id": 187,
       "precio_lista_m": 1989.0
     },
     {
@@ -2237,7 +2261,7 @@
       "existencia_minima": 2353,
       "disponible": true,
       "precio_publico": 1727.0,
-      "id": 186,
+      "id": 188,
       "precio_lista_m": 1729.0
     },
     {
@@ -2249,7 +2273,7 @@
       "existencia_minima": 4806,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 187,
+      "id": 189,
       "precio_lista_m": 1729.0
     },
     {
@@ -2261,7 +2285,7 @@
       "existencia_minima": 2341,
       "disponible": true,
       "precio_publico": 2251.0,
-      "id": 188,
+      "id": 190,
       "precio_lista_m": 1729.0
     },
     {
@@ -2273,7 +2297,7 @@
       "existencia_minima": 102,
       "disponible": true,
       "precio_publico": 2982.0,
-      "id": 189,
+      "id": 191,
       "precio_lista_m": 1909.0
     },
     {
@@ -2285,7 +2309,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 5778.0,
-      "id": 190,
+      "id": 192,
       "precio_lista_m": 3799.0
     },
     {
@@ -2297,7 +2321,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 5778.0,
-      "id": 191,
+      "id": 193,
       "precio_lista_m": 3799.0
     },
     {
@@ -2309,7 +2333,7 @@
       "existencia_minima": 18,
       "disponible": true,
       "precio_publico": 2872.0,
-      "id": 192,
+      "id": 194,
       "precio_lista_m": 2419.0
     },
     {
@@ -2321,7 +2345,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 20999.0,
-      "id": 193,
+      "id": 195,
       "precio_lista_m": 16219.0
     },
     {
@@ -2333,7 +2357,7 @@
       "existencia_minima": 400,
       "disponible": true,
       "precio_publico": 6390.0,
-      "id": 194,
+      "id": 196,
       "precio_lista_m": 4309.0
     },
     {
@@ -2341,11 +2365,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/INFINIX/",
       "codigo": "4894947092688",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VERDE NACIONAL",
-      "cantidad": "1072",
-      "existencia_minima": 1072,
+      "cantidad": "1073",
+      "existencia_minima": 1073,
       "disponible": true,
       "precio_publico": 6390.0,
-      "id": 195,
+      "id": 197,
       "precio_lista_m": 4309.0
     },
     {
@@ -2357,7 +2381,7 @@
       "existencia_minima": 61,
       "disponible": true,
       "precio_publico": 6390.0,
-      "id": 196,
+      "id": 198,
       "precio_lista_m": 4309.0
     },
     {
@@ -2369,7 +2393,7 @@
       "existencia_minima": 101,
       "disponible": true,
       "precio_publico": 4869.0,
-      "id": 197,
+      "id": 199,
       "precio_lista_m": 3329.0
     },
     {
@@ -2381,7 +2405,7 @@
       "existencia_minima": 174,
       "disponible": true,
       "precio_publico": 4869.0,
-      "id": 198,
+      "id": 200,
       "precio_lista_m": 3329.0
     },
     {
@@ -2393,7 +2417,7 @@
       "existencia_minima": 40,
       "disponible": true,
       "precio_publico": 4869.0,
-      "id": 199,
+      "id": 201,
       "precio_lista_m": 3329.0
     },
     {
@@ -2405,7 +2429,7 @@
       "existencia_minima": 49,
       "disponible": true,
       "precio_publico": 4869.0,
-      "id": 200,
+      "id": 202,
       "precio_lista_m": 3329.0
     },
     {
@@ -2417,7 +2441,7 @@
       "existencia_minima": 112,
       "disponible": true,
       "precio_publico": 4869.0,
-      "id": 201,
+      "id": 203,
       "precio_lista_m": 3329.0
     },
     {
@@ -2429,7 +2453,7 @@
       "existencia_minima": 53,
       "disponible": true,
       "precio_publico": 7999.0,
-      "id": 202,
+      "id": 204,
       "precio_lista_m": 5849.0
     },
     {
@@ -2441,7 +2465,7 @@
       "existencia_minima": 60,
       "disponible": true,
       "precio_publico": 7999.0,
-      "id": 203,
+      "id": 205,
       "precio_lista_m": 5849.0
     },
     {
@@ -2453,7 +2477,7 @@
       "existencia_minima": 58,
       "disponible": true,
       "precio_publico": 7999.0,
-      "id": 204,
+      "id": 206,
       "precio_lista_m": 5849.0
     },
     {
@@ -2465,7 +2489,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 22661.0,
-      "id": 205,
+      "id": 207,
       "precio_lista_m": 14699.0
     },
     {
@@ -2477,7 +2501,7 @@
       "existencia_minima": 41,
       "disponible": true,
       "precio_publico": 8652.0,
-      "id": 206,
+      "id": 208,
       "precio_lista_m": 5529.0
     },
     {
@@ -2489,7 +2513,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 8652.0,
-      "id": 207,
+      "id": 209,
       "precio_lista_m": 5529.0
     },
     {
@@ -2501,7 +2525,7 @@
       "existencia_minima": 45,
       "disponible": true,
       "precio_publico": 8652.0,
-      "id": 208,
+      "id": 210,
       "precio_lista_m": 5529.0
     },
     {
@@ -2513,7 +2537,7 @@
       "existencia_minima": 196,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 209,
+      "id": 211,
       "precio_lista_m": 2469.0
     },
     {
@@ -2525,7 +2549,7 @@
       "existencia_minima": 204,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 210,
+      "id": 212,
       "precio_lista_m": 2469.0
     },
     {
@@ -2537,7 +2561,7 @@
       "existencia_minima": 290,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 211,
+      "id": 213,
       "precio_lista_m": 2469.0
     },
     {
@@ -2549,7 +2573,7 @@
       "existencia_minima": 143,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 212,
+      "id": 214,
       "precio_lista_m": 2469.0
     },
     {
@@ -2561,7 +2585,7 @@
       "existencia_minima": 212,
       "disponible": true,
       "precio_publico": 3832.0,
-      "id": 213,
+      "id": 215,
       "precio_lista_m": 2219.0
     },
     {
@@ -2573,7 +2597,7 @@
       "existencia_minima": 212,
       "disponible": true,
       "precio_publico": 3832.0,
-      "id": 214,
+      "id": 216,
       "precio_lista_m": 2219.0
     },
     {
@@ -2585,7 +2609,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 2531.0,
-      "id": 215,
+      "id": 217,
       "precio_lista_m": 1559.0
     },
     {
@@ -2597,7 +2621,7 @@
       "existencia_minima": 38,
       "disponible": true,
       "precio_publico": 3499.0,
-      "id": 216,
+      "id": 218,
       "precio_lista_m": 2309.0
     },
     {
@@ -2609,7 +2633,7 @@
       "existencia_minima": 272,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 217,
+      "id": 219,
       "precio_lista_m": 409.0
     },
     {
@@ -2621,7 +2645,7 @@
       "existencia_minima": 62,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 218,
+      "id": 220,
       "precio_lista_m": 409.0
     },
     {
@@ -2633,7 +2657,7 @@
       "existencia_minima": 69,
       "disponible": true,
       "precio_publico": 699.0,
-      "id": 219,
+      "id": 221,
       "precio_lista_m": 409.0
     },
     {
@@ -2645,7 +2669,7 @@
       "existencia_minima": 15,
       "disponible": true,
       "precio_publico": 8499.0,
-      "id": 220,
+      "id": 222,
       "precio_lista_m": 5749.0
     },
     {
@@ -2657,7 +2681,7 @@
       "existencia_minima": 57,
       "disponible": true,
       "precio_publico": 2599.0,
-      "id": 221,
+      "id": 223,
       "precio_lista_m": 2069.0
     },
     {
@@ -2669,7 +2693,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 3999.0,
-      "id": 222,
+      "id": 224,
       "precio_lista_m": 2879.0
     },
     {
@@ -2677,11 +2701,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/MISCELANEOS/",
       "codigo": "6921958643566",
       "nombre": "AOC ROKU TV 43 FHD LED 43S5045",
-      "cantidad": "16",
-      "existencia_minima": 16,
+      "cantidad": "22",
+      "existencia_minima": 22,
       "disponible": true,
       "precio_publico": 3999.0,
-      "id": 223,
+      "id": 225,
       "precio_lista_m": 2949.0
     },
     {
@@ -2693,7 +2717,7 @@
       "existencia_minima": 293,
       "disponible": true,
       "precio_publico": 6999.0,
-      "id": 224,
+      "id": 226,
       "precio_lista_m": 4609.0
     },
     {
@@ -2705,7 +2729,7 @@
       "existencia_minima": 21,
       "disponible": true,
       "precio_publico": 199.0,
-      "id": 225,
+      "id": 227,
       "precio_lista_m": 159.0
     },
     {
@@ -2717,7 +2741,7 @@
       "existencia_minima": 46,
       "disponible": true,
       "precio_publico": 7499.0,
-      "id": 226,
+      "id": 228,
       "precio_lista_m": 6539.0
     },
     {
@@ -2729,7 +2753,7 @@
       "existencia_minima": 14,
       "disponible": true,
       "precio_publico": 8620.0,
-      "id": 227,
+      "id": 229,
       "precio_lista_m": 5709.0
     },
     {
@@ -2741,7 +2765,7 @@
       "existencia_minima": 150,
       "disponible": true,
       "precio_publico": 8620.0,
-      "id": 228,
+      "id": 230,
       "precio_lista_m": 5709.0
     },
     {
@@ -2753,7 +2777,7 @@
       "existencia_minima": 231,
       "disponible": true,
       "precio_publico": 6722.0,
-      "id": 229,
+      "id": 231,
       "precio_lista_m": 4699.0
     },
     {
@@ -2761,11 +2785,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/MOTOROLA/",
       "codigo": "840023295881",
       "nombre": "MOTOROLA MOTO EDGE 60 FUSION 8 GB 256 GB 5G GRIS EUAS",
-      "cantidad": "596",
-      "existencia_minima": 596,
+      "cantidad": "598",
+      "existencia_minima": 598,
       "disponible": true,
       "precio_publico": 6726.0,
-      "id": 230,
+      "id": 232,
       "precio_lista_m": 4699.0
     },
     {
@@ -2777,7 +2801,7 @@
       "existencia_minima": 245,
       "disponible": true,
       "precio_publico": 8028.0,
-      "id": 231,
+      "id": 233,
       "precio_lista_m": 5439.0
     },
     {
@@ -2789,7 +2813,7 @@
       "existencia_minima": 1348,
       "disponible": true,
       "precio_publico": 3482.0,
-      "id": 232,
+      "id": 234,
       "precio_lista_m": 2148.99
     },
     {
@@ -2797,11 +2821,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/MOTOROLA/",
       "codigo": "840493602363",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
-      "cantidad": "1272",
-      "existencia_minima": 1272,
+      "cantidad": "1278",
+      "existencia_minima": 1278,
       "disponible": true,
       "precio_publico": 3482.0,
-      "id": 233,
+      "id": 235,
       "precio_lista_m": 2148.99
     },
     {
@@ -2809,11 +2833,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/MOTOROLA/",
       "codigo": "840493602325",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G VERDE LATINO",
-      "cantidad": "1066",
-      "existencia_minima": 1066,
+      "cantidad": "1076",
+      "existencia_minima": 1076,
       "disponible": true,
       "precio_publico": 3482.0,
-      "id": 234,
+      "id": 236,
       "precio_lista_m": 2148.99
     },
     {
@@ -2825,7 +2849,7 @@
       "existencia_minima": 1115,
       "disponible": true,
       "precio_publico": 4442.0,
-      "id": 235,
+      "id": 237,
       "precio_lista_m": 2369.0
     },
     {
@@ -2837,7 +2861,7 @@
       "existencia_minima": 568,
       "disponible": true,
       "precio_publico": 4442.0,
-      "id": 236,
+      "id": 238,
       "precio_lista_m": 2369.0
     },
     {
@@ -2849,7 +2873,7 @@
       "existencia_minima": 940,
       "disponible": true,
       "precio_publico": 4442.0,
-      "id": 237,
+      "id": 239,
       "precio_lista_m": 2369.0
     },
     {
@@ -2857,11 +2881,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/MOTOROLA/",
       "codigo": "840493602387",
       "nombre": "MOTOROLA MOTO G06 4 GB 64 GB 4G NARANJA LATINO",
-      "cantidad": "1761",
-      "existencia_minima": 1761,
+      "cantidad": "1767",
+      "existencia_minima": 1767,
       "disponible": true,
       "precio_publico": 3120.0,
-      "id": 238,
+      "id": 240,
       "precio_lista_m": 1848.99
     },
     {
@@ -2873,7 +2897,7 @@
       "existencia_minima": 142,
       "disponible": true,
       "precio_publico": 3120.0,
-      "id": 239,
+      "id": 241,
       "precio_lista_m": 1848.99
     },
     {
@@ -2885,7 +2909,7 @@
       "existencia_minima": 253,
       "disponible": true,
       "precio_publico": 4741.0,
-      "id": 240,
+      "id": 242,
       "precio_lista_m": 3179.0
     },
     {
@@ -2897,7 +2921,7 @@
       "existencia_minima": 47,
       "disponible": true,
       "precio_publico": 4741.0,
-      "id": 241,
+      "id": 243,
       "precio_lista_m": 3179.0
     },
     {
@@ -2909,7 +2933,7 @@
       "existencia_minima": 748,
       "disponible": true,
       "precio_publico": 5999.0,
-      "id": 242,
+      "id": 244,
       "precio_lista_m": 4569.0
     },
     {
@@ -2921,7 +2945,7 @@
       "existencia_minima": 771,
       "disponible": true,
       "precio_publico": 5999.0,
-      "id": 243,
+      "id": 245,
       "precio_lista_m": 4569.0
     },
     {
@@ -2933,7 +2957,7 @@
       "existencia_minima": 24,
       "disponible": true,
       "precio_publico": 5013.0,
-      "id": 244,
+      "id": 246,
       "precio_lista_m": 3379.0
     },
     {
@@ -2945,7 +2969,7 @@
       "existencia_minima": 19,
       "disponible": true,
       "precio_publico": 5013.0,
-      "id": 245,
+      "id": 247,
       "precio_lista_m": 3379.0
     },
     {
@@ -2957,7 +2981,7 @@
       "existencia_minima": 280,
       "disponible": true,
       "precio_publico": 5626.0,
-      "id": 246,
+      "id": 248,
       "precio_lista_m": 3859.0
     },
     {
@@ -2969,7 +2993,7 @@
       "existencia_minima": 118,
       "disponible": true,
       "precio_publico": 4999.0,
-      "id": 247,
+      "id": 249,
       "precio_lista_m": 3529.0
     },
     {
@@ -2981,7 +3005,7 @@
       "existencia_minima": 18,
       "disponible": true,
       "precio_publico": 4999.0,
-      "id": 248,
+      "id": 250,
       "precio_lista_m": 3529.0
     },
     {
@@ -2993,7 +3017,7 @@
       "existencia_minima": 40,
       "disponible": true,
       "precio_publico": 7550.0,
-      "id": 249,
+      "id": 251,
       "precio_lista_m": 5229.0
     },
     {
@@ -3005,7 +3029,7 @@
       "existencia_minima": 160,
       "disponible": true,
       "precio_publico": 7550.0,
-      "id": 250,
+      "id": 252,
       "precio_lista_m": 5229.0
     },
     {
@@ -3017,7 +3041,7 @@
       "existencia_minima": 29,
       "disponible": true,
       "precio_publico": 7550.0,
-      "id": 251,
+      "id": 253,
       "precio_lista_m": 5229.0
     },
     {
@@ -3029,7 +3053,7 @@
       "existencia_minima": 69,
       "disponible": true,
       "precio_publico": 6845.0,
-      "id": 252,
+      "id": 254,
       "precio_lista_m": 4809.0
     },
     {
@@ -3041,7 +3065,7 @@
       "existencia_minima": 59,
       "disponible": true,
       "precio_publico": 6846.0,
-      "id": 253,
+      "id": 255,
       "precio_lista_m": 4809.0
     },
     {
@@ -3053,7 +3077,7 @@
       "existencia_minima": 31,
       "disponible": true,
       "precio_publico": 6538.0,
-      "id": 254,
+      "id": 256,
       "precio_lista_m": 4809.0
     },
     {
@@ -3065,7 +3089,7 @@
       "existencia_minima": 21,
       "disponible": true,
       "precio_publico": 6538.0,
-      "id": 255,
+      "id": 257,
       "precio_lista_m": 4809.0
     },
     {
@@ -3077,7 +3101,7 @@
       "existencia_minima": 217,
       "disponible": true,
       "precio_publico": 830.0,
-      "id": 256,
+      "id": 258,
       "precio_lista_m": 529.0
     },
     {
@@ -3089,7 +3113,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 2760.0,
-      "id": 257,
+      "id": 259,
       "precio_lista_m": 1649.0
     },
     {
@@ -3101,7 +3125,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 99.0,
-      "id": 258,
+      "id": 260,
       "precio_lista_m": 79.0
     },
     {
@@ -3113,7 +3137,7 @@
       "existencia_minima": 2893,
       "disponible": true,
       "precio_publico": 139.0,
-      "id": 259,
+      "id": 261,
       "precio_lista_m": 99.0
     },
     {
@@ -3125,7 +3149,7 @@
       "existencia_minima": 395,
       "disponible": true,
       "precio_publico": 139.0,
-      "id": 260,
+      "id": 262,
       "precio_lista_m": 99.0
     },
     {
@@ -3137,7 +3161,7 @@
       "existencia_minima": 3115,
       "disponible": true,
       "precio_publico": 119.0,
-      "id": 261,
+      "id": 263,
       "precio_lista_m": 89.0
     },
     {
@@ -3149,7 +3173,7 @@
       "existencia_minima": 134,
       "disponible": true,
       "precio_publico": 842.0,
-      "id": 262,
+      "id": 264,
       "precio_lista_m": 819.0
     },
     {
@@ -3161,7 +3185,7 @@
       "existencia_minima": 51,
       "disponible": true,
       "precio_publico": 1239.0,
-      "id": 263,
+      "id": 265,
       "precio_lista_m": 1289.0
     },
     {
@@ -3173,7 +3197,7 @@
       "existencia_minima": 25,
       "disponible": true,
       "precio_publico": 1470.0,
-      "id": 264,
+      "id": 266,
       "precio_lista_m": 1489.0
     },
     {
@@ -3185,7 +3209,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 2355.0,
-      "id": 265,
+      "id": 267,
       "precio_lista_m": 1649.0
     },
     {
@@ -3193,11 +3217,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/REALME/",
       "codigo": "6941764474765",
       "nombre": "REALME 15 5G 8 GB 256 GB 5G ROSA NACIONAL",
-      "cantidad": "116",
-      "existencia_minima": 116,
+      "cantidad": "120",
+      "existencia_minima": 120,
       "disponible": true,
       "precio_publico": 7599.0,
-      "id": 266,
+      "id": 268,
       "precio_lista_m": 4339.0
     },
     {
@@ -3205,11 +3229,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/REALME/",
       "codigo": "6941764474772",
       "nombre": "REALME 15 5G 8 GB 256 GB 5G TITANIO NACIONAL",
-      "cantidad": "146",
-      "existencia_minima": 146,
+      "cantidad": "150",
+      "existencia_minima": 150,
       "disponible": true,
       "precio_publico": 7599.0,
-      "id": 267,
+      "id": 269,
       "precio_lista_m": 4339.0
     },
     {
@@ -3221,7 +3245,7 @@
       "existencia_minima": 461,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 268,
+      "id": 270,
       "precio_lista_m": 2979.0
     },
     {
@@ -3233,7 +3257,7 @@
       "existencia_minima": 291,
       "disponible": true,
       "precio_publico": 4309.0,
-      "id": 269,
+      "id": 271,
       "precio_lista_m": 2979.0
     },
     {
@@ -3245,7 +3269,7 @@
       "existencia_minima": 347,
       "disponible": true,
       "precio_publico": 5618.0,
-      "id": 270,
+      "id": 272,
       "precio_lista_m": 3609.0
     },
     {
@@ -3257,7 +3281,7 @@
       "existencia_minima": 881,
       "disponible": true,
       "precio_publico": 5618.0,
-      "id": 271,
+      "id": 273,
       "precio_lista_m": 3609.0
     },
     {
@@ -3269,7 +3293,7 @@
       "existencia_minima": 20,
       "disponible": true,
       "precio_publico": 469.0,
-      "id": 272,
+      "id": 274,
       "precio_lista_m": 349.0
     },
     {
@@ -3281,7 +3305,7 @@
       "existencia_minima": 50,
       "disponible": true,
       "precio_publico": 659.0,
-      "id": 273,
+      "id": 275,
       "precio_lista_m": 489.0
     },
     {
@@ -3293,7 +3317,7 @@
       "existencia_minima": 18,
       "disponible": true,
       "precio_publico": 539.0,
-      "id": 274,
+      "id": 276,
       "precio_lista_m": 319.0
     },
     {
@@ -3305,7 +3329,7 @@
       "existencia_minima": 43,
       "disponible": true,
       "precio_publico": 569.0,
-      "id": 275,
+      "id": 277,
       "precio_lista_m": 309.0
     },
     {
@@ -3317,7 +3341,7 @@
       "existencia_minima": 41,
       "disponible": true,
       "precio_publico": 409.0,
-      "id": 276,
+      "id": 278,
       "precio_lista_m": 309.0
     },
     {
@@ -3329,7 +3353,7 @@
       "existencia_minima": 20,
       "disponible": true,
       "precio_publico": 389.0,
-      "id": 277,
+      "id": 279,
       "precio_lista_m": 289.0
     },
     {
@@ -3341,7 +3365,7 @@
       "existencia_minima": 40,
       "disponible": true,
       "precio_publico": 369.0,
-      "id": 278,
+      "id": 280,
       "precio_lista_m": 269.0
     },
     {
@@ -3353,7 +3377,7 @@
       "existencia_minima": 11,
       "disponible": true,
       "precio_publico": 359.0,
-      "id": 279,
+      "id": 281,
       "precio_lista_m": 269.0
     },
     {
@@ -3365,7 +3389,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 359.0,
-      "id": 280,
+      "id": 282,
       "precio_lista_m": 269.0
     },
     {
@@ -3377,7 +3401,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 479.0,
-      "id": 281,
+      "id": 283,
       "precio_lista_m": 349.0
     },
     {
@@ -3389,7 +3413,7 @@
       "existencia_minima": 32,
       "disponible": true,
       "precio_publico": 419.0,
-      "id": 282,
+      "id": 284,
       "precio_lista_m": 309.0
     },
     {
@@ -3401,7 +3425,7 @@
       "existencia_minima": 50,
       "disponible": true,
       "precio_publico": 399.0,
-      "id": 283,
+      "id": 285,
       "precio_lista_m": 289.0
     },
     {
@@ -3413,7 +3437,7 @@
       "existencia_minima": 11,
       "disponible": true,
       "precio_publico": 689.0,
-      "id": 284,
+      "id": 286,
       "precio_lista_m": 509.0
     },
     {
@@ -3425,7 +3449,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 599.0,
-      "id": 285,
+      "id": 287,
       "precio_lista_m": 439.0
     },
     {
@@ -3437,7 +3461,7 @@
       "existencia_minima": 30,
       "disponible": true,
       "precio_publico": 1769.0,
-      "id": 286,
+      "id": 288,
       "precio_lista_m": 909.0
     },
     {
@@ -3445,11 +3469,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806097655985",
       "nombre": "SAMSUNG A17 4 GB 128 GB 4G AZUL CLARO EUAS",
-      "cantidad": "58",
-      "existencia_minima": 58,
+      "cantidad": "59",
+      "existencia_minima": 59,
       "disponible": true,
       "precio_publico": 4956.0,
-      "id": 287,
+      "id": 289,
       "precio_lista_m": 2919.0
     },
     {
@@ -3457,11 +3481,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806097655206",
       "nombre": "SAMSUNG A17 4 GB 128 GB 4G GRIS EUAS",
-      "cantidad": "58",
-      "existencia_minima": 58,
+      "cantidad": "59",
+      "existencia_minima": 59,
       "disponible": true,
       "precio_publico": 5552.0,
-      "id": 288,
+      "id": 290,
       "precio_lista_m": 2919.0
     },
     {
@@ -3473,7 +3497,7 @@
       "existencia_minima": 80,
       "disponible": true,
       "precio_publico": 5552.0,
-      "id": 289,
+      "id": 291,
       "precio_lista_m": 2919.0
     },
     {
@@ -3481,11 +3505,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099361570",
       "nombre": "SAMSUNG A27 5G 6 GB 128 GB 5G AZUL LATINO",
-      "cantidad": "99",
-      "existencia_minima": 99,
+      "cantidad": "100",
+      "existencia_minima": 100,
       "disponible": true,
       "precio_publico": 6626.0,
-      "id": 290,
+      "id": 292,
       "precio_lista_m": 4439.0
     },
     {
@@ -3493,11 +3517,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099353476",
       "nombre": "SAMSUNG A27 5G 6 GB 128 GB 5G NEGRO LATINO",
-      "cantidad": "227",
-      "existencia_minima": 227,
+      "cantidad": "228",
+      "existencia_minima": 228,
       "disponible": true,
       "precio_publico": 6626.0,
-      "id": 291,
+      "id": 293,
       "precio_lista_m": 4439.0
     },
     {
@@ -3509,7 +3533,7 @@
       "existencia_minima": 100,
       "disponible": true,
       "precio_publico": 6626.0,
-      "id": 292,
+      "id": 294,
       "precio_lista_m": 4439.0
     },
     {
@@ -3517,11 +3541,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099061821",
       "nombre": "SAMSUNG A37 5G 6 GB 128 GB 5G VERDE OSCURO LATINO",
-      "cantidad": "67",
-      "existencia_minima": 67,
+      "cantidad": "68",
+      "existencia_minima": 68,
       "disponible": true,
       "precio_publico": 7770.0,
-      "id": 293,
+      "id": 295,
       "precio_lista_m": 4839.0
     },
     {
@@ -3529,11 +3553,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099056346",
       "nombre": "SAMSUNG A37 5G 6 GB 128 GB 5G VIOLETA LATINO",
-      "cantidad": "177",
-      "existencia_minima": 177,
+      "cantidad": "170",
+      "existencia_minima": 170,
       "disponible": true,
       "precio_publico": 7770.0,
-      "id": 294,
+      "id": 296,
       "precio_lista_m": 4839.0
     },
     {
@@ -3545,7 +3569,7 @@
       "existencia_minima": 27,
       "disponible": true,
       "precio_publico": 10630.0,
-      "id": 295,
+      "id": 297,
       "precio_lista_m": 6169.0
     },
     {
@@ -3557,7 +3581,7 @@
       "existencia_minima": 240,
       "disponible": true,
       "precio_publico": 10260.0,
-      "id": 296,
+      "id": 298,
       "precio_lista_m": 6169.0
     },
     {
@@ -3569,7 +3593,7 @@
       "existencia_minima": 82,
       "disponible": true,
       "precio_publico": 10260.0,
-      "id": 297,
+      "id": 299,
       "precio_lista_m": 6169.0
     },
     {
@@ -3581,7 +3605,7 @@
       "existencia_minima": 9,
       "disponible": true,
       "precio_publico": 10630.0,
-      "id": 298,
+      "id": 300,
       "precio_lista_m": 6169.0
     },
     {
@@ -3593,7 +3617,7 @@
       "existencia_minima": 50,
       "disponible": true,
       "precio_publico": 10585.0,
-      "id": 299,
+      "id": 301,
       "precio_lista_m": 6289.0
     },
     {
@@ -3605,7 +3629,7 @@
       "existencia_minima": 101,
       "disponible": true,
       "precio_publico": 10537.0,
-      "id": 300,
+      "id": 302,
       "precio_lista_m": 6289.0
     },
     {
@@ -3613,11 +3637,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099052621",
       "nombre": "SAMSUNG A57 5G 8 GB 128 GB 5G GRIS LATINO",
-      "cantidad": "64",
-      "existencia_minima": 64,
+      "cantidad": "60",
+      "existencia_minima": 60,
       "disponible": true,
       "precio_publico": 10211.0,
-      "id": 301,
+      "id": 303,
       "precio_lista_m": 6289.0
     },
     {
@@ -3629,7 +3653,7 @@
       "existencia_minima": 40,
       "disponible": true,
       "precio_publico": 10211.0,
-      "id": 302,
+      "id": 304,
       "precio_lista_m": 6289.0
     },
     {
@@ -3637,11 +3661,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/SAMSUNG/",
       "codigo": "8806099057251",
       "nombre": "SAMSUNG A57 5G 8 GB 256 GB 5G AZUL LATINO",
-      "cantidad": "410",
-      "existencia_minima": 410,
+      "cantidad": "411",
+      "existencia_minima": 411,
       "disponible": true,
       "precio_publico": 11033.0,
-      "id": 303,
+      "id": 305,
       "precio_lista_m": 7439.0
     },
     {
@@ -3653,7 +3677,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 12046.0,
-      "id": 304,
+      "id": 306,
       "precio_lista_m": 7439.0
     },
     {
@@ -3665,7 +3689,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 7272.0,
-      "id": 305,
+      "id": 307,
       "precio_lista_m": 4679.0
     },
     {
@@ -3677,7 +3701,7 @@
       "existencia_minima": 42,
       "disponible": true,
       "precio_publico": 4412.0,
-      "id": 306,
+      "id": 308,
       "precio_lista_m": 2789.0
     },
     {
@@ -3689,7 +3713,7 @@
       "existencia_minima": 33,
       "disponible": true,
       "precio_publico": 4412.0,
-      "id": 307,
+      "id": 309,
       "precio_lista_m": 2789.0
     },
     {
@@ -3701,7 +3725,7 @@
       "existencia_minima": 31,
       "disponible": true,
       "precio_publico": 6013.0,
-      "id": 308,
+      "id": 310,
       "precio_lista_m": 3799.0
     },
     {
@@ -3713,7 +3737,7 @@
       "existencia_minima": 21,
       "disponible": true,
       "precio_publico": 6013.0,
-      "id": 309,
+      "id": 311,
       "precio_lista_m": 3799.0
     },
     {
@@ -3725,7 +3749,7 @@
       "existencia_minima": 126,
       "disponible": true,
       "precio_publico": 583.0,
-      "id": 310,
+      "id": 312,
       "precio_lista_m": 399.0
     },
     {
@@ -3737,7 +3761,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 29999.0,
-      "id": 311,
+      "id": 313,
       "precio_lista_m": 17919.0
     },
     {
@@ -3749,7 +3773,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 29999.0,
-      "id": 312,
+      "id": 314,
       "precio_lista_m": 17919.0
     },
     {
@@ -3761,7 +3785,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 32999.0,
-      "id": 313,
+      "id": 315,
       "precio_lista_m": 20959.0
     },
     {
@@ -3773,7 +3797,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 32999.0,
-      "id": 314,
+      "id": 316,
       "precio_lista_m": 20959.0
     },
     {
@@ -3785,7 +3809,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 32999.0,
-      "id": 315,
+      "id": 317,
       "precio_lista_m": 20959.0
     },
     {
@@ -3797,7 +3821,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 31999.0,
-      "id": 316,
+      "id": 318,
       "precio_lista_m": 26059.0
     },
     {
@@ -3809,7 +3833,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 45999.0,
-      "id": 317,
+      "id": 319,
       "precio_lista_m": 29379.0
     },
     {
@@ -3821,7 +3845,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 45999.0,
-      "id": 318,
+      "id": 320,
       "precio_lista_m": 29379.0
     },
     {
@@ -3833,7 +3857,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 45999.0,
-      "id": 319,
+      "id": 321,
       "precio_lista_m": 29379.0
     },
     {
@@ -3845,7 +3869,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 43599.0,
-      "id": 320,
+      "id": 322,
       "precio_lista_m": 31259.0
     },
     {
@@ -3857,7 +3881,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 43599.0,
-      "id": 321,
+      "id": 323,
       "precio_lista_m": 31259.0
     },
     {
@@ -3869,7 +3893,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 53499.0,
-      "id": 322,
+      "id": 324,
       "precio_lista_m": 34979.0
     },
     {
@@ -3881,7 +3905,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 6448.0,
-      "id": 323,
+      "id": 325,
       "precio_lista_m": 4009.0
     },
     {
@@ -3893,7 +3917,7 @@
       "existencia_minima": 7,
       "disponible": true,
       "precio_publico": 6448.0,
-      "id": 324,
+      "id": 326,
       "precio_lista_m": 4009.0
     },
     {
@@ -3905,7 +3929,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 6448.0,
-      "id": 325,
+      "id": 327,
       "precio_lista_m": 4009.0
     },
     {
@@ -3917,7 +3941,7 @@
       "existencia_minima": 7,
       "disponible": true,
       "precio_publico": 6448.0,
-      "id": 326,
+      "id": 328,
       "precio_lista_m": 4009.0
     },
     {
@@ -3929,7 +3953,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 7053.0,
-      "id": 327,
+      "id": 329,
       "precio_lista_m": 4379.0
     },
     {
@@ -3941,7 +3965,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 7374.0,
-      "id": 328,
+      "id": 330,
       "precio_lista_m": 4579.0
     },
     {
@@ -3953,7 +3977,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 7374.0,
-      "id": 329,
+      "id": 331,
       "precio_lista_m": 4579.0
     },
     {
@@ -3965,7 +3989,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 7374.0,
-      "id": 330,
+      "id": 332,
       "precio_lista_m": 4579.0
     },
     {
@@ -3977,7 +4001,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 7374.0,
-      "id": 331,
+      "id": 333,
       "precio_lista_m": 4579.0
     },
     {
@@ -3989,7 +4013,7 @@
       "existencia_minima": 4,
       "disponible": true,
       "precio_publico": 7374.0,
-      "id": 332,
+      "id": 334,
       "precio_lista_m": 4579.0
     },
     {
@@ -4001,7 +4025,7 @@
       "existencia_minima": 6,
       "disponible": true,
       "precio_publico": 7801.0,
-      "id": 333,
+      "id": 335,
       "precio_lista_m": 4849.0
     },
     {
@@ -4013,7 +4037,7 @@
       "existencia_minima": 7,
       "disponible": true,
       "precio_publico": 8514.0,
-      "id": 334,
+      "id": 336,
       "precio_lista_m": 5289.0
     },
     {
@@ -4025,7 +4049,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 8514.0,
-      "id": 335,
+      "id": 337,
       "precio_lista_m": 5289.0
     },
     {
@@ -4037,7 +4061,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 11046.0,
-      "id": 336,
+      "id": 338,
       "precio_lista_m": 7699.0
     },
     {
@@ -4049,7 +4073,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 10010.0,
-      "id": 337,
+      "id": 339,
       "precio_lista_m": 6219.0
     },
     {
@@ -4061,7 +4085,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 9654.0,
-      "id": 338,
+      "id": 340,
       "precio_lista_m": 5999.0
     },
     {
@@ -4073,7 +4097,7 @@
       "existencia_minima": 5,
       "disponible": true,
       "precio_publico": 10010.0,
-      "id": 339,
+      "id": 341,
       "precio_lista_m": 6219.0
     },
     {
@@ -4085,7 +4109,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 9654.0,
-      "id": 340,
+      "id": 342,
       "precio_lista_m": 5999.0
     },
     {
@@ -4097,7 +4121,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 12931.0,
-      "id": 341,
+      "id": 343,
       "precio_lista_m": 8029.0
     },
     {
@@ -4109,7 +4133,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 13381.0,
-      "id": 342,
+      "id": 344,
       "precio_lista_m": 8819.0
     },
     {
@@ -4121,7 +4145,7 @@
       "existencia_minima": 2,
       "disponible": true,
       "precio_publico": 34681.0,
-      "id": 343,
+      "id": 345,
       "precio_lista_m": 20409.0
     },
     {
@@ -4133,7 +4157,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 34681.0,
-      "id": 344,
+      "id": 346,
       "precio_lista_m": 20409.0
     },
     {
@@ -4145,7 +4169,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 39769.0,
-      "id": 345,
+      "id": 347,
       "precio_lista_m": 24689.0
     },
     {
@@ -4157,7 +4181,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 39769.0,
-      "id": 346,
+      "id": 348,
       "precio_lista_m": 24689.0
     },
     {
@@ -4169,7 +4193,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 39769.0,
-      "id": 347,
+      "id": 349,
       "precio_lista_m": 24689.0
     },
     {
@@ -4181,7 +4205,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 166.0,
-      "id": 348,
+      "id": 350,
       "precio_lista_m": 309.0
     },
     {
@@ -4193,7 +4217,7 @@
       "existencia_minima": 3,
       "disponible": true,
       "precio_publico": 32499.0,
-      "id": 349,
+      "id": 351,
       "precio_lista_m": 29009.0
     },
     {
@@ -4205,7 +4229,7 @@
       "existencia_minima": 63,
       "disponible": true,
       "precio_publico": 1399.0,
-      "id": 350,
+      "id": 352,
       "precio_lista_m": 1289.0
     },
     {
@@ -4217,7 +4241,7 @@
       "existencia_minima": 108,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 351,
+      "id": 353,
       "precio_lista_m": 2389.0
     },
     {
@@ -4229,7 +4253,7 @@
       "existencia_minima": 51,
       "disponible": true,
       "precio_publico": 4599.0,
-      "id": 352,
+      "id": 354,
       "precio_lista_m": 3589.0
     },
     {
@@ -4241,7 +4265,7 @@
       "existencia_minima": 67,
       "disponible": true,
       "precio_publico": 3999.0,
-      "id": 353,
+      "id": 355,
       "precio_lista_m": 3609.0
     },
     {
@@ -4253,7 +4277,7 @@
       "existencia_minima": 119,
       "disponible": true,
       "precio_publico": 3999.0,
-      "id": 354,
+      "id": 356,
       "precio_lista_m": 3609.0
     },
     {
@@ -4265,7 +4289,7 @@
       "existencia_minima": 25,
       "disponible": true,
       "precio_publico": 4999.0,
-      "id": 355,
+      "id": 357,
       "precio_lista_m": 4309.0
     },
     {
@@ -4277,7 +4301,7 @@
       "existencia_minima": 89,
       "disponible": true,
       "precio_publico": 2200.0,
-      "id": 356,
+      "id": 358,
       "precio_lista_m": 1489.0
     },
     {
@@ -4289,7 +4313,7 @@
       "existencia_minima": 86,
       "disponible": true,
       "precio_publico": 2200.0,
-      "id": 357,
+      "id": 359,
       "precio_lista_m": 1489.0
     },
     {
@@ -4301,7 +4325,7 @@
       "existencia_minima": 13,
       "disponible": true,
       "precio_publico": 1923.0,
-      "id": 358,
+      "id": 360,
       "precio_lista_m": 1299.0
     },
     {
@@ -4313,7 +4337,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 1923.0,
-      "id": 359,
+      "id": 361,
       "precio_lista_m": 1299.0
     },
     {
@@ -4325,7 +4349,7 @@
       "existencia_minima": 38,
       "disponible": true,
       "precio_publico": 2499.0,
-      "id": 360,
+      "id": 362,
       "precio_lista_m": 1699.0
     },
     {
@@ -4337,7 +4361,7 @@
       "existencia_minima": 37,
       "disponible": true,
       "precio_publico": 2499.0,
-      "id": 361,
+      "id": 363,
       "precio_lista_m": 1699.0
     },
     {
@@ -4349,7 +4373,7 @@
       "existencia_minima": 17,
       "disponible": true,
       "precio_publico": 2499.0,
-      "id": 362,
+      "id": 364,
       "precio_lista_m": 1699.0
     },
     {
@@ -4361,7 +4385,7 @@
       "existencia_minima": 16,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 363,
+      "id": 365,
       "precio_lista_m": 1739.0
     },
     {
@@ -4373,7 +4397,7 @@
       "existencia_minima": 74,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 364,
+      "id": 366,
       "precio_lista_m": 1739.0
     },
     {
@@ -4385,7 +4409,7 @@
       "existencia_minima": 37,
       "disponible": true,
       "precio_publico": 8900.0,
-      "id": 365,
+      "id": 367,
       "precio_lista_m": 5689.0
     },
     {
@@ -4397,7 +4421,7 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_publico": 2473.0,
-      "id": 366,
+      "id": 368,
       "precio_lista_m": 1589.0
     },
     {
@@ -4409,7 +4433,7 @@
       "existencia_minima": 41,
       "disponible": true,
       "precio_publico": 477.0,
-      "id": 367,
+      "id": 369,
       "precio_lista_m": 309.0
     },
     {
@@ -4421,7 +4445,7 @@
       "existencia_minima": 654,
       "disponible": true,
       "precio_publico": 477.0,
-      "id": 368,
+      "id": 370,
       "precio_lista_m": 309.0
     },
     {
@@ -4433,7 +4457,7 @@
       "existencia_minima": 10,
       "disponible": true,
       "precio_publico": 477.0,
-      "id": 369,
+      "id": 371,
       "precio_lista_m": 309.0
     },
     {
@@ -4445,7 +4469,7 @@
       "existencia_minima": 118,
       "disponible": true,
       "precio_publico": 4827.0,
-      "id": 370,
+      "id": 372,
       "precio_lista_m": 3089.0
     },
     {
@@ -4453,11 +4477,11 @@
       "clave_categoria": "/PREPAGO/LIBRES/XIAOMI/",
       "codigo": "6932554445065",
       "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
-      "cantidad": "200",
-      "existencia_minima": 200,
+      "cantidad": "202",
+      "existencia_minima": 202,
       "disponible": true,
       "precio_publico": 4499.0,
-      "id": 371,
+      "id": 373,
       "precio_lista_m": 3639.0
     },
     {
@@ -4469,7 +4493,7 @@
       "existencia_minima": 214,
       "disponible": true,
       "precio_publico": 4499.0,
-      "id": 372,
+      "id": 374,
       "precio_lista_m": 3639.0
     },
     {
@@ -4481,7 +4505,7 @@
       "existencia_minima": 34,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 373,
+      "id": 375,
       "precio_lista_m": 2429.0
     },
     {
@@ -4493,7 +4517,7 @@
       "existencia_minima": 479,
       "disponible": true,
       "precio_publico": 2999.0,
-      "id": 374,
+      "id": 376,
       "precio_lista_m": 2429.0
     },
     {
@@ -4505,7 +4529,7 @@
       "existencia_minima": 168,
       "disponible": true,
       "precio_publico": 3447.0,
-      "id": 375,
+      "id": 377,
       "precio_lista_m": 2419.0
     },
     {
@@ -4517,7 +4541,7 @@
       "existencia_minima": 349,
       "disponible": true,
       "precio_publico": 3082.0,
-      "id": 376,
+      "id": 378,
       "precio_lista_m": 2209.0
     },
     {
@@ -4529,7 +4553,7 @@
       "existencia_minima": 54,
       "disponible": true,
       "precio_publico": 10344.0,
-      "id": 377,
+      "id": 379,
       "precio_lista_m": 6599.0
     },
     {
@@ -4541,7 +4565,7 @@
       "existencia_minima": 62,
       "disponible": true,
       "precio_publico": 6328.0,
-      "id": 378,
+      "id": 380,
       "precio_lista_m": 4279.0
     },
     {
@@ -4553,7 +4577,7 @@
       "existencia_minima": 82,
       "disponible": true,
       "precio_publico": 6348.0,
-      "id": 379,
+      "id": 381,
       "precio_lista_m": 4059.0
     },
     {
@@ -4565,7 +4589,7 @@
       "existencia_minima": 112,
       "disponible": true,
       "precio_publico": 6348.0,
-      "id": 380,
+      "id": 382,
       "precio_lista_m": 4059.0
     },
     {
@@ -4577,7 +4601,7 @@
       "existencia_minima": 88,
       "disponible": true,
       "precio_publico": 7298.0,
-      "id": 381,
+      "id": 383,
       "precio_lista_m": 4669.0
     },
     {
@@ -4589,7 +4613,7 @@
       "existencia_minima": 80,
       "disponible": true,
       "precio_publico": 10085.0,
-      "id": 382,
+      "id": 384,
       "precio_lista_m": 6439.0
     },
     {
@@ -4601,7 +4625,7 @@
       "existencia_minima": 152,
       "disponible": true,
       "precio_publico": 9327.0,
-      "id": 383,
+      "id": 385,
       "precio_lista_m": 5959.0
     },
     {
@@ -4613,7 +4637,7 @@
       "existencia_minima": 267,
       "disponible": true,
       "precio_publico": 10017.0,
-      "id": 384,
+      "id": 386,
       "precio_lista_m": 6579.0
     },
     {
@@ -4625,8 +4649,20 @@
       "existencia_minima": 47,
       "disponible": true,
       "precio_publico": 7999.0,
-      "id": 385,
+      "id": 387,
       "precio_lista_m": 5299.0
+    },
+    {
+      "categoria_pdf": "XIAOMI",
+      "clave_categoria": "/PREPAGO/LIBRES/XIAOMI/",
+      "codigo": "6932554490256",
+      "nombre": "XIAOMI REDMI NOTE 15 PRO PLUS 5G 8 GB 256 GB 5G NEGRO PJ",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_publico": 11999.0,
+      "id": 388,
+      "precio_lista_m": 7239.0
     },
     {
       "categoria_pdf": "ZTE",
@@ -4637,7 +4673,7 @@
       "existencia_minima": 8,
       "disponible": true,
       "precio_publico": 6214.0,
-      "id": 386,
+      "id": 389,
       "precio_lista_m": 4159.0
     },
     {
@@ -4649,7 +4685,7 @@
       "existencia_minima": 17,
       "disponible": true,
       "precio_publico": 7198.0,
-      "id": 387,
+      "id": 390,
       "precio_lista_m": 4300.0
     }
   ]
