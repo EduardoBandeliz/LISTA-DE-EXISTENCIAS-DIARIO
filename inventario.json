@@ -1,9 +1,9 @@
 {
-  "fecha_actualizacion": "2026-09-21T10:55:40",
+  "fecha_actualizacion": "2026-09-21T10:57:06",
   "source_pdf": "LISTA_M_21-09.pdf",
   "source_type": "catalogo_visual_secundario",
-  "total_productos": 385,
-  "total_disponibles": 385,
+  "total_productos": 418,
+  "total_disponibles": 418,
   "total_agotados": 0,
   "total_omitidos_cero": 0,
   "productos": [
@@ -4000,7 +4000,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 8399.0,
+      "precio_lista_m": 12499.0,
       "precio_publico": null
     },
     {
@@ -4012,7 +4012,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 12029.0,
+      "precio_lista_m": 19219.0,
       "precio_publico": null
     },
     {
@@ -4036,7 +4036,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 18499.0,
+      "precio_lista_m": 19219.0,
       "precio_publico": null
     },
     {
@@ -4144,7 +4144,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11129.0,
+      "precio_lista_m": 6659.0,
       "precio_publico": null
     },
     {
@@ -4156,7 +4156,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11129.0,
+      "precio_lista_m": 6659.0,
       "precio_publico": null
     },
     {
@@ -4168,7 +4168,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11159.0,
+      "precio_lista_m": 6659.0,
       "precio_publico": null
     },
     {
@@ -4180,7 +4180,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 13799.0,
+      "precio_lista_m": 6659.0,
       "precio_publico": null
     },
     {
@@ -4192,7 +4192,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 21049.0,
+      "precio_lista_m": 18849.0,
       "precio_publico": null
     },
     {
@@ -4204,7 +4204,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5419.0,
+      "precio_lista_m": 6659.0,
       "precio_publico": null
     },
     {
@@ -4228,7 +4228,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1679.0,
+      "precio_lista_m": 1859.0,
       "precio_publico": null
     },
     {
@@ -4252,7 +4252,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3229.0,
+      "precio_lista_m": 5689.0,
       "precio_publico": null
     },
     {
@@ -4264,7 +4264,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2159.0,
       "precio_publico": null
     },
     {
@@ -4276,7 +4276,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2309.0,
+      "precio_lista_m": 1799.0,
       "precio_publico": null
     },
     {
@@ -4348,7 +4348,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4709.0,
+      "precio_lista_m": 5999.0,
       "precio_publico": null
     },
     {
@@ -4360,7 +4360,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4709.0,
+      "precio_lista_m": 5999.0,
       "precio_publico": null
     },
     {
@@ -4384,7 +4384,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6119.0,
+      "precio_lista_m": 7239.0,
       "precio_publico": null
     },
     {
@@ -4396,7 +4396,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 17439.0,
+      "precio_lista_m": 20389.0,
       "precio_publico": null
     },
     {
@@ -4408,7 +4408,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 25349.0,
+      "precio_lista_m": 28579.0,
       "precio_publico": null
     },
     {
@@ -4420,7 +4420,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 30409.0,
+      "precio_lista_m": 34029.0,
       "precio_publico": null
     },
     {
@@ -4432,7 +4432,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3839.0,
+      "precio_lista_m": 4199.0,
       "precio_publico": null
     },
     {
@@ -4468,7 +4468,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 19849.0,
+      "precio_lista_m": 24019.0,
       "precio_publico": null
     },
     {
@@ -4480,7 +4480,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2329.0,
+      "precio_lista_m": 3499.0,
       "precio_publico": null
     },
     {
@@ -4492,7 +4492,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3519.0,
+      "precio_lista_m": 4199.0,
       "precio_publico": null
     },
     {
@@ -4504,7 +4504,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3009.0,
+      "precio_lista_m": 3539.0,
       "precio_publico": null
     },
     {
@@ -4516,7 +4516,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2349.0,
+      "precio_lista_m": 2149.0,
       "precio_publico": null
     },
     {
@@ -4528,7 +4528,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6419.0,
+      "precio_lista_m": 7039.0,
       "precio_publico": null
     },
     {
@@ -4552,7 +4552,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3949.0,
+      "precio_lista_m": 6269.0,
       "precio_publico": null
     },
     {
@@ -4564,7 +4564,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4539.0,
+      "precio_lista_m": 6269.0,
       "precio_publico": null
     },
     {
@@ -4588,7 +4588,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 799.0,
+      "precio_lista_m": 1399.0,
       "precio_publico": null
     },
     {
@@ -4600,7 +4600,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1239.0,
+      "precio_lista_m": 1399.0,
       "precio_publico": null
     },
     {
@@ -4625,6 +4625,402 @@
       "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 1659.0,
+      "precio_publico": null
+    },
+    {
+      "id": 386,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-2A8EBB218911",
+      "nombre": "APPLE IPHONE 14 6 GB 128 GB GRADO A PP",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 8399.0,
+      "precio_publico": null
+    },
+    {
+      "id": 387,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-1C31606DA5D2",
+      "nombre": "APPLE IPHONE 156 GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 12029.0,
+      "precio_publico": null
+    },
+    {
+      "id": 388,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-546666B08C99",
+      "nombre": "APPLE IPHONE 17 12 GB 256 GB ESIM",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 18499.0,
+      "precio_publico": null
+    },
+    {
+      "id": 389,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-2E3D9C2038FB",
+      "nombre": "GOOGLE PIXEL 10 12 GB 128 GB USA",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 11129.0,
+      "precio_publico": null
+    },
+    {
+      "id": 390,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-EE9AC2F9B2AD",
+      "nombre": "GOOGLE PIXEL 10 12 GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 11129.0,
+      "precio_publico": null
+    },
+    {
+      "id": 391,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-B38709B3DA58",
+      "nombre": "GOOGLE PIXEL 10 12 GB 256 GB USA",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 11159.0,
+      "precio_publico": null
+    },
+    {
+      "id": 392,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-0BBD4361271D",
+      "nombre": "GOOGLE PIXEL 10 16",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 13799.0,
+      "precio_publico": null
+    },
+    {
+      "id": 393,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-EE0123B16DD6",
+      "nombre": "GOOGLE PIXEL 10 XL 16 GB 256 GB USA",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 21049.0,
+      "precio_publico": null
+    },
+    {
+      "id": 394,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-BFED0AAF444F",
+      "nombre": "GOOGLE PIXEL 78 GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 5419.0,
+      "precio_publico": null
+    },
+    {
+      "id": 395,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-A61B1BDD5251",
+      "nombre": "HONOR PLAY 10 3 GB 64 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 1679.0,
+      "precio_publico": null
+    },
+    {
+      "id": 396,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-CEC44FCD9F3C",
+      "nombre": "INFINIX HOT 70 (4+4) GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3229.0,
+      "precio_publico": null
+    },
+    {
+      "id": 397,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-E67D93DAC502",
+      "nombre": "INFINIX SMART 20 (4+4) GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2399.0,
+      "precio_publico": null
+    },
+    {
+      "id": 398,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-418FD80FDC9B",
+      "nombre": "MOTOROLA MOTO G06 4 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2309.0,
+      "precio_publico": null
+    },
+    {
+      "id": 399,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-77ACBE9382DF",
+      "nombre": "MOTOROLA MOTO G77 8 GB 256 GB ASIAN",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 5029.0,
+      "precio_publico": null
+    },
+    {
+      "id": 400,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-37E425BABEEC",
+      "nombre": "MOTOROLA MOTO G86 POWER 8 GB 512 GB ASIAN",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 4699.0,
+      "precio_publico": null
+    },
+    {
+      "id": 401,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-BDD9E8308F2B",
+      "nombre": "REALME 15 8 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 4309.0,
+      "precio_publico": null
+    },
+    {
+      "id": 402,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-64F510773681",
+      "nombre": "SAMSUNG A37 6 GB 128 GB OSCURO",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 4709.0,
+      "precio_publico": null
+    },
+    {
+      "id": 403,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-9545E0618347",
+      "nombre": "SAMSUNG A37 6 GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 4709.0,
+      "precio_publico": null
+    },
+    {
+      "id": 404,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-5BF374822C9B",
+      "nombre": "SAMSUNG A57 8 GB 128 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 6119.0,
+      "precio_publico": null
+    },
+    {
+      "id": 405,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-2DD1C6AA6F6D",
+      "nombre": "SAMSUNG GALAXY Z FLIP 8 12 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 17439.0,
+      "precio_publico": null
+    },
+    {
+      "id": 406,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-FF75A0BC1F16",
+      "nombre": "SAMSUNG GALAXY Z FOLD 8 12 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 25349.0,
+      "precio_publico": null
+    },
+    {
+      "id": 407,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-3392A8BA4CE0",
+      "nombre": "SAMSUNG GALAXY Z FOLD 8 ULTRA 12 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 30409.0,
+      "precio_publico": null
+    },
+    {
+      "id": 408,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-25DA011DC858",
+      "nombre": "SAMSUNG S21 8 GB 128 GB GRADO A",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3839.0,
+      "precio_publico": null
+    },
+    {
+      "id": 409,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-CEA9A172C21A",
+      "nombre": "SAMSUNG S26 ULTRA 12 GB 512",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 19849.0,
+      "precio_publico": null
+    },
+    {
+      "id": 410,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-7C2DAE27C7E7",
+      "nombre": "SAMSUNG GALAXY TAB A11 X133 4 GB 64 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2329.0,
+      "precio_publico": null
+    },
+    {
+      "id": 411,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-C83343EFAB2E",
+      "nombre": "SAMSUNG GALAXY TAB A11 X135 4 GB 64 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3519.0,
+      "precio_publico": null
+    },
+    {
+      "id": 412,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-B011AA6181B2",
+      "nombre": "XIAOMI REDMI 15 6 GB 128 GB PJ",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3009.0,
+      "precio_publico": null
+    },
+    {
+      "id": 413,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-63196DD89DFC",
+      "nombre": "XIAOMI REDMI A7 4 GB 128 GB PJ",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2349.0,
+      "precio_publico": null
+    },
+    {
+      "id": 414,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-D19A300825AB",
+      "nombre": "XIAOMI REDMI NOTE 14 PLUS 8 GB 256 GB",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 6419.0,
+      "precio_publico": null
+    },
+    {
+      "id": 415,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-F214A974BBA3",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 256 GB PJ",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3949.0,
+      "precio_publico": null
+    },
+    {
+      "id": 416,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-3BF6472C15BB",
+      "nombre": "XIAOMI REDMI NOTE 15 8 GB 512 GB PJ",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 4539.0,
+      "precio_publico": null
+    },
+    {
+      "id": 417,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-8826703DA19E",
+      "nombre": "QTOUCH MONITOR 19.5 PULG QT 1900",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 799.0,
+      "precio_publico": null
+    },
+    {
+      "id": 418,
+      "categoria_pdf": "CATALOGO SECUNDARIO",
+      "clave_categoria": "SEC",
+      "codigo": "SEC-DF0E561355A2",
+      "nombre": "QTOUCH MONITOR 22 PULG QT 2200",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 1239.0,
       "precio_publico": null
     }
   ]
