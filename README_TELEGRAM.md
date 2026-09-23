@@ -58,6 +58,10 @@ Las filas con cantidad cero se omiten automáticamente.
 Las columnas `COSTO` y `LISTA PLUS` se ignoran siempre; este flujo no modifica `plus.json`
 ni la pestaña de Lista PL en Google Sheets.
 
+Un PDF enviado con `ECOMMERCE` o `/ecommerce` en el caption se publica como una lista
+independiente. Nunca modifica Lista M. Omite siempre las categorias Accesorios Bodega,
+Adaptadores, Apple, Demos, Fundas, Gadgets, Pop Sockets, Promocionales, Refacciones y Senwa.
+
 Los comandos `/equiposgeneral` y `/listagsinprecios` entregan la Liga de Equipos General sin importes. Esta vista usa
 el mismo inventario de Lista G y no requiere una publicacion adicional.
 

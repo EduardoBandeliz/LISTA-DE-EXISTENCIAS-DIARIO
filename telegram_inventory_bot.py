@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parent
 INVENTORY_JSON = ROOT / "inventario.json"
 PLUS_JSON = ROOT / "plus.json"
 LISTA_G_JSON = ROOT / "listag.json"
+ECOMMERCE_JSON = ROOT / "ecommerce.json"
 PAYJOY_JSON = ROOT / "payjoy-payphone.json"
 PRODUCT_IMAGES_JSON = ROOT / "product-images.json"
 PRODUCT_SPECS_JSON = ROOT / "product-specs.json"
@@ -339,6 +340,8 @@ def sync_from_github() -> None:
         run(["git", "restore", "--", "inventario.json"])
         run(["git", "restore", "--", "listag.json"])
         run(["git", "restore", "--", "plus.json"])
+        if ECOMMERCE_JSON.exists():
+            run(["git", "restore", "--", ECOMMERCE_JSON.name])
         if PAYJOY_JSON.exists():
             run(["git", "restore", "--", PAYJOY_JSON.name])
         run(["git", "pull", "--rebase", "origin", "main"])
@@ -389,6 +392,56 @@ def write_lista_g_data(inventory: dict) -> str:
     )
     record_successful_update("G", inventory["total_productos"], inventory.get("source_pdf", "PDF"))
     return f"{inventory['total_productos']} productos Lista G"
+
+
+def ecommerce_inventory(inventory: dict) -> dict:
+    excluded_categories = {
+        "ACCESORIOS BODEGA", "ADAPTADORES", "APPLE", "DEMOS", "FUNDAS",
+        "GADGETS", "POP SOCKET", "POP SOCKETS", "PROMOCIONAL", "PROMOCIONALES",
+        "REFACCION", "REFACCIONES", "SENWA",
+    }
+    products = [
+        dict(product)
+        for product in inventory.get("productos", [])
+        if normalize_text(product.get("categoria_pdf", "")) not in excluded_categories
+    ]
+    for index, product in enumerate(products, start=1):
+        product["id"] = index
+    result = dict(inventory)
+    result.update({
+        "lista": "ECOMMERCE",
+        "source_type": "pdf_ecommerce_filtrado",
+        "total_productos": len(products),
+        "total_disponibles": sum(1 for product in products if product.get("disponible", True)),
+        "total_agotados": sum(1 for product in products if not product.get("disponible", True)),
+        "total_omitidos_categoria": len(inventory.get("productos", [])) - len(products),
+        "productos": products,
+    })
+    return result
+
+
+def write_ecommerce_data(inventory: dict) -> str:
+    validate_inventory_update(inventory, ECOMMERCE_JSON, "Ecommerce")
+    backup_file(ECOMMERCE_JSON, "ECOMMERCE")
+    ECOMMERCE_JSON.write_text(
+        json.dumps(inventory, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    record_successful_update(
+        "ECOMMERCE", inventory["total_productos"], inventory.get("source_pdf", "PDF")
+    )
+    omitted = int(inventory.get("total_omitidos_categoria", 0) or 0)
+    return f"{inventory['total_productos']} productos Ecommerce, {omitted} omitidos por categoria"
+
+
+def publish_ecommerce_to_github(summary: str) -> str:
+    status = run(["git", "status", "--short", ECOMMERCE_JSON.name])
+    if not status:
+        return "La lista Ecommerce no tuvo cambios."
+    run(["git", "add", ECOMMERCE_JSON.name])
+    run(["git", "commit", "-m", f"Actualizar lista Ecommerce ({summary})"])
+    run(["git", "push", "origin", "main"])
+    return "Lista Ecommerce actualizada en GitHub. Netlify publicara el cambio automaticamente."
 
 
 def publish_lista_g_to_github(summary: str) -> str:
@@ -1642,6 +1695,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     lista_g_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1"
     lista_g_sin_precios_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1"
     payjoy_url = f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1"
+    ecommerce_url = f"{NETLIFY_SITE_URL.rstrip('/')}?ecommerce=1"
     return (
         f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
@@ -1651,6 +1705,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
         f"\n\nLiga Lista G:\n{lista_g_url}"
         f"\n\nLiga de Equipos General:\n{lista_g_sin_precios_url}"
         f"\n\nEquipos Payjoy - Payphone:\n{payjoy_url}"
+        f"\n\nLiga Ecommerce:\n{ecommerce_url}"
     )
 
 
@@ -1950,6 +2005,8 @@ def visual_inventory_reference() -> dict:
 def requested_pdf_list(caption: str) -> Optional[str]:
     """Allow an explicit list type when a supplier sends generic numeric filenames."""
     clean = re.sub(r"[^a-z0-9]+", "", (caption or "").lower())
+    if "ecommerce" in clean or "ecomerce" in clean:
+        return "ECOMMERCE"
     if "listapl" in clean or "listaplus" in clean:
         return "PL"
     if "listag" in clean:
@@ -1960,6 +2017,7 @@ def requested_pdf_list(caption: str) -> Optional[str]:
         "listam": "M", "m": "M",
         "listag": "G", "g": "G",
         "listapl": "PL", "pl": "PL", "plus": "PL", "listaplus": "PL",
+        "ecommerce": "ECOMMERCE", "ecomerce": "ECOMMERCE",
     }
     return aliases.get(clean)
 
@@ -1973,6 +2031,8 @@ def classify_and_extract_pdf_local(pdf_path: Path, file_name: str, caption: str 
 
     regular = extract_inventory(pdf_path)
     regular_count = len(regular.get("productos", []))
+    if forced == "ECOMMERCE":
+        return "ECOMMERCE", ecommerce_inventory(regular)
     if forced in {"M", "G"}:
         if forced == "M" and regular_count < INVENTORY_MIN_PRODUCTS:
             return "M", extract_visual_inventory(pdf_path, visual_inventory_reference())
@@ -2284,6 +2344,13 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     f"Liga PL:\n{NETLIFY_SITE_URL.rstrip('/')}?PL=1"
                 )
                 message = append_google_sheets_result(message, sheets_result)
+            elif list_type == "ECOMMERCE":
+                summary = await asyncio.to_thread(write_ecommerce_data, parsed_inventory)
+                result = await asyncio.to_thread(publish_ecommerce_to_github, summary)
+                message = (
+                    f"Listo: {summary}. {result}\n\n"
+                    f"Liga Ecommerce:\n{NETLIFY_SITE_URL.rstrip('/')}?ecommerce=1"
+                )
             else:
                 if list_type == "G":
                     previous_inventory = await asyncio.to_thread(load_lista_g_inventory)
