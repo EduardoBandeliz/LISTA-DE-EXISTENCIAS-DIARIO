@@ -395,15 +395,23 @@ def write_lista_g_data(inventory: dict) -> str:
 
 
 def ecommerce_inventory(inventory: dict) -> dict:
-    excluded_categories = {
-        "ACCESORIOS BODEGA", "ADAPTADORES", "APPLE", "DEMOS", "FUNDAS",
-        "GADGETS", "POP SOCKET", "POP SOCKETS", "PROMOCIONAL", "PROMOCIONALES",
-        "REFACCION", "REFACCIONES", "SENWA",
-    }
+    excluded_category_prefixes = (
+        "ACCESO", "ADAPTA", "APPLE", "DEMOS", "FUNDAS", "GADGETS",
+        "POP", "PROMOC", "REFACC", "SENWA",
+    )
+
+    def is_excluded(product: dict) -> bool:
+        category_key = normalize_text(product.get("clave_categoria", ""))
+        category_name = normalize_text(product.get("categoria_pdf", ""))
+        return any(
+            category_key.startswith(prefix) or category_name.startswith(prefix)
+            for prefix in excluded_category_prefixes
+        )
+
     products = [
         dict(product)
         for product in inventory.get("productos", [])
-        if normalize_text(product.get("categoria_pdf", "")) not in excluded_categories
+        if not is_excluded(product)
     ]
     for index, product in enumerate(products, start=1):
         product["id"] = index
