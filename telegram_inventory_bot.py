@@ -305,11 +305,14 @@ def publish_payjoy_to_github(summary: str) -> str:
 
 def inventory_summary(inventory: dict) -> str:
     omitted = int(inventory.get("total_omitidos_cero", 0) or 0)
+    omitted_price = int(inventory.get("total_omitidos_precio", 0) or 0)
     omitted_text = f", {omitted} omitidos con existencia 0" if omitted else ""
+    omitted_price_text = f", {omitted_price} omitidos por precio de 1 peso o menos" if omitted_price else ""
     return (
         f"{inventory['total_productos']} productos, "
         f"{inventory['total_disponibles']} disponibles"
         f"{omitted_text}"
+        f"{omitted_price_text}"
     )
 
 

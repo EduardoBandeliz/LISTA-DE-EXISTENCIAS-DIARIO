@@ -34,6 +34,7 @@ def extract_inventory(pdf_path: Path) -> dict:
     report_datetime = None
     report_title = None
     omitted_zero_stock = 0
+    omitted_invalid_price = 0
 
     with pdfplumber.open(str(pdf_path)) as pdf:
         for page in pdf.pages:
@@ -67,6 +68,10 @@ def extract_inventory(pdf_path: Path) -> dict:
                 if existencia_minima <= 0:
                     omitted_zero_stock += 1
                     continue
+                list_price = money(data["lista"])
+                if list_price <= 1:
+                    omitted_invalid_price += 1
+                    continue
 
                 rows.append(
                     {
@@ -78,7 +83,7 @@ def extract_inventory(pdf_path: Path) -> dict:
                         "cantidad": data["cantidad"],
                         "existencia_minima": existencia_minima,
                         "disponible": True,
-                        "precio_lista_m": money(data["lista"]),
+                        "precio_lista_m": list_price,
                         "precio_publico": money(data["publico"]),
                     }
                 )
@@ -92,6 +97,7 @@ def extract_inventory(pdf_path: Path) -> dict:
         "total_disponibles": sum(1 for row in rows if row["disponible"]),
         "total_agotados": sum(1 for row in rows if not row["disponible"]),
         "total_omitidos_cero": omitted_zero_stock,
+        "total_omitidos_precio": omitted_invalid_price,
         "productos": rows,
     }
 
@@ -108,7 +114,8 @@ def main() -> None:
     print(
         f"OK: {inventory['total_productos']} productos, "
         f"{inventory['total_disponibles']} disponibles, "
-        f"{inventory['total_omitidos_cero']} omitidos con existencia 0 -> {args.output}"
+        f"{inventory['total_omitidos_cero']} omitidos con existencia 0, "
+        f"{inventory['total_omitidos_precio']} omitidos por precio <= 1 -> {args.output}"
     )
 
 
