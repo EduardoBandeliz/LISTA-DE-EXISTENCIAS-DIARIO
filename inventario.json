@@ -1,12 +1,12 @@
 {
-  "source_pdf": "1790190047_109.pdf",
+  "source_pdf": "1790254851_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-09-23T01:00:47",
+  "report_datetime": "2026-09-24T07:00:51",
   "total_productos": 303,
   "total_disponibles": 303,
   "total_agotados": 0,
-  "total_omitidos_cero": 78,
+  "total_omitidos_cero": 77,
   "total_omitidos_precio": 16,
   "productos": [
     {
@@ -1479,8 +1479,8 @@
       "clave_categoria": "EQ...",
       "codigo": "198154727208",
       "nombre": "LENOVO LAPTOP IDEAPAD 1 15AMN7 AZUL/15in/AMD Ryzen 3 7320U/4GB/SSD/128GB...",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 5569.0,
       "precio_publico": 8499.0
@@ -1887,8 +1887,8 @@
       "clave_categoria": "H...",
       "codigo": "6971759903840",
       "nombre": "HONOR CHOICE T10 4 GB 64 GB 4G PLATA LATINO",
-      "cantidad": "1+",
-      "existencia_minima": 1,
+      "cantidad": "10+",
+      "existencia_minima": 10,
       "disponible": true,
       "precio_lista_m": 1929.0,
       "precio_publico": 2999.0
