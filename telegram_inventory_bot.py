@@ -1704,6 +1704,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
     lista_g_sin_precios_url = f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1"
     payjoy_url = f"{NETLIFY_SITE_URL.rstrip('/')}?payjoy=1"
     ecommerce_url = f"{NETLIFY_SITE_URL.rstrip('/')}?ecommerce=1"
+    shopify_url = f"{NETLIFY_SITE_URL.rstrip('/')}?shopify=1"
     return (
         f"{prefix}:\n\n"
         f"Liga catalogo completo:\n{normal_url}\n\n"
@@ -1714,6 +1715,7 @@ def links_message(prefix: str = "Ligas disponibles") -> str:
         f"\n\nLiga de Equipos General:\n{lista_g_sin_precios_url}"
         f"\n\nEquipos Payjoy - Payphone:\n{payjoy_url}"
         f"\n\nLiga Ecommerce:\n{ecommerce_url}"
+        f"\n\nLiga para equipos Shopify:\n{shopify_url}"
     )
 
 
@@ -2712,6 +2714,13 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/ligas", "ligas", "dame las ligas", "dame las ligas de las listas"}:
         await safe_send(bot, chat_id, links_message())
+        return
+    if key in {"/shopify", "shopify", "liga shopify", "liga para equipos shopify"}:
+        await safe_send(
+            bot,
+            chat_id,
+            f"Liga para equipos Shopify:\n{NETLIFY_SITE_URL.rstrip('/')}?shopify=1",
+        )
         return
     if key in {
         "/equiposgeneral",
