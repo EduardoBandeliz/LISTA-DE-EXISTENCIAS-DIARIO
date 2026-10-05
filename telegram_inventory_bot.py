@@ -2237,6 +2237,18 @@ async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str
         await safe_send(bot, target_chat_id, message)
 
 
+async def broadcast_inventory_whatsapp_text(bot: Bot) -> None:
+    messages = inventory_whatsapp_messages()
+    for target_chat_id in BROADCAST_CHAT_IDS:
+        delivered = True
+        for message in messages:
+            delivered = await safe_send(bot, target_chat_id, message) and delivered
+        print(
+            f"Inventario WhatsApp automatico chat={target_chat_id}: "
+            f"{'enviado' if delivered else 'fallo parcial'} ({len(messages)} mensajes)"
+        )
+
+
 def extract_single_xls_from_zip(zip_path: Path, destination_dir: Path) -> Path:
     destination_dir.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zip_path) as archive:
@@ -2331,6 +2343,7 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
             )
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
+            await broadcast_inventory_whatsapp_text(bot)
         except Exception as exc:
             await safe_send(bot, chat_id, f"No pude actualizar M y G desde el XLS: {exc}")
             raise
@@ -2483,6 +2496,8 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     message = append_google_sheets_result(message, sheets_result)
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
+            if list_type == "G":
+                await broadcast_inventory_whatsapp_text(bot)
         except Exception as exc:
             print(f"PDF rechazado archivo={file_name!r}: {type(exc).__name__}: {exc}")
             await safe_send(bot, chat_id, error_message(exc))
