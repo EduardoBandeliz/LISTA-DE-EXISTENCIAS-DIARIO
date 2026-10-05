@@ -942,6 +942,70 @@ def payjoy_whatsapp_messages(max_length: int = 3600) -> list[str]:
     return messages
 
 
+def inventory_whatsapp_messages(max_length: int = 3600) -> list[str]:
+    inventory = load_lista_g_inventory()
+    allowed_brands = {
+        "Apple", "Blackview", "BLU", "Cubot", "Google", "Honor", "Infinix",
+        "Itel", "LOGIC", "Motorola", "Naomi", "Qtouch", "Realme", "Samsung",
+        "TECHVIEW", "Tecno", "Xiaomi", "ZTE",
+    }
+    brand_icons = {
+        "Apple": "🍎", "Blackview": "🛡️", "BLU": "🔷", "Cubot": "🧱",
+        "Google": "🔵", "Honor": "🔮", "Infinix": "⚡", "Itel": "📱",
+        "LOGIC": "📟", "Motorola": "📱", "Naomi": "📱", "Qtouch": "📱",
+        "Realme": "🟡", "Samsung": "🌌", "TECHVIEW": "📺", "Tecno": "🌈",
+        "Xiaomi": "🔥", "ZTE": "📱",
+    }
+    products = [
+        product
+        for product in inventory.get("productos", [])
+        if product.get("disponible", True)
+        and normalized_brand(product) in allowed_brands
+        and price_value(product) > 1
+    ]
+    products.sort(key=lambda product: (normalized_brand(product).upper(), normalize_text(product.get("nombre", ""))))
+    if not products:
+        return ["No hay equipos disponibles para generar la lista de texto."]
+
+    separator = "───────────────────────────"
+    header = (
+        f"{separator}\n"
+        "📱💥 LISTA MAYOREO CELUCENTER 💥📱\n"
+        "🔥 PROMOCIONES / DISPONIBILIDAD\n"
+        "🚚 Entrega inmediata | 💳 Payjoy / PayPhone | 🤝 Atención directa\n"
+        f"{separator}\n"
+    )
+    sections = []
+    current_brand = ""
+    current_lines: list[str] = []
+    for product in products:
+        brand = normalized_brand(product)
+        if brand != current_brand:
+            if current_lines:
+                sections.append("\n".join(current_lines) + f"\n{separator}\n")
+            current_brand = brand
+            current_lines = [f"{brand_icons.get(brand, '📱')} {brand.upper()}"]
+        price = price_value(product)
+        price_text = f"{price:,.0f}" if float(price).is_integer() else f"{price:,.2f}"
+        current_lines.append(f"{str(product.get('nombre', '')).strip()}____${price_text}")
+    if current_lines:
+        sections.append("\n".join(current_lines) + f"\n{separator}\n")
+
+    messages: list[str] = []
+    current = header
+    for section in sections:
+        for line in section.splitlines(keepends=True):
+            if len(current) + len(line) > max_length and current.strip():
+                messages.append(current.rstrip())
+                current = ""
+            current += line
+    if current.strip():
+        messages.append(current.rstrip())
+
+    total = len(messages)
+    return [f"LISTA MAYOREO ({index}/{total})\n\n{message}" for index, message in enumerate(messages, start=1)]
+
+
 def google_sheets_status_message() -> str:
     credentials_path = Path(GOOGLE_SHEETS_CREDENTIALS_FILE) if GOOGLE_SHEETS_CREDENTIALS_FILE else None
     lines = [
@@ -1856,6 +1920,7 @@ def commands_message() -> str:
         "/ultimoserrores — muestra errores recientes\n"
         "/respaldo — crea un respaldo inmediato\n"
         "/ligas — muestra todas las ligas\n"
+        "/inventariotexto — genera el inventario listo para WhatsApp\n"
         "/equiposgeneral — comparte la Liga de Equipos General\n"
         "/resumen — muestra el ultimo reporte ejecutivo\n\n"
         "Tambien puedes preguntar con lenguaje normal, por ejemplo: Samsung sin imagen o que precios bajaron."
@@ -2741,6 +2806,13 @@ async def handle_message(bot: Bot, update: Update) -> None:
         return
     if key in {"/whatsapppayjoy", "/payjoywhatsapp", "whatsapp payjoy", "texto payjoy"}:
         for message in payjoy_whatsapp_messages():
+            await safe_send(bot, chat_id, message)
+        return
+    if key in {
+        "/inventariotexto", "/listawhatsapp", "inventario texto",
+        "lista mayoreo", "lista para whatsapp",
+    }:
+        for message in inventory_whatsapp_messages():
             await safe_send(bot, chat_id, message)
         return
     if key in {"/drive", "/sheets", "drive", "google sheets"}:
