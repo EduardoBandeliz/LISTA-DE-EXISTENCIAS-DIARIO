@@ -353,7 +353,7 @@ def sync_from_github() -> None:
             run(["git", "restore", "--", ECOMMERCE_JSON.name])
         if PAYJOY_JSON.exists():
             run(["git", "restore", "--", PAYJOY_JSON.name])
-        run(["git", "pull", "--rebase", "origin", "main"])
+        run(["git", "pull", "--rebase", "--autostash", "origin", "main"])
     finally:
         if stashed_images:
             run(["git", "stash", "pop"])
