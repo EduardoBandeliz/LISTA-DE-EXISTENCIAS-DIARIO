@@ -157,7 +157,14 @@ GOOGLE_SHEET_TABS = {
 def run(command: list[str]) -> str:
     if command and command[0] == "git" and GIT_BIN.exists():
         command = [str(GIT_BIN), *command[1:]]
-    result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=True)
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=True,
+        timeout=45,
+    )
     return result.stdout.strip()
 
 
@@ -2478,20 +2485,20 @@ def telegram_message_chunks(text: str, limit: int = 3900) -> list[str]:
 async def safe_send(bot: Bot, chat_id: Union[str, int], text: str) -> bool:
     for chunk in telegram_message_chunks(text):
         sent = False
-        for attempt in range(1, 4):
+        for attempt in range(1, 3):
             try:
                 await bot.send_message(
                     chat_id=chat_id,
                     text=chunk,
-                    read_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                    write_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                    connect_timeout=TELEGRAM_TIMEOUT_SECONDS,
-                    pool_timeout=TELEGRAM_TIMEOUT_SECONDS,
+                    read_timeout=10,
+                    write_timeout=10,
+                    connect_timeout=10,
+                    pool_timeout=10,
                 )
                 sent = True
                 break
             except TelegramError as exc:
-                print(f"No pude enviar mensaje a Telegram intento {attempt}/3: {exc}")
+                print(f"No pude enviar mensaje a Telegram intento {attempt}/2: {exc}")
                 await asyncio.sleep(2 * attempt)
         if not sent:
             return False
@@ -2709,7 +2716,6 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
     if PDF_NAME_CONTAINS and PDF_NAME_CONTAINS not in file_name.lower():
         return
 
-    await safe_send(bot, chat_id, f"Recibi PDF: {file_name}. Revisando si es Lista M, G o PL...")
     print(f"PDF recibido chat={chat_id} archivo={file_name!r} caption={caption!r}")
 
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -2722,7 +2728,8 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             )
             product_count = len(parsed_inventory.get("productos", []))
             print(f"PDF clasificado archivo={file_name!r} lista={list_type} productos={product_count}")
-            await safe_send(bot, chat_id, f"Detectada Lista {list_type}: {product_count} productos. Publicando...")
+            # Telegram can be temporarily slow even after the PDF was downloaded.
+            # Do not let progress notifications block writing and publishing data.
             if list_type == "PL":
                 previous_inventory = await asyncio.to_thread(load_plus_inventory)
                 new_products = await asyncio.to_thread(newly_added_products, previous_inventory, parsed_inventory)
