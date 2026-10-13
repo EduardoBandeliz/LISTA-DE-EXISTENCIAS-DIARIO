@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import asyncio
+import html
 import json
 import os
 import re
@@ -12,9 +13,10 @@ import urllib.request
 import zipfile
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
+from io import BytesIO
 from pathlib import Path
 from typing import Optional, Union
-from urllib.parse import quote
+from urllib.parse import quote, urljoin, urlparse
 
 import httpx
 from telegram import Bot, Update
@@ -30,6 +32,9 @@ from parse_visual_inventory_pdf import extract_visual_inventory
 
 
 ROOT = Path(__file__).resolve().parent
+GIT_BIN = Path("/Library/Developer/CommandLineTools/usr/bin/git")
+if not GIT_BIN.exists():
+    GIT_BIN = Path("/Applications/Xcode.app/Contents/Developer/usr/bin/git")
 INVENTORY_JSON = ROOT / "inventario.json"
 PLUS_JSON = ROOT / "plus.json"
 LISTA_G_JSON = ROOT / "listag.json"
@@ -77,6 +82,8 @@ ASTRA_AUDIT_ENABLED = os.getenv("ASTRA_AUDIT_ENABLED", "1").strip().lower() not 
 ASTRA_IMAGE_VALIDATION_ENABLED = os.getenv("ASTRA_IMAGE_VALIDATION_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 ASTRA_NATURAL_COMMANDS_ENABLED = os.getenv("ASTRA_NATURAL_COMMANDS_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 ASTRA_EXECUTIVE_REPORT_ENABLED = os.getenv("ASTRA_EXECUTIVE_REPORT_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
+ASTRA_IMAGE_VALIDATION_AVAILABLE = True
+AUTO_IMAGE_SEARCH_LIMIT = max(1, min(25, int(os.getenv("AUTO_IMAGE_SEARCH_LIMIT", "8") or 8)))
 PENDING_ADVERTISEMENT_CHATS: set[str] = set()
 IMPORTANT_PRICE_CHANGE_AMOUNT = float(os.getenv("IMPORTANT_PRICE_CHANGE_AMOUNT", "100") or 100)
 IMPORTANT_PRICE_CHANGE_PERCENT = float(os.getenv("IMPORTANT_PRICE_CHANGE_PERCENT", "5") or 5)
@@ -148,6 +155,8 @@ GOOGLE_SHEET_TABS = {
 
 
 def run(command: list[str]) -> str:
+    if command and command[0] == "git" and GIT_BIN.exists():
+        command = [str(GIT_BIN), *command[1:]]
     result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=True)
     return result.stdout.strip()
 
@@ -1607,6 +1616,302 @@ def update_product_image_mapping(product_code: str, image_path: str) -> str:
     return "Imagen guardada localmente. Pendiente de publicar."
 
 
+OFFICIAL_IMAGE_DOMAINS = {
+    "APPLE": ("apple.com",),
+    "SAMSUNG": ("samsung.com",),
+    "MOTOROLA": ("motorola.com", "motorolanews.com"),
+    "XIAOMI": ("mi.com",),
+    "BLU": ("bluproducts.com",),
+    "INFINIX": ("infinixmobility.com",),
+    "TECNO": ("tecno-mobile.com",),
+    "REALME": ("realme.com",),
+    "HONOR": ("honor.com",),
+    "ITEL": ("itel-life.com",),
+    "CUBOT": ("cubot.net",),
+    "GOOGLE": ("store.google.com", "google.com"),
+    "BLACKVIEW": ("blackview.hk",),
+}
+PREVIOUS_CATALOG_URL = os.getenv(
+    "PREVIOUS_IMAGE_CATALOG_URL",
+    "https://catalogodepreciosbn.netlify.app/",
+).strip()
+
+
+def product_search_name(product: dict) -> str:
+    name = compact_model_name(str(product.get("nombre", "")))
+    removable = {
+        "LATINO", "NACIONAL", "USA", "EUAS", "PJ", "GRADO", "OPEN", "BOX",
+        "RAM", "ROM", "COLOR", "DUAL", "SIM",
+    }
+    tokens = [token for token in name.split() if token not in removable]
+    return " ".join(tokens[:14]).strip()
+
+
+def previous_catalog_image_candidates(product: dict) -> list[str]:
+    if not PREVIOUS_CATALOG_URL:
+        return []
+    response = httpx.get(
+        PREVIOUS_CATALOG_URL,
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=20,
+        follow_redirects=True,
+    )
+    response.raise_for_status()
+    block_match = re.search(r"const\s+IMAGES\s*=\s*\{(.*?)\};", response.text, flags=re.DOTALL)
+    if not block_match:
+        return []
+    entries = re.findall(r"['\"]([^'\"]+)['\"]\s*:\s*['\"]([^'\"]+)['\"]", block_match.group(1))
+    product_name = normalize_text(product.get("nombre", ""))
+    brand = normalized_brand(product).upper()
+    ranked: list[tuple[int, str]] = []
+    for key, value in entries:
+        parts = [normalize_text(part) for part in key.split(":")]
+        if len(parts) < 2 or parts[0] != brand:
+            continue
+        model = parts[1]
+        if not model or model not in product_name:
+            continue
+        score = 200 + len(model)
+        if len(parts) >= 3:
+            color = parts[2]
+            if color and color in product_name:
+                score += 100
+            else:
+                score -= 50
+        ranked.append((score, urljoin(PREVIOUS_CATALOG_URL, value)))
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return list(dict.fromkeys(url for _, url in ranked))
+
+
+def essential_model_tokens(product: dict) -> list[str]:
+    tokens = product_search_name(product).split()
+    cut = len(tokens)
+    for index in range(len(tokens) - 1):
+        if tokens[index].isdigit() and tokens[index + 1] in {"GB", "MB", "TB"}:
+            cut = index
+            break
+    return [token.lower() for token in tokens[:cut] if len(token) >= 2]
+
+
+def product_color_tokens(product: dict) -> list[str]:
+    colors = {
+        "AZUL", "NEGRO", "BLANCO", "GRIS", "VERDE", "VIOLETA", "MORADO",
+        "ROSA", "DORADO", "PLATA", "NARANJA", "ROJO", "AMARILLO", "CREMA",
+    }
+    return [token.lower() for token in normalize_text(product.get("nombre", "")).split() if token in colors]
+
+
+def strong_image_url_match(product: dict, url: str) -> bool:
+    searchable = normalize_text(urlparse(url).path).lower().split()
+    searchable_text = " ".join(searchable)
+    required = essential_model_tokens(product)
+    return len(required) >= 2 and all(token in searchable_text for token in required)
+
+
+def duckduckgo_image_candidates(product: dict, limit: int = 25) -> list[str]:
+    query_tokens = [*essential_model_tokens(product), *product_color_tokens(product)[:1]]
+    query = " ".join(query_tokens) or product_search_name(product)
+    headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
+    with httpx.Client(headers=headers, timeout=25, follow_redirects=True) as client:
+        landing = client.get("https://duckduckgo.com/", params={"q": query})
+        landing.raise_for_status()
+        match = re.search(r'vqd=["\']?([\d-]+)', landing.text)
+        if not match:
+            return []
+        response = client.get(
+            "https://duckduckgo.com/i.js",
+            params={
+                "l": "us-en",
+                "o": "json",
+                "q": query,
+                "vqd": match.group(1),
+                "f": "size:Large,type:photo",
+                "p": "1",
+            },
+            headers={"Referer": str(landing.url)},
+        )
+        response.raise_for_status()
+    required = essential_model_tokens(product)
+    ranked: list[tuple[int, str]] = []
+    for item in response.json().get("results", []):
+        url = str(item.get("image", ""))
+        if not url.startswith(("http://", "https://")):
+            continue
+        title = normalize_text(item.get("title", "")).lower()
+        width = int(item.get("width") or 0)
+        height = int(item.get("height") or 0)
+        score = sum(25 for token in required if token in title)
+        score += min(80, int(min(width, height) / 20))
+        if strong_image_url_match(product, url):
+            score += 120
+        ranked.append((score, url))
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return list(dict.fromkeys(url for _, url in ranked[:limit]))
+
+
+def web_image_candidates(product: dict, limit: int = 18) -> list[str]:
+    search_name = product_search_name(product)
+    product_code = str(product.get("codigo", "")).strip()
+    searches = [product_code, f'"{search_name}" phone front back'] if product_code else [search_name]
+    duck_urls: list[str] = []
+    try:
+        duck_urls = duckduckgo_image_candidates(product)
+    except Exception as exc:
+        print(f"DuckDuckGo Images no disponible: {type(exc).__name__}: {exc}")
+    urls: list[str] = [*duck_urls, *previous_catalog_image_candidates(product)]
+    duck_set = set(duck_urls)
+    for search in searches:
+        response = httpx.get(
+            f"https://www.bing.com/images/search?q={quote(search)}&form=HDRSC3&first=1",
+            headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"},
+            timeout=20,
+            follow_redirects=True,
+        )
+        response.raise_for_status()
+        found = [html.unescape(value) for value in re.findall(r'murl&quot;:&quot;(.*?)&quot;', response.text)]
+        if not found:
+            found = [html.unescape(value) for value in re.findall(r'"murl":"(https?://.*?)"', response.text)]
+        urls.extend(found)
+
+    brand = normalized_brand(product).upper()
+    official = OFFICIAL_IMAGE_DOMAINS.get(brand, ())
+    model_tokens = [token.lower() for token in product_search_name(product).split() if len(token) >= 3]
+    color_tokens = product_color_tokens(product)
+    blocked = ("pinterest.", "facebook.", "instagram.", "youtube.", "tiktok.")
+
+    def score(url: str) -> tuple[int, int]:
+        parsed = urlparse(url)
+        host = parsed.netloc.lower()
+        lowered = url.lower()
+        points = 500 if host.endswith("catalogodepreciosbn.netlify.app") else 0
+        points += 100 if any(host == domain or host.endswith("." + domain) for domain in official) else 0
+        if url in duck_set:
+            points += 300
+        if strong_image_url_match(product, url):
+            points += 180
+        if product_code and product_code in lowered:
+            points += 140
+        points += sum(4 for token in model_tokens if token in lowered)
+        points += sum(180 for color in color_tokens if color in normalize_text(url).lower())
+        if any(domain in host for domain in blocked):
+            points -= 100
+        if any(word in lowered for word in ("logo", "icon", "avatar", "case-", "cover-")):
+            points -= 35
+        return points, -len(url)
+
+    unique = list(dict.fromkeys(url for url in urls if url.startswith(("http://", "https://"))))
+    unique.sort(key=score, reverse=True)
+    return unique[:limit]
+
+
+def download_web_image(url: str, destination: Path) -> tuple[int, int]:
+    response = httpx.get(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        },
+        timeout=30,
+        follow_redirects=True,
+    )
+    response.raise_for_status()
+    if len(response.content) > 15 * 1024 * 1024:
+        raise ValueError("imagen mayor a 15 MB")
+    content_type = response.headers.get("content-type", "").lower()
+    if "image" not in content_type and not urlparse(str(response.url)).path.lower().endswith(
+        (".jpg", ".jpeg", ".png", ".webp", ".avif")
+    ):
+        raise ValueError("la respuesta no es una imagen")
+    with Image.open(BytesIO(response.content)) as image:
+        width, height = image.size
+        image = ImageOps.exif_transpose(image)
+        converted = image.convert("RGB")
+        converted.save(destination, "PNG", optimize=True)
+    if min(width, height) < 180 or max(width, height) < 220:
+        raise ValueError(f"imagen demasiado pequena: {width}x{height}")
+    return width, height
+
+
+def search_and_stage_product_image(product_code: str) -> dict:
+    global ASTRA_IMAGE_VALIDATION_AVAILABLE
+    product = find_product_by_code(product_code)
+    if not product:
+        return {"status": "error", "message": f"No encontre el codigo {product_code} en Lista M."}
+    if product_image(product, load_product_images()):
+        return {"status": "exists", "message": f"{product_code} ya tiene imagen."}
+    if not is_cellphone(product):
+        return {"status": "error", "message": f"{product_code} no esta identificado como celular."}
+
+    candidates = web_image_candidates(product)
+    if not candidates:
+        return {"status": "not_found", "message": f"No encontre candidatos para {product.get('nombre')}."}
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        for index, url in enumerate(candidates[:4], 1):
+            temp_path = Path(temp_dir) / f"candidate-{index}.png"
+            try:
+                width, height = download_web_image(url, temp_path)
+                review_note = "Validacion visual no configurada."
+                trusted_previous_catalog = urlparse(url).netloc.lower().endswith(
+                    "catalogodepreciosbn.netlify.app"
+                )
+                if trusted_previous_catalog:
+                    review_note = "Coincidencia de marca/modelo en el catalogo anterior aprobado."
+                elif strong_image_url_match(product, url) and min(width, height) >= 500:
+                    review_note = "Coincidencia exacta de marca/modelo en una imagen grande de internet."
+                elif OPENAI_API_KEY and ASTRA_IMAGE_VALIDATION_ENABLED and ASTRA_IMAGE_VALIDATION_AVAILABLE:
+                    from astra_inventory import validate_product_image
+                    try:
+                        review = validate_product_image(temp_path, serialize_product(product))
+                    except Exception as review_exc:
+                        error_text = str(review_exc).lower()
+                        if "insufficient_quota" in error_text or "no credits remaining" in error_text:
+                            ASTRA_IMAGE_VALIDATION_AVAILABLE = False
+                        raise
+                    confidence = float(review.get("confidence", 0) or 0)
+                    review_note = f"{review.get('note', '')} ({confidence * 100:.0f}%)".strip()
+                    if not review.get("matches") or confidence < 0.65:
+                        continue
+                else:
+                    host = urlparse(url).netloc.lower()
+                    official = OFFICIAL_IMAGE_DOMAINS.get(normalized_brand(product).upper(), ())
+                    if not any(host == domain or host.endswith("." + domain) for domain in official):
+                        continue
+
+                image_path = optimize_product_image(temp_path, product_code)
+                update_product_image_mapping(product_code, image_path)
+                return {
+                    "status": "staged",
+                    "message": (
+                        f"{product_code} - {product.get('nombre')}\n"
+                        f"Imagen encontrada y guardada ({width}x{height}).\n"
+                        f"Revision: {review_note}\nFuente: {url}"
+                    ),
+                }
+            except Exception as exc:
+                print(f"Candidato de imagen descartado para {product_code}: {type(exc).__name__}: {exc}")
+                continue
+    return {
+        "status": "not_found",
+        "message": f"No encontre una imagen suficientemente segura para {product_code} - {product.get('nombre')}.",
+    }
+
+
+def search_and_stage_missing_images(limit: int = AUTO_IMAGE_SEARCH_LIMIT) -> dict:
+    missing = missing_cellphone_images()
+    selected = missing[:limit]
+    results = [search_and_stage_product_image(str(product.get("codigo", "")).strip()) for product in selected]
+    staged = [result for result in results if result["status"] == "staged"]
+    unresolved = [result for result in results if result["status"] not in {"staged", "exists"}]
+    return {
+        "processed": len(results),
+        "staged": len(staged),
+        "unresolved": len(unresolved),
+        "remaining": max(0, len(missing) - len(staged)),
+        "messages": [result["message"] for result in results],
+    }
+
+
 def copy_product_image(source_code: str, target_code: str) -> str:
     mapping = load_product_images()
     image_path = mapping.get(source_code)
@@ -2885,6 +3190,54 @@ async def handle_message(bot: Bot, update: Update) -> None:
                 chat_id,
                 f"{result}\nImagenes pendientes por publicar: {pending_count}\nManda /publicarimagenes cuando quieras actualizar Netlify.",
             )
+        return
+    if key.startswith("/buscarimagen ") or key.startswith("buscar imagen "):
+        parts = text.split(maxsplit=1)
+        product_code = parts[1].strip() if len(parts) > 1 else ""
+        if not product_code:
+            await safe_send(bot, chat_id, "Uso: /buscarimagen CODIGO")
+            return
+        await safe_send(bot, chat_id, f"Buscando y validando imagen para {product_code}...")
+        try:
+            result = await asyncio.to_thread(search_and_stage_product_image, product_code)
+            pending_count = await asyncio.to_thread(pending_image_count)
+            await safe_send(
+                bot,
+                chat_id,
+                (
+                    f"{result['message']}\n\n"
+                    f"Imagenes pendientes por publicar: {pending_count}.\n"
+                    "Netlify no se actualizara hasta que mandes /publicarimagenes."
+                ),
+            )
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"No pude completar la busqueda de imagen: {exc}")
+        return
+    if key in {"/buscarimagenes", "/buscar_imagenes", "buscar imagenes"}:
+        await safe_send(
+            bot,
+            chat_id,
+            f"Buscando y validando hasta {AUTO_IMAGE_SEARCH_LIMIT} celulares sin imagen. Puede tardar varios minutos...",
+        )
+        try:
+            report = await asyncio.to_thread(search_and_stage_missing_images)
+            details = "\n\n".join(report["messages"])
+            pending_count = await asyncio.to_thread(pending_image_count)
+            await safe_send(
+                bot,
+                chat_id,
+                (
+                    f"Busqueda terminada.\n"
+                    f"Procesados: {report['processed']}\n"
+                    f"Imagenes encontradas: {report['staged']}\n"
+                    f"Sin coincidencia segura: {report['unresolved']}\n"
+                    f"Pendientes por publicar: {pending_count}\n\n"
+                    f"{details}\n\n"
+                    "Revisa el lote y manda /publicarimagenes cuando quieras actualizar Netlify."
+                ),
+            )
+        except Exception as exc:
+            await safe_send(bot, chat_id, f"No pude completar la busqueda automatica: {exc}")
         return
     if key in {"/sinimagenes", "/sin_imagenes", "sin imagenes", "celulares sin imagen"}:
         await safe_send(bot, chat_id, missing_images_message())
