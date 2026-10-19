@@ -958,8 +958,13 @@ def payjoy_whatsapp_messages(max_length: int = 3600) -> list[str]:
     return messages
 
 
-def inventory_whatsapp_messages(max_length: int = 3600) -> list[str]:
-    inventory = load_lista_g_inventory()
+def inventory_whatsapp_messages(
+    max_length: int = 3600,
+    inventory: Optional[dict] = None,
+    list_label: str = "G",
+) -> list[str]:
+    inventory = inventory or load_lista_g_inventory()
+    list_label = (list_label or "G").strip().upper()
     allowed_brands = {
         "Apple", "Blackview", "BLU", "Cubot", "Google", "Honor", "Infinix",
         "Itel", "LOGIC", "Motorola", "Naomi", "Qtouch", "Realme", "Samsung",
@@ -986,7 +991,7 @@ def inventory_whatsapp_messages(max_length: int = 3600) -> list[str]:
     separator = "───────────────────────────"
     header = (
         f"{separator}\n"
-        "📱💥 LISTA MAYOREO CELUCENTER 💥📱\n"
+        f"📱💥 LISTA {list_label} MAYOREO CELUCENTER 💥📱\n"
         "🔥 PROMOCIONES / DISPONIBILIDAD\n"
         "🚚 Entrega inmediata | 💳 Payjoy / PayPhone | 🤝 Atención directa\n"
         f"{separator}\n"
@@ -1019,7 +1024,10 @@ def inventory_whatsapp_messages(max_length: int = 3600) -> list[str]:
         messages.append(current.rstrip())
 
     total = len(messages)
-    return [f"LISTA MAYOREO ({index}/{total})\n\n{message}" for index, message in enumerate(messages, start=1)]
+    return [
+        f"LISTA {list_label} MAYOREO ({index}/{total})\n\n{message}"
+        for index, message in enumerate(messages, start=1)
+    ]
 
 
 def google_sheets_status_message() -> str:
@@ -2549,8 +2557,12 @@ async def broadcast_inventory_update(bot: Bot, source_chat_id: str, message: str
         await safe_send(bot, target_chat_id, message)
 
 
-async def broadcast_inventory_whatsapp_text(bot: Bot) -> None:
-    messages = inventory_whatsapp_messages()
+async def broadcast_inventory_whatsapp_text(
+    bot: Bot,
+    inventory: Optional[dict] = None,
+    list_label: str = "G",
+) -> None:
+    messages = inventory_whatsapp_messages(inventory=inventory, list_label=list_label)
     for target_chat_id in BROADCAST_CHAT_IDS:
         delivered = True
         for message in messages:
@@ -2655,7 +2667,8 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
             )
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
-            await broadcast_inventory_whatsapp_text(bot)
+            await broadcast_inventory_whatsapp_text(bot, inventory_m, "M")
+            await broadcast_inventory_whatsapp_text(bot, inventory_g, "G")
         except Exception as exc:
             await safe_send(bot, chat_id, f"No pude actualizar M y G desde el XLS: {exc}")
             raise
@@ -2809,7 +2822,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
             if list_type == "G":
-                await broadcast_inventory_whatsapp_text(bot)
+                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "G")
+            elif list_type == "M":
+                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "M")
         except Exception as exc:
             print(f"PDF rechazado archivo={file_name!r}: {type(exc).__name__}: {exc}")
             await safe_send(bot, chat_id, error_message(exc))
