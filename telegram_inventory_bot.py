@@ -2561,9 +2561,13 @@ async def broadcast_inventory_whatsapp_text(
     bot: Bot,
     inventory: Optional[dict] = None,
     list_label: str = "G",
+    source_chat_id: Optional[str] = None,
 ) -> None:
     messages = inventory_whatsapp_messages(inventory=inventory, list_label=list_label)
-    for target_chat_id in BROADCAST_CHAT_IDS:
+    target_chat_ids = list(BROADCAST_CHAT_IDS)
+    if source_chat_id and source_chat_id not in target_chat_ids:
+        target_chat_ids.insert(0, source_chat_id)
+    for target_chat_id in target_chat_ids:
         delivered = True
         for message in messages:
             delivered = await safe_send(bot, target_chat_id, message) and delivered
@@ -2667,8 +2671,8 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
             )
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
-            await broadcast_inventory_whatsapp_text(bot, inventory_m, "M")
-            await broadcast_inventory_whatsapp_text(bot, inventory_g, "G")
+            await broadcast_inventory_whatsapp_text(bot, inventory_m, "M", chat_id)
+            await broadcast_inventory_whatsapp_text(bot, inventory_g, "G", chat_id)
         except Exception as exc:
             await safe_send(bot, chat_id, f"No pude actualizar M y G desde el XLS: {exc}")
             raise
@@ -2822,9 +2826,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
             if list_type == "G":
-                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "G")
+                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "G", chat_id)
             elif list_type == "M":
-                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "M")
+                await broadcast_inventory_whatsapp_text(bot, parsed_inventory, "M", chat_id)
         except Exception as exc:
             print(f"PDF rechazado archivo={file_name!r}: {type(exc).__name__}: {exc}")
             await safe_send(bot, chat_id, error_message(exc))
