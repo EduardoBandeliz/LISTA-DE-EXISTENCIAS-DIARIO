@@ -1,8 +1,8 @@
 {
-  "source_pdf": "1792674048_109.pdf",
+  "source_pdf": "1792682635_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-10-22T07:00:48",
+  "report_datetime": "2026-10-22T09:23:55",
   "total_productos": 289,
   "total_disponibles": 289,
   "total_agotados": 0,
@@ -630,7 +630,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 12839.0,
+      "precio_lista_m": 13039.0,
       "precio_publico": 16999.0
     },
     {
@@ -642,7 +642,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 28889.0,
+      "precio_lista_m": 29329.0,
       "precio_publico": 29999.0
     },
     {
@@ -654,7 +654,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 31319.0,
+      "precio_lista_m": 31789.0,
       "precio_publico": 31999.0
     },
     {
@@ -666,7 +666,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 34689.0,
+      "precio_lista_m": 35219.0,
       "precio_publico": 36999.0
     },
     {
@@ -1722,7 +1722,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 18849.0,
+      "precio_lista_m": 19139.0,
       "precio_publico": 28397.0
     },
     {
@@ -1734,7 +1734,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1989.0,
+      "precio_lista_m": 2019.0,
       "precio_publico": 2999.0
     },
     {
@@ -1746,7 +1746,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1989.0,
+      "precio_lista_m": 2019.0,
       "precio_publico": 2999.0
     },
     {
@@ -1758,7 +1758,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 1679.0,
+      "precio_lista_m": 1709.0,
       "precio_publico": 2199.0
     },
     {
@@ -1770,7 +1770,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 1679.0,
+      "precio_lista_m": 1709.0,
       "precio_publico": 2199.0
     },
     {
@@ -1782,7 +1782,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 1679.0,
+      "precio_lista_m": 1709.0,
       "precio_publico": 2199.0
     },
     {
@@ -1794,7 +1794,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3799.0,
+      "precio_lista_m": 3859.0,
       "precio_publico": 5778.0
     },
     {
@@ -1806,7 +1806,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4199.0,
+      "precio_lista_m": 4269.0,
       "precio_publico": 6390.0
     },
     {
@@ -1818,7 +1818,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4199.0,
+      "precio_lista_m": 4269.0,
       "precio_publico": 6390.0
     },
     {
@@ -1830,7 +1830,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5839.0,
+      "precio_lista_m": 5929.0,
       "precio_publico": 7999.0
     },
     {
@@ -1842,7 +1842,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5839.0,
+      "precio_lista_m": 5929.0,
       "precio_publico": 7999.0
     },
     {
@@ -1854,7 +1854,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5839.0,
+      "precio_lista_m": 5929.0,
       "precio_publico": 7999.0
     },
     {
@@ -1866,7 +1866,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5519.0,
+      "precio_lista_m": 5609.0,
       "precio_publico": 8652.0
     },
     {
@@ -1878,7 +1878,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5519.0,
+      "precio_lista_m": 5609.0,
       "precio_publico": 8652.0
     },
     {
@@ -1890,7 +1890,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2469.0,
+      "precio_lista_m": 2509.0,
       "precio_publico": 4309.0
     },
     {
@@ -1902,7 +1902,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2469.0,
+      "precio_lista_m": 2509.0,
       "precio_publico": 4309.0
     },
     {
@@ -1914,7 +1914,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2439.0,
       "precio_publico": 4309.0
     },
     {
@@ -1926,7 +1926,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2159.0,
+      "precio_lista_m": 2199.0,
       "precio_publico": 3832.0
     },
     {
@@ -1938,7 +1938,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 2159.0,
+      "precio_lista_m": 2199.0,
       "precio_publico": 3832.0
     },
     {
@@ -1950,7 +1950,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2319.0,
+      "precio_lista_m": 2359.0,
       "precio_publico": 3499.0
     },
     {
@@ -1962,7 +1962,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 399.0,
+      "precio_lista_m": 409.0,
       "precio_publico": 699.0
     },
     {
@@ -1974,7 +1974,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 399.0,
+      "precio_lista_m": 409.0,
       "precio_publico": 699.0
     },
     {
@@ -1986,7 +1986,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 399.0,
+      "precio_lista_m": 409.0,
       "precio_publico": 699.0
     },
     {
@@ -1998,7 +1998,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5519.0,
+      "precio_lista_m": 5609.0,
       "precio_publico": 8499.0
     },
     {
@@ -2010,7 +2010,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1979.0,
+      "precio_lista_m": 2009.0,
       "precio_publico": 2599.0
     },
     {
@@ -2022,7 +2022,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4429.0,
+      "precio_lista_m": 4499.0,
       "precio_publico": 6999.0
     },
     {
@@ -2034,7 +2034,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6709.0,
+      "precio_lista_m": 6819.0,
       "precio_publico": 7499.0
     },
     {
@@ -2046,7 +2046,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4699.0,
+      "precio_lista_m": 4779.0,
       "precio_publico": 6722.0
     },
     {
@@ -2058,7 +2058,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 5449.0,
+      "precio_lista_m": 5539.0,
       "precio_publico": 8028.0
     },
     {
@@ -2070,7 +2070,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6179.0,
+      "precio_lista_m": 6279.0,
       "precio_publico": 13499.0
     },
     {
@@ -2082,7 +2082,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2328.99,
+      "precio_lista_m": 2369.0,
       "precio_publico": 3482.0
     },
     {
@@ -2094,7 +2094,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2328.99,
+      "precio_lista_m": 2369.0,
       "precio_publico": 3482.0
     },
     {
@@ -2106,7 +2106,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2539.0,
+      "precio_lista_m": 2579.0,
       "precio_publico": 4442.0
     },
     {
@@ -2118,7 +2118,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2539.0,
+      "precio_lista_m": 2579.0,
       "precio_publico": 4442.0
     },
     {
@@ -2130,7 +2130,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4459.0,
+      "precio_lista_m": 4529.0,
       "precio_publico": 5999.0
     },
     {
@@ -2142,7 +2142,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4459.0,
+      "precio_lista_m": 4529.0,
       "precio_publico": 5999.0
     },
     {
@@ -2154,7 +2154,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3249.0,
+      "precio_lista_m": 3299.0,
       "precio_publico": 5013.0
     },
     {
@@ -2166,7 +2166,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3249.0,
+      "precio_lista_m": 3299.0,
       "precio_publico": 5013.0
     },
     {
@@ -2178,7 +2178,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3859.0,
+      "precio_lista_m": 3919.0,
       "precio_publico": 5626.0
     },
     {
@@ -2190,7 +2190,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3539.0,
+      "precio_lista_m": 3599.0,
       "precio_publico": 4999.0
     },
     {
@@ -2202,7 +2202,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5029.0,
+      "precio_lista_m": 5109.0,
       "precio_publico": 7550.0
     },
     {
@@ -2214,7 +2214,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5029.0,
+      "precio_lista_m": 5109.0,
       "precio_publico": 7550.0
     },
     {
@@ -2226,7 +2226,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5029.0,
+      "precio_lista_m": 5109.0,
       "precio_publico": 7550.0
     },
     {
@@ -2238,7 +2238,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4819.0,
+      "precio_lista_m": 4899.0,
       "precio_publico": 6845.0
     },
     {
@@ -2250,7 +2250,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4819.0,
+      "precio_lista_m": 4899.0,
       "precio_publico": 6846.0
     },
     {
@@ -2262,7 +2262,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4829.0,
+      "precio_lista_m": 4909.0,
       "precio_publico": 6538.0
     },
     {
@@ -2274,7 +2274,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 519.0,
+      "precio_lista_m": 529.0,
       "precio_publico": 830.0
     },
     {
@@ -2334,7 +2334,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 799.0,
+      "precio_lista_m": 819.0,
       "precio_publico": 842.0
     },
     {
@@ -2346,7 +2346,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1239.0,
+      "precio_lista_m": 1259.0,
       "precio_publico": 1239.0
     },
     {
@@ -2358,7 +2358,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1399.0,
+      "precio_lista_m": 1429.0,
       "precio_publico": 1470.0
     },
     {
@@ -2370,7 +2370,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4309.0,
+      "precio_lista_m": 4379.0,
       "precio_publico": 7599.0
     },
     {
@@ -2382,7 +2382,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 2889.06,
+      "precio_lista_m": 2939.0,
       "precio_publico": 4309.0
     },
     {
@@ -2394,7 +2394,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 2889.06,
+      "precio_lista_m": 2939.0,
       "precio_publico": 4309.0
     },
     {
@@ -2406,7 +2406,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 3509.0,
+      "precio_lista_m": 3569.0,
       "precio_publico": 5618.0
     },
     {
@@ -2418,7 +2418,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2359.0,
+      "precio_lista_m": 2399.0,
       "precio_publico": 4999.0
     },
     {
@@ -2430,7 +2430,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2359.0,
+      "precio_lista_m": 2399.0,
       "precio_publico": 4999.0
     },
     {
@@ -2598,7 +2598,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 3219.0,
+      "precio_lista_m": 3269.0,
       "precio_publico": 4499.0
     },
     {
@@ -2610,7 +2610,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3219.0,
+      "precio_lista_m": 3269.0,
       "precio_publico": 4499.0
     },
     {
@@ -2622,7 +2622,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3219.0,
+      "precio_lista_m": 3269.0,
       "precio_publico": 4499.0
     },
     {
@@ -2634,7 +2634,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3949.0,
+      "precio_lista_m": 4009.0,
       "precio_publico": 5909.0
     },
     {
@@ -2646,7 +2646,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
@@ -2658,7 +2658,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
@@ -2670,7 +2670,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
@@ -2682,7 +2682,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
@@ -2694,7 +2694,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
@@ -2706,7 +2706,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 7549.0,
+      "precio_lista_m": 7669.0,
       "precio_publico": 10630.0
     },
     {
@@ -2718,7 +2718,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 7549.0,
+      "precio_lista_m": 7669.0,
       "precio_publico": 10630.0
     },
     {
@@ -2730,7 +2730,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 8639.0,
+      "precio_lista_m": 8769.0,
       "precio_publico": 11033.0
     },
     {
@@ -2742,7 +2742,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2739.0,
+      "precio_lista_m": 2789.0,
       "precio_publico": 4412.0
     },
     {
@@ -2754,7 +2754,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2739.0,
+      "precio_lista_m": 2789.0,
       "precio_publico": 4412.0
     },
     {
@@ -2766,7 +2766,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3739.0,
+      "precio_lista_m": 3799.0,
       "precio_publico": 6013.0
     },
     {
@@ -2778,7 +2778,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3739.0,
+      "precio_lista_m": 3799.0,
       "precio_publico": 6013.0
     },
     {
@@ -2790,7 +2790,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 409.0,
+      "precio_lista_m": 419.0,
       "precio_publico": 583.0
     },
     {
@@ -2802,7 +2802,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3939.0,
+      "precio_lista_m": 3999.0,
       "precio_publico": 6448.0
     },
     {
@@ -2814,7 +2814,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4769.0,
+      "precio_lista_m": 4849.0,
       "precio_publico": 7801.0
     },
     {
@@ -2826,7 +2826,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5899.0,
+      "precio_lista_m": 5989.0,
       "precio_publico": 9654.0
     },
     {
@@ -2838,7 +2838,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6109.0,
+      "precio_lista_m": 6209.0,
       "precio_publico": 10010.0
     },
     {
@@ -2850,7 +2850,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5899.0,
+      "precio_lista_m": 5989.0,
       "precio_publico": 9654.0
     },
     {
@@ -2862,7 +2862,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 8589.0,
+      "precio_lista_m": 8719.0,
       "precio_publico": 13381.0
     },
     {
@@ -2934,7 +2934,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1709.0,
+      "precio_lista_m": 1739.0,
       "precio_publico": 2499.0
     },
     {
@@ -2946,7 +2946,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1709.0,
+      "precio_lista_m": 1739.0,
       "precio_publico": 2499.0
     },
     {
@@ -2958,7 +2958,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1709.0,
+      "precio_lista_m": 1739.0,
       "precio_publico": 2499.0
     },
     {
@@ -2970,7 +2970,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1749.0,
+      "precio_lista_m": 1779.0,
       "precio_publico": 2999.0
     },
     {
@@ -2982,7 +2982,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 1749.0,
+      "precio_lista_m": 1779.0,
       "precio_publico": 2999.0
     },
     {
@@ -2994,7 +2994,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5679.0,
+      "precio_lista_m": 5769.0,
       "precio_publico": 8900.0
     },
     {
@@ -3006,7 +3006,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 319.0,
+      "precio_lista_m": 329.0,
       "precio_publico": 477.0
     },
     {
@@ -3018,7 +3018,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 319.0,
+      "precio_lista_m": 329.0,
       "precio_publico": 477.0
     },
     {
@@ -3030,7 +3030,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 319.0,
+      "precio_lista_m": 329.0,
       "precio_publico": 477.0
     },
     {
@@ -3042,7 +3042,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3629.0,
+      "precio_lista_m": 3689.0,
       "precio_publico": 4499.0
     },
     {
@@ -3054,7 +3054,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2579.0,
+      "precio_lista_m": 2619.0,
       "precio_publico": 2999.0
     },
     {
@@ -3066,7 +3066,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2579.0,
+      "precio_lista_m": 2619.0,
       "precio_publico": 3414.0
     },
     {
@@ -3078,7 +3078,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3459.0,
+      "precio_lista_m": 3519.0,
       "precio_publico": 4999.0
     },
     {
@@ -3090,7 +3090,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3459.0,
+      "precio_lista_m": 3519.0,
       "precio_publico": 4999.0
     },
     {
@@ -3102,7 +3102,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4059.0,
       "precio_publico": 5599.0
     },
     {
@@ -3114,7 +3114,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4059.0,
       "precio_publico": 5599.0
     },
     {
@@ -3126,7 +3126,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4239.0,
+      "precio_lista_m": 4309.0,
       "precio_publico": 5999.0
     },
     {
@@ -3138,7 +3138,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4239.0,
+      "precio_lista_m": 4309.0,
       "precio_publico": 5999.0
     },
     {
@@ -3150,7 +3150,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4239.0,
+      "precio_lista_m": 4309.0,
       "precio_publico": 5999.0
     },
     {
@@ -3162,7 +3162,7 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 2539.0,
+      "precio_lista_m": 2579.0,
       "precio_publico": 3447.0
     },
     {
@@ -3174,7 +3174,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 2148.99,
+      "precio_lista_m": 2189.0,
       "precio_publico": 3082.0
     },
     {
@@ -3186,7 +3186,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6419.0,
+      "precio_lista_m": 6519.0,
       "precio_publico": 10344.0
     },
     {
@@ -3198,7 +3198,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4279.0,
+      "precio_lista_m": 4349.0,
       "precio_publico": 6328.0
     },
     {
@@ -3210,7 +3210,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3779.0,
+      "precio_lista_m": 3839.0,
       "precio_publico": 5564.0
     },
     {
@@ -3222,7 +3222,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3779.0,
+      "precio_lista_m": 3839.0,
       "precio_publico": 5564.0
     },
     {
@@ -3234,7 +3234,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3779.0,
+      "precio_lista_m": 3839.0,
       "precio_publico": 5564.0
     },
     {
@@ -3246,7 +3246,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3779.0,
+      "precio_lista_m": 3839.0,
       "precio_publico": 5564.0
     },
     {
@@ -3258,7 +3258,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4179.0,
+      "precio_lista_m": 4249.0,
       "precio_publico": 6348.0
     },
     {
@@ -3270,7 +3270,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4179.0,
+      "precio_lista_m": 4249.0,
       "precio_publico": 6348.0
     },
     {
@@ -3282,7 +3282,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4179.0,
+      "precio_lista_m": 4249.0,
       "precio_publico": 6289.0
     },
     {
@@ -3294,7 +3294,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4179.0,
+      "precio_lista_m": 4249.0,
       "precio_publico": 6289.0
     },
     {
@@ -3306,7 +3306,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4739.0,
+      "precio_lista_m": 4819.0,
       "precio_publico": 7298.0
     },
     {
@@ -3318,7 +3318,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4739.0,
+      "precio_lista_m": 4819.0,
       "precio_publico": 7298.0
     },
     {
@@ -3330,7 +3330,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4739.0,
+      "precio_lista_m": 4819.0,
       "precio_publico": 7298.0
     },
     {
@@ -3342,7 +3342,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4739.0,
+      "precio_lista_m": 4819.0,
       "precio_publico": 7298.0
     },
     {
@@ -3354,7 +3354,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6529.0,
+      "precio_lista_m": 6629.0,
       "precio_publico": 10085.0
     },
     {
@@ -3366,7 +3366,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6529.0,
+      "precio_lista_m": 6629.0,
       "precio_publico": 10085.0
     },
     {
@@ -3378,7 +3378,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6529.0,
+      "precio_lista_m": 6629.0,
       "precio_publico": 10085.0
     },
     {
@@ -3390,7 +3390,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5839.0,
+      "precio_lista_m": 5929.0,
       "precio_publico": 9327.0
     },
     {
@@ -3402,7 +3402,7 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 6979.0,
+      "precio_lista_m": 7089.0,
       "precio_publico": 10017.0
     },
     {
@@ -3414,7 +3414,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6979.0,
+      "precio_lista_m": 7089.0,
       "precio_publico": 10017.0
     },
     {
@@ -3426,7 +3426,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 6979.0,
+      "precio_lista_m": 7089.0,
       "precio_publico": 10017.0
     },
     {
@@ -3438,7 +3438,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5469.0,
+      "precio_lista_m": 5559.0,
       "precio_publico": 8070.0
     },
     {
@@ -3450,7 +3450,7 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 5469.0,
+      "precio_lista_m": 5559.0,
       "precio_publico": 7999.0
     },
     {
@@ -3462,7 +3462,7 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4269.0,
+      "precio_lista_m": 4339.0,
       "precio_publico": 6214.0
     },
     {
@@ -3474,7 +3474,7 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4409.0,
+      "precio_lista_m": 4479.0,
       "precio_publico": 7198.0
     }
   ]
