@@ -1,40 +1,16 @@
 {
-  "source_pdf": "1790773258_109.pdf",
+  "source_pdf": "1793019655_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "ECOMMERCE",
-  "report_datetime": "2026-09-30T07:00:58",
-  "total_productos": 394,
-  "total_disponibles": 394,
+  "report_datetime": "2026-10-26T07:00:55",
+  "total_productos": 368,
+  "total_disponibles": 368,
   "total_agotados": 0,
-  "total_omitidos_cero": 2,
-  "total_omitidos_precio": 9,
+  "total_omitidos_cero": 17,
+  "total_omitidos_precio": 8,
   "productos": [
     {
       "id": 1,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "A140OPEN",
-      "nombre": "BLU A140 48 MB 128 MB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 299.0,
-      "precio_publico": 501.0
-    },
-    {
-      "id": 2,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "BOLDK10OPEN",
-      "nombre": "BLU BOLD K10 (4+8) GB 128 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1499.0,
-      "precio_publico": 3016.0
-    },
-    {
-      "id": 3,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUC52019...",
@@ -46,7 +22,7 @@
       "precio_publico": 1003.0
     },
     {
-      "id": 4,
+      "id": 2,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUC5LOPEN",
@@ -58,7 +34,7 @@
       "precio_publico": 1003.0
     },
     {
-      "id": 5,
+      "id": 3,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUC7XGR...",
@@ -70,19 +46,7 @@
       "precio_publico": 919.0
     },
     {
-      "id": 6,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "BLUC9OPEN",
-      "nombre": "BLU C9 (2+4) GB 64 GB OPEN BOX",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 819.0,
-      "precio_publico": 1370.0
-    },
-    {
-      "id": 7,
+      "id": 4,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "848958044352",
@@ -94,7 +58,7 @@
       "precio_publico": 2068.0
     },
     {
-      "id": 8,
+      "id": 5,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "848958042860",
@@ -106,7 +70,7 @@
       "precio_publico": 3585.0
     },
     {
-      "id": 9,
+      "id": 6,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLU52LGRADOA",
@@ -118,7 +82,7 @@
       "precio_publico": 1589.0
     },
     {
-      "id": 10,
+      "id": 7,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "848958043096",
@@ -130,19 +94,7 @@
       "precio_publico": 2585.0
     },
     {
-      "id": 11,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "BLUG53OPEN",
-      "nombre": "BLU G53 (4+3) GB 64 GB OPEN BOX",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1099.0,
-      "precio_publico": 1840.0
-    },
-    {
-      "id": 12,
+      "id": 8,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "G63GRADOA",
@@ -154,19 +106,7 @@
       "precio_publico": 2099.0
     },
     {
-      "id": 13,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "BLUG63OPEN",
-      "nombre": "BLU G63 (4+4) GB 128 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1299.0,
-      "precio_publico": 2171.0
-    },
-    {
-      "id": 14,
+      "id": 9,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "848958044086",
@@ -174,11 +114,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1539.0,
+      "precio_lista_m": 1579.0,
       "precio_publico": 2585.0
     },
     {
-      "id": 15,
+      "id": 10,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUG64LOPEN",
@@ -186,11 +126,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1349.0,
+      "precio_lista_m": 1389.0,
       "precio_publico": 2258.0
     },
     {
-      "id": 16,
+      "id": 11,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUG65LOPEN",
@@ -202,19 +142,7 @@
       "precio_publico": 2174.0
     },
     {
-      "id": 17,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "G73OPEN",
-      "nombre": "BLU G73 (6+6) GB 128 GB OPEN BOX",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1399.0,
-      "precio_publico": 2342.0
-    },
-    {
-      "id": 18,
+      "id": 12,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUG84GR...",
@@ -226,7 +154,7 @@
       "precio_publico": 3430.0
     },
     {
-      "id": 19,
+      "id": 13,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUG84GR...",
@@ -238,19 +166,7 @@
       "precio_publico": 2744.0
     },
     {
-      "id": 20,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "BLU",
-      "codigo": "BLUZ253OPEN",
-      "nombre": "BLU Z4 MUSIC Z253 32 MB 32 MB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 159.0,
-      "precio_publico": 266.0
-    },
-    {
-      "id": 21,
+      "id": 14,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "848958036319",
@@ -258,11 +174,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 159.0,
+      "precio_lista_m": 169.0,
       "precio_publico": 275.0
     },
     {
-      "id": 22,
+      "id": 15,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BLU",
       "codigo": "BLUZ5Z215...",
@@ -274,7 +190,7 @@
       "precio_publico": 216.0
     },
     {
-      "id": 23,
+      "id": 16,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BOOMBOX",
       "codigo": "B105AZUL",
@@ -286,7 +202,7 @@
       "precio_publico": 152.0
     },
     {
-      "id": 24,
+      "id": 17,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "BOOMBOX",
       "codigo": "B105NEGRO",
@@ -298,7 +214,7 @@
       "precio_publico": 152.0
     },
     {
-      "id": 25,
+      "id": 18,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "CABLES",
       "codigo": "7503028878574",
@@ -310,7 +226,7 @@
       "precio_publico": 49.0
     },
     {
-      "id": 26,
+      "id": 19,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "CONSOLAS",
       "codigo": "4902370551112",
@@ -322,7 +238,7 @@
       "precio_publico": 2299.0
     },
     {
-      "id": 27,
+      "id": 20,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "CUBOT",
       "codigo": "KINGKONG2...",
@@ -330,11 +246,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3359.0,
+      "precio_lista_m": 3449.0,
       "precio_publico": 5623.0
     },
     {
-      "id": 28,
+      "id": 21,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "CUBOT",
       "codigo": "X90256GBOPEN",
@@ -346,7 +262,7 @@
       "precio_publico": 5020.0
     },
     {
-      "id": 29,
+      "id": 22,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -358,7 +274,7 @@
       "precio_publico": 15999.0
     },
     {
-      "id": 30,
+      "id": 23,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -370,19 +286,7 @@
       "precio_publico": 11049.0
     },
     {
-      "id": 31,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "EQUIPO",
-      "codigo": "...",
-      "nombre": "AG15-51P-5... ACER ASPIRE GO 15 AG15-51P-510U GRIS/15 in/intel core i5-1334U/8GB...",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 5999.0,
-      "precio_publico": 8319.0
-    },
-    {
-      "id": 32,
+      "id": 24,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -394,7 +298,7 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 33,
+      "id": 25,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -406,19 +310,7 @@
       "precio_publico": 7949.0
     },
     {
-      "id": 34,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "EQUIPO",
-      "codigo": "...",
-      "nombre": "E1404FANE... ASUS LAPTOP VIVABOOK GO E1404FA NEGRO/14in/Ryzen 3-7320U/4GB...",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 4499.0,
-      "precio_publico": 5849.0
-    },
-    {
-      "id": 35,
+      "id": 26,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -430,7 +322,7 @@
       "precio_publico": 5849.0
     },
     {
-      "id": 36,
+      "id": 27,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -442,7 +334,7 @@
       "precio_publico": 11309.0
     },
     {
-      "id": 37,
+      "id": 28,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -454,7 +346,7 @@
       "precio_publico": 8709.0
     },
     {
-      "id": 38,
+      "id": 29,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -466,7 +358,7 @@
       "precio_publico": 8709.0
     },
     {
-      "id": 39,
+      "id": 30,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -478,7 +370,7 @@
       "precio_publico": 32499.0
     },
     {
-      "id": 40,
+      "id": 31,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -490,7 +382,7 @@
       "precio_publico": 15599.0
     },
     {
-      "id": 41,
+      "id": 32,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -502,7 +394,7 @@
       "precio_publico": 25999.0
     },
     {
-      "id": 42,
+      "id": 33,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -514,7 +406,7 @@
       "precio_publico": 9359.0
     },
     {
-      "id": 43,
+      "id": 34,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -526,7 +418,7 @@
       "precio_publico": 9489.0
     },
     {
-      "id": 44,
+      "id": 35,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -538,7 +430,7 @@
       "precio_publico": 9619.0
     },
     {
-      "id": 45,
+      "id": 36,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -550,7 +442,7 @@
       "precio_publico": 9619.0
     },
     {
-      "id": 46,
+      "id": 37,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -562,7 +454,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 47,
+      "id": 38,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -574,7 +466,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 48,
+      "id": 39,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -586,7 +478,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 49,
+      "id": 40,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -598,7 +490,7 @@
       "precio_publico": 4939.0
     },
     {
-      "id": 50,
+      "id": 41,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -610,7 +502,7 @@
       "precio_publico": 4679.0
     },
     {
-      "id": 51,
+      "id": 42,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -622,7 +514,7 @@
       "precio_publico": 4939.0
     },
     {
-      "id": 52,
+      "id": 43,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -634,7 +526,7 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 53,
+      "id": 44,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -646,7 +538,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 54,
+      "id": 45,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -658,7 +550,7 @@
       "precio_publico": 4489.0
     },
     {
-      "id": 55,
+      "id": 46,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -670,7 +562,7 @@
       "precio_publico": 4679.0
     },
     {
-      "id": 56,
+      "id": 47,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -682,7 +574,7 @@
       "precio_publico": 7799.0
     },
     {
-      "id": 57,
+      "id": 48,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -694,7 +586,7 @@
       "precio_publico": 13999.0
     },
     {
-      "id": 58,
+      "id": 49,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -706,7 +598,7 @@
       "precio_publico": 11699.0
     },
     {
-      "id": 59,
+      "id": 50,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -718,7 +610,7 @@
       "precio_publico": 11699.0
     },
     {
-      "id": 60,
+      "id": 51,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -730,7 +622,7 @@
       "precio_publico": 7799.0
     },
     {
-      "id": 61,
+      "id": 52,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -742,7 +634,7 @@
       "precio_publico": 5069.0
     },
     {
-      "id": 62,
+      "id": 53,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -754,7 +646,7 @@
       "precio_publico": 16639.0
     },
     {
-      "id": 63,
+      "id": 54,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -766,7 +658,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 64,
+      "id": 55,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -778,7 +670,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 65,
+      "id": 56,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -790,7 +682,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 66,
+      "id": 57,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -802,7 +694,7 @@
       "precio_publico": 3119.0
     },
     {
-      "id": 67,
+      "id": 58,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -814,7 +706,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 68,
+      "id": 59,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -826,7 +718,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 69,
+      "id": 60,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -838,7 +730,7 @@
       "precio_publico": 3119.0
     },
     {
-      "id": 70,
+      "id": 61,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -850,7 +742,7 @@
       "precio_publico": 3899.0
     },
     {
-      "id": 71,
+      "id": 62,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -862,7 +754,7 @@
       "precio_publico": 5399.0
     },
     {
-      "id": 72,
+      "id": 63,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -874,7 +766,7 @@
       "precio_publico": 12499.0
     },
     {
-      "id": 73,
+      "id": 64,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -886,7 +778,19 @@
       "precio_publico": 9099.0
     },
     {
-      "id": 74,
+      "id": 65,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "EQUIPO",
+      "codigo": "...",
+      "nombre": "198153861927 LENOVO LAPTOP IDEAPAD 1 15IJL7 GRIS/15.6in/Intel N4500/4GB/128GB/...",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 3748.0,
+      "precio_publico": 5999.0
+    },
+    {
+      "id": 66,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -898,7 +802,19 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 75,
+      "id": 67,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "EQUIPO",
+      "codigo": "...",
+      "nombre": "198155874840 LENOVO LAPTOP IDEAPAD SLIM 3 15IAN8 GRIS/15in/intel i3-N305/8GB/S...",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 6809.0,
+      "precio_publico": 5999.0
+    },
+    {
+      "id": 68,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -910,7 +826,19 @@
       "precio_publico": 6109.0
     },
     {
-      "id": 76,
+      "id": 69,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "EQUIPO",
+      "codigo": "...",
+      "nombre": "199271114841 LENOVO LAPTOP V14 G4 IRU NEGRO/14in/intel i-7-13620H/16GB/SSD/5...",
+      "cantidad": "1",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 10939.0,
+      "precio_publico": 11999.0
+    },
+    {
+      "id": 70,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -922,7 +850,7 @@
       "precio_publico": 12999.0
     },
     {
-      "id": 77,
+      "id": 71,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -934,7 +862,7 @@
       "precio_publico": 19999.0
     },
     {
-      "id": 78,
+      "id": 72,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -946,7 +874,19 @@
       "precio_publico": 17549.0
     },
     {
-      "id": 79,
+      "id": 73,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "EQUIPO",
+      "codigo": "...",
+      "nombre": "199272636854 LENOVO V14 G5 IRL NEGRO/14in/Intel Core 7 240H/16GB/SSD/1TB/Windo...",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 12539.0,
+      "precio_publico": 16999.0
+    },
+    {
+      "id": 74,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "EQUIPO",
       "codigo": "...",
@@ -958,7 +898,7 @@
       "precio_publico": 1869.0
     },
     {
-      "id": 80,
+      "id": 75,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "GOOGLE",
       "codigo": "PIXEL10PRO...",
@@ -966,11 +906,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 13999.0,
+      "precio_lista_m": 14209.0,
       "precio_publico": 22596.0
     },
     {
-      "id": 81,
+      "id": 76,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "GOOGLE",
       "codigo": "PIXEL9GRADOB",
@@ -978,11 +918,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11599.0,
+      "precio_lista_m": 12069.0,
       "precio_publico": 18966.0
     },
     {
-      "id": 82,
+      "id": 77,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HISENSE",
       "codigo": "6941785707989",
@@ -990,11 +930,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 917.19,
+      "precio_lista_m": 939.0,
       "precio_publico": 1070.0
     },
     {
-      "id": 83,
+      "id": 78,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HISENSE",
       "codigo": "HISENSEU6...",
@@ -1002,11 +942,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 699.0,
+      "precio_lista_m": 719.0,
       "precio_publico": 1170.0
     },
     {
-      "id": 84,
+      "id": 79,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HONOR",
       "codigo": "6936520877225",
@@ -1014,11 +954,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1679.0,
-      "precio_publico": 2251.0
+      "precio_lista_m": 1709.0,
+      "precio_publico": 2199.0
     },
     {
-      "id": 85,
+      "id": 80,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HONOR",
       "codigo": "HONORPLAY...",
@@ -1026,23 +966,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1399.0,
+      "precio_lista_m": 1469.0,
       "precio_publico": 2340.0
     },
     {
-      "id": 86,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "HONOR",
-      "codigo": "HONOR9T25...",
-      "nombre": "HONOR PLAY 9T 8 GB 256 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2479.0,
-      "precio_publico": 4123.0
-    },
-    {
-      "id": 87,
+      "id": 81,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HONOR",
       "codigo": "X5BGRADOA",
@@ -1050,11 +978,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1559.0,
+      "precio_lista_m": 1629.0,
       "precio_publico": 2610.0
     },
     {
-      "id": 88,
+      "id": 82,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HONOR",
       "codigo": "HONORX6S1...",
@@ -1062,11 +990,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2559.0,
+      "precio_lista_m": 2669.0,
       "precio_publico": 4284.0
     },
     {
-      "id": 89,
+      "id": 83,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HONOR",
       "codigo": "HONOR8B51...",
@@ -1074,11 +1002,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4169.0,
       "precio_publico": 6593.0
     },
     {
-      "id": 90,
+      "id": 84,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HUAWEI",
       "codigo": "HUAWEIPS...",
@@ -1086,11 +1014,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1669.0,
       "precio_publico": 2677.0
     },
     {
-      "id": 91,
+      "id": 85,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HUAWEI",
       "codigo": "HUAWEISMA...",
@@ -1098,11 +1026,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1559.0,
+      "precio_lista_m": 1629.0,
       "precio_publico": 2610.0
     },
     {
-      "id": 92,
+      "id": 86,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HUAWEI",
       "codigo": "HUAWEIY5OPENHUAWEI",
@@ -1110,11 +1038,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1066.89,
+      "precio_lista_m": 1089.0,
       "precio_publico": 1839.0
     },
     {
-      "id": 93,
+      "id": 87,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HUAWEI",
       "codigo": "HUAWEIY66...",
@@ -1122,11 +1050,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1279.0,
+      "precio_lista_m": 1339.0,
       "precio_publico": 2141.0
     },
     {
-      "id": 94,
+      "id": 88,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "HUAWEI",
       "codigo": "HUAWEIY66...",
@@ -1134,11 +1062,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1669.0,
       "precio_publico": 2677.0
     },
     {
-      "id": 95,
+      "id": 89,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "INFINIX",
       "codigo": "GT30PROG...",
@@ -1146,11 +1074,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5249.0,
+      "precio_lista_m": 5479.0,
       "precio_publico": 8786.0
     },
     {
-      "id": 96,
+      "id": 90,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "INFINIX",
       "codigo": "GT30PRO51...",
@@ -1158,11 +1086,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5499.0,
+      "precio_lista_m": 5729.0,
       "precio_publico": 9205.0
     },
     {
-      "id": 97,
+      "id": 91,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "INFINIX",
       "codigo": "HOT50PRO...",
@@ -1170,35 +1098,23 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2239.0,
+      "precio_lista_m": 2339.0,
       "precio_publico": 3748.0
     },
     {
-      "id": 98,
+      "id": 92,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "INFINIX",
-      "codigo": "INFINIXHOT...",
-      "nombre": "INFINIX HOT 50 PRO PLUS (8+8) GB 256 GB GRADO B",
+      "codigo": "4894947092688",
+      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VERDE NACIONAL",
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2239.0,
-      "precio_publico": 3748.0
-    },
-    {
-      "id": 99,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "INFINIX",
-      "codigo": "4894947092596",
-      "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G PLATA NACIONAL",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 4199.0,
+      "precio_lista_m": 4269.0,
       "precio_publico": 6390.0
     },
     {
-      "id": 100,
+      "id": 93,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "INFINIX",
       "codigo": "HOT60I256...",
@@ -1206,11 +1122,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 2599.0
     },
     {
-      "id": 101,
+      "id": 94,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "KGTEL",
       "codigo": "KGTELOPEN",
@@ -1218,11 +1134,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 179.0,
+      "precio_lista_m": 189.0,
       "precio_publico": 300.0
     },
     {
-      "id": 102,
+      "id": 95,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "KRIK",
       "codigo": "KRAK",
@@ -1234,7 +1150,7 @@
       "precio_publico": 182.0
     },
     {
-      "id": 103,
+      "id": 96,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "KRIK",
       "codigo": "KRAK",
@@ -1242,11 +1158,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 179.0,
+      "precio_lista_m": 189.0,
       "precio_publico": 300.0
     },
     {
-      "id": 104,
+      "id": 97,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "LANIX",
       "codigo": "LANIXX860...",
@@ -1254,11 +1170,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 599.0,
+      "precio_lista_m": 609.0,
       "precio_publico": 1003.0
     },
     {
-      "id": 105,
+      "id": 98,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "LANIX",
       "codigo": "LANIXX860OPENLANIX",
@@ -1266,11 +1182,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 749.0,
+      "precio_lista_m": 769.0,
       "precio_publico": 1254.0
     },
     {
-      "id": 106,
+      "id": 99,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "LOGIC",
       "codigo": "810039952481",
@@ -1278,11 +1194,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 379.0,
+      "precio_lista_m": 389.0,
       "precio_publico": 499.0
     },
     {
-      "id": 107,
+      "id": 100,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "LOGIC",
       "codigo": "LOGICF6GR...",
@@ -1290,11 +1206,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 189.0,
+      "precio_lista_m": 199.0,
       "precio_publico": 249.0
     },
     {
-      "id": 108,
+      "id": 101,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "LOGIC",
       "codigo": "LOGIZZ1LOPEN",
@@ -1302,23 +1218,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 349.0,
+      "precio_lista_m": 359.0,
       "precio_publico": 459.0
     },
     {
-      "id": 109,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "MISCEL...",
-      "codigo": "6921958600514",
-      "nombre": "AOC ROKU TV 40 FHD LED 40S5045",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2759.0,
-      "precio_publico": 3999.0
-    },
-    {
-      "id": 110,
+      "id": 102,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "AOC40GRADOA",
@@ -1326,11 +1230,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2439.0,
       "precio_publico": 3119.0
     },
     {
-      "id": 111,
+      "id": 103,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "AOC40OPEN",
@@ -1338,11 +1242,23 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 3119.0
     },
     {
-      "id": 112,
+      "id": 104,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "MISCEL...",
+      "codigo": "6921958643566",
+      "nombre": "AOC ROKU TV 43 FHD LED 43S5045",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 2999.0,
+      "precio_publico": 3999.0
+    },
+    {
+      "id": 105,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "80313072208",
@@ -1350,11 +1266,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 1299.0,
+      "precio_lista_m": 1319.0,
       "precio_publico": 2889.0
     },
     {
-      "id": 113,
+      "id": 106,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "CQLBLUE",
@@ -1362,11 +1278,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 709.0,
+      "precio_lista_m": 729.0,
       "precio_publico": 1699.01
     },
     {
-      "id": 114,
+      "id": 107,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "FPLBLUE",
@@ -1374,11 +1290,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 629.0,
+      "precio_lista_m": 639.0,
       "precio_publico": 1499.0
     },
     {
-      "id": 115,
+      "id": 108,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "CQLWHITE",
@@ -1386,11 +1302,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 709.0,
+      "precio_lista_m": 729.0,
       "precio_publico": 1699.01
     },
     {
-      "id": 116,
+      "id": 109,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "FLPWHITE",
@@ -1398,11 +1314,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 629.0,
+      "precio_lista_m": 639.0,
       "precio_publico": 1499.0
     },
     {
-      "id": 117,
+      "id": 110,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "CQLBLACK",
@@ -1410,11 +1326,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 709.0,
+      "precio_lista_m": 729.0,
       "precio_publico": 1699.01
     },
     {
-      "id": 118,
+      "id": 111,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "FPLBLACK",
@@ -1422,11 +1338,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 629.0,
+      "precio_lista_m": 639.0,
       "precio_publico": 1499.0
     },
     {
-      "id": 119,
+      "id": 112,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "MULETASL",
@@ -1434,11 +1350,11 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 1339.0,
+      "precio_lista_m": 1369.0,
       "precio_publico": 4999.0
     },
     {
-      "id": 120,
+      "id": 113,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "WEBCAMER...",
@@ -1450,7 +1366,7 @@
       "precio_publico": 149.0
     },
     {
-      "id": 121,
+      "id": 114,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "WEBCAMER...",
@@ -1462,7 +1378,7 @@
       "precio_publico": 149.0
     },
     {
-      "id": 122,
+      "id": 115,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MISCEL...",
       "codigo": "444800461065",
@@ -1470,11 +1386,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 339.0,
+      "precio_lista_m": 349.0,
       "precio_publico": 399.0
     },
     {
-      "id": 123,
+      "id": 116,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOE132G...",
@@ -1482,11 +1398,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 659.0,
+      "precio_lista_m": 699.0,
       "precio_publico": 1103.0
     },
     {
-      "id": 124,
+      "id": 117,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "E7PLUS64G...",
@@ -1494,23 +1410,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1699.0,
+      "precio_lista_m": 1779.0,
       "precio_publico": 2844.0
     },
     {
-      "id": 125,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "MOTOROLA",
-      "codigo": "E7POWER6...",
-      "nombre": "MOTOROLA MOTO E7 POWER 4 GB 64 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1499.0,
-      "precio_publico": 2509.0
-    },
-    {
-      "id": 126,
+      "id": 118,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOEDGE...",
@@ -1518,23 +1422,23 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4599.0,
+      "precio_lista_m": 4799.0,
       "precio_publico": 7698.0
     },
     {
-      "id": 127,
+      "id": 119,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOEDGE...",
       "nombre": "MOTOROLA MOTO EDGE 50 FUSION 8 GB 256 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 5020.0
     },
     {
-      "id": 128,
+      "id": 120,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOEDGE...",
@@ -1542,11 +1446,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 8368.0
     },
     {
-      "id": 129,
+      "id": 121,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOEDGE6...",
@@ -1554,11 +1458,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5099.0,
+      "precio_lista_m": 5309.0,
       "precio_publico": 8535.0
     },
     {
-      "id": 130,
+      "id": 122,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "840023295881",
@@ -1566,11 +1470,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4579.0,
+      "precio_lista_m": 4779.0,
       "precio_publico": 6726.0
     },
     {
-      "id": 131,
+      "id": 123,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG04S2...",
@@ -1578,47 +1482,47 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 132,
+      "id": 124,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "840493602363",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2089.0,
-      "precio_publico": 3482.0
-    },
-    {
-      "id": 133,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "MOTOROLA",
-      "codigo": "MOTOG0625...",
-      "nombre": "MOTOROLA MOTO G06 4 GB 256 GB OPEN BOX",
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1549.0,
-      "precio_publico": 3238.0
+      "precio_lista_m": 2369.0,
+      "precio_publico": 3482.0
     },
     {
-      "id": 134,
+      "id": 125,
+      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
+      "clave_categoria": "MOTOROLA",
+      "codigo": "MOTOG066...",
+      "nombre": "MOTOROLA MOTO G06 4 GB 64 GB OPEN BOX",
+      "cantidad": "1+",
+      "existencia_minima": 1,
+      "disponible": true,
+      "precio_lista_m": 1299.0,
+      "precio_publico": 3029.0
+    },
+    {
+      "id": 126,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "G15512GBOPEN",
       "nombre": "MOTOROLA MOTO G15 4 GB 512 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2149.0,
+      "precio_lista_m": 2249.0,
       "precio_publico": 3594.0
     },
     {
-      "id": 135,
+      "id": 127,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG206...",
@@ -1626,11 +1530,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2499.0,
+      "precio_lista_m": 2609.0,
       "precio_publico": 4183.0
     },
     {
-      "id": 136,
+      "id": 128,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG206...",
@@ -1638,11 +1542,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 137,
+      "id": 129,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG206...",
@@ -1650,11 +1554,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1499.0,
+      "precio_lista_m": 1569.0,
       "precio_publico": 2509.0
     },
     {
-      "id": 138,
+      "id": 130,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG226...",
@@ -1662,11 +1566,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3343.0
     },
     {
-      "id": 139,
+      "id": 131,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG226...",
@@ -1674,11 +1578,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1649.0,
+      "precio_lista_m": 1729.0,
       "precio_publico": 2757.0
     },
     {
-      "id": 140,
+      "id": 132,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "G23GRIS",
@@ -1686,11 +1590,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2460.29,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4309.0
     },
     {
-      "id": 141,
+      "id": 133,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG2312...",
@@ -1698,11 +1602,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2099.0,
+      "precio_lista_m": 2199.0,
       "precio_publico": 3510.0
     },
     {
-      "id": 142,
+      "id": 134,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG2312...",
@@ -1710,23 +1614,23 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1679.0,
+      "precio_lista_m": 1759.0,
       "precio_publico": 2811.0
     },
     {
-      "id": 143,
+      "id": 135,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG2312...",
       "nombre": "MOTOROLA MOTO G23 4 GB 128 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2099.0,
+      "precio_lista_m": 2199.0,
       "precio_publico": 3510.0
     },
     {
-      "id": 144,
+      "id": 136,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG238G...",
@@ -1734,11 +1638,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1839.0,
+      "precio_lista_m": 1919.0,
       "precio_publico": 3078.0
     },
     {
-      "id": 145,
+      "id": 137,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG2412...",
@@ -1746,11 +1650,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1479.0,
+      "precio_lista_m": 1549.0,
       "precio_publico": 2474.0
     },
     {
-      "id": 146,
+      "id": 138,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG316...",
@@ -1758,11 +1662,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 147,
+      "id": 139,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG324G...",
@@ -1770,11 +1674,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2199.0,
+      "precio_lista_m": 2299.0,
       "precio_publico": 3681.0
     },
     {
-      "id": 148,
+      "id": 140,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG324G...",
@@ -1782,11 +1686,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1759.0,
+      "precio_lista_m": 1839.0,
       "precio_publico": 2944.0
     },
     {
-      "id": 149,
+      "id": 141,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG326G...",
@@ -1794,11 +1698,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2399.0,
       "precio_publico": 3848.0
     },
     {
-      "id": 150,
+      "id": 142,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG328G...",
@@ -1806,11 +1710,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 151,
+      "id": 143,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG328G...",
@@ -1818,11 +1722,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1439.0,
+      "precio_lista_m": 1509.0,
       "precio_publico": 2409.0
     },
     {
-      "id": 152,
+      "id": 144,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG328G...",
@@ -1830,11 +1734,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 153,
+      "id": 145,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "G35256GBG...",
@@ -1842,11 +1746,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1669.0,
       "precio_publico": 2677.0
     },
     {
-      "id": 154,
+      "id": 146,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "6947681564015",
@@ -1854,11 +1758,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5350.0,
+      "precio_lista_m": 5439.0,
       "precio_publico": 9224.0
     },
     {
-      "id": 155,
+      "id": 147,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG50G...",
@@ -1866,11 +1770,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 156,
+      "id": 148,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG50OPEN",
@@ -1878,11 +1782,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 157,
+      "id": 149,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5212...",
@@ -1890,11 +1794,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2029.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 158,
+      "id": 150,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5212...",
@@ -1902,11 +1806,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1499.0,
+      "precio_lista_m": 1529.0,
       "precio_publico": 2509.0
     },
     {
-      "id": 159,
+      "id": 151,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5212...",
@@ -1914,11 +1818,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2499.0,
+      "precio_lista_m": 2539.0,
       "precio_publico": 4183.0
     },
     {
-      "id": 160,
+      "id": 152,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5312...",
@@ -1926,11 +1830,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2029.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 161,
+      "id": 153,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5312...",
@@ -1938,11 +1842,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2029.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 162,
+      "id": 154,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG5425...",
@@ -1950,11 +1854,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2079.0,
+      "precio_lista_m": 2179.0,
       "precio_publico": 3480.0
     },
     {
-      "id": 163,
+      "id": 155,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG55OPEN",
@@ -1962,11 +1866,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 5020.0
     },
     {
-      "id": 164,
+      "id": 156,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG62G...",
@@ -1974,11 +1878,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4012.0
     },
     {
-      "id": 165,
+      "id": 157,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG6212...",
@@ -1986,11 +1890,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1919.0,
+      "precio_lista_m": 1999.0,
       "precio_publico": 3212.0
     },
     {
-      "id": 166,
+      "id": 158,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG6212...",
@@ -1998,11 +1902,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 167,
+      "id": 159,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG716...",
@@ -2010,11 +1914,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2069.0,
+      "precio_lista_m": 2169.0,
       "precio_publico": 3463.0
     },
     {
-      "id": 168,
+      "id": 160,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG71OPEN",
@@ -2022,11 +1926,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2599.0,
+      "precio_lista_m": 2639.0,
       "precio_publico": 4351.0
     },
     {
-      "id": 169,
+      "id": 161,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG72G...",
@@ -2034,11 +1938,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2799.0,
+      "precio_lista_m": 2919.0,
       "precio_publico": 4685.0
     },
     {
-      "id": 170,
+      "id": 162,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG72OPEN",
@@ -2046,11 +1950,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2799.0,
+      "precio_lista_m": 2919.0,
       "precio_publico": 4681.0
     },
     {
-      "id": 171,
+      "id": 163,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "840023242854",
@@ -2058,11 +1962,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2499.0,
+      "precio_lista_m": 2539.0,
       "precio_publico": 4601.0
     },
     {
-      "id": 172,
+      "id": 164,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG7325...",
@@ -2070,11 +1974,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2159.0,
+      "precio_lista_m": 2259.0,
       "precio_publico": 3614.0
     },
     {
-      "id": 173,
+      "id": 165,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG8PO...",
@@ -2082,11 +1986,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 174,
+      "id": 166,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG8212...",
@@ -2094,11 +1998,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3199.0,
+      "precio_lista_m": 3329.0,
       "precio_publico": 5355.0
     },
     {
-      "id": 175,
+      "id": 167,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG8212...",
@@ -2106,11 +2010,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2559.0,
+      "precio_lista_m": 2669.0,
       "precio_publico": 4284.0
     },
     {
-      "id": 176,
+      "id": 168,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "MOTOG82OPEN",
@@ -2118,11 +2022,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3199.0,
+      "precio_lista_m": 3249.0,
       "precio_publico": 5355.0
     },
     {
-      "id": 177,
+      "id": 169,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "G84256GBOPEN",
@@ -2130,11 +2034,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3799.0,
+      "precio_lista_m": 3959.0,
       "precio_publico": 5875.0
     },
     {
-      "id": 178,
+      "id": 170,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "MOTOROLA",
       "codigo": "G85256GBOPEN",
@@ -2142,11 +2046,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4169.0,
       "precio_publico": 6694.0
     },
     {
-      "id": 179,
+      "id": 171,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "NAOMI",
       "codigo": "NAOMIGOL...",
@@ -2154,11 +2058,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 389.0,
+      "precio_lista_m": 399.0,
       "precio_publico": 651.0
     },
     {
-      "id": 180,
+      "id": 172,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "NAOMI",
       "codigo": "NP6800OPEN",
@@ -2166,11 +2070,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 449.0,
+      "precio_lista_m": 459.0,
       "precio_publico": 751.0
     },
     {
-      "id": 181,
+      "id": 173,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOF6512...",
@@ -2178,11 +2082,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6499.0,
+      "precio_lista_m": 6779.0,
       "precio_publico": 10879.0
     },
     {
-      "id": 182,
+      "id": 174,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOF6OPEN",
@@ -2190,11 +2094,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6999.0,
+      "precio_lista_m": 7109.0,
       "precio_publico": 11705.0
     },
     {
-      "id": 183,
+      "id": 175,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOM312...",
@@ -2202,11 +2106,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 5020.0
     },
     {
-      "id": 184,
+      "id": 176,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOM5S1...",
@@ -2214,11 +2118,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1439.0,
+      "precio_lista_m": 1509.0,
       "precio_publico": 2409.0
     },
     {
-      "id": 185,
+      "id": 177,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOM612...",
@@ -2226,11 +2130,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2099.0,
+      "precio_lista_m": 2199.0,
       "precio_publico": 3514.0
     },
     {
-      "id": 186,
+      "id": 178,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOM625...",
@@ -2238,11 +2142,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2699.0,
+      "precio_lista_m": 2819.0,
       "precio_publico": 4518.0
     },
     {
-      "id": 187,
+      "id": 179,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOM625...",
@@ -2250,11 +2154,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2699.0,
+      "precio_lista_m": 2819.0,
       "precio_publico": 4518.0
     },
     {
-      "id": 188,
+      "id": 180,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOX6OPEN",
@@ -2262,11 +2166,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4299.0,
+      "precio_lista_m": 4479.0,
       "precio_publico": 7196.0
     },
     {
-      "id": 189,
+      "id": 181,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "6941812777251",
@@ -2274,11 +2178,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4209.0,
+      "precio_lista_m": 4389.0,
       "precio_publico": 6838.0
     },
     {
-      "id": 190,
+      "id": 182,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "POCO",
       "codigo": "POCOX6PRO...",
@@ -2286,11 +2190,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5549.0,
+      "precio_lista_m": 5779.0,
       "precio_publico": 9289.0
     },
     {
-      "id": 191,
+      "id": 183,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT1900GRADOB",
@@ -2298,11 +2202,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 479.0,
+      "precio_lista_m": 509.0,
       "precio_publico": 802.0
     },
     {
-      "id": 192,
+      "id": 184,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT1900OPEN",
@@ -2310,11 +2214,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 549.0,
+      "precio_lista_m": 579.0,
       "precio_publico": 918.0
     },
     {
-      "id": 193,
+      "id": 185,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "MONITOR22...",
@@ -2322,11 +2226,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 649.0,
+      "precio_lista_m": 659.0,
       "precio_publico": 1086.0
     },
     {
-      "id": 194,
+      "id": 186,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT2200GRADOB",
@@ -2334,11 +2238,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 519.0,
+      "precio_lista_m": 549.0,
       "precio_publico": 868.0
     },
     {
-      "id": 195,
+      "id": 187,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "MONITOR22...",
@@ -2346,11 +2250,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 649.0,
+      "precio_lista_m": 659.0,
       "precio_publico": 1085.0
     },
     {
-      "id": 196,
+      "id": 188,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT2400GRADOB",
@@ -2358,11 +2262,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 599.2,
+      "precio_lista_m": 629.0,
       "precio_publico": 1003.0
     },
     {
-      "id": 197,
+      "id": 189,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT2400OPEN",
@@ -2370,11 +2274,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 749.0,
+      "precio_lista_m": 789.0,
       "precio_publico": 1253.0
     },
     {
-      "id": 198,
+      "id": 190,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT27000GR...",
@@ -2382,11 +2286,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 509.0,
+      "precio_lista_m": 539.0,
       "precio_publico": 852.0
     },
     {
-      "id": 199,
+      "id": 191,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QT27000OPEN",
@@ -2394,11 +2298,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 849.0,
+      "precio_lista_m": 869.0,
       "precio_publico": 1420.0
     },
     {
-      "id": 200,
+      "id": 192,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "7500647007576",
@@ -2406,11 +2310,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1629.0,
       "precio_publico": 2079.0
     },
     {
-      "id": 201,
+      "id": 193,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "ANDROIDTV...",
@@ -2418,11 +2322,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2699.0,
+      "precio_lista_m": 2819.0,
       "precio_publico": 3509.0
     },
     {
-      "id": 202,
+      "id": 194,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "QTVNETFLIX...",
@@ -2430,11 +2334,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4199.0,
+      "precio_lista_m": 4379.0,
       "precio_publico": 5459.0
     },
     {
-      "id": 203,
+      "id": 195,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "7500647009938",
@@ -2442,11 +2346,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2079.0,
+      "precio_lista_m": 2119.0,
       "precio_publico": 3299.0
     },
     {
-      "id": 204,
+      "id": 196,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "WHALEOS32...",
@@ -2454,11 +2358,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1629.0,
       "precio_publico": 2079.0
     },
     {
-      "id": 205,
+      "id": 197,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "WHALEOS32...",
@@ -2466,11 +2370,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1279.0,
+      "precio_lista_m": 1339.0,
       "precio_publico": 1669.0
     },
     {
-      "id": 206,
+      "id": 198,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "WHALEOS32...",
@@ -2478,11 +2382,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 959.0,
+      "precio_lista_m": 1009.0,
       "precio_publico": 1249.0
     },
     {
-      "id": 207,
+      "id": 199,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "WHALEOS32...",
@@ -2490,11 +2394,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1629.0,
       "precio_publico": 2079.0
     },
     {
-      "id": 208,
+      "id": 200,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "7500647009945",
@@ -2502,11 +2406,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3279.0,
+      "precio_lista_m": 3329.0,
       "precio_publico": 4599.0
     },
     {
-      "id": 209,
+      "id": 201,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "QTOUCH",
       "codigo": "WHALEOS4...",
@@ -2514,11 +2418,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 3899.0
     },
     {
-      "id": 210,
+      "id": 202,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "REALME",
       "codigo": "C21Y64GBG...",
@@ -2526,11 +2430,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1559.0,
+      "precio_lista_m": 1589.0,
       "precio_publico": 2586.0
     },
     {
-      "id": 211,
+      "id": 203,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A0116GBGR...",
@@ -2538,11 +2442,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 699.0,
+      "precio_lista_m": 739.0,
       "precio_publico": 1003.0
     },
     {
-      "id": 212,
+      "id": 204,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A04E32GBG...",
@@ -2550,23 +2454,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1399.0,
+      "precio_lista_m": 1469.0,
       "precio_publico": 2342.0
     },
     {
-      "id": 213,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "A04E32GBG...",
-      "nombre": "SAMSUNG A04E 3 GB 32 GB GRADO B",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1119.0,
-      "precio_publico": 1873.0
-    },
-    {
-      "id": 214,
+      "id": 205,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A04E64GBOPEN",
@@ -2574,11 +2466,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1599.0,
+      "precio_lista_m": 1669.0,
       "precio_publico": 2677.0
     },
     {
-      "id": 215,
+      "id": 206,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806094583908",
@@ -2586,23 +2478,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2129.0,
+      "precio_lista_m": 2229.0,
       "precio_publico": 3314.0
     },
     {
-      "id": 216,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "A04S128GB...",
-      "nombre": "SAMSUNG A04S 4 GB 128 GB GRADO A",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1799.0,
-      "precio_publico": 3011.0
-    },
-    {
-      "id": 217,
+      "id": 207,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A04S64GBG...",
@@ -2610,23 +2490,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1699.0,
+      "precio_lista_m": 1779.0,
       "precio_publico": 2844.0
     },
     {
-      "id": 218,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "A05S128GB...",
-      "nombre": "SAMSUNG A05S 4 GB 128 GB GRADO B",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1599.0,
-      "precio_publico": 2677.0
-    },
-    {
-      "id": 219,
+      "id": 208,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806095229898",
@@ -2634,47 +2502,23 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1919.0,
+      "precio_lista_m": 1949.0,
       "precio_publico": 2875.0
     },
     {
-      "id": 220,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "A06128GBG...",
-      "nombre": "SAMSUNG A06 4 GB 128 GB GRADO A",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1999.0,
-      "precio_publico": 3343.0
-    },
-    {
-      "id": 221,
+      "id": 209,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A06128GBOPEN",
       "nombre": "SAMSUNG A06 4 GB 128 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2089.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 222,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "8806095355719",
-      "nombre": "SAMSUNG A15 4 GB 128 GB 4G NEGRO EUAS",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2279.0,
-      "precio_publico": 3275.0
-    },
-    {
-      "id": 223,
+      "id": 210,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A16128GBG...",
@@ -2682,11 +2526,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2539.0,
+      "precio_lista_m": 2579.0,
       "precio_publico": 2871.0
     },
     {
-      "id": 224,
+      "id": 211,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A17128GBG...",
@@ -2694,11 +2538,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2599.0,
-      "precio_publico": 5438.0
+      "precio_lista_m": 2719.0,
+      "precio_publico": 4499.0
     },
     {
-      "id": 225,
+      "id": 212,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806094276350",
@@ -2706,23 +2550,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3599.0,
+      "precio_lista_m": 3749.0,
       "precio_publico": 5485.0
     },
     {
-      "id": 226,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "A234GBOPEN",
-      "nombre": "SAMSUNG A23 4 GB 128 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2699.0,
-      "precio_publico": 4518.0
-    },
-    {
-      "id": 227,
+      "id": 213,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A26128GBOPEN",
@@ -2730,11 +2562,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3529.0,
+      "precio_lista_m": 3589.0,
       "precio_publico": 5907.0
     },
     {
-      "id": 228,
+      "id": 214,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A50GRADOA",
@@ -2742,11 +2574,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1999.0,
+      "precio_lista_m": 2049.0,
       "precio_publico": 3346.0
     },
     {
-      "id": 229,
+      "id": 215,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A50GRADOB",
@@ -2754,11 +2586,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1399.0,
+      "precio_lista_m": 1439.0,
       "precio_publico": 2291.0
     },
     {
-      "id": 230,
+      "id": 216,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A51CPOGR...",
@@ -2766,11 +2598,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2359.0,
       "precio_publico": 3848.0
     },
     {
-      "id": 231,
+      "id": 217,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A51128GBG...",
@@ -2778,11 +2610,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2119.0,
+      "precio_lista_m": 2179.0,
       "precio_publico": 3547.0
     },
     {
-      "id": 232,
+      "id": 218,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A51GRADOC",
@@ -2790,11 +2622,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1839.0,
+      "precio_lista_m": 1889.0,
       "precio_publico": 3078.0
     },
     {
-      "id": 233,
+      "id": 219,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A52128GBG...",
@@ -2802,11 +2634,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2819.0,
+      "precio_lista_m": 2899.0,
       "precio_publico": 4719.0
     },
     {
-      "id": 234,
+      "id": 220,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A52128GBG...",
@@ -2814,11 +2646,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2259.0,
+      "precio_lista_m": 2319.0,
       "precio_publico": 3781.0
     },
     {
-      "id": 235,
+      "id": 221,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A52128GBOPEN",
@@ -2826,11 +2658,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2819.0,
+      "precio_lista_m": 2899.0,
       "precio_publico": 4719.0
     },
     {
-      "id": 236,
+      "id": 222,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806094110739",
@@ -2838,11 +2670,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3159.0,
+      "precio_lista_m": 3239.0,
       "precio_publico": 5187.0
     },
     {
-      "id": 237,
+      "id": 223,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806094110708",
@@ -2850,11 +2682,11 @@
       "cantidad": "100+",
       "existencia_minima": 100,
       "disponible": true,
-      "precio_lista_m": 3159.0,
+      "precio_lista_m": 3239.0,
       "precio_publico": 5187.0
     },
     {
-      "id": 238,
+      "id": 224,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A53128GBG...",
@@ -2862,11 +2694,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3159.0,
+      "precio_lista_m": 3239.0,
       "precio_publico": 5288.0
     },
     {
-      "id": 239,
+      "id": 225,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A53128GBG...",
@@ -2874,11 +2706,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3199.0,
+      "precio_lista_m": 2599.0,
       "precio_publico": 5355.0
     },
     {
-      "id": 240,
+      "id": 226,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A53128GBOPEN",
@@ -2886,11 +2718,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3159.0,
+      "precio_lista_m": 3239.0,
       "precio_publico": 5187.0
     },
     {
-      "id": 241,
+      "id": 227,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "A56128GBOPEN",
@@ -2898,11 +2730,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5209.0,
       "precio_publico": 8360.0
     },
     {
-      "id": 242,
+      "id": 228,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "R530BUDS3...",
@@ -2910,11 +2742,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2499.0,
+      "precio_lista_m": 2539.0,
       "precio_publico": 4183.0
     },
     {
-      "id": 243,
+      "id": 229,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806095031415",
@@ -2922,11 +2754,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 389.0,
+      "precio_lista_m": 419.0,
       "precio_publico": 583.0
     },
     {
-      "id": 244,
+      "id": 230,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806095988931",
@@ -2934,11 +2766,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5559.0,
+      "precio_lista_m": 5649.0,
       "precio_publico": 8645.0
     },
     {
-      "id": 245,
+      "id": 231,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "M55256GBG...",
@@ -2946,11 +2778,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5209.0,
       "precio_publico": 8368.0
     },
     {
-      "id": 246,
+      "id": 232,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "M55256GBOPEN",
@@ -2958,11 +2790,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 8368.0
     },
     {
-      "id": 247,
+      "id": 233,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE10PLU...",
@@ -2970,11 +2802,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3599.0,
+      "precio_lista_m": 3689.0,
       "precio_publico": 6024.0
     },
     {
-      "id": 248,
+      "id": 234,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20128...",
@@ -2986,7 +2818,7 @@
       "precio_publico": 8731.0
     },
     {
-      "id": 249,
+      "id": 235,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20128...",
@@ -2998,7 +2830,7 @@
       "precio_publico": 7141.0
     },
     {
-      "id": 250,
+      "id": 236,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20GR...",
@@ -3006,11 +2838,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3189.0,
+      "precio_lista_m": 3269.0,
       "precio_publico": 5321.0
     },
     {
-      "id": 251,
+      "id": 237,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20128...",
@@ -3022,7 +2854,7 @@
       "precio_publico": 8821.0
     },
     {
-      "id": 252,
+      "id": 238,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20ULT...",
@@ -3030,11 +2862,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6499.0,
+      "precio_lista_m": 6669.0,
       "precio_publico": 10879.0
     },
     {
-      "id": 253,
+      "id": 239,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20ULT...",
@@ -3042,23 +2874,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5199.0,
+      "precio_lista_m": 5329.0,
       "precio_publico": 8703.0
     },
     {
-      "id": 254,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "NOTE20ULT...",
-      "nombre": "SAMSUNG NOTE 20 ULTRA 12 GB 128 GB CPO OPEN BOX PP",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 6499.0,
-      "precio_publico": 10879.0
-    },
-    {
-      "id": 255,
+      "id": 240,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "NOTE20ULT...",
@@ -3066,11 +2886,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6499.0,
+      "precio_lista_m": 6669.0,
       "precio_publico": 10879.0
     },
     {
-      "id": 256,
+      "id": 241,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S10128GBG...",
@@ -3082,7 +2902,7 @@
       "precio_publico": 4183.0
     },
     {
-      "id": 257,
+      "id": 242,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S10128GBOPEN",
@@ -3094,7 +2914,7 @@
       "precio_publico": 4183.0
     },
     {
-      "id": 258,
+      "id": 243,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S10E128GB...",
@@ -3102,11 +2922,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2359.0,
       "precio_publico": 3848.0
     },
     {
-      "id": 259,
+      "id": 244,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8806092518407",
@@ -3114,11 +2934,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6409.0,
+      "precio_lista_m": 6509.0,
       "precio_publico": 10344.0
     },
     {
-      "id": 260,
+      "id": 245,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20FE128G...",
@@ -3126,11 +2946,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4099.0,
       "precio_publico": 6694.0
     },
     {
-      "id": 261,
+      "id": 246,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20FE128G...",
@@ -3138,11 +2958,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3199.0,
+      "precio_lista_m": 3279.0,
       "precio_publico": 6096.0
     },
     {
-      "id": 262,
+      "id": 247,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20FE128G...",
@@ -3150,11 +2970,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2459.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 263,
+      "id": 248,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20FE128G...",
@@ -3162,23 +2982,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4099.0,
       "precio_publico": 6694.0
     },
     {
-      "id": 264,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "887276395946",
-      "nombre": "SAMSUNG S20 PLUS 12 GB 128 GB 5G NEGRO LATINO PRE",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 5132.33,
-      "precio_publico": 8730.0
-    },
-    {
-      "id": 265,
+      "id": 249,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS12...",
@@ -3186,11 +2994,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4599.0,
+      "precio_lista_m": 4719.0,
       "precio_publico": 7679.0
     },
     {
-      "id": 266,
+      "id": 250,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS12...",
@@ -3198,11 +3006,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3679.0,
+      "precio_lista_m": 3779.0,
       "precio_publico": 6153.0
     },
     {
-      "id": 267,
+      "id": 251,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS12...",
@@ -3210,11 +3018,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2759.0,
+      "precio_lista_m": 2829.0,
       "precio_publico": 4393.0
     },
     {
-      "id": 268,
+      "id": 252,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS12...",
@@ -3222,11 +3030,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4599.0,
+      "precio_lista_m": 4719.0,
       "precio_publico": 7646.0
     },
     {
-      "id": 269,
+      "id": 253,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUSNEGROSAMSUNG",
@@ -3234,11 +3042,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5149.0,
+      "precio_lista_m": 5359.0,
       "precio_publico": 8059.0
     },
     {
-      "id": 270,
+      "id": 254,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS8G...",
@@ -3246,11 +3054,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4399.0,
+      "precio_lista_m": 4509.0,
       "precio_publico": 7357.0
     },
     {
-      "id": 271,
+      "id": 255,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS8G...",
@@ -3258,11 +3066,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3519.0,
+      "precio_lista_m": 3609.0,
       "precio_publico": 5885.0
     },
     {
-      "id": 272,
+      "id": 256,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS8G...",
@@ -3270,11 +3078,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2639.0,
+      "precio_lista_m": 2709.0,
       "precio_publico": 4414.0
     },
     {
-      "id": 273,
+      "id": 257,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20PLUS8G...",
@@ -3282,11 +3090,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4399.0,
+      "precio_lista_m": 4509.0,
       "precio_publico": 7337.0
     },
     {
-      "id": 274,
+      "id": 258,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20ULTRA1...",
@@ -3298,7 +3106,7 @@
       "precio_publico": 9205.0
     },
     {
-      "id": 275,
+      "id": 259,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20ULTRA1...",
@@ -3310,7 +3118,7 @@
       "precio_publico": 7364.0
     },
     {
-      "id": 276,
+      "id": 260,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20ULTRA1...",
@@ -3318,11 +3126,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3299.0,
+      "precio_lista_m": 3389.0,
       "precio_publico": 5522.0
     },
     {
-      "id": 277,
+      "id": 261,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S20ULTRA1...",
@@ -3334,7 +3142,7 @@
       "precio_publico": 9205.0
     },
     {
-      "id": 278,
+      "id": 262,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276503004",
@@ -3342,23 +3150,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5749.0,
+      "precio_lista_m": 5839.0,
       "precio_publico": 10411.0
     },
     {
-      "id": 279,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "221216503008",
-      "nombre": "SAMSUNG S21 5G 8 GB 128 GB 5G VIOLETA LATINO PRE",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 6379.0,
-      "precio_publico": 8913.0
-    },
-    {
-      "id": 280,
+      "id": 263,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21128GBG...",
@@ -3366,11 +3162,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5209.0,
       "precio_publico": 8360.0
     },
     {
-      "id": 281,
+      "id": 264,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21128GBG...",
@@ -3378,11 +3174,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4169.0,
       "precio_publico": 6688.0
     },
     {
-      "id": 282,
+      "id": 265,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21128GBG...",
@@ -3390,11 +3186,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 5020.0
     },
     {
-      "id": 283,
+      "id": 266,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276556239",
@@ -3402,11 +3198,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5539.0,
+      "precio_lista_m": 5629.0,
       "precio_publico": 10487.0
     },
     {
-      "id": 284,
+      "id": 267,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21FE128G...",
@@ -3414,11 +3210,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4499.0,
+      "precio_lista_m": 4689.0,
       "precio_publico": 7531.0
     },
     {
-      "id": 285,
+      "id": 268,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21FE128G...",
@@ -3426,11 +3222,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3599.0,
+      "precio_lista_m": 3749.0,
       "precio_publico": 6019.0
     },
     {
-      "id": 286,
+      "id": 269,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21FE128G...",
@@ -3438,11 +3234,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4499.0,
+      "precio_lista_m": 4689.0,
       "precio_publico": 7531.0
     },
     {
-      "id": 287,
+      "id": 270,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21FE256G...",
@@ -3450,11 +3246,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4799.0,
+      "precio_lista_m": 4999.0,
       "precio_publico": 6046.0
     },
     {
-      "id": 288,
+      "id": 271,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21FE256G...",
@@ -3462,11 +3258,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 4799.0,
+      "precio_lista_m": 4999.0,
       "precio_publico": 6046.0
     },
     {
-      "id": 289,
+      "id": 272,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "221216467030",
@@ -3474,11 +3270,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7559.0,
+      "precio_lista_m": 7869.0,
       "precio_publico": 11466.0
     },
     {
-      "id": 290,
+      "id": 273,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276466361",
@@ -3486,11 +3282,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6499.0,
+      "precio_lista_m": 6599.0,
       "precio_publico": 11206.0
     },
     {
-      "id": 291,
+      "id": 274,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21PLUS12...",
@@ -3498,11 +3294,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4099.0,
       "precio_publico": 6688.0
     },
     {
-      "id": 292,
+      "id": 275,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21PLUS12...",
@@ -3510,11 +3306,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3199.0,
+      "precio_lista_m": 3279.0,
       "precio_publico": 5350.0
     },
     {
-      "id": 293,
+      "id": 276,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21PLUS12...",
@@ -3522,11 +3318,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2459.0,
       "precio_publico": 4012.0
     },
     {
-      "id": 294,
+      "id": 277,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21PLUS12...",
@@ -3534,11 +3330,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4099.0,
       "precio_publico": 6694.0
     },
     {
-      "id": 295,
+      "id": 278,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276581903",
@@ -3546,11 +3342,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 8829.0,
+      "precio_lista_m": 8969.0,
       "precio_publico": 13390.0
     },
     {
-      "id": 296,
+      "id": 279,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21ULTRA1...",
@@ -3558,11 +3354,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 5999.0,
+      "precio_lista_m": 6149.0,
       "precio_publico": 10042.0
     },
     {
-      "id": 297,
+      "id": 280,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21ULTRA1...",
@@ -3570,11 +3366,11 @@
       "cantidad": "50+",
       "existencia_minima": 50,
       "disponible": true,
-      "precio_lista_m": 4799.0,
+      "precio_lista_m": 4919.0,
       "precio_publico": 8026.0
     },
     {
-      "id": 298,
+      "id": 281,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S21ULTRA1...",
@@ -3582,11 +3378,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3599.0,
+      "precio_lista_m": 3689.0,
       "precio_publico": 6627.0
     },
     {
-      "id": 299,
+      "id": 282,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276711379",
@@ -3594,11 +3390,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7879.0,
+      "precio_lista_m": 7999.0,
       "precio_publico": 12926.0
     },
     {
-      "id": 300,
+      "id": 283,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S22128GBG...",
@@ -3606,11 +3402,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6899.0,
+      "precio_lista_m": 7189.0,
       "precio_publico": 11548.0
     },
     {
-      "id": 301,
+      "id": 284,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S22128GBOPEN",
@@ -3618,11 +3414,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 6899.0,
+      "precio_lista_m": 7189.0,
       "precio_publico": 11548.0
     },
     {
-      "id": 302,
+      "id": 285,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276714332",
@@ -3630,11 +3426,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7989.0,
+      "precio_lista_m": 8109.0,
       "precio_publico": 12930.0
     },
     {
-      "id": 303,
+      "id": 286,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S22256GBG...",
@@ -3642,11 +3438,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7199.0,
+      "precio_lista_m": 7499.0,
       "precio_publico": 12049.0
     },
     {
-      "id": 304,
+      "id": 287,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276623528",
@@ -3654,11 +3450,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 9259.0,
+      "precio_lista_m": 9649.0,
       "precio_publico": 14774.0
     },
     {
-      "id": 305,
+      "id": 288,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S22PLUS12...",
@@ -3666,11 +3462,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7999.0,
+      "precio_lista_m": 8329.0,
       "precio_publico": 13332.0
     },
     {
-      "id": 306,
+      "id": 289,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S22PLUS12...",
@@ -3678,11 +3474,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7999.0,
+      "precio_lista_m": 8329.0,
       "precio_publico": 13332.0
     },
     {
-      "id": 307,
+      "id": 290,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S9GRADOA",
@@ -3690,11 +3486,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2359.0,
       "precio_publico": 3863.0
     },
     {
-      "id": 308,
+      "id": 291,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S964GBGR...",
@@ -3706,7 +3502,7 @@
       "precio_publico": 3078.0
     },
     {
-      "id": 309,
+      "id": 292,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S9OPEN",
@@ -3714,11 +3510,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2359.0,
       "precio_publico": 3848.0
     },
     {
-      "id": 310,
+      "id": 293,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S9PLUSGR...",
@@ -3726,11 +3522,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3079.0,
       "precio_publico": 5020.0
     },
     {
-      "id": 311,
+      "id": 294,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S9PLUSGR...",
@@ -3738,11 +3534,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2459.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 312,
+      "id": 295,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "S9PLUSOPEN",
@@ -3750,11 +3546,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3079.0,
       "precio_publico": 5265.0
     },
     {
-      "id": 313,
+      "id": 296,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP3256G...",
@@ -3762,11 +3558,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2519.0,
+      "precio_lista_m": 2589.0,
       "precio_publico": 4217.0
     },
     {
-      "id": 314,
+      "id": 297,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "8872767894...",
@@ -3774,11 +3570,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 9999.0,
+      "precio_lista_m": 10409.0,
       "precio_publico": 9999.0
     },
     {
-      "id": 315,
+      "id": 298,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "887276765969",
@@ -3786,11 +3582,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 10999.0,
+      "precio_lista_m": 11449.0,
       "precio_publico": 10999.0
     },
     {
-      "id": 316,
+      "id": 299,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5256G...",
@@ -3798,11 +3594,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11039.0,
+      "precio_lista_m": 11489.0,
       "precio_publico": 17877.0
     },
     {
-      "id": 317,
+      "id": 300,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5256G...",
@@ -3810,11 +3606,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5099.0,
+      "precio_lista_m": 5309.0,
       "precio_publico": 8535.0
     },
     {
-      "id": 318,
+      "id": 301,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5256G...",
@@ -3822,11 +3618,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11039.0,
+      "precio_lista_m": 11489.0,
       "precio_publico": 17365.0
     },
     {
-      "id": 319,
+      "id": 302,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5512G...",
@@ -3834,11 +3630,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 10129.0,
+      "precio_lista_m": 10549.0,
       "precio_publico": 16693.0
     },
     {
-      "id": 320,
+      "id": 303,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5512G...",
@@ -3846,11 +3642,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5399.0,
+      "precio_lista_m": 5629.0,
       "precio_publico": 9037.0
     },
     {
-      "id": 321,
+      "id": 304,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP5512G...",
@@ -3858,11 +3654,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 12669.0,
+      "precio_lista_m": 13189.0,
       "precio_publico": 20597.0
     },
     {
-      "id": 322,
+      "id": 305,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFLIP6256G...",
@@ -3870,11 +3666,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 16399.0,
+      "precio_lista_m": 17069.0,
       "precio_publico": 26092.0
     },
     {
-      "id": 323,
+      "id": 306,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SAMSUNG",
       "codigo": "ZFOLD4512...",
@@ -3882,23 +3678,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 7999.0,
+      "precio_lista_m": 8329.0,
       "precio_publico": 13447.0
     },
     {
-      "id": 324,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "SAMSUNG",
-      "codigo": "ZFOLD6512...",
-      "nombre": "SAMSUNG Z FOLD 6 12 GB 512 GB GRADO A",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 32929.0,
-      "precio_publico": 48271.0
-    },
-    {
-      "id": 325,
+      "id": 307,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SKY",
       "codigo": "SKYROCK2...",
@@ -3906,11 +3690,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 179.0,
+      "precio_lista_m": 199.0,
       "precio_publico": 300.0
     },
     {
-      "id": 326,
+      "id": 308,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "SKY",
       "codigo": "SKYROCK2...",
@@ -3918,11 +3702,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 179.0,
+      "precio_lista_m": 189.0,
       "precio_publico": 300.0
     },
     {
-      "id": 327,
+      "id": 309,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "IPADPRO12N...",
@@ -3934,7 +3718,7 @@
       "precio_publico": 28000.0
     },
     {
-      "id": 328,
+      "id": 310,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "LOGICT3GG...",
@@ -3946,7 +3730,7 @@
       "precio_publico": 939.0
     },
     {
-      "id": 329,
+      "id": 311,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "LOGICT3GG...",
@@ -3958,7 +3742,7 @@
       "precio_publico": 699.0
     },
     {
-      "id": 330,
+      "id": 312,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "LOGICT3GOPEN",
@@ -3970,7 +3754,7 @@
       "precio_publico": 1169.0
     },
     {
-      "id": 331,
+      "id": 313,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABX13512...",
@@ -3982,7 +3766,7 @@
       "precio_publico": 4938.7
     },
     {
-      "id": 332,
+      "id": 314,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "8806092277823",
@@ -3994,7 +3778,7 @@
       "precio_publico": 1999.0
     },
     {
-      "id": 333,
+      "id": 315,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "8806092277762",
@@ -4006,7 +3790,7 @@
       "precio_publico": 1999.0
     },
     {
-      "id": 334,
+      "id": 316,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABA9PLUS...",
@@ -4018,31 +3802,19 @@
       "precio_publico": 2189.0
     },
     {
-      "id": 335,
+      "id": 317,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABA9PLUS...",
       "nombre": "SAMSUNG GALAXY TAB A9 PLUS X210 4 GB 64 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 2799.0,
       "precio_publico": 3639.0
     },
     {
-      "id": 336,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "TABLETS",
-      "codigo": "TABA9PLUS...",
-      "nombre": "SAMSUNG GALAXY TAB A9 PLUS X210 8 GB 128 GB OPEN BOX",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 3199.0,
-      "precio_publico": 4159.0
-    },
-    {
-      "id": 337,
+      "id": 318,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABA9GRADOA",
@@ -4054,7 +3826,7 @@
       "precio_publico": 2469.0
     },
     {
-      "id": 338,
+      "id": 319,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABA9X1101...",
@@ -4066,7 +3838,7 @@
       "precio_publico": 2729.0
     },
     {
-      "id": 339,
+      "id": 320,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "TABA9X1151...",
@@ -4078,19 +3850,7 @@
       "precio_publico": 3119.0
     },
     {
-      "id": 340,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "TABLETS",
-      "codigo": "TABS10LITE...",
-      "nombre": "SAMSUNG GALAXY TAB S10 LITE 6 GB 128 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 3999.0,
-      "precio_publico": 6239.0
-    },
-    {
-      "id": 341,
+      "id": 321,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "8806094471717",
@@ -4102,7 +3862,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 342,
+      "id": 322,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "8806090489723",
@@ -4114,7 +3874,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 343,
+      "id": 323,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "6941812727041",
@@ -4126,7 +3886,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 344,
+      "id": 324,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TABLETS",
       "codigo": "6941812726907",
@@ -4138,7 +3898,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 345,
+      "id": 325,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TCL",
       "codigo": "846042065207",
@@ -4146,11 +3906,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 10989.0,
+      "precio_lista_m": 11159.0,
       "precio_publico": 11999.0
     },
     {
-      "id": 346,
+      "id": 326,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TECHVIEW",
       "codigo": "860014222337",
@@ -4158,11 +3918,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1449.0,
+      "precio_lista_m": 1479.0,
       "precio_publico": 2200.0
     },
     {
-      "id": 347,
+      "id": 327,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TECHVIEW",
       "codigo": "860014222313",
@@ -4170,11 +3930,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1449.0,
+      "precio_lista_m": 1479.0,
       "precio_publico": 2200.0
     },
     {
-      "id": 348,
+      "id": 328,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TECHVIEW",
       "codigo": "860014222306",
@@ -4182,11 +3942,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 1269.0,
+      "precio_lista_m": 1289.0,
       "precio_publico": 1923.0
     },
     {
-      "id": 349,
+      "id": 329,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TECHVIEW",
       "codigo": "860014222320",
@@ -4194,11 +3954,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1269.0,
+      "precio_lista_m": 1289.0,
       "precio_publico": 1923.0
     },
     {
-      "id": 350,
+      "id": 330,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "TECNO",
       "codigo": "4894947016868",
@@ -4206,35 +3966,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1789.0,
+      "precio_lista_m": 1819.0,
       "precio_publico": 2844.0
     },
     {
-      "id": 351,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "TECNO",
-      "codigo": "TECNOSPAR...",
-      "nombre": "TECNO SPARK 30 PRO (8+8) GB 256 GB GRADO A",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 3099.0,
-      "precio_publico": 5187.0
-    },
-    {
-      "id": 352,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "TECNO",
-      "codigo": "TECNOSPA...",
-      "nombre": "TECNO SPARK GO 1 (4+4) GB 128 GB OPEN BOX",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1249.0,
-      "precio_publico": 2089.0
-    },
-    {
-      "id": 353,
+      "id": 331,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XANDOS",
       "codigo": "X5ROJO",
@@ -4242,11 +3978,11 @@
       "cantidad": "10+",
       "existencia_minima": 10,
       "disponible": true,
-      "precio_lista_m": 389.0,
+      "precio_lista_m": 399.0,
       "precio_publico": 559.0
     },
     {
-      "id": 354,
+      "id": 332,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "XIAOMI1225...",
@@ -4254,11 +3990,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3999.0,
+      "precio_lista_m": 4169.0,
       "precio_publico": 6694.0
     },
     {
-      "id": 355,
+      "id": 333,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "XIAOMI1225...",
@@ -4266,11 +4002,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5209.0,
       "precio_publico": 8368.0
     },
     {
-      "id": 356,
+      "id": 334,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "69418127266...",
@@ -4278,11 +4014,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11499.0,
+      "precio_lista_m": 11679.0,
       "precio_publico": 11499.0
     },
     {
-      "id": 357,
+      "id": 335,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812726662",
@@ -4290,11 +4026,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11499.0,
+      "precio_lista_m": 11679.0,
       "precio_publico": 11499.0
     },
     {
-      "id": 358,
+      "id": 336,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812734230",
@@ -4302,11 +4038,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 14499.0,
+      "precio_lista_m": 14719.0,
       "precio_publico": 14499.0
     },
     {
-      "id": 359,
+      "id": 337,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812738894",
@@ -4314,11 +4050,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 14499.0,
+      "precio_lista_m": 14719.0,
       "precio_publico": 14499.0
     },
     {
-      "id": 360,
+      "id": 338,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812738948",
@@ -4326,11 +4062,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 12499.0,
+      "precio_lista_m": 12689.0,
       "precio_publico": 12499.0
     },
     {
-      "id": 361,
+      "id": 339,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812738962",
@@ -4338,11 +4074,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 12499.0,
+      "precio_lista_m": 12689.0,
       "precio_publico": 12499.0
     },
     {
-      "id": 362,
+      "id": 340,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "XIAOMI14T5...",
@@ -4350,11 +4086,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 11999.0,
+      "precio_lista_m": 12179.0,
       "precio_publico": 19578.0
     },
     {
-      "id": 363,
+      "id": 341,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE11128...",
@@ -4362,11 +4098,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5079.0,
       "precio_publico": 7203.0
     },
     {
-      "id": 364,
+      "id": 342,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6934177760990",
@@ -4374,11 +4110,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1819.0,
+      "precio_lista_m": 1849.0,
       "precio_publico": 3016.0
     },
     {
-      "id": 365,
+      "id": 343,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6934177778766",
@@ -4386,11 +4122,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1899.0,
+      "precio_lista_m": 1979.0,
       "precio_publico": 2693.0
     },
     {
-      "id": 366,
+      "id": 344,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMI105G...",
@@ -4398,23 +4134,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1649.0,
+      "precio_lista_m": 1729.0,
       "precio_publico": 2760.0
     },
     {
-      "id": 367,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "XIAOMI",
-      "codigo": "XIAOMIREDM...",
-      "nombre": "XIAOMI REDMI 13 8 GB 256 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2849.0,
-      "precio_publico": 4769.0
-    },
-    {
-      "id": 368,
+      "id": 345,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812745168",
@@ -4422,11 +4146,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 9999.0,
+      "precio_lista_m": 10149.0,
       "precio_publico": 9999.0
     },
     {
-      "id": 369,
+      "id": 346,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554445065",
@@ -4434,23 +4158,23 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3539.0,
+      "precio_lista_m": 3689.0,
       "precio_publico": 4499.0
     },
     {
-      "id": 370,
+      "id": 347,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMI9I64G...",
       "nombre": "XIAOMI REDMI 9i 4 GB 64 GB OPEN BOX",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1499.0,
+      "precio_lista_m": 1569.0,
       "precio_publico": 2507.0
     },
     {
-      "id": 371,
+      "id": 348,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4458,11 +4182,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2159.0,
+      "precio_lista_m": 2259.0,
       "precio_publico": 3614.0
     },
     {
-      "id": 372,
+      "id": 349,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE10S12...",
@@ -4470,11 +4194,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 3681.0
     },
     {
-      "id": 373,
+      "id": 350,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4482,23 +4206,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2499.0,
       "precio_publico": 4016.0
     },
     {
-      "id": 374,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "XIAOMI",
-      "codigo": "NOTE10S12...",
-      "nombre": "XIAOMI REDMI NOTE 10S 6 GB 128 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2999.0,
-      "precio_publico": 5020.0
-    },
-    {
-      "id": 375,
+      "id": 351,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE12128...",
@@ -4506,23 +4218,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 1749.0,
+      "precio_lista_m": 1829.0,
       "precio_publico": 2928.0
     },
     {
-      "id": 376,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "XIAOMI",
-      "codigo": "NOTE12S25...",
-      "nombre": "XIAOMI REDMI NOTE 12S 8 GB 256 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 2499.0,
-      "precio_publico": 4183.0
-    },
-    {
-      "id": 377,
+      "id": 352,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE13PRO...",
@@ -4530,11 +4230,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4999.0,
+      "precio_lista_m": 5209.0,
       "precio_publico": 8368.0
     },
     {
-      "id": 378,
+      "id": 353,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE13PRO...",
@@ -4542,11 +4242,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2999.0,
+      "precio_lista_m": 3129.0,
       "precio_publico": 5016.0
     },
     {
-      "id": 379,
+      "id": 354,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE13PRO...",
@@ -4554,11 +4254,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3699.0,
+      "precio_lista_m": 3859.0,
       "precio_publico": 6186.0
     },
     {
-      "id": 380,
+      "id": 355,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4566,11 +4266,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2159.0,
+      "precio_lista_m": 2259.0,
       "precio_publico": 3614.0
     },
     {
-      "id": 381,
+      "id": 356,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4578,23 +4278,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2699.0,
+      "precio_lista_m": 2819.0,
       "precio_publico": 4518.0
     },
     {
-      "id": 382,
-      "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
-      "clave_categoria": "XIAOMI",
-      "codigo": "REDMINOTE...",
-      "nombre": "XIAOMI REDMI NOTE 14 PRO 8 GB 256 GB OPEN BOX",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 4199.0,
-      "precio_publico": 7022.0
-    },
-    {
-      "id": 383,
+      "id": 357,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4602,11 +4290,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 5999.0,
+      "precio_lista_m": 6249.0,
       "precio_publico": 10042.0
     },
     {
-      "id": 384,
+      "id": 358,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE14S25...",
@@ -4614,11 +4302,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 3499.0,
+      "precio_lista_m": 3559.0,
       "precio_publico": 5852.0
     },
     {
-      "id": 385,
+      "id": 359,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "NOTE15PRO...",
@@ -4626,11 +4314,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 4499.0,
+      "precio_lista_m": 4689.0,
       "precio_publico": 7524.0
     },
     {
-      "id": 386,
+      "id": 360,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "XIAOMI",
       "codigo": "REDMINOTE...",
@@ -4638,11 +4326,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2299.0,
+      "precio_lista_m": 2399.0,
       "precio_publico": 3848.0
     },
     {
-      "id": 387,
+      "id": 361,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "L210GRADOA",
@@ -4650,11 +4338,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 999.0,
+      "precio_lista_m": 1049.0,
       "precio_publico": 1672.0
     },
     {
-      "id": 388,
+      "id": 362,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "L210GRADOB",
@@ -4662,11 +4350,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 799.0,
+      "precio_lista_m": 839.0,
       "precio_publico": 1337.0
     },
     {
-      "id": 389,
+      "id": 363,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "L210GRADOC",
@@ -4674,11 +4362,11 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 599.0,
+      "precio_lista_m": 629.0,
       "precio_publico": 1003.0
     },
     {
-      "id": 390,
+      "id": 364,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "L210OPEN",
@@ -4686,11 +4374,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 999.0,
+      "precio_lista_m": 1049.0,
       "precio_publico": 1672.0
     },
     {
-      "id": 391,
+      "id": 365,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "ZTEBLADEL...",
@@ -4698,11 +4386,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 699.0,
+      "precio_lista_m": 739.0,
       "precio_publico": 1170.0
     },
     {
-      "id": 392,
+      "id": 366,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "ZTEBLADEL...",
@@ -4710,11 +4398,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 799.0,
+      "precio_lista_m": 819.0,
       "precio_publico": 1337.0
     },
     {
-      "id": 393,
+      "id": 367,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "ZTEBLADEL...",
@@ -4722,11 +4410,11 @@
       "cantidad": "1+",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 639.0,
+      "precio_lista_m": 649.0,
       "precio_publico": 1070.0
     },
     {
-      "id": 394,
+      "id": 368,
       "categoria_pdf": "Categoria Codigo Producto Cantidad Lista M Precio Público",
       "clave_categoria": "ZTE",
       "codigo": "ZTENUBIAOPEN",
@@ -4734,10 +4422,10 @@
       "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
-      "precio_lista_m": 2399.0,
+      "precio_lista_m": 2439.0,
       "precio_publico": 4016.0
     }
   ],
   "source_type": "pdf_ecommerce_filtrado",
-  "total_omitidos_categoria": 172
+  "total_omitidos_categoria": 170
 }
