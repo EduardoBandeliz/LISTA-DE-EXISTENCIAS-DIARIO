@@ -554,9 +554,46 @@ def product_state_key(product: dict) -> str:
     return f"NOMBRE:{name}" if name else ""
 
 
-def google_sheet_rows(inventory: dict, list_key: str, new_product_keys: Optional[set[str]] = None) -> list[list]:
+def sheet_price_value(product: dict, list_key: str) -> float:
+    if list_key == "PL":
+        value = product.get("precio_pl", product.get("precio_lista_m", product.get("precio", 0)))
+    else:
+        value = product.get("precio_lista_m", product.get("precio", 0))
+    return float(value or 0)
+
+
+def price_change_messages(previous_inventory: dict, inventory: dict, list_key: str) -> dict[str, str]:
+    previous_by_key = {
+        product_state_key(product): product
+        for product in previous_inventory.get("productos", [])
+        if product_state_key(product)
+    }
+    changes: dict[str, str] = {}
+    for product in inventory.get("productos", []):
+        key = product_state_key(product)
+        previous = previous_by_key.get(key)
+        if not previous:
+            continue
+        old_price = sheet_price_value(previous, list_key)
+        new_price = sheet_price_value(product, list_key)
+        if abs(old_price - new_price) < 0.005:
+            continue
+        direction = "Subio" if new_price > old_price else "Bajo"
+        changes[key] = (
+            f"Cambio de precio: ${old_price:,.2f} -> ${new_price:,.2f} ({direction})"
+        )
+    return changes
+
+
+def google_sheet_rows(
+    inventory: dict,
+    list_key: str,
+    new_product_keys: Optional[set[str]] = None,
+    price_changes: Optional[dict[str, str]] = None,
+) -> list[list]:
     updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     new_product_keys = new_product_keys or set()
+    price_changes = price_changes or {}
     headers = [
         "Codigo",
         "Producto",
@@ -565,10 +602,11 @@ def google_sheet_rows(inventory: dict, list_key: str, new_product_keys: Optional
         "Precio publico",
         "Fecha actualizacion",
         "Recien llegado a bodega",
+        "Cambio de precio",
     ]
     rows = [headers]
     for product in inventory.get("productos", []):
-        price = product.get("precio_pl", product.get("precio_lista_m", product.get("precio", "")))
+        price = sheet_price_value(product, list_key)
         if float(price or 0) <= 1:
             continue
         rows.append(
@@ -580,6 +618,7 @@ def google_sheet_rows(inventory: dict, list_key: str, new_product_keys: Optional
                 product.get("precio_publico", ""),
                 updated_at,
                 "SI" if product_state_key(product) in new_product_keys else "",
+                price_changes.get(product_state_key(product), ""),
             ]
         )
     return rows
@@ -589,6 +628,7 @@ def sync_inventory_to_google_sheets(
     inventory: dict,
     list_key: str,
     new_product_keys: Optional[set[str]] = None,
+    price_changes: Optional[dict[str, str]] = None,
 ) -> str:
     if not google_sheets_configured():
         return "Google Sheets no configurado."
@@ -596,7 +636,7 @@ def sync_inventory_to_google_sheets(
     tab_name = GOOGLE_SHEET_TABS.get(list_key, list_key)
     service = google_sheets_service()
     ensure_google_sheet_tab(service, tab_name)
-    rows = google_sheet_rows(inventory, list_key, new_product_keys)
+    rows = google_sheet_rows(inventory, list_key, new_product_keys, price_changes)
 
     service.spreadsheets().values().clear(
         spreadsheetId=GOOGLE_SHEETS_SPREADSHEET_ID,
@@ -2072,9 +2112,15 @@ def safe_sync_inventory_to_google_sheets(
     inventory: dict,
     list_key: str,
     new_product_codes: Optional[set[str]] = None,
+    price_changes: Optional[dict[str, str]] = None,
 ) -> str:
     try:
-        return sync_inventory_to_google_sheets(inventory, list_key, new_product_codes)
+        return sync_inventory_to_google_sheets(
+            inventory,
+            list_key,
+            new_product_codes,
+            price_changes,
+        )
     except Exception as exc:
         return f"No pude actualizar Google Sheets: {exc}"
 
@@ -2639,6 +2685,12 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
             await asyncio.to_thread(validate_inventory_update, inventory_g, LISTA_G_JSON, "Lista G")
 
             analysis_m = await asyncio.to_thread(analyze_inventory_update, previous_m, inventory_m)
+            price_changes_m = await asyncio.to_thread(
+                price_change_messages, previous_m, inventory_m, "M"
+            )
+            price_changes_g = await asyncio.to_thread(
+                price_change_messages, previous_g, inventory_g, "G"
+            )
             quality_m = await asyncio.to_thread(inventory_quality_checks, previous_m, inventory_m)
             quality_g = await asyncio.to_thread(inventory_quality_checks, previous_g, inventory_g)
             severe = quality_m["severe"] + quality_g["severe"]
@@ -2655,10 +2707,18 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
             new_products_g = await asyncio.to_thread(newly_added_products, previous_g, inventory_g)
             new_keys_g = await asyncio.to_thread(active_new_product_keys, "G", new_products_g)
             sheets_m = await asyncio.to_thread(
-                safe_sync_inventory_to_google_sheets, inventory_m, "M", new_keys_m
+                safe_sync_inventory_to_google_sheets,
+                inventory_m,
+                "M",
+                new_keys_m,
+                price_changes_m,
             )
             sheets_g = await asyncio.to_thread(
-                safe_sync_inventory_to_google_sheets, inventory_g, "G", new_keys_g
+                safe_sync_inventory_to_google_sheets,
+                inventory_g,
+                "G",
+                new_keys_g,
+                price_changes_g,
             )
             message = (
                 f"Listo. {result}\n\n"
@@ -2750,11 +2810,18 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
             if list_type == "PL":
                 previous_inventory = await asyncio.to_thread(load_plus_inventory)
                 new_products = await asyncio.to_thread(newly_added_products, previous_inventory, parsed_inventory)
+                price_changes = await asyncio.to_thread(
+                    price_change_messages, previous_inventory, parsed_inventory, "PL"
+                )
                 summary = await asyncio.to_thread(write_plus_data, parsed_inventory)
                 result = await asyncio.to_thread(publish_plus_to_github, summary)
                 new_product_keys = await asyncio.to_thread(active_new_product_keys, "PL", new_products)
                 sheets_result = await asyncio.to_thread(
-                    safe_sync_inventory_to_google_sheets, parsed_inventory, "PL", new_product_keys
+                    safe_sync_inventory_to_google_sheets,
+                    parsed_inventory,
+                    "PL",
+                    new_product_keys,
+                    price_changes,
                 )
                 message = (
                     f"Listo: {summary}. {result}\n\n"
@@ -2772,11 +2839,18 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                 if list_type == "G":
                     previous_inventory = await asyncio.to_thread(load_lista_g_inventory)
                     new_products = await asyncio.to_thread(newly_added_products, previous_inventory, parsed_inventory)
+                    price_changes = await asyncio.to_thread(
+                        price_change_messages, previous_inventory, parsed_inventory, "G"
+                    )
                     summary = await asyncio.to_thread(write_lista_g_data, parsed_inventory)
                     result = await asyncio.to_thread(publish_lista_g_to_github, summary)
                     new_product_keys = await asyncio.to_thread(active_new_product_keys, "G", new_products)
                     sheets_result = await asyncio.to_thread(
-                        safe_sync_inventory_to_google_sheets, parsed_inventory, "G", new_product_keys
+                        safe_sync_inventory_to_google_sheets,
+                        parsed_inventory,
+                        "G",
+                        new_product_keys,
+                        price_changes,
                     )
                     message = (
                         f"Listo: {summary}. {result}\n\n"
@@ -2789,6 +2863,9 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                     new_inventory = parsed_inventory
                     previous_inventory = await asyncio.to_thread(load_inventory)
                     analysis = await asyncio.to_thread(analyze_inventory_update, previous_inventory, new_inventory)
+                    price_changes = await asyncio.to_thread(
+                        price_change_messages, previous_inventory, new_inventory, "M"
+                    )
                     quality = await asyncio.to_thread(inventory_quality_checks, previous_inventory, new_inventory)
                     if quality["severe"]:
                         raise ValueError("Control de calidad detuvo la publicacion: " + "; ".join(quality["severe"]))
@@ -2820,6 +2897,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                         new_inventory,
                         "M",
                         new_product_keys,
+                        price_changes,
                     )
                     message = share_message(result, summary, report)
                     message = append_google_sheets_result(message, sheets_result)
