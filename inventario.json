@@ -1,12 +1,12 @@
 {
-  "source_pdf": "1794229252_109.pdf",
+  "source_pdf": "1794315652_109.pdf",
   "report_title": "Reporte de inventario actual LISTA M",
   "lista": "M",
-  "report_datetime": "2026-11-09T07:00:51",
-  "total_productos": 302,
-  "total_disponibles": 302,
+  "report_datetime": "2026-11-10T07:00:52",
+  "total_productos": 299,
+  "total_disponibles": 299,
   "total_agotados": 0,
-  "total_omitidos_cero": 85,
+  "total_omitidos_cero": 84,
   "total_omitidos_precio": 17,
   "productos": [
     {
@@ -27,7 +27,7 @@
       "clave_categoria": "AC...",
       "codigo": "7506250918605",
       "nombre": "ADAPTADOR USB C A JACK USB 3.0 OTG 10cm USB-470 STEREN",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 70.0,
@@ -123,8 +123,8 @@
       "clave_categoria": "AC...",
       "codigo": "6974368776195",
       "nombre": "AUT250N AUDIFONOS DIADEMA INALAMBRICO1HORA",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 230.0,
       "precio_publico": 399.0
@@ -231,8 +231,8 @@
       "clave_categoria": "AC...",
       "codigo": "7506250951114",
       "nombre": "CABLE HDMI V2.0 ULTRA HIGH-SPEED 1m 295-501 STEREN",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 72.0,
       "precio_publico": 99.0
@@ -915,8 +915,8 @@
       "clave_categoria": "BLU",
       "codigo": "4895804476",
       "nombre": "BLU BOLD K22 5G (4+8) GB 128 GB 5G AZUL NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 2139.0,
       "precio_publico": 3030.0
@@ -963,8 +963,8 @@
       "clave_categoria": "BLU",
       "codigo": "848958044536",
       "nombre": "BLU G75 (4+10) GB 256 GB 4G NEGRO NACIONAL",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 2409.0,
       "precio_publico": 2956.0
@@ -1443,8 +1443,8 @@
       "clave_categoria": "EQ...",
       "codigo": "198154727208",
       "nombre": "LENOVO LAPTOP IDEAPAD 1 15AMN7 AZUL/15in/AMD Ryzen 3 7320U/4GB/SSD/128GB...",
-      "cantidad": "50+",
-      "existencia_minima": 50,
+      "cantidad": "10+",
+      "existencia_minima": 10,
       "disponible": true,
       "precio_lista_m": 5569.0,
       "precio_publico": 8499.0
@@ -1839,8 +1839,8 @@
       "clave_categoria": "G...",
       "codigo": "840353926882",
       "nombre": "GOOGLE PIXEL 10 12 GB 128 GB 5G NEGRO USA",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 11929.0,
       "precio_publico": 17628.0
@@ -1959,8 +1959,8 @@
       "clave_categoria": "INFINIX",
       "codigo": "4894947092688",
       "nombre": "INFINIX HOT 60 PRO PLUS (8+8) GB 256 GB 4G VERDE NACIONAL",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 4269.0,
       "precio_publico": 6390.0
@@ -2115,8 +2115,8 @@
       "clave_categoria": "M...",
       "codigo": "840493602363",
       "nombre": "MOTOROLA MOTO G06 4 GB 128 GB 4G NARANJA LATINO",
-      "cantidad": "50+",
-      "existencia_minima": 50,
+      "cantidad": "10+",
+      "existencia_minima": 10,
       "disponible": true,
       "precio_lista_m": 2579.0,
       "precio_publico": 3482.0
@@ -2211,8 +2211,8 @@
       "clave_categoria": "M...",
       "codigo": "8033779086946",
       "nombre": "MOTOROLA MOTO G47 8 GB 128 GB 5G GRIS EUAS",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3299.0,
       "precio_publico": 5013.0
@@ -2245,18 +2245,6 @@
       "id": 187,
       "categoria_pdf": "MOTOROLA",
       "clave_categoria": "M...",
-      "codigo": "840493610474",
-      "nombre": "MOTOROLA MOTO G77 8 GB 256 GB 4G VERDE ASIAN",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 5109.0,
-      "precio_publico": 7550.0
-    },
-    {
-      "id": 188,
-      "categoria_pdf": "MOTOROLA",
-      "clave_categoria": "M...",
       "codigo": "8033779085307",
       "nombre": "MOTOROLA MOTO G77 8 GB 256 GB 5G VERDE LATINO",
       "cantidad": "1+",
@@ -2266,7 +2254,7 @@
       "precio_publico": 7550.0
     },
     {
-      "id": 189,
+      "id": 188,
       "categoria_pdf": "NAOMI",
       "clave_categoria": "NAOMI",
       "codigo": "NP6800NEGRO",
@@ -2278,7 +2266,7 @@
       "precio_publico": 814.0
     },
     {
-      "id": 190,
+      "id": 189,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "7500338470566",
@@ -2290,7 +2278,7 @@
       "precio_publico": 99.0
     },
     {
-      "id": 191,
+      "id": 190,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "6972353246944",
@@ -2302,7 +2290,7 @@
       "precio_publico": 139.0
     },
     {
-      "id": 192,
+      "id": 191,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "6972353246946",
@@ -2314,7 +2302,7 @@
       "precio_publico": 139.0
     },
     {
-      "id": 193,
+      "id": 192,
       "categoria_pdf": "PROMOCIONALES",
       "clave_categoria": "P...",
       "codigo": "WRISTBAN...",
@@ -2326,7 +2314,7 @@
       "precio_publico": 119.0
     },
     {
-      "id": 194,
+      "id": 193,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647001604",
@@ -2338,7 +2326,7 @@
       "precio_publico": 999.0
     },
     {
-      "id": 195,
+      "id": 194,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647001598",
@@ -2350,7 +2338,7 @@
       "precio_publico": 1699.0
     },
     {
-      "id": 196,
+      "id": 195,
       "categoria_pdf": "QTOUCH",
       "clave_categoria": "QT...",
       "codigo": "7500647004124",
@@ -2362,19 +2350,19 @@
       "precio_publico": 1899.0
     },
     {
-      "id": 197,
+      "id": 196,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764465237",
       "nombre": "REALME C71 8 GB 256 GB 4G BLANCO EURO",
-      "cantidad": "50+",
-      "existencia_minima": 50,
+      "cantidad": "10+",
+      "existencia_minima": 10,
       "disponible": true,
       "precio_lista_m": 2939.0,
       "precio_publico": 4309.0
     },
     {
-      "id": 198,
+      "id": 197,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764465282",
@@ -2386,7 +2374,7 @@
       "precio_publico": 4309.0
     },
     {
-      "id": 199,
+      "id": 198,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764481336",
@@ -2398,7 +2386,7 @@
       "precio_publico": 5618.0
     },
     {
-      "id": 200,
+      "id": 199,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764487789",
@@ -2410,7 +2398,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 201,
+      "id": 200,
       "categoria_pdf": "REALME",
       "clave_categoria": "RE...",
       "codigo": "6941764487819",
@@ -2422,7 +2410,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 202,
+      "id": 201,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001828",
@@ -2434,7 +2422,7 @@
       "precio_publico": 469.0
     },
     {
-      "id": 203,
+      "id": 202,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001824",
@@ -2446,7 +2434,7 @@
       "precio_publico": 659.0
     },
     {
-      "id": 204,
+      "id": 203,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001786",
@@ -2458,7 +2446,7 @@
       "precio_publico": 539.0
     },
     {
-      "id": 205,
+      "id": 204,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001810",
@@ -2470,7 +2458,7 @@
       "precio_publico": 569.0
     },
     {
-      "id": 206,
+      "id": 205,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001809",
@@ -2482,7 +2470,7 @@
       "precio_publico": 409.0
     },
     {
-      "id": 207,
+      "id": 206,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001812",
@@ -2494,7 +2482,7 @@
       "precio_publico": 389.0
     },
     {
-      "id": 208,
+      "id": 207,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001784",
@@ -2506,7 +2494,7 @@
       "precio_publico": 369.0
     },
     {
-      "id": 209,
+      "id": 208,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001790",
@@ -2518,7 +2506,7 @@
       "precio_publico": 359.0
     },
     {
-      "id": 210,
+      "id": 209,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001808",
@@ -2530,7 +2518,7 @@
       "precio_publico": 359.0
     },
     {
-      "id": 211,
+      "id": 210,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001789",
@@ -2542,7 +2530,7 @@
       "precio_publico": 419.0
     },
     {
-      "id": 212,
+      "id": 211,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001811",
@@ -2554,7 +2542,7 @@
       "precio_publico": 399.0
     },
     {
-      "id": 213,
+      "id": 212,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "LCDBLACKG74",
@@ -2566,7 +2554,7 @@
       "precio_publico": 689.0
     },
     {
-      "id": 214,
+      "id": 213,
       "categoria_pdf": "REFACCIONES",
       "clave_categoria": "RE...",
       "codigo": "BPI0001820",
@@ -2578,7 +2566,7 @@
       "precio_publico": 1769.0
     },
     {
-      "id": 215,
+      "id": 214,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097649984",
@@ -2590,7 +2578,7 @@
       "precio_publico": 3874.0
     },
     {
-      "id": 216,
+      "id": 215,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097649977",
@@ -2602,7 +2590,7 @@
       "precio_publico": 3874.0
     },
     {
-      "id": 217,
+      "id": 216,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097650003",
@@ -2614,7 +2602,7 @@
       "precio_publico": 3874.0
     },
     {
-      "id": 218,
+      "id": 217,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099448202",
@@ -2626,7 +2614,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 219,
+      "id": 218,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099448127",
@@ -2638,7 +2626,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 220,
+      "id": 219,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099448165",
@@ -2650,7 +2638,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 221,
+      "id": 220,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097668626",
@@ -2662,7 +2650,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 222,
+      "id": 221,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "A17128GRISAK",
@@ -2674,7 +2662,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 223,
+      "id": 222,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097666882",
@@ -2686,7 +2674,7 @@
       "precio_publico": 4499.0
     },
     {
-      "id": 224,
+      "id": 223,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "A26OPENBOX",
@@ -2698,7 +2686,7 @@
       "precio_publico": 5909.0
     },
     {
-      "id": 225,
+      "id": 224,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099361570",
@@ -2710,7 +2698,7 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 226,
+      "id": 225,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099361020",
@@ -2722,7 +2710,7 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 227,
+      "id": 226,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099353476",
@@ -2734,7 +2722,7 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 228,
+      "id": 227,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099360962",
@@ -2746,19 +2734,19 @@
       "precio_publico": 6499.0
     },
     {
-      "id": 229,
+      "id": 228,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099360993",
       "nombre": "SAMSUNG A27 5G 6 GB 128 GB 5G ROSA NACIONAL AK",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 5079.0,
       "precio_publico": 6499.0
     },
     {
-      "id": 230,
+      "id": 229,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099062071",
@@ -2770,7 +2758,7 @@
       "precio_publico": 10630.0
     },
     {
-      "id": 231,
+      "id": 230,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099061814",
@@ -2782,7 +2770,7 @@
       "precio_publico": 10630.0
     },
     {
-      "id": 232,
+      "id": 231,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099052621",
@@ -2794,7 +2782,7 @@
       "precio_publico": 10211.0
     },
     {
-      "id": 233,
+      "id": 232,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099057251",
@@ -2806,7 +2794,7 @@
       "precio_publico": 11033.0
     },
     {
-      "id": 234,
+      "id": 233,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655642",
@@ -2818,7 +2806,7 @@
       "precio_publico": 4412.0
     },
     {
-      "id": 235,
+      "id": 234,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095655741",
@@ -2830,7 +2818,7 @@
       "precio_publico": 4412.0
     },
     {
-      "id": 236,
+      "id": 235,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658339",
@@ -2842,7 +2830,7 @@
       "precio_publico": 6013.0
     },
     {
-      "id": 237,
+      "id": 236,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095658353",
@@ -2854,7 +2842,7 @@
       "precio_publico": 6013.0
     },
     {
-      "id": 238,
+      "id": 237,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806095031415",
@@ -2866,7 +2854,7 @@
       "precio_publico": 583.0
     },
     {
-      "id": 239,
+      "id": 238,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099347369",
@@ -2878,7 +2866,7 @@
       "precio_publico": 45999.0
     },
     {
-      "id": 240,
+      "id": 239,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S22PLUSNE...",
@@ -2890,7 +2878,7 @@
       "precio_publico": 7801.0
     },
     {
-      "id": 241,
+      "id": 240,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "S23NEGROA...",
@@ -2902,7 +2890,7 @@
       "precio_publico": 9654.0
     },
     {
-      "id": 242,
+      "id": 241,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "198957227639",
@@ -2914,7 +2902,7 @@
       "precio_publico": 15499.0
     },
     {
-      "id": 243,
+      "id": 242,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097674344",
@@ -2926,7 +2914,7 @@
       "precio_publico": 16999.0
     },
     {
-      "id": 244,
+      "id": 243,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806097674740",
@@ -2938,7 +2926,7 @@
       "precio_publico": 16999.0
     },
     {
-      "id": 245,
+      "id": 244,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433178",
@@ -2950,7 +2938,7 @@
       "precio_publico": 18199.0
     },
     {
-      "id": 246,
+      "id": 245,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433277",
@@ -2962,7 +2950,7 @@
       "precio_publico": 18199.0
     },
     {
-      "id": 247,
+      "id": 246,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433376",
@@ -2974,7 +2962,7 @@
       "precio_publico": 18199.0
     },
     {
-      "id": 248,
+      "id": 247,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433154",
@@ -2986,7 +2974,7 @@
       "precio_publico": 19299.0
     },
     {
-      "id": 249,
+      "id": 248,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433253",
@@ -2998,7 +2986,7 @@
       "precio_publico": 19299.0
     },
     {
-      "id": 250,
+      "id": 249,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433352",
@@ -3010,7 +2998,7 @@
       "precio_publico": 19299.0
     },
     {
-      "id": 251,
+      "id": 250,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433093",
@@ -3022,7 +3010,7 @@
       "precio_publico": 20999.0
     },
     {
-      "id": 252,
+      "id": 251,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433185",
@@ -3034,7 +3022,7 @@
       "precio_publico": 20999.0
     },
     {
-      "id": 253,
+      "id": 252,
       "categoria_pdf": "SAMSUNG",
       "clave_categoria": "SA...",
       "codigo": "8806099433291",
@@ -3046,31 +3034,19 @@
       "precio_publico": 20999.0
     },
     {
-      "id": 254,
-      "categoria_pdf": "TABLETS",
-      "clave_categoria": "TA...",
-      "codigo": "848958041481",
-      "nombre": "BLU M8L 3 GB 32 GB 4G NEGRO NACIONAL",
-      "cantidad": "1+",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 1239.0,
-      "precio_publico": 1399.0
-    },
-    {
-      "id": 255,
+      "id": 253,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097804604",
       "nombre": "SAMSUNG GALAXY TAB A11 X133 8 GB 128 GB GRIS EUAS",
-      "cantidad": "10+",
-      "existencia_minima": 10,
+      "cantidad": "1+",
+      "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 3499.0,
       "precio_publico": 4599.0
     },
     {
-      "id": 256,
+      "id": 254,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097784708",
@@ -3082,7 +3058,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 257,
+      "id": 255,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097784593",
@@ -3094,7 +3070,7 @@
       "precio_publico": 3999.0
     },
     {
-      "id": 258,
+      "id": 256,
       "categoria_pdf": "TABLETS",
       "clave_categoria": "TA...",
       "codigo": "8806097783220",
@@ -3106,7 +3082,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 259,
+      "id": 257,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222399",
@@ -3118,7 +3094,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 260,
+      "id": 258,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860015600509",
@@ -3130,7 +3106,7 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 261,
+      "id": 259,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222382",
@@ -3142,19 +3118,19 @@
       "precio_publico": 2499.0
     },
     {
-      "id": 262,
+      "id": 260,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222368",
       "nombre": "TECHVIEW S17 PRO (4+4) GB 128 GB 4G BLANCO LATINO",
-      "cantidad": "1+",
+      "cantidad": "1",
       "existencia_minima": 1,
       "disponible": true,
       "precio_lista_m": 1779.0,
       "precio_publico": 2999.0
     },
     {
-      "id": 263,
+      "id": 261,
       "categoria_pdf": "TECHVIEW",
       "clave_categoria": "TE...",
       "codigo": "860014222375",
@@ -3166,7 +3142,7 @@
       "precio_publico": 2999.0
     },
     {
-      "id": 264,
+      "id": 262,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953426",
@@ -3178,7 +3154,7 @@
       "precio_publico": 477.0
     },
     {
-      "id": 265,
+      "id": 263,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953457",
@@ -3190,7 +3166,7 @@
       "precio_publico": 477.0
     },
     {
-      "id": 266,
+      "id": 264,
       "categoria_pdf": "UNONU",
       "clave_categoria": "U...",
       "codigo": "810039953440",
@@ -3202,31 +3178,19 @@
       "precio_publico": 477.0
     },
     {
-      "id": 267,
-      "categoria_pdf": "XIAOMI",
-      "clave_categoria": "XIAOMI",
-      "codigo": "6932554445065",
-      "nombre": "XIAOMI REDMI 15 8 GB 256 GB 4G NEGRO NACIONAL PJ",
-      "cantidad": "1",
-      "existencia_minima": 1,
-      "disponible": true,
-      "precio_lista_m": 3689.0,
-      "precio_publico": 4499.0
-    },
-    {
-      "id": 268,
+      "id": 265,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554444853",
       "nombre": "XIAOMI REDMI 15C 4 GB 128 GB 4G NEGRO NACIONAL PJ",
-      "cantidad": "100+",
-      "existencia_minima": 100,
+      "cantidad": "50+",
+      "existencia_minima": 50,
       "disponible": true,
       "precio_lista_m": 2619.0,
       "precio_publico": 2999.0
     },
     {
-      "id": 269,
+      "id": 266,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093020111",
@@ -3238,7 +3202,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 270,
+      "id": 267,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093017326",
@@ -3250,7 +3214,7 @@
       "precio_publico": 4999.0
     },
     {
-      "id": 271,
+      "id": 268,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093017524",
@@ -3262,7 +3226,7 @@
       "precio_publico": 5599.0
     },
     {
-      "id": 272,
+      "id": 269,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093017159",
@@ -3274,7 +3238,7 @@
       "precio_publico": 5599.0
     },
     {
-      "id": 273,
+      "id": 270,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093017616",
@@ -3286,7 +3250,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 274,
+      "id": 271,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093019924",
@@ -3298,7 +3262,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 275,
+      "id": 272,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6939093017487",
@@ -3310,7 +3274,7 @@
       "precio_publico": 5999.0
     },
     {
-      "id": 276,
+      "id": 273,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554493387",
@@ -3322,7 +3286,7 @@
       "precio_publico": 3447.0
     },
     {
-      "id": 277,
+      "id": 274,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554493431",
@@ -3334,7 +3298,7 @@
       "precio_publico": 3082.0
     },
     {
-      "id": 278,
+      "id": 275,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6941812780718",
@@ -3346,7 +3310,7 @@
       "precio_publico": 10344.0
     },
     {
-      "id": 279,
+      "id": 276,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554429133",
@@ -3358,7 +3322,7 @@
       "precio_publico": 6328.0
     },
     {
-      "id": 280,
+      "id": 277,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482442",
@@ -3370,7 +3334,7 @@
       "precio_publico": 5564.0
     },
     {
-      "id": 281,
+      "id": 278,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554476045",
@@ -3382,7 +3346,7 @@
       "precio_publico": 5564.0
     },
     {
-      "id": 282,
+      "id": 279,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482596",
@@ -3394,7 +3358,7 @@
       "precio_publico": 5564.0
     },
     {
-      "id": 283,
+      "id": 280,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482992",
@@ -3406,7 +3370,7 @@
       "precio_publico": 5564.0
     },
     {
-      "id": 284,
+      "id": 281,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483340",
@@ -3418,7 +3382,7 @@
       "precio_publico": 6348.0
     },
     {
-      "id": 285,
+      "id": 282,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554476076",
@@ -3430,7 +3394,7 @@
       "precio_publico": 6348.0
     },
     {
-      "id": 286,
+      "id": 283,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554483111",
@@ -3442,7 +3406,7 @@
       "precio_publico": 6289.0
     },
     {
-      "id": 287,
+      "id": 284,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554482374",
@@ -3454,7 +3418,7 @@
       "precio_publico": 6289.0
     },
     {
-      "id": 288,
+      "id": 285,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405427",
@@ -3466,7 +3430,7 @@
       "precio_publico": 7298.0
     },
     {
-      "id": 289,
+      "id": 286,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405397",
@@ -3478,7 +3442,7 @@
       "precio_publico": 7298.0
     },
     {
-      "id": 290,
+      "id": 287,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405441",
@@ -3490,7 +3454,7 @@
       "precio_publico": 7298.0
     },
     {
-      "id": 291,
+      "id": 288,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554405564",
@@ -3502,7 +3466,7 @@
       "precio_publico": 7298.0
     },
     {
-      "id": 292,
+      "id": 289,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498498",
@@ -3514,7 +3478,7 @@
       "precio_publico": 10085.0
     },
     {
-      "id": 293,
+      "id": 290,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498504",
@@ -3526,7 +3490,7 @@
       "precio_publico": 10085.0
     },
     {
-      "id": 294,
+      "id": 291,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554498481",
@@ -3538,7 +3502,7 @@
       "precio_publico": 10085.0
     },
     {
-      "id": 295,
+      "id": 292,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554471217",
@@ -3550,7 +3514,7 @@
       "precio_publico": 9327.0
     },
     {
-      "id": 296,
+      "id": 293,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554485245",
@@ -3562,7 +3526,7 @@
       "precio_publico": 10017.0
     },
     {
-      "id": 297,
+      "id": 294,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554485153",
@@ -3574,7 +3538,7 @@
       "precio_publico": 10017.0
     },
     {
-      "id": 298,
+      "id": 295,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554478445",
@@ -3586,7 +3550,7 @@
       "precio_publico": 10017.0
     },
     {
-      "id": 299,
+      "id": 296,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554480455",
@@ -3598,7 +3562,7 @@
       "precio_publico": 8070.0
     },
     {
-      "id": 300,
+      "id": 297,
       "categoria_pdf": "XIAOMI",
       "clave_categoria": "XIAOMI",
       "codigo": "6932554469764",
@@ -3610,7 +3574,7 @@
       "precio_publico": 7999.0
     },
     {
-      "id": 301,
+      "id": 298,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227339075",
@@ -3622,7 +3586,7 @@
       "precio_publico": 6214.0
     },
     {
-      "id": 302,
+      "id": 299,
       "categoria_pdf": "ZTE",
       "clave_categoria": "ZTE",
       "codigo": "7506227337354",
