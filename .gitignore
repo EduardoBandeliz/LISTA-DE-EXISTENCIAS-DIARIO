@@ -16,3 +16,7 @@ tmp/
 *.pyc
 telegram-bot*.log
 telegram-bot.pid
+
+# Local Netlify folder
+.netlify
+node_modules/
