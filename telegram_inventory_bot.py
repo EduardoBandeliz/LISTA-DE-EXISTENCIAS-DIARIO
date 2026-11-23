@@ -58,6 +58,13 @@ BROADCAST_CHAT_IDS = [
     if chat_id.strip()
 ]
 NETLIFY_SITE_URL = os.getenv("NETLIFY_SITE_URL", "https://listadeexistenciasdiario.netlify.app/").strip()
+PRESENTATION_NETLIFY_SITE_ID = os.getenv(
+    "PRESENTATION_NETLIFY_SITE_ID",
+    "1471a4d4-6336-402d-b240-cfa4083a81f6",
+).strip()
+PRESENTATION_NETLIFY_DEPLOY_ENABLED = os.getenv(
+    "PRESENTATION_NETLIFY_DEPLOY_ENABLED", "1"
+).strip().lower() not in {"0", "false", "no"}
 GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
     "GOOGLE_SHEETS_SPREADSHEET_ID",
     "1eSgzIz6sKCkOZ8JttDH_Vks5pZM92moHfDs3ToEoGfE",
@@ -155,6 +162,7 @@ GOOGLE_SHEET_TABS = {
 
 
 def run(command: list[str]) -> str:
+    is_git_push = len(command) >= 2 and command[0] == "git" and command[1] == "push"
     if command and command[0] == "git" and GIT_BIN.exists():
         command = [str(GIT_BIN), *command[1:]]
     result = subprocess.run(
@@ -165,6 +173,33 @@ def run(command: list[str]) -> str:
         check=True,
         timeout=45,
     )
+    if is_git_push and PRESENTATION_NETLIFY_DEPLOY_ENABLED and PRESENTATION_NETLIFY_SITE_ID:
+        netlify_bin = ROOT / "node_modules" / ".bin" / "netlify"
+        if not netlify_bin.exists():
+            raise RuntimeError("No se encontro Netlify CLI para publicar la lista de tarjeta.")
+        deploy = subprocess.run(
+            [
+                str(netlify_bin),
+                "deploy",
+                "--prod",
+                "--dir",
+                str(ROOT),
+                "--site",
+                PRESENTATION_NETLIFY_SITE_ID,
+                "--message",
+                "Actualizacion automatica del inventario",
+            ],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            timeout=120,
+        )
+        if deploy.returncode != 0:
+            detail = (deploy.stderr or deploy.stdout).strip().splitlines()
+            raise RuntimeError(
+                "No se pudo publicar la lista de tarjeta en Netlify: "
+                + (detail[-1] if detail else "error desconocido")
+            )
     return result.stdout.strip()
 
 
