@@ -186,6 +186,8 @@
   .card-name{font-size:14px;font-weight:700;line-height:1.38;color:var(--ink);min-height:58px;overflow-wrap:anywhere;}
   .card-sku{font-size:11px;font-weight:700;color:var(--muted);overflow-wrap:anywhere;}
   .card-price{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:700;color:var(--green-deep);margin-top:auto;}
+  .price-inquiry{font-size:13px;font-weight:700;line-height:1.4;color:var(--ink);margin-top:auto;text-align:center;}
+  .price-inquiry-hand{display:block;font-size:22px;line-height:1;margin-top:6px;}
   .card-cta{
     margin-top:2px;
     display:flex;align-items:center;justify-content:center;gap:8px;
@@ -350,7 +352,7 @@ if(IS_PRESENTATION_CARD_TEST){
 const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
 const IS_PL = urlParams.has('PL') || urlParams.has('pl');
 const IS_LISTA_G = urlParams.has('listaG') || urlParams.has('listag') || (urlParams.get('lista') || '').toLowerCase() === 'g';
-const HIDE_PRICES = urlParams.has('sinprecios') || urlParams.has('sin-precios');
+const HIDE_PRICES = IS_PRESENTATION_CARD_TEST || urlParams.has('sinprecios') || urlParams.has('sin-precios');
 const IS_PAYJOY = urlParams.has('payjoy') || urlParams.has('payphone') || (urlParams.get('lista') || '').toLowerCase() === 'payjoy';
 const IS_ECOMMERCE = urlParams.has('ecommerce') || urlParams.has('ecomerce') || (urlParams.get('lista') || '').toLowerCase() === 'ecommerce';
 const IS_SHOPIFY = urlParams.has('shopify') || (urlParams.get('lista') || '').toLowerCase() === 'shopify';
@@ -535,8 +537,8 @@ function openProductDetail(product){
       <div class="detail-specs">${specs.map(([label,value]) => `
         <div class="detail-spec"><div class="detail-spec-label">${label}</div><div class="detail-spec-value">${escapeHtml(value)}</div></div>
       `).join('')}</div>
-      ${HIDE_PRICES ? '' : `<div class="detail-price">${fmtPrice(price)}</div>`}
-      <div class="detail-actions"><a class="card-cta" target="_blank" href="https://wa.me/${WSP_NUMBER}?text=${msg}">Cotizar por WhatsApp</a></div>
+      ${HIDE_PRICES ? '<div class="price-inquiry">¿Te gustaría recibir mayor información acerca del precio?<span class="price-inquiry-hand" aria-hidden="true">👇</span></div>' : `<div class="detail-price">${fmtPrice(price)}</div>`}
+      <div class="detail-actions"><a class="card-cta" target="_blank" href="https://wa.me/${WSP_NUMBER}?text=${msg}">Consultar por WhatsApp</a></div>
     </div>`;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -627,10 +629,10 @@ function render(){
         </div>
         <div class="card-name">${p.nombre}</div>
         ${IS_SHOPIFY ? `<div class="card-sku">SKU: ${escapeHtml(p.codigo || 'SIN SKU')}</div>` : ''}
-        ${HIDE_PRICES ? '' : `<div class="card-price">${fmtPrice(price)}</div>`}
+        ${HIDE_PRICES ? '<div class="price-inquiry">¿Te gustaría recibir mayor información acerca del precio?<span class="price-inquiry-hand" aria-hidden="true">👇</span></div>' : `<div class="card-price">${fmtPrice(price)}</div>`}
         <a class="card-cta" target="_blank" href="https://wa.me/${WSP_NUMBER}?text=${msg}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.05c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.25-4.75-4.15-4.9-4.34-.14-.2-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36h.55c.18 0 .41-.07.64.48.24.58.8 2 .87 2.14.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.27.7 1.16 1.51 1.88 1.04.93 1.92 1.22 2.19 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.6.75 1.87.89.27.14.45.2.51.32.07.11.07.66-.17 1.34Z"/></svg>
-          Cotizar
+          Consultar por WhatsApp
         </a>
       </div>`;
     }).join('')
