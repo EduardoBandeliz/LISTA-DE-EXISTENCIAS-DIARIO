@@ -344,7 +344,7 @@ let PAYJOY_MODEL_KEYS = new Set();
 let activeBrand = 'Todos';
 
 const urlParams = new URLSearchParams(window.location.search);
-const IS_PRESENTATION_CARD_TEST = window.location.hostname === 'eduardobandeliz.github.io';
+const IS_PRESENTATION_CARD_TEST = ['eduardobandeliz.github.io', 'listapruebatarjeta.netlify.app'].includes(window.location.hostname);
 if(IS_PRESENTATION_CARD_TEST){
   document.title = 'Celucenter · Lista prueba - Tarjeta de presentación';
   document.getElementById('catalog-title').textContent = 'LISTA PRUEBA - TARJETA DE PRESENTACIÓN';
