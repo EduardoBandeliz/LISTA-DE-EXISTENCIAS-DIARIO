@@ -279,7 +279,7 @@
       <div class="brand-dot"></div>
       <div class="brand-name">Celucenter</div>
     </div>
-    <h1>LISTA DE EXISTENCIAS</h1>
+    <h1 id="catalog-title">LISTA DE EXISTENCIAS</h1>
   </div>
 </div>
 
@@ -342,6 +342,11 @@ let PAYJOY_MODEL_KEYS = new Set();
 let activeBrand = 'Todos';
 
 const urlParams = new URLSearchParams(window.location.search);
+const IS_PRESENTATION_CARD_TEST = window.location.hostname === 'eduardobandeliz.github.io';
+if(IS_PRESENTATION_CARD_TEST){
+  document.title = 'Celucenter · Lista prueba - Tarjeta de presentación';
+  document.getElementById('catalog-title').textContent = 'LISTA PRUEBA - TARJETA DE PRESENTACIÓN';
+}
 const IS_DSE = urlParams.has('DSE') || urlParams.has('dse');
 const IS_PL = urlParams.has('PL') || urlParams.has('pl');
 const IS_LISTA_G = urlParams.has('listaG') || urlParams.has('listag') || (urlParams.get('lista') || '').toLowerCase() === 'g';
