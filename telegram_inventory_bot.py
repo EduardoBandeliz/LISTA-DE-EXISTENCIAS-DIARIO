@@ -66,6 +66,7 @@ GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "")
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
 GOOGLE_DRIVE_IMAGES_FOLDER_ID = os.getenv("GOOGLE_DRIVE_IMAGES_FOLDER_ID", "").strip()
 NEW_PRODUCT_BADGE_DAYS = max(1, int(os.getenv("NEW_PRODUCT_BADGE_DAYS", "7") or 7))
+PRICE_CHANGE_DISPLAY_DAYS = max(1, int(os.getenv("PRICE_CHANGE_DISPLAY_DAYS", "15") or 15))
 TELEGRAM_TIMEOUT_SECONDS = 45
 TELEGRAM_MEDIA_TIMEOUT_SECONDS = 90
 AUTO_PUBLISH_IMAGES_AT = os.getenv("AUTO_PUBLISH_IMAGES_AT", "21:00").strip()
@@ -562,6 +563,52 @@ def sheet_price_value(product: dict, list_key: str) -> float:
     return float(value or 0)
 
 
+def active_price_change_messages(
+    list_key: str,
+    new_changes: dict[str, str],
+    now: Optional[datetime] = None,
+) -> dict[str, str]:
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=timezone.utc)
+    state = read_operations_state()
+    all_lists = state.get("price_change_history", {})
+    if not isinstance(all_lists, dict):
+        all_lists = {}
+    raw_entries = all_lists.get(list_key, {})
+    if not isinstance(raw_entries, dict):
+        raw_entries = {}
+
+    entries: dict[str, dict[str, str]] = {}
+    cutoff = now - timedelta(days=PRICE_CHANGE_DISPLAY_DAYS)
+    for key, value in raw_entries.items():
+        if not isinstance(value, dict):
+            continue
+        try:
+            detected_at = datetime.fromisoformat(str(value.get("detected_at", "")))
+            if detected_at.tzinfo is None:
+                detected_at = detected_at.replace(tzinfo=timezone.utc)
+        except (TypeError, ValueError):
+            continue
+        message = str(value.get("message", "")).strip()
+        if message and detected_at >= cutoff:
+            entries[str(key)] = {
+                "message": message,
+                "detected_at": detected_at.isoformat(timespec="seconds"),
+            }
+
+    for key, message in new_changes.items():
+        entries[key] = {
+            "message": message,
+            "detected_at": now.isoformat(timespec="seconds"),
+        }
+
+    all_lists[list_key] = dict(sorted(entries.items()))
+    state["price_change_history"] = all_lists
+    write_operations_state(state)
+    return {key: value["message"] for key, value in entries.items()}
+
+
 def price_change_messages(previous_inventory: dict, inventory: dict, list_key: str) -> dict[str, str]:
     previous_by_key = {
         product_state_key(product): product
@@ -582,7 +629,7 @@ def price_change_messages(previous_inventory: dict, inventory: dict, list_key: s
         changes[key] = (
             f"Cambio de precio: ${old_price:,.2f} -> ${new_price:,.2f} ({direction})"
         )
-    return changes
+    return active_price_change_messages(list_key, changes)
 
 
 def google_sheet_rows(
