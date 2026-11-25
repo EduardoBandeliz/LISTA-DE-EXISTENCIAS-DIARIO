@@ -360,6 +360,14 @@ const ONLY_CELLPHONES = urlParams.has('celulares') || urlParams.has('CELULARES')
 const INITIAL_QUERY = urlParams.get('q') || '';
 const PRICE_DISCOUNT = IS_PL ? 0 : (IS_DSE ? 30 : Math.max(0, Number(urlParams.get('descuento') || 0)));
 const CELLPHONE_BRANDS = new Set(['Apple','Samsung','Motorola','Xiaomi','BLU','Infinix','Tecno','Realme','Honor','Itel','Cubot','Google','Naomi','Qtouch','Blackview','Techview','Logic']);
+const GITHUB_DATA_BASE = 'https://eduardobandeliz.github.io/LISTA-DE-EXISTENCIAS-DIARIO/';
+const DATA_BASE = window.location.hostname.endsWith('netlify.app') ? GITHUB_DATA_BASE : './';
+
+function dataUrl(path, fresh = false){
+  const url = new URL(path, DATA_BASE);
+  if(fresh) url.searchParams.set('v', Date.now());
+  return url.href;
+}
 
 function fmtPrice(p){
   return '$' + Number(p).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
@@ -442,10 +450,10 @@ async function loadProducts(){
         ? 'plus.json'
         : ((IS_LISTA_G || IS_SHOPIFY) ? 'listag.json' : 'inventario.json')));
   const [response, imageResponse, payjoyResponse, specsResponse] = await Promise.all([
-    fetch(inventoryFile + '?v=' + Date.now()),
-    fetch('product-images.json?v=' + Date.now()).catch(() => null),
-    fetch('payjoy-payphone.json?v=' + Date.now()).catch(() => null),
-    fetch('product-specs.json?v=' + Date.now()).catch(() => null)
+    fetch(dataUrl(inventoryFile, true)),
+    fetch(dataUrl('product-images.json', true)).catch(() => null),
+    fetch(dataUrl('payjoy-payphone.json', true)).catch(() => null),
+    fetch(dataUrl('product-specs.json', true)).catch(() => null)
   ]);
   if(!response.ok) throw new Error('No se pudo cargar ' + inventoryFile);
   const data = await response.json();
@@ -481,7 +489,9 @@ async function loadProducts(){
 }
 
 function productImage(product){
-  return product.imagen || PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
+  const image = product.imagen || PRODUCT_IMAGES[product.codigo] || PRODUCT_IMAGES[product.nombre] || '';
+  if(!image || /^(?:https?:|data:|blob:)/i.test(image)) return image;
+  return dataUrl(String(image).replace(/^\.\//, ''));
 }
 
 function escapeHtml(value){
