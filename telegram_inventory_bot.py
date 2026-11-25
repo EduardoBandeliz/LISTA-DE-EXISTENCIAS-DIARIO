@@ -297,7 +297,7 @@ def restore_latest_backup(list_key: str) -> str:
     run(["git", "push", "origin", "main"])
     count = len(restored.get("productos", []))
     record_successful_update(key, count, f"respaldo {backups[0].name}")
-    return f"Lista {key} restaurada con {count} productos. Netlify publicara el cambio automaticamente."
+    return f"Lista {key} restaurada con {count} productos. GitHub Pages actualizara la liga automaticamente."
 
 
 def write_payjoy_data(inventory: dict) -> str:
@@ -318,7 +318,7 @@ def publish_payjoy_to_github(summary: str) -> str:
     run(["git", "add", PAYJOY_JSON.name])
     run(["git", "commit", "-m", f"Actualizar Equipos Payjoy - Payphone ({summary})"])
     run(["git", "push", "origin", "main"])
-    return "Lista Equipos Payjoy - Payphone actualizada en GitHub. Netlify publicara el cambio automaticamente."
+    return "Lista Equipos Payjoy - Payphone actualizada. GitHub Pages actualizara la liga automaticamente."
 
 
 def inventory_summary(inventory: dict) -> str:
@@ -375,7 +375,7 @@ def publish_to_github(summary: str) -> str:
     run(["git", "add", "inventario.json"])
     run(["git", "commit", "-m", f"Actualizar inventario diario ({summary})"])
     run(["git", "push", "origin", "main"])
-    return "Inventario actualizado en GitHub. Netlify publicara el cambio automaticamente."
+    return "Inventario actualizado. GitHub Pages actualizara la liga automaticamente."
 
 
 def write_plus_data(plus_inventory: dict) -> str:
@@ -397,7 +397,7 @@ def publish_plus_to_github(summary: str) -> str:
     run(["git", "add", "plus.json"])
     run(["git", "commit", "-m", f"Actualizar lista PL ({summary})"])
     run(["git", "push", "origin", "main"])
-    return "Lista PL actualizada en GitHub. Netlify publicara el cambio automaticamente."
+    return "Lista PL actualizada. GitHub Pages actualizara la liga automaticamente."
 
 
 def write_lista_g_data(inventory: dict) -> str:
@@ -466,7 +466,7 @@ def publish_ecommerce_to_github(summary: str) -> str:
     run(["git", "add", ECOMMERCE_JSON.name])
     run(["git", "commit", "-m", f"Actualizar lista Ecommerce ({summary})"])
     run(["git", "push", "origin", "main"])
-    return "Lista Ecommerce actualizada en GitHub. Netlify publicara el cambio automaticamente."
+    return "Lista Ecommerce actualizada. GitHub Pages actualizara la liga automaticamente."
 
 
 def publish_lista_g_to_github(summary: str) -> str:
@@ -477,7 +477,7 @@ def publish_lista_g_to_github(summary: str) -> str:
     run(["git", "add", "listag.json"])
     run(["git", "commit", "-m", f"Actualizar Lista G ({summary})"])
     run(["git", "push", "origin", "main"])
-    return "Lista G actualizada en GitHub. Netlify publicara el cambio automaticamente."
+    return "Lista G actualizada. GitHub Pages actualizara la liga automaticamente."
 
 
 def publish_m_and_g_to_github(summary_m: str, summary_g: str) -> str:
@@ -487,7 +487,7 @@ def publish_m_and_g_to_github(summary_m: str, summary_g: str) -> str:
     run(["git", "add", "inventario.json", "listag.json"])
     run(["git", "commit", "-m", f"Actualizar listas M y G ({summary_m}; {summary_g})"])
     run(["git", "push", "origin", "main"])
-    return "Listas M y G actualizadas en un solo envio. Netlify publicara el cambio automaticamente."
+    return "Listas M y G actualizadas en un solo envio. GitHub Pages actualizara la liga automaticamente."
 
 
 def google_sheets_configured() -> bool:
@@ -2089,7 +2089,7 @@ def publish_pending_images() -> str:
     run(["git", "commit", "-m", f"Publicar imagenes y caracteristicas de productos ({count})"])
     run(["git", "pull", "--rebase", "origin", "main"])
     run(["git", "push", "origin", "main"])
-    return f"Imagenes y caracteristicas publicadas en GitHub ({count} imagenes). Netlify publicara el lote automaticamente."
+    return f"Imagenes y caracteristicas publicadas en GitHub ({count} imagenes). GitHub Pages actualizara la liga automaticamente."
 
 
 def read_auto_publish_state() -> dict:
@@ -2268,7 +2268,7 @@ def force_netlify_redeploy() -> str:
     sync_from_github()
     run(["git", "commit", "--allow-empty", "-m", "Forzar republicacion del catalogo"])
     run(["git", "push", "origin", "main"])
-    return "Republicacion enviada a Netlify. Puede tardar entre 1 y 3 minutos."
+    return "Republicacion enviada a GitHub Pages. Puede tardar entre 1 y 3 minutos."
 
 
 def monitor_notification_targets() -> list[str]:
@@ -3339,7 +3339,7 @@ async def handle_message(bot: Bot, update: Update) -> None:
             await safe_send(
                 bot,
                 chat_id,
-                f"{result}\nImagenes pendientes por publicar: {pending_count}\nManda /publicarimagenes cuando quieras actualizar Netlify.",
+                f"{result}\nImagenes pendientes por publicar: {pending_count}\nManda /publicarimagenes cuando quieras actualizar la liga.",
             )
         return
     if key.startswith("/buscarimagen ") or key.startswith("buscar imagen "):
@@ -3384,7 +3384,7 @@ async def handle_message(bot: Bot, update: Update) -> None:
                     f"Sin coincidencia segura: {report['unresolved']}\n"
                     f"Pendientes por publicar: {pending_count}\n\n"
                     f"{details}\n\n"
-                    "Revisa el lote y manda /publicarimagenes cuando quieras actualizar Netlify."
+                    "Revisa el lote y manda /publicarimagenes cuando quieras actualizar la liga."
                 ),
             )
         except Exception as exc:
