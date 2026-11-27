@@ -714,7 +714,7 @@ def sync_novatic_to_google_sheets(
     service = google_sheets_service()
     detailed_rows = google_sheet_rows(inventory, "G", new_product_keys, price_changes)
     general_rows = [row[:7] for row in detailed_rows]
-    general_rows[0][3] = "Precio lista G"
+    general_rows[0][3] = "Precio Mayorista sin descuento"
     sheet_rows = {
         "LISTA GENERAL": general_rows,
     }
