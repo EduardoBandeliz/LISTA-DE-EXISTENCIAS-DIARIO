@@ -62,6 +62,10 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv(
     "GOOGLE_SHEETS_SPREADSHEET_ID",
     "1eSgzIz6sKCkOZ8JttDH_Vks5pZM92moHfDs3ToEoGfE",
 ).strip()
+NOVATIC_SHEETS_SPREADSHEET_ID = os.getenv(
+    "NOVATIC_SHEETS_SPREADSHEET_ID",
+    "1aPbKk-js2GOxOgPsC2_dRS2ATmELCgOYocqv0JSmhK8",
+).strip()
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "").strip()
 GOOGLE_SHEETS_ENABLED = os.getenv("GOOGLE_SHEETS_ENABLED", "0").strip().lower() in {"1", "true", "yes"}
 GOOGLE_DRIVE_IMAGES_FOLDER_ID = os.getenv("GOOGLE_DRIVE_IMAGES_FOLDER_ID", "").strip()
@@ -697,6 +701,79 @@ def sync_inventory_to_google_sheets(
         body={"values": rows},
     ).execute()
     return f"Google Sheets actualizado: {tab_name} ({len(rows) - 1} productos)."
+
+
+def sync_novatic_to_google_sheets(
+    inventory: dict,
+    new_product_keys: Optional[set[str]] = None,
+    price_changes: Optional[dict[str, str]] = None,
+) -> str:
+    if not google_sheets_configured() or not NOVATIC_SHEETS_SPREADSHEET_ID:
+        return "Google Sheets NOVATIC no configurado."
+
+    service = google_sheets_service()
+    detailed_rows = google_sheet_rows(inventory, "G", new_product_keys, price_changes)
+    detailed_rows[0][3] = "Precio lista G"
+    general_rows = [row[:7] for row in detailed_rows]
+    general_rows[0][3] = "Precio lista G"
+    sheet_rows = {
+        "Existencias": detailed_rows,
+        "LISTA GENERAL": general_rows,
+    }
+    for tab_name, rows in sheet_rows.items():
+        ensure_google_sheet_tab(service, tab_name)
+        service.spreadsheets().values().clear(
+            spreadsheetId=NOVATIC_SHEETS_SPREADSHEET_ID,
+            range=f"'{tab_name}'!A:Z",
+            body={},
+        ).execute()
+        service.spreadsheets().values().update(
+            spreadsheetId=NOVATIC_SHEETS_SPREADSHEET_ID,
+            range=f"'{tab_name}'!A1",
+            valueInputOption="RAW",
+            body={"values": rows},
+        ).execute()
+    metadata = service.spreadsheets().get(
+        spreadsheetId=NOVATIC_SHEETS_SPREADSHEET_ID,
+        fields="sheets(properties(sheetId,title))",
+    ).execute()
+    sheet_ids = {
+        sheet["properties"]["title"]: sheet["properties"]["sheetId"]
+        for sheet in metadata.get("sheets", [])
+    }
+    format_requests = []
+    for tab_name, rows in sheet_rows.items():
+        sheet_id = sheet_ids.get(tab_name)
+        if sheet_id is None or len(rows) <= 1:
+            continue
+        format_requests.append(
+            {
+                "copyPaste": {
+                    "source": {
+                        "sheetId": sheet_id,
+                        "startRowIndex": 1,
+                        "endRowIndex": 2,
+                        "startColumnIndex": 0,
+                        "endColumnIndex": len(rows[0]),
+                    },
+                    "destination": {
+                        "sheetId": sheet_id,
+                        "startRowIndex": 1,
+                        "endRowIndex": len(rows),
+                        "startColumnIndex": 0,
+                        "endColumnIndex": len(rows[0]),
+                    },
+                    "pasteType": "PASTE_FORMAT",
+                    "pasteOrientation": "NORMAL",
+                }
+            }
+        )
+    if format_requests:
+        service.spreadsheets().batchUpdate(
+            spreadsheetId=NOVATIC_SHEETS_SPREADSHEET_ID,
+            body={"requests": format_requests},
+        ).execute()
+    return f"Google Sheets NOVATIC actualizado con Lista G ({len(detailed_rows) - 1} productos)."
 
 
 def product_codes() -> set[str]:
@@ -2172,6 +2249,21 @@ def safe_sync_inventory_to_google_sheets(
         return f"No pude actualizar Google Sheets: {exc}"
 
 
+def safe_sync_novatic_to_google_sheets(
+    inventory: dict,
+    new_product_codes: Optional[set[str]] = None,
+    price_changes: Optional[dict[str, str]] = None,
+) -> str:
+    try:
+        return sync_novatic_to_google_sheets(
+            inventory,
+            new_product_codes,
+            price_changes,
+        )
+    except Exception as exc:
+        return f"No pude actualizar Google Sheets NOVATIC: {exc}"
+
+
 def links_message(prefix: str = "Ligas disponibles") -> str:
     normal_url = NETLIFY_SITE_URL
     dse_url = f"{NETLIFY_SITE_URL.rstrip('/')}?DSE=1"
@@ -2767,6 +2859,12 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
                 new_keys_g,
                 price_changes_g,
             )
+            sheets_novatic = await asyncio.to_thread(
+                safe_sync_novatic_to_google_sheets,
+                inventory_g,
+                new_keys_g,
+                price_changes_g,
+            )
             message = (
                 f"Listo. {result}\n\n"
                 f"Lista M: {summary_m}\n"
@@ -2774,7 +2872,7 @@ async def handle_combined_inventory_xls(bot: Bot, update: Update) -> bool:
                 "Columnas omitidas: COSTO y LISTA PLUS. La Lista PL no fue modificada.\n\n"
                 f"Liga Lista M:\n{NETLIFY_SITE_URL}\n\n"
                 f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1\n\n"
-                f"Drive/Sheets:\n{sheets_m}\n{sheets_g}"
+                f"Drive/Sheets:\n{sheets_m}\n{sheets_g}\n{sheets_novatic}"
             )
             await safe_send(bot, chat_id, message)
             await broadcast_inventory_update(bot, chat_id, message)
@@ -2899,6 +2997,12 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                         new_product_keys,
                         price_changes,
                     )
+                    novatic_result = await asyncio.to_thread(
+                        safe_sync_novatic_to_google_sheets,
+                        parsed_inventory,
+                        new_product_keys,
+                        price_changes,
+                    )
                     message = (
                         f"Listo: {summary}. {result}\n\n"
                         f"Liga Lista G:\n{NETLIFY_SITE_URL.rstrip('/')}?listaG=1\n\n"
@@ -2906,6 +3010,7 @@ async def handle_pdf(bot: Bot, update: Update) -> None:
                         f"{NETLIFY_SITE_URL.rstrip('/')}?listaG=1&sinprecios=1"
                     )
                     message = append_google_sheets_result(message, sheets_result)
+                    message = append_google_sheets_result(message, novatic_result)
                 else:
                     new_inventory = parsed_inventory
                     previous_inventory = await asyncio.to_thread(load_inventory)
