@@ -713,11 +713,9 @@ def sync_novatic_to_google_sheets(
 
     service = google_sheets_service()
     detailed_rows = google_sheet_rows(inventory, "G", new_product_keys, price_changes)
-    detailed_rows[0][3] = "Precio lista G"
     general_rows = [row[:7] for row in detailed_rows]
     general_rows[0][3] = "Precio lista G"
     sheet_rows = {
-        "Existencias": detailed_rows,
         "LISTA GENERAL": general_rows,
     }
     for tab_name, rows in sheet_rows.items():
@@ -773,7 +771,7 @@ def sync_novatic_to_google_sheets(
             spreadsheetId=NOVATIC_SHEETS_SPREADSHEET_ID,
             body={"requests": format_requests},
         ).execute()
-    return f"Google Sheets NOVATIC actualizado con Lista G ({len(detailed_rows) - 1} productos)."
+    return f"Google Sheets NOVATIC actualizado con Lista G ({len(general_rows) - 1} productos)."
 
 
 def product_codes() -> set[str]:
